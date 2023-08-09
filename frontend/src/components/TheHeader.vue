@@ -1,12 +1,14 @@
 <template>
   <header>
-    <div class="flex items-center justify-center p-4">
+    <div class="mx-auto flex w-full items-center justify-center p-4">
       <NuxtLink to="/" class="flex items-center">
-        <div>
-          <Icon name="logos:linux-tux" size="8rem" />
-        </div>
+        <Icon
+          name="logos:linux-tux"
+          size="8rem"
+          class="h-15 w-20 md:h-full md:w-full"
+        />
         <span
-          class="font-artifika self-center whitespace-nowrap text-4xl font-semibold"
+          class="font-artifika self-center whitespace-nowrap text-2xl font-semibold md:text-4xl"
         >
           Distrohop
         </span>
