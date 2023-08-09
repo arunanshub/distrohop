@@ -1,3 +1,7 @@
 <template>
-WIP
+  <Title>Home</Title>
 </template>
+
+<script setup lang="ts">
+
+</script>
