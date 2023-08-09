@@ -1,4 +1,10 @@
 import browserslistToEsbuild from 'browserslist-to-esbuild'
+import {
+  presetUno,
+  presetWebFonts,
+  presetTypography,
+  transformerDirectives,
+} from 'unocss'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -19,6 +25,7 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@nuxt/content',
     '@vueuse/nuxt',
+    '@nuxtjs/fontaine',
   ],
 
   // Module Options
@@ -40,6 +47,23 @@ export default defineNuxtConfig({
       'postcss-preset-env': true,
       cssnano: true,
     },
+  },
+  unocss: {
+    presets: [
+      presetUno({ dark: 'media' }),
+      presetTypography({ cssExtend: { a: { 'text-decoration': 'none' } } }),
+      presetWebFonts({
+        provider: 'bunny',
+        fonts: {
+          artifika: 'Artifika',
+          archivo: 'Archivo',
+        },
+      }),
+    ],
+    transformers: [
+      // the default value of `post`/`default` interferes with Nuxt/CSSNano's minification
+      transformerDirectives({ enforce: 'pre' }),
+    ],
   },
 
   // Build
