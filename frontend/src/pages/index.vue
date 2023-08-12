@@ -1,50 +1,39 @@
 <template>
   <Title>Home</Title>
 
-  <div class="mx-auto flex w-full max-w-5xl leading-relaxed">
-    <aside class="flex w-20 flex-col gap-4 p-4 text-center md:w-40">
-      <AsideLink to="/" icon-name="material-symbols:login"> Welcome </AsideLink>
+  <div
+    class="mx-auto flex w-full max-w-5xl gap-2 pr-2 leading-relaxed lg:gap-4 lg:pr-0"
+  >
+    <aside
+      class="w-18 flex select-none flex-col gap-2 pl-2 text-center lg:w-60 lg:pl-0"
+    >
+      <AsideLink to="/" icon-name="material-symbols:login">Welcome</AsideLink>
+      <AsideLink to="/" icon-name="material-symbols:login">Welcome</AsideLink>
+      <AsideLink to="/" icon-name="material-symbols:login">
+        Software: Use Case
+      </AsideLink>
+      <!-- <AsideLink to="/">Computer knowledge</AsideLink>
+      <AsideLink to="/">Computer knowledge</AsideLink>
+      <AsideLink to="/">Hardware support</AsideLink>
+      <AsideLink to="/">Source for help</AsideLink>
+      <AsideLink to="/">User experience</AsideLink>
+      <AsideLink to="/">Distributions: Price</AsideLink>
+      <AsideLink to="/">Distributions: Scope</AsideLink>
+      <AsideLink to="/">Distributions: Ideology</AsideLink>
+      <AsideLink to="/">Distributions: Privacy</AsideLink>
+      <AsideLink to="/">Administration</AsideLink>
+      <AsideLink to="/">Software: Updates</AsideLink> -->
+
+      <button
+        class="mt-auto flex items-center justify-center gap-2 border border-black bg-white p-2"
+      >
+        <Icon name="carbon:result" size="1.1rem" class="lg:opacity-60" />
+        <span class="hidden p-1 lg:block">Show Results</span>
+      </button>
     </aside>
 
-    <div class="flex grow flex-col gap-2 bg-white p-4">
-      <div>
-        Welcome! This test will help you choose a suitable Linux distribution.
-      </div>
-      <ul class="flex flex-col gap-2">
-        <IntroItem icon-name="material-symbols:skip-next" icon-color="#b45309">
-          You can always skip questions
-        </IntroItem>
-        <IntroItem icon-name="material-symbols:help-outline" icon-color="green">
-          You can receive additional information using the question mark icon
-        </IntroItem>
-        <IntroItem
-          icon-name="material-symbols:recommend-outline"
-          icon-color="#eab308"
-        >
-          You can always click on 'your recommendation' to receive your result
-        </IntroItem>
-        <IntroItem icon-name="solar:reorder-bold-duotone" icon-color="purple">
-          You may answer in arbitrary order
-        </IntroItem>
-        <IntroItem
-          icon-name="material-symbols:delete-outline"
-          icon-color="gray"
-        >
-          You can delete answers at any time
-        </IntroItem>
-        <IntroItem
-          icon-name="material-symbols:star-outline"
-          icon-color="#1d4ed8"
-        >
-          Mark answers as important to give them more weight
-        </IntroItem>
-        <IntroItem
-          icon-name="material-symbols:favorite-outline"
-          icon-color="red"
-        >
-          Please rate your results, depending on how well they fit your needs
-        </IntroItem>
-      </ul>
+    <div class="grow bg-white px-4 py-4 lg:px-8">
+      <NuxtPage />
     </div>
   </div>
 </template>
