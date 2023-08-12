@@ -70,12 +70,17 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: { brotli: true, gzip: true },
     minify: true,
+    future: { nativeSWR: true },
   },
   vite: {
     esbuild: {
       legalComments: 'none',
       target: browserslistToEsbuild(),
     },
+  },
+  routeRules: {
+    '/': { prerender: true },
+    '/info/**': { prerender: true },
   },
 
   // Development
