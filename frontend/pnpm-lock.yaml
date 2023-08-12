@@ -20,6 +20,9 @@ dependencies:
   '@nuxtjs/fontaine':
     specifier: ^0.4.1
     version: 0.4.1
+  '@nuxtjs/robots':
+    specifier: ^3.0.0
+    version: 3.0.0
   '@pinia-plugin-persistedstate/nuxt':
     specifier: ^1.1.1
     version: 1.1.1(@pinia/nuxt@0.4.11)(pinia@2.1.6)
@@ -1749,6 +1752,16 @@ packages:
       ufo: 1.2.0
     transitivePeerDependencies:
       - encoding
+      - rollup
+      - supports-color
+    dev: false
+
+  /@nuxtjs/robots@3.0.0:
+    resolution: {integrity: sha512-qsHGW1KXBvV5Kq7u3huPnFCUTbHS4Fk8Za2mNPgmUXcwLgp3exvhPtdZfIdjrCF/aZk3A8OZONNmGghs6CecBA==}
+    dependencies:
+      '@nuxt/kit': 3.6.5
+      h3: 1.7.1
+    transitivePeerDependencies:
       - rollup
       - supports-color
     dev: false

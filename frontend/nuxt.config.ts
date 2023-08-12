@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxtjs/fontaine',
+    '@nuxtjs/robots',
   ],
 
   // Module Options
