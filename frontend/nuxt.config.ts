@@ -77,6 +77,10 @@ export default defineNuxtConfig({
       target: browserslistToEsbuild(),
     },
   },
+  routeRules: {
+    '/': { prerender: true },
+    '/info/**': { prerender: true },
+  },
 
   // Development
   devtools: {
