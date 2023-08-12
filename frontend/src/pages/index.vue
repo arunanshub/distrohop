@@ -2,7 +2,7 @@
   <Title>Home</Title>
 
   <div
-    class="mx-auto flex w-full max-w-5xl gap-2 pr-2 leading-relaxed lg:gap-4 lg:pr-0"
+    class="mx-auto flex w-full max-w-screen-lg gap-2 pr-2 leading-relaxed lg:gap-4 lg:pr-0"
   >
     <aside
       class="w-18 flex select-none flex-col gap-2 pl-2 text-center lg:w-60 lg:pl-0"
