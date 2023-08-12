@@ -3,9 +3,9 @@
     <div
       class="fw-400 mx-auto flex max-w-prose flex-wrap justify-around gap-4 text-xs text-sky-900 md:max-w-2xl md:justify-between"
     >
-      <NuxtLink to="/info/imprint/">Imprint</NuxtLink>
-      <NuxtLink to="/info/privacy/">Privacy</NuxtLink>
-      <NuxtLink to="/info/about/">About</NuxtLink>
+      <NuxtLink to="/info/imprint">Imprint</NuxtLink>
+      <NuxtLink to="/info/privacy">Privacy</NuxtLink>
+      <NuxtLink to="/info/about">About</NuxtLink>
       <NuxtLink to="https://github.com/distrochooser/distrochooser">
         Github
       </NuxtLink>
