@@ -4,7 +4,7 @@
     class="prose mx-auto w-full max-w-screen-lg grow px-8 pb-8 text-justify 2xl:px-0"
     v-if="data"
   >
-    <LazyContentRenderer :value="data!" v-if="data" />
+    <ContentRenderer :value="data!" v-if="data" />
   </div>
 </template>
 
