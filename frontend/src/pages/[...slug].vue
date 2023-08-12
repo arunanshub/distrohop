@@ -1,6 +1,7 @@
 <template>
   <div
-    class="prose mx-auto w-full max-w-screen-lg grow px-8 pb-8 text-justify 2xl:px-0"
+    class="prose mx-auto w-full max-w-screen-lg grow hyphens-auto px-8 pb-8 text-justify 2xl:px-0"
+    lang="en"
   >
     <ContentDoc>
       <template #not-found>
