@@ -70,6 +70,7 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: { brotli: true, gzip: true },
     minify: true,
+    future: { nativeSWR: true },
   },
   vite: {
     esbuild: {
