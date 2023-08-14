@@ -9,7 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "browserslist": [
-    "last 2 versions, >0.2%, not dead"
+    "last 2 versions, >0.21%, not dead"
   ],
   "dependencies": {
     "@nuxt/content": "^2.7.2",
