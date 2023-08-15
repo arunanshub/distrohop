@@ -1,4 +1,5 @@
 <template>
+  <Title v-if="data?.title">{{ data.title }}</Title>
   <div
     class="prose mx-auto w-full max-w-screen-lg grow hyphens-auto px-8 pb-8 text-justify 2xl:px-0"
   >
