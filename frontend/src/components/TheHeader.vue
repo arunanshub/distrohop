@@ -1,6 +1,8 @@
 <template>
   <header>
-    <div class="mx-auto flex w-full items-center justify-center p-4">
+    <div
+      class="mx-auto flex w-full select-none items-center justify-center p-4"
+    >
       <NuxtLink to="/" class="flex items-center">
         <Icon
           name="logos:linux-tux"
