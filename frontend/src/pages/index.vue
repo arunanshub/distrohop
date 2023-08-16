@@ -8,21 +8,41 @@
       class="w-18 flex select-none flex-col gap-2 pl-2 text-center lg:w-60 lg:pl-0"
     >
       <AsideLink to="/" icon-name="material-symbols:login">Welcome</AsideLink>
-      <AsideLink to="/" icon-name="material-symbols:login">Welcome</AsideLink>
-      <AsideLink to="/" icon-name="material-symbols:login">
-        Software: Use Case
+      <AsideLink to="/" icon-name="mdi:poll">Software: Use Case</AsideLink>
+      <AsideLink to="/" icon-name="ic:round-monitor">
+        Computer knowledge
       </AsideLink>
-      <!-- <AsideLink to="/">Computer knowledge</AsideLink>
-      <AsideLink to="/">Computer knowledge</AsideLink>
-      <AsideLink to="/">Hardware support</AsideLink>
-      <AsideLink to="/">Source for help</AsideLink>
-      <AsideLink to="/">User experience</AsideLink>
-      <AsideLink to="/">Distributions: Price</AsideLink>
-      <AsideLink to="/">Distributions: Scope</AsideLink>
-      <AsideLink to="/">Distributions: Ideology</AsideLink>
-      <AsideLink to="/">Distributions: Privacy</AsideLink>
-      <AsideLink to="/">Administration</AsideLink>
-      <AsideLink to="/">Software: Updates</AsideLink> -->
+      <AsideLink to="/" icon-name="codicon:terminal-linux"
+        >Linux and You
+      </AsideLink>
+      <AsideLink to="/" icon-name="material-symbols:checklist-rtl">
+        Installation Defaults
+      </AsideLink>
+      <AsideLink to="/" icon-name="bi:gpu-card">Hardware support</AsideLink>
+      <AsideLink to="/" icon-name="material-symbols:question-mark">
+        Source for help
+      </AsideLink>
+      <AsideLink to="/" icon-name="simple-icons:windows">
+        User experience
+      </AsideLink>
+      <AsideLink to="/" icon-name="bi:currency-dollar">
+        Distributions: Price
+      </AsideLink>
+      <AsideLink to="/" icon-name="fa6-solid:box-open">
+        Distributions: Scope
+      </AsideLink>
+      <AsideLink to="/" icon-name="ri:open-source-fill">
+        Distributions: Ideology
+      </AsideLink>
+      <AsideLink to="/" icon-name="mdi:shield-check">
+        Distributions: Privacy
+      </AsideLink>
+      <AsideLink to="/" icon-name="clarity:administrator-solid">
+        Administration
+      </AsideLink>
+      <AsideLink to="/" icon-name="material-symbols:browser-updated">
+        Software: Updates
+      </AsideLink>
 
       <button
         class="mt-auto flex items-center justify-center gap-2 border border-black bg-white p-2"
