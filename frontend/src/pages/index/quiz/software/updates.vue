@@ -1,0 +1,8 @@
+<template>
+  <div class="flex flex-col">
+    <PageTitle>
+      Some distributions offer faster updates, which can affect system
+      stability. What do you prefer?
+    </PageTitle>
+  </div>
+</template>
