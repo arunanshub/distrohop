@@ -71,9 +71,9 @@
       </button>
     </aside>
 
-    <div class="w-full grow bg-white px-4 py-4 lg:px-8">
+    <main class="w-full grow bg-white px-4 py-4 text-sm lg:px-8 lg:text-base">
       <NuxtPage />
-    </div>
+    </main>
   </div>
 </template>
 
