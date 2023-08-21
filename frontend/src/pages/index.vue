@@ -4,9 +4,7 @@
   <div
     class="mx-auto flex w-full max-w-screen-lg gap-2 pr-2 leading-relaxed lg:gap-4 lg:pr-0"
   >
-    <aside
-      class="w-15 lg:w-75 flex select-none flex-col gap-2 pl-2 text-center lg:pl-0"
-    >
+    <TheAside>
       <AsideLink to="/" icon-name="material-symbols:login">Welcome</AsideLink>
       <AsideLink to="/quiz/software/use-case" icon-name="mdi:poll">
         Software: Use Case
@@ -69,7 +67,7 @@
         <Icon name="carbon:result" size="1.1rem" class="lg:opacity-60" />
         <span class="hidden p-1 lg:block">Show Results</span>
       </button>
-    </aside>
+    </TheAside>
 
     <main class="w-full grow bg-white px-4 py-4 lg:px-8">
       <NuxtPage />
