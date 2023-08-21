@@ -8,10 +8,13 @@
 </template>
 
 <script setup lang="ts">
-const { path } = useRoute()
+import { hash } from 'ohash'
+import { withTrailingSlash } from 'ufo'
 
-const { data, error } = await useAsyncData(`content-${path}`, () => {
-  return queryContent().where({ _path: path }).findOne()
+const path = withTrailingSlash(useRoute().path)
+
+const { data, error } = await useAsyncData(`content-${hash(path)}`, () => {
+  return queryContent(path).findOne()
 })
 
 if (error.value || data.value?._empty) {
