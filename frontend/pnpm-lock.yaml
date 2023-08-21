@@ -1709,7 +1709,7 @@ packages:
       unplugin: 1.4.0
       vite: 4.3.9(@types/node@18.17.6)(sass@1.66.1)
       vite-node: 0.33.0(@types/node@18.17.6)(sass@1.66.1)
-      vite-plugin-checker: 0.6.1(typescript@5.1.6)(vite@4.3.9)
+      vite-plugin-checker: 0.6.2(typescript@5.1.6)(vite@4.3.9)
       vue: 3.3.4
       vue-bundle-renderer: 1.0.3
     transitivePeerDependencies:
@@ -3083,8 +3083,8 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.10
-      caniuse-lite: 1.0.30001521
-      fraction.js: 4.2.0
+      caniuse-lite: 1.0.30001522
+      fraction.js: 4.2.1
       normalize-range: 0.1.2
       picocolors: 1.0.0
       postcss: 8.4.28
@@ -3225,7 +3225,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001521
+      caniuse-lite: 1.0.30001522
       electron-to-chromium: 1.4.496
       node-releases: 2.0.13
       update-browserslist-db: 1.0.11(browserslist@4.21.10)
@@ -3348,13 +3348,13 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.21.10
-      caniuse-lite: 1.0.30001521
+      caniuse-lite: 1.0.30001522
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: false
 
-  /caniuse-lite@1.0.30001521:
-    resolution: {integrity: sha512-fnx1grfpEOvDGH+V17eccmNjucGUnCbP6KL+l5KqBIerp26WK/+RQ7CIDE37KGJjaPyqWXXlFUyKiWmvdNNKmQ==}
+  /caniuse-lite@1.0.30001522:
+    resolution: {integrity: sha512-TKiyTVZxJGhsTszLuzb+6vUZSjVOAhClszBr2Ta2k9IwtNBT/4dzmL6aywt0HCgEZlmwJzXJd8yNiob6HgwTRg==}
     dev: false
 
   /ccount@2.0.1:
@@ -3719,8 +3719,8 @@ packages:
     engines: {node: '>= 6'}
     dev: false
 
-  /cssdb@7.7.0:
-    resolution: {integrity: sha512-1hN+I3r4VqSNQ+OmMXxYexnumbOONkSil0TWMebVXHtzYW4tRRPovUNHPHj2d4nrgOuYJ8Vs3XwvywsuwwXNNA==}
+  /cssdb@7.7.1:
+    resolution: {integrity: sha512-kM+Fs0BFyhJNeE6wbOrlnRsugRdL6vn7QcON0aBDZ7XRd7RI2pMlk+nxoHuTb4Et+aBobXgK0I+6NGLA0LLgTw==}
     dev: false
 
   /cssesc@3.0.0:
@@ -4543,8 +4543,8 @@ packages:
       fetch-blob: 3.2.0
     dev: false
 
-  /fraction.js@4.2.0:
-    resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
+  /fraction.js@4.2.1:
+    resolution: {integrity: sha512-/KxoyCnPM0GwYI4NN0Iag38Tqt+od3/mLuguepLgCAKPn0ZhC544nssAW0tG2/00zXEYl9W+7hwAIpLHo6Oc7Q==}
     dev: false
 
   /fresh@0.5.2:
@@ -6408,7 +6408,7 @@ packages:
       node-fetch-native: 1.2.0
       ofetch: 1.1.1
       ohash: 1.1.3
-      openapi-typescript: 6.5.0
+      openapi-typescript: 6.5.2
       pathe: 1.1.1
       perfect-debounce: 1.0.0
       pkg-types: 1.0.3
@@ -6879,8 +6879,8 @@ packages:
       is-wsl: 2.2.0
     dev: false
 
-  /openapi-typescript@6.5.0:
-    resolution: {integrity: sha512-FHrCCZdwNP47OcEPrjHcw7IhRcky3SpTA8lI8q+mvI27ow5UQEvWjGJk7pK0XzmiXjgYKtIoL6+vmL7x3tzvCg==}
+  /openapi-typescript@6.5.2:
+    resolution: {integrity: sha512-Zz41utYZ3BAyr32QhOATSnN9zcWMsJeA4Jdq7xQjfYOdZbQfI8Fvsvx41Doe9Wvoho1aj5cP9b5Z7kHtG6mYvg==}
     hasBin: true
     dependencies:
       ansi-colors: 4.1.3
@@ -7634,7 +7634,7 @@ packages:
       css-blank-pseudo: 6.0.0(postcss@8.4.28)
       css-has-pseudo: 6.0.0(postcss@8.4.28)
       css-prefers-color-scheme: 9.0.0(postcss@8.4.28)
-      cssdb: 7.7.0
+      cssdb: 7.7.1
       postcss: 8.4.28
       postcss-attribute-case-insensitive: 6.0.2(postcss@8.4.28)
       postcss-clamp: 4.1.0(postcss@8.4.28)
@@ -9436,8 +9436,8 @@ packages:
       - terser
     dev: false
 
-  /vite-plugin-checker@0.6.1(typescript@5.1.6)(vite@4.3.9):
-    resolution: {integrity: sha512-4fAiu3W/IwRJuJkkUZlWbLunSzsvijDf0eDN6g/MGh6BUK4SMclOTGbLJCPvdAcMOQvVmm8JyJeYLYd4//8CkA==}
+  /vite-plugin-checker@0.6.2(typescript@5.1.6)(vite@4.3.9):
+    resolution: {integrity: sha512-YvvvQ+IjY09BX7Ab+1pjxkELQsBd4rPhWNw8WLBeFVxu/E7O+n6VYAqNsKdK/a2luFlX/sMpoWdGFfg4HvwdJQ==}
     engines: {node: '>=14.16'}
     peerDependencies:
       eslint: '>=7'
