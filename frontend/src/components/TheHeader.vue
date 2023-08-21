@@ -10,7 +10,7 @@
           class="h-15 w-20 lg:h-40 lg:w-full"
         />
         <span
-          class="font-artifika self-center whitespace-nowrap font-semibold text-2xl lg:text-4xl"
+          class="font-artifika self-center whitespace-nowrap text-2xl font-semibold lg:text-4xl"
         >
           Distrohop
         </span>
