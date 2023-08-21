@@ -76,9 +76,3 @@
 </template>
 
 <script setup lang="ts"></script>
-
-<style scoped>
-.router-link-exact-active {
-  @apply font-semibold text-sky-900 opacity-90;
-}
-</style>
