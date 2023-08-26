@@ -41,6 +41,6 @@
     "typescript": "^5.2.2"
   },
   "resolutions": {
-    "micromark": "3.1.0"
+    "micromark": "3.2.0"
   }
 }
