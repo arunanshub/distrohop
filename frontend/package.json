@@ -41,6 +41,7 @@
     "typescript": "^5.2.2"
   },
   "resolutions": {
-    "micromark": "3.2.0"
+    "micromark": "^3.2.0",
+    "critters": "^0.0.20"
   }
 }
