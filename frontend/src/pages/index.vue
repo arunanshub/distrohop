@@ -63,6 +63,7 @@
 
       <button
         class="mt-auto flex items-center justify-center gap-2 border border-black bg-white p-2 lg:mt-4"
+        aria-label="Show Results"
       >
         <Icon name="carbon:result" size="1.1rem" class="lg:opacity-60" />
         <span class="hidden p-1 lg:block">Show Results</span>
