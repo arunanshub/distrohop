@@ -13,6 +13,10 @@ export default defineNuxtConfig({
   app: {
     head: { titleTemplate: `%s · Distrohop` },
   },
+  experimental: {
+    headNext: true,
+  },
+  vue: { defineModel: true },
 
   // Modules
   modules: [
