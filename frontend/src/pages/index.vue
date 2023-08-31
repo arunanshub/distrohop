@@ -70,7 +70,7 @@
       </button>
     </TheAside>
 
-    <main class="w-full grow bg-white px-4 py-4 lg:px-8">
+    <main class="w-full min-w-0 bg-white px-4 py-4 lg:px-8">
       <NuxtPage />
     </main>
   </div>
