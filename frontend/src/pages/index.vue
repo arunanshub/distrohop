@@ -2,7 +2,7 @@
   <Title>Home</Title>
 
   <div
-    class="mx-auto flex w-full max-w-screen-lg gap-2 pr-2 leading-relaxed lg:gap-4 lg:pr-0"
+    class="mx-auto flex w-full max-w-screen-lg gap-2 leading-relaxed px-2 lg:gap-4 lg:px-0"
   >
     <TheAside>
       <AsideLink to="/" icon-name="material-symbols:login">Welcome</AsideLink>
