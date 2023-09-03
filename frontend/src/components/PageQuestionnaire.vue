@@ -3,10 +3,8 @@
     By default, the <fieldset> element has a CSS property called min-inline-size set to min-content
     This can lead to situations where the fieldset doesn't expand to accommodate its content.
   -->
-  <fieldset class="min-w-0">
-    <legend class="pb-4 text-justify">
-      <PageTitle>{{ question.id }}</PageTitle>
-    </legend>
+  <div class="flex flex-col gap-2">
+    <PageTitle>{{ question.id }}</PageTitle>
     <div class="flex flex-col gap-2">
       <template v-if="radio && typeof selectedAnswers === 'string'">
         <RadioQuestionnaireItem
@@ -33,7 +31,7 @@
         />
       </template>
     </div>
-  </fieldset>
+  </div>
 </template>
 
 <script setup lang="ts">
