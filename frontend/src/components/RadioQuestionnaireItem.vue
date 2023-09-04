@@ -36,7 +36,7 @@ const props = defineProps<{
 }>()
 
 const emits = defineEmits<{
-  'change:important-answers': [
+  'change:important-answer': [
     answer: { answerId: string; isImportant: boolean },
   ]
 }>()
@@ -50,7 +50,7 @@ const isImportant = ref(false)
 // emit an event every time the importance of an answer is changed
 function toggleImportance() {
   isImportant.value = !isImportant.value
-  emits('change:important-answers', {
+  emits('change:important-answer', {
     answerId: props.answer.id,
     isImportant: isImportant.value,
   })

@@ -14,7 +14,7 @@
           :question="question"
           :answer="answer"
           :allowed-answers="answers"
-          @change:important-answers="updateImportantAnswers"
+          @change:important-answer="updateImportantAnswers"
           @change="onAnswersUpdate"
         />
       </template>
@@ -26,7 +26,7 @@
           v-model="selectedAnswers"
           :question="question"
           :answer="answer"
-          @change:important-answers="updateImportantAnswers"
+          @change:important-answer="updateImportantAnswers"
           @change="onAnswersUpdate"
         />
       </template>

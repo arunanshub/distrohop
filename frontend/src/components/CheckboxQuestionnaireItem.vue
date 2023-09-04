@@ -35,7 +35,7 @@ const props = defineProps<{
 }>()
 
 const emits = defineEmits<{
-  'change:important-answers': [
+  'change:important-answer': [
     answer: { answerId: string; isImportant: boolean },
   ]
 }>()
@@ -48,7 +48,7 @@ const isImportant = ref(false)
 
 function toggleImportance() {
   isImportant.value = !isImportant.value
-  emits('change:important-answers', {
+  emits('change:important-answer', {
     answerId: props.answer.id,
     isImportant: isImportant.value,
   })
