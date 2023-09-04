@@ -6,28 +6,22 @@
   <div class="flex flex-col gap-2">
     <PageTitle>{{ question.id }}</PageTitle>
     <div class="flex flex-col gap-2">
-      <template v-if="radio && typeof selectedAnswers === 'string'">
+      <template v-if="radio">
         <RadioQuestionnaireItem
           v-for="answer in answers"
           :key="answer.id"
-          v-model="selectedAnswers"
           :question="question"
           :answer="answer"
           :allowed-answers="answers"
-          @change:important-answer="updateImportantAnswers"
-          @change="onAnswersUpdate"
         />
       </template>
       <!-- the else if exists solely to aid with typing  -->
-      <template v-else-if="Array.isArray(selectedAnswers)">
+      <template v-else>
         <CheckboxQuestionnaireItem
           v-for="answer in answers"
           :key="answer.id"
-          v-model="selectedAnswers"
           :question="question"
           :answer="answer"
-          @change:important-answer="updateImportantAnswers"
-          @change="onAnswersUpdate"
         />
       </template>
     </div>
@@ -38,52 +32,9 @@
 import Question from '~/types/Question'
 import Answer from '~/types/Answer'
 
-const props = defineProps<{
+defineProps<{
   question: Question
   answers: Answer[]
   radio?: boolean
 }>()
-
-const emits = defineEmits<{
-  'change:answers': [
-    {
-      selectedAnswers: string | string[]
-      importantAnswers: string[]
-    },
-  ]
-}>()
-
-const selectedAnswers = ref<string | string[]>(props.radio ? '' : [])
-
-const importantAnswers = ref<Set<string>>(new Set())
-
-function convertToArray<T>(x: T | T[]): T[] {
-  return Array.isArray(x) ? [...x] : [x]
-}
-
-function updateImportantAnswers(answer: {
-  answerId: string
-  isImportant: boolean
-}) {
-  // we can have only one important answer if the questionnaire is a "radio" choice
-  if (props.radio) {
-    importantAnswers.value.clear()
-  }
-  if (answer.isImportant) {
-    importantAnswers.value.add(answer.answerId)
-  } else {
-    importantAnswers.value.delete(answer.answerId)
-  }
-  emits('change:answers', {
-    selectedAnswers: convertToArray(selectedAnswers.value),
-    importantAnswers: [...importantAnswers.value],
-  })
-}
-
-function onAnswersUpdate() {
-  emits('change:answers', {
-    selectedAnswers: convertToArray(selectedAnswers.value),
-    importantAnswers: [...importantAnswers.value],
-  })
-}
 </script>
