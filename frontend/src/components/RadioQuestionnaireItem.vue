@@ -5,7 +5,7 @@
         type="radio"
         :id="answer.id"
         :value="answer.id"
-        v-model="modelValue"
+        v-model="selectedOption"
         @change="onAnswerChange"
         class="h-5 w-5 shrink-0 border-gray-300 bg-gray-100 text-blue-600"
       />
@@ -13,14 +13,14 @@
         {{ answer.id }}
       </label>
       <LazyStarButton
-        v-if="modelValue === answer.id"
+        v-if="selectedOption === answer.id"
         :is-important="isImportant"
         @click="toggleImportance"
       />
     </div>
 
     <LazyConflictingAnswersList
-      v-if="conflictingAnswers.length > 0 && modelValue === answer.id"
+      v-if="selectedOption === answer.id && conflictingAnswers.length > 0"
       :conflicting-answers="conflictingAnswers"
     />
   </div>
@@ -35,41 +35,39 @@ const props = defineProps<{
   allowedAnswers: Answer[]
 }>()
 
-const emits = defineEmits<{
-  'change:important-answer': [
-    answer: { answerId: string; isImportant: boolean },
-  ]
-}>()
-
 const answersStore = useAnswersStore()
 
-const modelValue = defineModel<string>()
+const selectedOption = ref<string>()
 
 const isImportant = ref(false)
 
-// emit an event every time the importance of an answer is changed
+const conflictingAnswers = computed(() => {
+  return props.answer.blockedBy.filter((answerId) =>
+    answersStore.hasAnswer(answerId)
+  )
+})
+
 function toggleImportance() {
   isImportant.value = !isImportant.value
-  emits('change:important-answer', {
-    answerId: props.answer.id,
-    isImportant: isImportant.value,
-  })
-}
-
-// if the answer is changed, reset the importance toggle and add
-// the answer to store
-function onAnswerChange() {
-  isImportant.value = false
-  // model value is not an array, which means it is a radio option
-  if (!Array.isArray(modelValue.value)) {
-    props.allowedAnswers.map((answer) => answersStore.remove(answer.id))
-    if (modelValue.value) {
-      answersStore.add(modelValue.value)
-    }
+  if (isImportant.value) {
+    answersStore.addImportantAnswer(props.answer.id)
+  } else {
+    answersStore.removeImportantAnswer(props.answer.id)
   }
 }
 
-const conflictingAnswers = computed(() => {
-  return props.answer.blockedBy.filter((answerId) => answersStore.has(answerId))
-})
+function onAnswerChange() {
+  // if the answer is changed, reset the importance toggle and add
+  // the answer to store
+  isImportant.value = false
+  // remove answer that was previously selected (and possibly
+  // marked important) but now a different answer is selected.
+  props.allowedAnswers.map((answer) => {
+    answersStore.removeAnswer(answer.id)
+    answersStore.removeImportantAnswer(answer.id)
+  })
+  if (selectedOption.value) {
+    answersStore.addAnswer(selectedOption.value)
+  }
+}
 </script>

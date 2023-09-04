@@ -1,24 +1,43 @@
 export const useAnswersStore = defineStore('answers', {
   state: () => ({
     collectedAnswers: new Set<string>(),
+    importantAnswers: new Set<string>(),
   }),
   actions: {
-    add(answer: string) {
+    addAnswer(answer: string) {
       this.collectedAnswers.add(answer)
     },
-    remove(answer: string) {
+    addImportantAnswer(answer: string) {
+      this.importantAnswers.add(answer)
+    },
+
+    removeAnswer(answer: string) {
       this.collectedAnswers.delete(answer)
     },
-    has(answer: string) {
+    removeImportantAnswer(answer: string) {
+      this.importantAnswers.delete(answer)
+    },
+
+    hasAnswer(answer: string) {
       return this.collectedAnswers.has(answer)
     },
-    clear() {
+    hasImportantAnswer(answer: string) {
+      return this.importantAnswers.has(answer)
+    },
+
+    clearAnswers() {
       this.collectedAnswers.clear()
+    },
+    clearImportantAnswers() {
+      this.importantAnswers.clear()
     },
   },
   getters: {
-    answersArray(state) {
-      return [...state.collectedAnswers]
+    answersArray({ collectedAnswers }) {
+      return [...collectedAnswers]
+    },
+    importantAnswersArray({ importantAnswers }) {
+      return [...importantAnswers]
     },
   },
 })
