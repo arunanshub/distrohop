@@ -1,6 +1,6 @@
 <template>
   <li class="flex items-center gap-2">
-    <Icon
+    <LazyIcon
       size="1.2rem"
       :color="iconColor"
       :name="iconName"

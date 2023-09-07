@@ -1,6 +1,6 @@
 <template>
   <button class="bg-transparent">
-    <Icon
+    <LazyIcon
       :name="isImportant ? 'ph:star-fill' : 'ph:star'"
       color="#ff7a00"
       size="1.3rem"

@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle>
+    <LazyPageTitle>
       How would you rate your proficiency using a computer?
-    </PageTitle>
+    </LazyPageTitle>
   </div>
 </template>

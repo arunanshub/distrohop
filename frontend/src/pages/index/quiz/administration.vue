@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle>
+    <LazyPageTitle>
       There are many ways to administrate a Linux distribution, e.g. to install
       software.
-    </PageTitle>
+    </LazyPageTitle>
   </div>
 </template>

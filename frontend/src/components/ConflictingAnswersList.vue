@@ -9,7 +9,7 @@
         v-for="conflictingAnswer in conflictingAnswers"
         :key="conflictingAnswer"
       >
-        <Icon
+        <LazyIcon
           name="material-symbols:warning-outline"
           size="0.8rem"
           color="red"

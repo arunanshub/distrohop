@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col gap-2">
-    <PageTitle>{{ question.id }}</PageTitle>
+    <LazyPageTitle>{{ question.id }}</LazyPageTitle>
     <div class="flex flex-col gap-2">
       <template v-if="radio">
-        <RadioQuestionnaireItem
+        <LazyRadioQuestionnaireItem
           v-for="answer in answers"
           :key="answer.id"
           :question="question"
@@ -13,7 +13,7 @@
       </template>
       <!-- the else if exists solely to aid with typing  -->
       <template v-else>
-        <CheckboxQuestionnaireItem
+        <LazyCheckboxQuestionnaireItem
           v-for="answer in answers"
           :key="answer.id"
           :question="question"

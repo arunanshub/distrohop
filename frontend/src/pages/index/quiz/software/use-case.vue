@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle>
+    <LazyPageTitle>
       Some distributions are made for a special purpose, some for daily use.
       What do you need?
-    </PageTitle>
+    </LazyPageTitle>
   </div>
 </template>
 

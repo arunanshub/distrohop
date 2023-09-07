@@ -1,7 +1,7 @@
 <template>
   <Title>{{ error.statusCode }}</Title>
   <div class="min-h-screen-dynamic flex flex-col bg-neutral-100">
-    <TheHeader />
+    <LazyTheHeader />
     <div class="mt-[15vh] flex grow flex-col items-center gap-4 text-center">
       <h1 class="text-6xl font-semibold">{{ error.statusCode }}</h1>
       <p class="text-2xl" v-if="error.statusMessage">
@@ -14,7 +14,7 @@
         Go Back Home
       </button>
     </div>
-    <TheFooter />
+    <LazyTheFooter />
   </div>
 </template>
 

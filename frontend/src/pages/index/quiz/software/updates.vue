@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle>
+    <LazyPageTitle>
       Some distributions offer faster updates, which can affect system
       stability. What do you prefer?
-    </PageTitle>
+    </LazyPageTitle>
   </div>
 </template>

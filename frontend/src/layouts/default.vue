@@ -1,9 +1,9 @@
 <template>
   <div class="min-h-screen-dynamic flex flex-col bg-neutral-100">
-    <TheHeader />
+    <LazyTheHeader />
     <div class="flex grow flex-col">
       <slot />
     </div>
-    <TheFooter />
+    <LazyTheFooter />
   </div>
 </template>

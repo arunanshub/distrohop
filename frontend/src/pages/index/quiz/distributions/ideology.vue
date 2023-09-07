@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle>
+    <LazyPageTitle>
       The (license) ideology of a distribution is a contentious debate. There
       are distributions using mostly "free-licenses", others also use "non-free"
       software.
-    </PageTitle>
+    </LazyPageTitle>
   </div>
 </template>

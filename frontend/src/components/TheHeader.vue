@@ -3,8 +3,8 @@
     <div
       class="mx-auto flex w-full select-none items-center justify-center p-4"
     >
-      <NuxtLink to="/" class="flex items-center">
-        <Icon
+      <LazyNuxtLink to="/" class="flex items-center">
+        <LazyIcon
           name="logos:linux-tux"
           size="8rem"
           aria-label="Distrohop logo"
@@ -15,7 +15,7 @@
         >
           Distrohop
         </span>
-      </NuxtLink>
+      </LazyNuxtLink>
     </div>
   </header>
 </template>

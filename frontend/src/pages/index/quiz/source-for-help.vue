@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col">
-    <PageTitle>
+    <LazyPageTitle>
       Some distributions prefer articles in wikis for troubleshooting. What do
       you prefer?
-    </PageTitle>
+    </LazyPageTitle>
   </div>
 </template>
