@@ -53,7 +53,14 @@ export default defineNuxtConfig({
   postcss: {
     plugins: {
       'postcss-preset-env': true,
-      cssnano: true,
+      cssnano: {
+        preset: [
+          'default',
+          {
+            discardComments: { removeAll: true },
+          },
+        ],
+      },
     },
   },
   tailwindcss: {
