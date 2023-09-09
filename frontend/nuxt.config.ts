@@ -90,8 +90,7 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    '/': { prerender: true },
-    '/info/**': { prerender: true },
+    '/**': { swr: true },
   },
 
   // Development
