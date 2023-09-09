@@ -7,7 +7,7 @@
         <Icon
           name="logos:linux-tux"
           size="8rem"
-          class="h-15 w-20 lg:h-40 lg:w-full"
+          class="h-14 w-20 lg:h-40 lg:w-full"
         />
         <span
           class="font-artifika self-center whitespace-nowrap text-2xl font-semibold lg:text-4xl"
