@@ -34,7 +34,7 @@
     </ul>
     <div class="mt-4 flex">
       <button
-        class="border-1 justify-end border-black bg-sky-900 px-4 py-1 text-white hover:bg-white hover:text-gray-900 active:bg-sky-700 active:text-white"
+        class="justify-end border border-black bg-sky-900 px-4 py-1 text-white hover:bg-white hover:text-gray-900 active:bg-sky-700 active:text-white"
         @click="startTest"
       >
         Start test
