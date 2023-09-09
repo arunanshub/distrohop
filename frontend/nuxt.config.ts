@@ -69,9 +69,11 @@ export default defineNuxtConfig({
     config: {
       plugins: [tailwindTypography],
       theme: {
-        fontFamily: {
-          artifika: ['Artifika'],
-          archivo: ['Archivo'],
+        extend: {
+          fontFamily: {
+            artifika: ['Artifika'],
+            archivo: ['Archivo'],
+          },
         },
       },
     },
