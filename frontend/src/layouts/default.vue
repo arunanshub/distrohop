@@ -7,10 +7,3 @@
     <TheFooter />
   </div>
 </template>
-
-<style scoped>
-.min-h-screen-dynamic {
-  /* prettier-ignore */
-  @apply min-h-screen min-h-[100dvh];
-}
-</style>

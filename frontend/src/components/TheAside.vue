@@ -1,5 +1,5 @@
 <template>
-  <aside class="w-15 lg:w-75 flex select-none flex-col gap-2 text-center">
+  <aside class="flex w-16 select-none flex-col gap-2 text-center lg:w-72">
     <slot />
   </aside>
 </template>
