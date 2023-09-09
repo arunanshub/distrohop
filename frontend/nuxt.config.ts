@@ -86,7 +86,6 @@ export default defineNuxtConfig({
 
   // Build
   nitro: {
-    compressPublicAssets: { brotli: true, gzip: true },
     minify: true,
     future: { nativeSWR: true },
   },
