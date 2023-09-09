@@ -1,10 +1,5 @@
 import browserslistToEsbuild from 'browserslist-to-esbuild'
-import {
-  presetUno,
-  presetWebFonts,
-  presetTypography,
-  transformerDirectives,
-} from 'unocss'
+import tailwindTypography from '@tailwindcss/typography'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -20,17 +15,26 @@ export default defineNuxtConfig({
 
   // Modules
   modules: [
+    // Image Handling and Optimization
     '@nuxt/image',
-    '@unocss/nuxt',
-    'nuxt-delay-hydration',
+    // Performance Optimization
     '@nuxtjs/critters',
+    'nuxt-delay-hydration',
+    // State Management
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
-    'nuxt-icon',
+    // Content Management
     '@nuxt/content',
+    // Utility Functions
     '@vueuse/nuxt',
+    // Fonts and Typography
     '@nuxtjs/fontaine',
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/tailwindcss',
+    // SEO and Crawling
     '@nuxtjs/robots',
+    // Icons
+    'nuxt-icon',
   ],
 
   // Module Options
@@ -45,30 +49,32 @@ export default defineNuxtConfig({
     mode: 'mount',
   },
 
-  // CSS
-  css: ['@unocss/reset/tailwind-compat.css'],
+  // CSS and fonts
   postcss: {
     plugins: {
       'postcss-preset-env': true,
       cssnano: true,
     },
   },
-  unocss: {
-    presets: [
-      presetUno({ dark: 'media' }),
-      presetTypography({ cssExtend: { a: { 'text-decoration': 'none' } } }),
-      presetWebFonts({
-        provider: 'bunny',
-        fonts: {
-          artifika: 'Artifika',
-          archivo: 'Archivo',
+  tailwindcss: {
+    // exposeConfig lets us use tailwind completion in vscode
+    exposeConfig: true,
+    config: {
+      plugins: [tailwindTypography],
+      theme: {
+        fontFamily: {
+          artifika: ['Artifika'],
+          archivo: ['Archivo'],
         },
-      }),
-    ],
-    transformers: [
-      // the default value of `post`/`default` interferes with Nuxt/CSSNano's minification
-      transformerDirectives({ enforce: 'pre' }),
-    ],
+      },
+    },
+  },
+  googleFonts: {
+    download: true,
+    families: {
+      Artifika: true,
+      Archivo: true,
+    },
   },
 
   // Build
