@@ -1,5 +1,10 @@
 import browserslistToEsbuild from 'browserslist-to-esbuild'
-import tailwindTypography from '@tailwindcss/typography'
+import {
+  presetUno,
+  presetWebFonts,
+  presetTypography,
+  transformerDirectives,
+} from 'unocss'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -30,7 +35,7 @@ export default defineNuxtConfig({
     // Fonts and Typography
     '@nuxtjs/fontaine',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/tailwindcss',
+    '@unocss/nuxt',
     // SEO and Crawling
     '@nuxtjs/robots',
     // Icons
@@ -56,18 +61,33 @@ export default defineNuxtConfig({
       cssnano: true,
     },
   },
-  tailwindcss: {
-    // exposeConfig lets us use tailwind completion in vscode
-    exposeConfig: true,
-    config: {
-      plugins: [tailwindTypography],
-      theme: {
-        fontFamily: {
-          artifika: ['Artifika'],
-          archivo: ['Archivo'],
+  css: ['~/assets/css/main.css', '@unocss/reset/tailwind-compat.css'],
+  unocss: {
+    presets: [
+      presetUno({ dark: 'media' }),
+      presetTypography({
+        cssExtend: {
+          a: { 'text-decoration': 'none' },
+          'a:hover': {
+            'text-decoration': 'underline',
+          },
+          h1: {
+            'margin-top': 0,
+          },
         },
-      },
-    },
+      }),
+      presetWebFonts({
+        provider: 'none',
+        fonts: {
+          artifika: 'Artifika',
+          archivo: 'Archivo',
+        },
+      }),
+    ],
+    transformers: [
+      // the default value of `post`/`default` interferes with Nuxt/CSSNano's minification
+      transformerDirectives({ enforce: 'pre' }),
+    ],
   },
   googleFonts: {
     download: true,
@@ -90,7 +110,8 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    '/**': { swr: true },
+    '/': { prerender: true },
+    '/info/**': { prerender: true },
   },
 
   // Development
