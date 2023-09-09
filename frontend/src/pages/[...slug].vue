@@ -1,8 +1,7 @@
 <template>
   <Title v-if="data?.title">{{ data.title }}</Title>
   <div
-    lang="en"
-    class="prose mx-auto w-full min-w-0 max-w-screen-lg grow hyphens-auto px-8 pb-8 text-justify 2xl:px-0"
+    class="prose mx-auto w-full grow px-8 pb-8 2xl:px-0"
   >
     <LazyContentRenderer :value="data" v-if="data" />
   </div>
