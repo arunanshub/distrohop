@@ -5,56 +5,99 @@
     class="mx-auto flex w-full max-w-screen-lg gap-2 px-2 leading-relaxed lg:gap-4 lg:px-0"
   >
     <TheAside>
-      <AsideLink to="/" icon-name="material-symbols:login">Welcome</AsideLink>
-      <AsideLink to="/quiz/software/use-case" icon-name="mdi:poll">
+      <AsideLink
+        aria-label="Welcome"
+        to="/"
+        icon-name="material-symbols:login"
+      >
+        Welcome
+      </AsideLink>
+      <AsideLink
+        aria-label="Software: Use Case"
+        to="/quiz/software/use-case"
+        icon-name="mdi:poll"
+      >
         Software: Use Case
       </AsideLink>
-      <AsideLink to="/quiz/computer-knowledge" icon-name="ic:round-monitor">
+      <AsideLink
+        aria-label="Computer knowledge"
+        to="/quiz/computer-knowledge"
+        icon-name="ic:round-monitor"
+      >
         Computer knowledge
       </AsideLink>
-      <AsideLink to="/quiz/linux-and-you" icon-name="codicon:terminal-linux">
+      <AsideLink
+        aria-label="Linux and You"
+        to="/quiz/linux-and-you"
+        icon-name="codicon:terminal-linux"
+      >
         Linux and You
       </AsideLink>
       <AsideLink
+        aria-label="Installation Defaults"
         to="/quiz/installation-defaults"
         icon-name="material-symbols:checklist-rtl"
       >
         Installation Defaults
       </AsideLink>
-      <AsideLink to="/quiz/hardware-support" icon-name="bi:gpu-card">
+      <AsideLink
+        aria-label="Hardware support"
+        to="/quiz/hardware-support"
+        icon-name="bi:gpu-card"
+      >
         Hardware support
       </AsideLink>
       <AsideLink
+        aria-label="Source for help"
         to="/quiz/source-for-help"
         icon-name="material-symbols:question-mark"
       >
         Source for help
       </AsideLink>
-      <AsideLink to="/quiz/ux" icon-name="simple-icons:windows">
+      <AsideLink
+        aria-label="User experience"
+        to="/quiz/ux"
+        icon-name="simple-icons:windows"
+      >
         User experience
       </AsideLink>
-      <AsideLink to="/quiz/distributions/price" icon-name="bi:currency-dollar">
+      <AsideLink
+        aria-label="Distributions: Price"
+        to="/quiz/distributions/price"
+        icon-name="bi:currency-dollar"
+      >
         Distributions: Price
       </AsideLink>
-      <AsideLink to="/quiz/distributions/scope" icon-name="fa6-solid:box-open">
+      <AsideLink
+        aria-label="Distributions: Scope"
+        to="/quiz/distributions/scope"
+        icon-name="fa6-solid:box-open"
+      >
         Distributions: Scope
       </AsideLink>
       <AsideLink
+        aria-label="Distributions: Ideology"
         to="/quiz/distributions/ideology"
         icon-name="ri:open-source-fill"
       >
         Distributions: Ideology
       </AsideLink>
-      <AsideLink to="/quiz/distributions/privacy" icon-name="mdi:shield-check">
+      <AsideLink
+        aria-label="Distributions: Privacy"
+        to="/quiz/distributions/privacy"
+        icon-name="mdi:shield-check"
+      >
         Distributions: Privacy
       </AsideLink>
       <AsideLink
+        aria-label="Administration"
         to="/quiz/administration"
         icon-name="clarity:administrator-solid"
       >
         Administration
       </AsideLink>
       <AsideLink
+        aria-label="Software: Updates"
         to="/quiz/software/updates"
         icon-name="material-symbols:browser-updated"
       >
