@@ -19,7 +19,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     // Performance Optimization
     '@nuxtjs/critters',
-    'nuxt-delay-hydration',
     // State Management
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
@@ -43,10 +42,6 @@ export default defineNuxtConfig({
   },
   pinia: {
     autoImports: ['defineStore'],
-  },
-  delayHydration: {
-    debug: process.env.NODE_ENV === 'development',
-    mode: 'mount',
   },
 
   // CSS and fonts
@@ -88,9 +83,6 @@ export default defineNuxtConfig({
 
   // Build
   nitro: {
-    compressPublicAssets: { brotli: true, gzip: true },
-    minify: true,
-    future: { nativeSWR: true },
     runtimeConfig: {
       nitro: {
         envPrefix: 'VERCEL_',
