@@ -99,7 +99,8 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    '/**': { swr: true },
+    '/': { swr: true },
+    '/info/**': { static: true },
   },
 
   // Development
