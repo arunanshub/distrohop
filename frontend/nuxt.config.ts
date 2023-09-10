@@ -91,6 +91,11 @@ export default defineNuxtConfig({
     compressPublicAssets: { brotli: true, gzip: true },
     minify: true,
     future: { nativeSWR: true },
+    runtimeConfig: {
+      nitro: {
+        envPrefix: 'VERCEL_',
+      },
+    },
   },
   vite: {
     esbuild: {
