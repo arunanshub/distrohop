@@ -7,6 +7,7 @@
         <Icon
           name="logos:linux-tux"
           size="8rem"
+          aria-label="Distrohop logo"
           class="h-14 w-20 lg:h-40 lg:w-full"
         />
         <span

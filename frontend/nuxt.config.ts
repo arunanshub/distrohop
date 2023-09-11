@@ -6,7 +6,11 @@ export default defineNuxtConfig({
   // General
   srcDir: 'src/',
   app: {
-    head: { titleTemplate: `%s · Distrohop` },
+    head: {
+      titleTemplate: `%s · Distrohop`,
+      // manually add lang until we use nuxt-i18n
+      htmlAttrs: { lang: 'en' },
+    },
   },
   experimental: {
     headNext: true,

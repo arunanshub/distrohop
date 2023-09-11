@@ -1,8 +1,4 @@
 <template>
-  <!--
-    By default, the <fieldset> element has a CSS property called min-inline-size set to min-content
-    This can lead to situations where the fieldset doesn't expand to accommodate its content.
-  -->
   <div class="flex flex-col gap-2">
     <PageTitle>{{ question.id }}</PageTitle>
     <div class="flex flex-col gap-2">
