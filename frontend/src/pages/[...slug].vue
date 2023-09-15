@@ -3,7 +3,7 @@
   <article
     class="prose prose-p:text-black prose-a:no-underline hover:prose-a:underline mx-auto w-full grow px-8 pb-8 2xl:px-0"
   >
-    <LazyContentRenderer :value="data" v-if="data" />
+    <ContentRendererWrapper :value="data" v-if="data" />
   </article>
 </template>
 
