@@ -5,11 +5,7 @@
     class="mx-auto flex w-full max-w-screen-lg gap-2 px-2 leading-relaxed lg:gap-4 lg:px-0"
   >
     <TheAside>
-      <AsideLink
-        aria-label="Welcome"
-        to="/"
-        icon-name="material-symbols:login"
-      >
+      <AsideLink aria-label="Welcome" to="/" icon-name="material-symbols:login">
         Welcome
       </AsideLink>
       <AsideLink

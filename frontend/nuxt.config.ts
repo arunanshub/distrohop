@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   },
   experimental: {
     headNext: true,
+    componentIslands: true,
   },
   vue: { defineModel: true },
 
