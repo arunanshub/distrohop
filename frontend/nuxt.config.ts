@@ -40,6 +40,8 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     // Icons
     'nuxt-icon',
+    // Security
+    'nuxt-security',
   ],
 
   // Module Options
@@ -52,6 +54,12 @@ export default defineNuxtConfig({
   delayHydration: {
     debug: process.env.NODE_ENV === 'development',
     mode: 'mount',
+  },
+  security: {
+    headers: {
+      crossOriginEmbedderPolicy:
+        process.env.NODE_ENV === 'development' ? 'unsafe-none' : 'require-corp',
+    },
   },
 
   // CSS and fonts
