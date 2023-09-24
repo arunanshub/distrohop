@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import Answer from '~/types/Answer'
-import { useAnswersStore } from '~/store/answers'
+import { useAnswersStore } from '~/stores/answers'
 
 const props = defineProps<{
   answer: Answer

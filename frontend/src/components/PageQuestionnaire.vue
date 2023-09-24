@@ -11,7 +11,6 @@
           :allowed-answers="answers"
         />
       </template>
-      <!-- the else if exists solely to aid with typing  -->
       <template v-else>
         <CheckboxQuestionnaireItem
           v-for="answer in answers"
