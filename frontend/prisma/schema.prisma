@@ -1,0 +1,53 @@
+// This is your updated Prisma schema file
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  directUrl  = env("DIRECT_URL")
+  extensions = [pgcrypto]
+}
+
+model Section {
+  id       String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  msgid    String    @unique @db.VarChar(100)
+  iconName String    @db.VarChar(100)
+  question Question?
+
+  @@index([msgid])
+}
+
+model Question {
+  id               String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  msgid            String   @unique @db.VarChar(100)
+  isMultipleChoice Boolean  @default(false)
+  isMediaQuestion  Boolean  @default(false)
+  additionalInfo   String?
+  answers          Answer[]
+  section          Section  @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  sectionId        String   @unique @db.Uuid
+
+  @@index([msgid])
+}
+
+model Answer {
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  msgid           String   @unique @db.VarChar(100)
+  mediaSourcePath String?
+  question        Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  questionId      String   @db.Uuid
+  blocks          Answer[] @relation("BlockedAnswer")
+  blockedBy       Answer[] @relation("BlockedAnswer")
+
+  @@index([msgid])
+}
+
+model Result {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  createdAt DateTime @default(now())
+  ip        String   @db.Inet
+}
