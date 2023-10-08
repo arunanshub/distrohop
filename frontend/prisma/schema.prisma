@@ -17,8 +17,6 @@ model Section {
   msgid    String    @unique @db.VarChar(100)
   iconName String    @db.VarChar(100)
   question Question?
-
-  @@index([msgid])
 }
 
 model Question {
@@ -30,8 +28,6 @@ model Question {
   answers          Answer[]
   section          Section  @relation(fields: [sectionId], references: [id], onDelete: Cascade)
   sectionId        String   @unique @db.Uuid
-
-  @@index([msgid])
 }
 
 model Answer {
@@ -42,8 +38,6 @@ model Answer {
   questionId      String   @db.Uuid
   blocks          Answer[] @relation("BlockedAnswer")
   blockedBy       Answer[] @relation("BlockedAnswer")
-
-  @@index([msgid])
 }
 
 model Result {

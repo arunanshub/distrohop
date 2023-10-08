@@ -6,14 +6,14 @@ import { Answer } from '~/types'
 const prisma = new PrismaClient()
 
 async function main() {
-  const sections = await Promise.all(
-    sectionData.map(async (section) => {
-      return await prisma.section.upsert({
+  const sections = await prisma.$transaction(
+    sectionData.map((section) =>
+      prisma.section.upsert({
         where: { msgid: section.msgid },
         update: {},
         create: { ...section },
       })
-    })
+    )
   )
 
   // we hold off updating the blockedBy field of each answer to the last.
@@ -21,9 +21,9 @@ async function main() {
   // a connection between the answer and their blockedBy fields.
   let answersToBeUpdatedBlockedBy: Answer[] = []
 
-  await Promise.all(
-    questionData.map(async ({ question, answers }, index) => {
-      return await prisma.question.upsert({
+  await prisma.$transaction(
+    questionData.map(({ question, answers }, index) => {
+      return prisma.question.upsert({
         update: {},
         where: { msgid: question.msgid },
         create: {
@@ -59,9 +59,9 @@ async function main() {
   )
 
   // create the connections between the blockedBy field and answers
-  await Promise.all(
-    answersToBeUpdatedBlockedBy.map(async (answer) => {
-      return await prisma.answer.update({
+  await prisma.$transaction(
+    answersToBeUpdatedBlockedBy.map((answer) => {
+      return prisma.answer.update({
         where: { msgid: answer.msgid },
         data: {
           blockedBy: {

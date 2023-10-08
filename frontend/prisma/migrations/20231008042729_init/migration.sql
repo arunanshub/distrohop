@@ -51,22 +51,13 @@ CREATE TABLE "_BlockedAnswer" (
 CREATE UNIQUE INDEX "Section_msgid_key" ON "Section"("msgid");
 
 -- CreateIndex
-CREATE INDEX "Section_msgid_idx" ON "Section"("msgid");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Question_msgid_key" ON "Question"("msgid");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Question_sectionId_key" ON "Question"("sectionId");
 
 -- CreateIndex
-CREATE INDEX "Question_msgid_idx" ON "Question"("msgid");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Answer_msgid_key" ON "Answer"("msgid");
-
--- CreateIndex
-CREATE INDEX "Answer_msgid_idx" ON "Answer"("msgid");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "_BlockedAnswer_AB_unique" ON "_BlockedAnswer"("A", "B");
