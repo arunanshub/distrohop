@@ -1,10 +1,10 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 
 type ExtendedPrismaClient = ReturnType<typeof getExtendedClient>
 
 function getExtendedClient() {
-  return new PrismaClient()
+  return new PrismaClient().$extends(withAccelerate())
 }
 
 let prisma: ExtendedPrismaClient
