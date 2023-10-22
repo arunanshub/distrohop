@@ -43,8 +43,8 @@
 <script setup lang="ts">
 const firstSectionName = useState<string>('firstSectionName')
 
-function startTest() {
-  navigateTo({
+async function startTest() {
+  await navigateTo({
     name: 'index-quiz-section',
     params: { section: firstSectionName.value },
   })
