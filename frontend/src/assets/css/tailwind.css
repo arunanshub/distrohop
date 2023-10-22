@@ -6,3 +6,11 @@
   /* prettier-ignore */
   @apply min-h-screen min-h-[100dvh];
 }
+
+.btn-primary {
+  @apply border border-black bg-sky-900 px-4 py-1 text-white hover:bg-white hover:text-gray-900 active:bg-sky-700 active:text-white;
+}
+
+.btn-secondary {
+  @apply border border-black bg-slate-100 px-4 py-1 hover:bg-slate-100/50;
+}
