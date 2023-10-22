@@ -1,30 +1,39 @@
 <template>
-  <Title>Quiz</Title>
-
   <div class="flex h-full flex-col gap-2">
-    <p>Q: {{ question?.msgid }} {{ question?.answers.map((x) => x.msgid) }}</p>
-    <p>Section: {{ currentSectionName }}</p>
-    <p v-if="nextSection">N: {{ nextSection?.msgid }}</p>
-    <p v-if="previousSection">P: {{ previousSection?.msgid }}</p>
-
-    <!-- button row -->
-    <div class="ml-auto mt-auto flex gap-4">
-      <button
-        v-if="previousSection"
-        @click="goToPreviousSection"
-        class="btn-secondary"
-      >
-        Previous
-      </button>
-      <button v-if="nextSection" @click="goToNextSection" class="btn-primary">
-        Next
-      </button>
+    <div
+      class="flex grow flex-col items-center justify-center gap-2"
+      v-if="questionPending"
+    >
+      <PageTitle>Loading Question...</PageTitle>
+      <Icon name="eos-icons:loading" size="4rem"></Icon>
     </div>
+    <template v-else>
+      <!-- this will be replaced with an actual question component -->
+      <PageTitle>{{ question?.msgid }}</PageTitle>
+      <p>Section: {{ currentSectionName }}</p>
+      <p v-if="nextSection">N: {{ nextSection?.msgid }}</p>
+      <p v-if="previousSection">P: {{ previousSection?.msgid }}</p>
+      <!-- button row -->
+      <div class="ml-auto mt-auto flex gap-4">
+        <button
+          v-if="previousSection"
+          @click="goToPreviousSection"
+          class="btn-secondary"
+        >
+          Previous
+        </button>
+        <button v-if="nextSection" @click="goToNextSection" class="btn-primary">
+          Next
+        </button>
+      </div>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
 useServerHead({ title: 'Quiz' })
+// set title on the client side here since the <Title /> tag causes render issue
+useHead({ title: 'Quiz' })
 
 const route = useRoute()
 
@@ -51,5 +60,6 @@ const {
   goToNextSection,
   goToPreviousSection,
 } = useSectionNav(currentSectionName, sectionsArray)
-const { question } = await useFetchQuestion(currentSection)
+const { question, pending: questionPending } =
+  await useFetchQuestion(currentSection)
 </script>
