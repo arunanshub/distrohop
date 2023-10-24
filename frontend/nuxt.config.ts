@@ -50,6 +50,7 @@ export default defineNuxtConfig({
   delayHydration: {
     debug: process.env.NODE_ENV === 'development',
     mode: 'mount',
+    exclude: ['/quiz/**'],
   },
 
   // CSS and fonts
