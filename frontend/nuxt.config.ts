@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     },
   },
   experimental: {
+    asyncContext: true,
     headNext: true,
     componentIslands: true,
   },
