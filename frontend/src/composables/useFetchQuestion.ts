@@ -9,9 +9,5 @@ export default async function (section: Ref<SectionWithQuestionId>) {
     pending,
   } = await useLazyFetch(`/api/question/${msgid}`, { server: false })
 
-  return {
-    question,
-    error,
-    pending,
-  } as const
+  return { question, error, pending } as const
 }
