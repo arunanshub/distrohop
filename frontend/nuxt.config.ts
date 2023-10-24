@@ -101,7 +101,8 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    '/**': { swr: true },
+    '/': { swr: true },
+    '/quiz/**': { swr: true },
     '/info/**': { static: true },
   },
 
