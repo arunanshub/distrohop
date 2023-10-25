@@ -36,11 +36,11 @@ dependencies:
     specifier: ^0.4.11
     version: 0.4.11(typescript@5.2.2)(vue@3.3.6)
   '@prisma/client':
-    specifier: 5.5.0
-    version: 5.5.0(prisma@5.4.2)
+    specifier: 5.5.1
+    version: 5.5.1(prisma@5.4.2)
   '@prisma/extension-accelerate':
     specifier: ^0.6.2
-    version: 0.6.2(@prisma/client@5.5.0)
+    version: 0.6.2(@prisma/client@5.5.1)
   '@vueuse/core':
     specifier: ^10.5.0
     version: 10.5.0(vue@3.3.6)
@@ -2027,8 +2027,8 @@ packages:
   /@polka/url@1.0.0-next.23:
     resolution: {integrity: sha512-C16M+IYz0rgRhWZdCmK+h58JMv8vijAA61gmz2rspCSwKwzBebpdcsiUmwrtJRdphuY30i6BSLEOP8ppbNLyLg==}
 
-  /@prisma/client@5.5.0(prisma@5.4.2):
-    resolution: {integrity: sha512-JiCj/h79PRawWiBVa4Ng4tBaKMrfJgUwuRrZi4NuQRd58gWIP4kEYMqIidpUrab3dU2NM617pWRG2avX+dh+Sg==}
+  /@prisma/client@5.5.1(prisma@5.4.2):
+    resolution: {integrity: sha512-Yvcwx1/Q0nIdv2jvH/4pyTRl5I+76/ef0C3xCrAkBKTIjXHiRptbyyK/+CWEaBY9yE98MIdi9gwZcR3C22eTuQ==}
     engines: {node: '>=16.13'}
     requiresBuild: true
     peerDependencies:
@@ -2050,13 +2050,13 @@ packages:
     requiresBuild: true
     dev: false
 
-  /@prisma/extension-accelerate@0.6.2(@prisma/client@5.5.0):
+  /@prisma/extension-accelerate@0.6.2(@prisma/client@5.5.1):
     resolution: {integrity: sha512-KIBVPeWt8qaSg7wQ+TXmCVeUDoW75whtXcdS9dbHxRoO2OWFH5I9+qbkHBhx5Wj/h1wQpS8usuxGnsZqiBjUpQ==}
     engines: {node: '>=16'}
     peerDependencies:
       '@prisma/client': '>=4.16.1'
     dependencies:
-      '@prisma/client': 5.5.0(prisma@5.4.2)
+      '@prisma/client': 5.5.1(prisma@5.4.2)
     dev: false
 
   /@rollup/plugin-alias@5.0.1(rollup@3.29.4):
