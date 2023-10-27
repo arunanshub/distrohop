@@ -54,8 +54,8 @@ dependencies:
     specifier: ^1.2.3
     version: 1.2.3
   nuxt-icon:
-    specifier: ^0.6.0
-    version: 0.6.0(vue@3.3.7)
+    specifier: ^0.6.1
+    version: 0.6.1(vue@3.3.7)
   pinia:
     specifier: ^2.1.7
     version: 2.1.7(typescript@5.2.2)(vue@3.3.7)
@@ -6682,8 +6682,8 @@ packages:
       - supports-color
     dev: false
 
-  /nuxt-icon@0.6.0(vue@3.3.7):
-    resolution: {integrity: sha512-yFhdd1inv8z4soCF8HZphVMn0wJJN+5m+ZHs1QQblrdxXJDV7UuZeTjN6Fy8VDHfWbZJm6coXSQrK483kU+ipA==}
+  /nuxt-icon@0.6.1(vue@3.3.7):
+    resolution: {integrity: sha512-a4/MEmbP2hXB0sLWBqevC+569FADEMs+VfYJ6nzbktUSJY57/PoHyen0PtqAAkMjGGhHgDVHAcjy5RCJyYZRYg==}
     dependencies:
       '@iconify/vue': 4.1.1(vue@3.3.7)
       '@nuxt/kit': 3.8.0
