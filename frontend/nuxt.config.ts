@@ -116,5 +116,10 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     shim: false,
+    tsConfig: {
+      compilerOptions: {
+        types: ['@types/node'],
+      },
+    },
   },
 })
