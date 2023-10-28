@@ -9,10 +9,10 @@
     "postinstall": "prisma generate --no-engine && nuxt prepare"
   },
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./prisma/seed.ts"
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\",\"verbatimModuleSyntax\":false} ./prisma/seed.ts"
   },
   "browserslist": [
-    "last 2 versions, >0.21%, not dead"
+    "last 4 versions, >0.2%, not dead"
   ],
   "dependencies": {
     "@nuxt/content": "~2.8.2",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "@nuxt/devtools": "^1.0.0",
     "@tailwindcss/typography": "^0.5.10",
-    "@types/node": "^20.0.0",
+    "@types/node": "^20.8.9",
     "nuxt": "^3.8.0",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.6",

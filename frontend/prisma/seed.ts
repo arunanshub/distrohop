@@ -1,9 +1,9 @@
 import { PrismaClient } from '@prisma/client'
-import questionData from './question-data.json'
-import sectionData from './sections.json'
-import { Answer } from '~/types'
+import { default as questionData } from './question-data.json'
+import { default as sectionData } from './sections.json'
+import { type Answer } from '~/types'
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient({ log: ['query'] })
 
 async function main() {
   const sections = await prisma.$transaction(
@@ -27,8 +27,7 @@ async function main() {
         update: {},
         where: { msgid: question.msgid },
         create: {
-          msgid: question.msgid,
-          additionalInfo: question.additionalInfo,
+          ...question,
           // NOTE: we know that there are as many sections as there are questions
           section: { connect: sections[index] },
           answers: {
