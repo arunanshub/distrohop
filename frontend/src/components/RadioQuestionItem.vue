@@ -16,7 +16,7 @@
       <label :for="answer.msgid" class="min-w-0 break-words">
         {{ answer.msgid }}
       </label>
-      <LazyStarButton
+      <StarButton
         v-if="collectedAnswers.includes(answer.msgid)"
         :is-important="isImportantAnswer(answer.msgid)"
         @click="toggleImportantAnswer(answer.msgid)"
