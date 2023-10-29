@@ -9,13 +9,18 @@
         type="checkbox"
         :value="answer.msgid"
         :id="answer.msgid"
-        v-model="modelValue"
+        v-model="collectedAnswers"
         class="h-5 w-5 shrink-0 border-gray-300 bg-gray-100 text-blue-600"
+        @change="removeImportantAnswer(answer.msgid)"
       />
       <label :for="answer.msgid" class="min-w-0 break-words">
         {{ answer.msgid }}
       </label>
-      <!-- add a star later -->
+      <LazyStarButton
+        v-if="collectedAnswers.includes(answer.msgid)"
+        :is-important="isImportantAnswer(answer.msgid)"
+        @click="toggleImportantAnswer(answer.msgid)"
+      />
     </li>
   </ul>
 </template>
@@ -23,9 +28,18 @@
 <script setup lang="ts">
 import type { Answer } from '~/types'
 
-const modelValue = defineModel<string[]>({ required: true })
-
 defineProps<{
   answers: Answer[]
 }>()
+
+const collectedAnswers = defineModel<string[]>('collectedAnswers', {
+  required: true,
+})
+
+const importantAnswers = defineModel<string[]>('importantAnswers', {
+  required: true,
+})
+
+const { toggleImportantAnswer, isImportantAnswer, removeImportantAnswer } =
+  useImportantAnswers(importantAnswers)
 </script>

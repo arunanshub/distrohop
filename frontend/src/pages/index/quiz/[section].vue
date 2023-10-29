@@ -11,15 +11,17 @@
       <PageTitle>{{ question?.msgid }}</PageTitle>
 
       <!-- question item -->
-      <CheckboxQuestionItem
+      <LazyCheckboxQuestionItem
         v-if="question?.isMultipleChoice"
         :answers="question?.answers ?? []"
-        v-model="collectedAnswers"
+        v-model:collected-answers="collectedAnswers"
+        v-model:important-answers="importantAnswers"
       />
-      <RadioQuestionItem
+      <LazyRadioQuestionItem
         v-else
         :answers="question?.answers ?? []"
-        v-model="collectedAnswers"
+        v-model:collected-answers="collectedAnswers"
+        v-model:important-answers="importantAnswers"
       />
 
       <!-- button row -->
@@ -73,4 +75,5 @@ const { question, pending: questionPending } =
   await useFetchQuestion(currentSection)
 
 const collectedAnswers = useState<string[]>('collectedAnswers', () => [])
+const importantAnswers = useState<string[]>('importantAnswers', () => [])
 </script>
