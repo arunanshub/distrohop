@@ -8,11 +8,20 @@
       <Icon name="eos-icons:loading" size="4rem"></Icon>
     </div>
     <template v-else>
-      <!-- this will be replaced with an actual question component -->
       <PageTitle>{{ question?.msgid }}</PageTitle>
-      <p>Section: {{ currentSectionName }}</p>
-      <p v-if="nextSection">N: {{ nextSection?.msgid }}</p>
-      <p v-if="previousSection">P: {{ previousSection?.msgid }}</p>
+
+      <!-- question item -->
+      <CheckboxQuestionItem
+        v-if="question?.isMultipleChoice"
+        :answers="question?.answers ?? []"
+        v-model="collectedAnswers"
+      />
+      <RadioQuestionItem
+        v-else
+        :answers="question?.answers ?? []"
+        v-model="collectedAnswers"
+      />
+
       <!-- button row -->
       <div class="ml-auto mt-auto flex gap-4">
         <button
@@ -62,4 +71,6 @@ const {
 } = useSectionNav(currentSectionName, sectionsArray)
 const { question, pending: questionPending } =
   await useFetchQuestion(currentSection)
+
+const collectedAnswers = useState<string[]>('collectedAnswers', () => [])
 </script>
