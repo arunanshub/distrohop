@@ -46,9 +46,6 @@ export default defineNuxtConfig({
   content: {
     highlight: { theme: 'github-light' },
   },
-  pinia: {
-    autoImports: ['defineStore'],
-  },
   delayHydration: {
     debug: process.env.NODE_ENV === 'development',
     mode: 'mount',
