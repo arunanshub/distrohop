@@ -24,7 +24,10 @@
         />
       </div>
       <ConflictingAnswersList
-        v-if="getConflictingAnswers(answer.msgid)?.length !== 0"
+        v-if="
+          collectedAnswers.has(answer.msgid) &&
+          getConflictingAnswers(answer.msgid)?.length !== 0
+        "
         :conflicting-answers="getConflictingAnswers(answer.msgid)!"
       />
     </li>
