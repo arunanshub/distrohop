@@ -17,7 +17,7 @@
         {{ answer.msgid }}
       </label>
       <StarButton
-        v-if="collectedAnswers.includes(answer.msgid)"
+        v-if="collectedAnswers.has(answer.msgid)"
         :is-important="isImportantAnswer(answer.msgid)"
         @click="toggleImportantAnswer(answer.msgid)"
       />
@@ -32,11 +32,11 @@ defineProps<{
   answers: Answer[]
 }>()
 
-const collectedAnswers = defineModel<string[]>('collectedAnswers', {
+const collectedAnswers = defineModel<Set<string>>('collectedAnswers', {
   required: true,
 })
 
-const importantAnswers = defineModel<string[]>('importantAnswers', {
+const importantAnswers = defineModel<Set<string>>('importantAnswers', {
   required: true,
 })
 

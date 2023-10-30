@@ -74,6 +74,6 @@ const {
 const { question, pending: questionPending } =
   await useFetchQuestion(currentSection)
 
-const collectedAnswers = useState<string[]>('collectedAnswers', () => [])
-const importantAnswers = useState<string[]>('importantAnswers', () => [])
+const collectedAnswers = useState('collectedAnswers', () => new Set<string>())
+const importantAnswers = useState('importantAnswers', () => new Set<string>())
 </script>

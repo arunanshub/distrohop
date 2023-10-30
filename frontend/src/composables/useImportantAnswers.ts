@@ -1,19 +1,17 @@
-export default (importantAnswers: Ref<string[]>) => {
+export default (importantAnswers: Ref<Set<string>>) => {
   function isImportantAnswer(answer: string) {
-    return importantAnswers.value.includes(answer)
+    return importantAnswers.value.has(answer)
   }
 
   function removeImportantAnswer(answer: string) {
-    importantAnswers.value = importantAnswers.value.filter(
-      (ans) => ans !== answer
-    )
+    importantAnswers.value.delete(answer)
   }
 
   function toggleImportantAnswer(answer: string) {
     if (isImportantAnswer(answer)) {
       removeImportantAnswer(answer)
     } else {
-      importantAnswers.value.push(answer)
+      importantAnswers.value.add(answer)
     }
   }
 

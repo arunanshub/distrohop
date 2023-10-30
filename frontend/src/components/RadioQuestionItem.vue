@@ -17,7 +17,7 @@
         {{ answer.msgid }}
       </label>
       <StarButton
-        v-if="collectedAnswers.includes(answer.msgid)"
+        v-if="collectedAnswers.has(answer.msgid)"
         :is-important="isImportantAnswer(answer.msgid)"
         @click="toggleImportantAnswer(answer.msgid)"
       />
@@ -32,11 +32,11 @@ const props = defineProps<{
   answers: Answer[]
 }>()
 
-const collectedAnswers = defineModel<string[]>('collectedAnswers', {
+const collectedAnswers = defineModel<Set<string>>('collectedAnswers', {
   required: true,
 })
 
-const importantAnswers = defineModel<string[]>('importantAnswers', {
+const importantAnswers = defineModel<Set<string>>('importantAnswers', {
   required: true,
 })
 
@@ -47,7 +47,7 @@ const selectedAnswer = ref<string>()
 
 // get the selected answer from the list of answers and set it.
 const activeAnswer = props.answers
-  .filter((ans) => collectedAnswers.value.includes(ans.msgid))
+  .filter((ans) => collectedAnswers.value.has(ans.msgid))
   .at(0)?.msgid
 selectedAnswer.value = activeAnswer
 
@@ -55,10 +55,8 @@ watch(selectedAnswer, (newValue, oldValue) => {
   if (newValue === undefined) {
     return
   }
-  collectedAnswers.value.push(newValue)
-  collectedAnswers.value = collectedAnswers.value.filter(
-    (ans) => ans !== oldValue
-  )
+  collectedAnswers.value.add(newValue)
+  oldValue && collectedAnswers.value.delete(oldValue)
   oldValue && removeImportantAnswer(oldValue)
 })
 </script>
