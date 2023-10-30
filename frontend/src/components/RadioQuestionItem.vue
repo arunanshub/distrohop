@@ -3,23 +3,29 @@
     <li
       v-for="answer in answers"
       :key="answer.msgid"
-      class="flex items-center gap-2"
+      class="flex flex-col gap-2"
     >
-      <input
-        type="radio"
-        :value="answer.msgid"
-        :id="answer.msgid"
-        v-model="selectedAnswer"
-        class="h-5 w-5 shrink-0 border-gray-300 bg-gray-100 text-blue-600"
-        @change="removeImportantAnswer(answer.msgid)"
-      />
-      <label :for="answer.msgid" class="min-w-0 break-words">
-        {{ answer.msgid }}
-      </label>
-      <StarButton
-        v-if="collectedAnswers.has(answer.msgid)"
-        :is-important="isImportantAnswer(answer.msgid)"
-        @click="toggleImportantAnswer(answer.msgid)"
+      <div class="flex items-center gap-2">
+        <input
+          type="radio"
+          :value="answer.msgid"
+          :id="answer.msgid"
+          v-model="selectedAnswer"
+          class="h-5 w-5 shrink-0 border-gray-300 bg-gray-100 text-blue-600"
+          @change="removeImportantAnswer(answer.msgid)"
+        />
+        <label :for="answer.msgid" class="min-w-0 break-words">
+          {{ answer.msgid }}
+        </label>
+        <StarButton
+          v-if="collectedAnswers.has(answer.msgid)"
+          :is-important="isImportantAnswer(answer.msgid)"
+          @click="toggleImportantAnswer(answer.msgid)"
+        />
+      </div>
+      <ConflictingAnswersList
+        v-if="getConflictingAnswers(answer.msgid)?.length !== 0"
+        :conflicting-answers="getConflictingAnswers(answer.msgid)!"
       />
     </li>
   </ul>
@@ -59,4 +65,9 @@ watch(selectedAnswer, (newValue, oldValue) => {
   oldValue && collectedAnswers.value.delete(oldValue)
   oldValue && removeImportantAnswer(oldValue)
 })
+
+const { getConflictingAnswers } = useConflictingAnswers(
+  collectedAnswers,
+  props.answers
+)
 </script>
