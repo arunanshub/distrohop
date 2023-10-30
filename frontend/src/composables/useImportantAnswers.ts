@@ -19,5 +19,5 @@ export default (importantAnswers: Ref<Set<string>>) => {
     toggleImportantAnswer,
     isImportantAnswer,
     removeImportantAnswer,
-  }
+  } as const
 }

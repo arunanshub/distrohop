@@ -12,5 +12,5 @@ export default (
     const blockedByIds = answer.blockedBy.map((ans) => ans.msgid)
     return blockedByIds.filter((ans) => collectedAnswers.value.has(ans))
   }
-  return { getConflictingAnswers }
+  return { getConflictingAnswers } as const
 }
