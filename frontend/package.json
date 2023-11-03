@@ -2,11 +2,11 @@
   "name": "nuxt-app",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build": "prisma generate && nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "prisma generate --no-engine && nuxt prepare"
+    "postinstall": "prisma generate && nuxt prepare"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\",\"verbatimModuleSyntax\":false} ./prisma/seed.ts"
