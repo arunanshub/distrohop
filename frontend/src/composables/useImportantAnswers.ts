@@ -1,23 +1,25 @@
-export default (importantAnswers: Ref<Set<string>>) => {
-  function isImportantAnswer(answer: string) {
-    return importantAnswers.value.has(answer)
+import { type Answer } from '~/types'
+
+export default (importantAnswers: Ref<Set<string>>, currentAnswer: Answer) => {
+  const isAnswerImportant = computed(() => {
+    return importantAnswers.value.has(currentAnswer.msgid)
+  })
+
+  function removeImportantAnswer() {
+    importantAnswers.value.delete(currentAnswer.msgid)
   }
 
-  function removeImportantAnswer(answer: string) {
-    importantAnswers.value.delete(answer)
-  }
-
-  function toggleImportantAnswer(answer: string) {
-    if (isImportantAnswer(answer)) {
-      removeImportantAnswer(answer)
+  function toggleImportantAnswer() {
+    if (isAnswerImportant.value) {
+      removeImportantAnswer()
     } else {
-      importantAnswers.value.add(answer)
+      importantAnswers.value.add(currentAnswer.msgid)
     }
   }
 
   return {
+    isAnswerImportant,
     toggleImportantAnswer,
-    isImportantAnswer,
     removeImportantAnswer,
   } as const
 }

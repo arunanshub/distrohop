@@ -11,13 +11,13 @@
       <PageTitle>{{ question?.msgid }}</PageTitle>
 
       <!-- question item -->
-      <CheckboxQuestionItem
+      <QuestionListCheckbox
         v-if="question?.isMultipleChoice"
         :answers="question?.answers ?? []"
         v-model:collected-answers="collectedAnswers"
         v-model:important-answers="importantAnswers"
       />
-      <RadioQuestionItem
+      <QuestionListRadio
         v-else
         :answers="question?.answers ?? []"
         v-model:collected-answers="collectedAnswers"
