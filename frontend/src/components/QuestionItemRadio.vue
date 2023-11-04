@@ -58,9 +58,9 @@ if (isAnswerCollected.value) {
 // and reset the importance
 watch(selectedAnswer, (newValue, oldValue) => {
   collectedAnswers.value.add(newValue)
-  // only remove the previous values if it is not an empty string
-  // empty oldValue string means the section has changed
-  if (!oldValue) {
+  // only remove the answer if it is not an empty string
+  // empty oldValue means section has changed
+  if (oldValue) {
     collectedAnswers.value.delete(oldValue)
     removeImportantAnswer()
   }
