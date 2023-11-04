@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     },
   },
   experimental: {
+    asyncContext: true,
     headNext: true,
     componentIslands: true,
   },
@@ -49,6 +50,7 @@ export default defineNuxtConfig({
   delayHydration: {
     debug: process.env.NODE_ENV === 'development',
     mode: 'mount',
+    exclude: ['/quiz/**'],
   },
 
   // CSS and fonts
@@ -102,6 +104,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': { swr: true },
+    '/quiz/**': { swr: true },
     '/info/**': { static: true },
   },
 

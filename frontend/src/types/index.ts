@@ -11,6 +11,7 @@ export const answer = {
   select: {
     ...answerWithoutQuestionId.select,
     blockedBy: answerWithoutQuestionId,
+    blocks: answerWithoutQuestionId,
   },
 } satisfies Prisma.AnswerDefaultArgs
 

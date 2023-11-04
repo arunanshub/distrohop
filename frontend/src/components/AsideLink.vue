@@ -17,9 +17,11 @@
 </template>
 
 <script setup lang="ts">
+import { type RouteLocationRaw } from '#vue-router'
+
 defineProps<{
   iconName: string
-  to: string
+  to: string | RouteLocationRaw
 }>()
 </script>
 

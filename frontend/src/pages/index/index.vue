@@ -33,10 +33,7 @@
       </IntroItem>
     </ul>
     <div class="mt-4 flex">
-      <button
-        class="justify-end border border-black bg-sky-900 px-4 py-1 text-white hover:bg-white hover:text-gray-900 active:bg-sky-700 active:text-white"
-        @click="startTest"
-      >
+      <button class="btn-primary justify-end" @click="startTest">
         Start test
       </button>
     </div>
@@ -44,9 +41,12 @@
 </template>
 
 <script setup lang="ts">
-const router = useRouter()
+const firstSectionName = useState<string>('firstSectionName')
 
-function startTest() {
-  router.push('/quiz/software/use-case')
+async function startTest() {
+  await navigateTo({
+    name: 'index-quiz-section',
+    params: { section: firstSectionName.value },
+  })
 }
 </script>
