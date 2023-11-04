@@ -6,7 +6,7 @@ import { type Answer } from '~/types'
 const prisma = new PrismaClient({ log: ['query'] })
 
 async function main() {
-  const sections = await prisma.$transaction(
+  const sections = await Promise.all(
     sectionData.map((section) =>
       prisma.section.upsert({
         where: { msgid: section.msgid },
@@ -21,7 +21,7 @@ async function main() {
   // a connection between the answer and their blockedBy fields.
   let answersToBeUpdatedBlockedBy: Answer[] = []
 
-  await prisma.$transaction(
+  await Promise.all(
     questionData.map(({ question, answers }, index) => {
       return prisma.question.upsert({
         update: {},
@@ -58,7 +58,7 @@ async function main() {
   )
 
   // create the connections between the blockedBy field and answers
-  await prisma.$transaction(
+  await Promise.all(
     answersToBeUpdatedBlockedBy.map((answer) => {
       return prisma.answer.update({
         where: { msgid: answer.msgid },
