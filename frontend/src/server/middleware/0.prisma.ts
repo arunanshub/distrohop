@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client/edge'
 
 type ExtendedPrismaClient = ReturnType<typeof getExtendedClient>
 
