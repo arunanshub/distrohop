@@ -58,8 +58,12 @@ if (isAnswerCollected.value) {
 // and reset the importance
 watch(selectedAnswer, (newValue, oldValue) => {
   collectedAnswers.value.add(newValue)
-  collectedAnswers.value.delete(oldValue)
-  removeImportantAnswer()
+  // only remove the previous values if it is not an empty string
+  // empty oldValue string means the section has changed
+  if (!oldValue) {
+    collectedAnswers.value.delete(oldValue)
+    removeImportantAnswer()
+  }
 })
 
 const { conflictingAnswers } = useConflictingAnswers(
