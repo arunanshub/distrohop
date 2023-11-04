@@ -106,6 +106,7 @@ export default defineNuxtConfig({
     '/': { swr: true },
     '/quiz/**': { swr: true },
     '/info/**': { static: true },
+    '/_api/**': { proxy: '/api/**' },
   },
 
   // Development
