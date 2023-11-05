@@ -2,6 +2,8 @@ import { questionWithAnswers, QuestionWithAnswers } from '@/types'
 
 export default defineCachedEventHandler(
   async (event): Promise<QuestionWithAnswers> => {
+    event.node.res.appendHeader('CDN-Cache-Control', '3600')
+
     const prisma = event.context.prisma
     const question = await prisma.question.findFirst({
       where: {
@@ -14,5 +16,5 @@ export default defineCachedEventHandler(
     }
     return question
   },
-  { swr: true, maxAge: 3600 }
+  { swr: true, staleMaxAge: 3_600 }
 )
