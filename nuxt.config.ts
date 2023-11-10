@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     asyncContext: true,
     headNext: true,
     componentIslands: true,
+    inlineSSRStyles: true,
   },
   vue: { defineModel: true },
 
