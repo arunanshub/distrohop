@@ -27,9 +27,6 @@ export default defineNuxtConfig({
     // Performance Optimization
     '@nuxtjs/critters',
     'nuxt-delay-hydration',
-    // State Management
-    '@pinia/nuxt',
-    '@pinia-plugin-persistedstate/nuxt',
     // Content Management
     '@nuxt/content',
     // Utility Functions
