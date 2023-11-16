@@ -40,6 +40,7 @@ async function main() {
                   msgid: blockedBy,
                   mediaSourcePath: null,
                 })),
+                blocks: [], // db will take care of the references
               })
               return {
                 create: {
