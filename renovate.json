@@ -6,5 +6,15 @@
     ":semanticCommitTypeAll(build)",
     ":label(dependencies)",
     ":automergeMinor"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["prisma", "@prisma/client"],
+      "groupName": "Prisma"
+    },
+    {
+      "matchPackagePatterns": ["^@vueuse"],
+      "groupName": "VueUse"
+    }
   ]
 }
