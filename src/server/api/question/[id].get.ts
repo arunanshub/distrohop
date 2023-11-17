@@ -14,5 +14,5 @@ export default defineCachedEventHandler(
     }
     return question
   },
-  { swr: true, staleMaxAge: 1 }
+  { swr: true, staleMaxAge: 300 }
 )
