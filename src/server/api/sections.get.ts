@@ -6,5 +6,5 @@ export default defineCachedEventHandler(
       ...sectionWithQuestionId,
     })
   },
-  { swr: true, staleMaxAge: 1 }
+  { swr: true, staleMaxAge: 300 }
 )
