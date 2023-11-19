@@ -93,6 +93,13 @@ export default defineNuxtConfig({
     compressPublicAssets: { brotli: true, gzip: true },
     minify: true,
     future: { nativeSWR: true },
+    wasm: {
+      rollup: {
+        // vercel-edge provides V8 runtime, hence the node supported modules
+        // will not work. Browser as target means "v8 runtime compatible build"
+        targetEnv: 'browser',
+      },
+    },
   },
   vite: {
     esbuild: {
