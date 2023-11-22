@@ -1,11 +1,22 @@
 import { PrismaClient } from '@prisma/client'
 import { default as questionData } from './question-data.json'
 import { default as sectionData } from './sections.json'
+import distros from './distros.json'
 import { type Answer } from '~/types'
 
 const prisma = new PrismaClient({ log: ['query'] })
 
 async function main() {
+  await prisma.$transaction(
+    distros.map((distro) =>
+      prisma.distribution.upsert({
+        where: { identifier: distro.identifier },
+        update: {},
+        create: { ...distro },
+      })
+    )
+  )
+
   const sections = await prisma.$transaction(
     sectionData.map((section) =>
       prisma.section.upsert({
