@@ -108,10 +108,7 @@ export default defineNuxtConfig({
   },
 
   // Development
-  devtools: {
-    enabled: true,
-    timeline: { enabled: true },
-  },
+  devtools: { enabled: true },
   typescript: {
     strict: true,
     shim: false,
