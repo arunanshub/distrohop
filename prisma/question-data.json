@@ -36,7 +36,7 @@
         "blockedBy": [],
         "mediaSourcePath": null
       },
-      { "msgid": "live-mode-only", "blockedBy": [], "mediaSourcePath": "" }
+      { "msgid": "live-mode-only", "blockedBy": [], "mediaSourcePath": null }
     ]
   },
   {
@@ -50,17 +50,17 @@
       {
         "msgid": "computer-knowledge-answer-beginner",
         "blockedBy": [],
-        "mediaSourcePath": ""
+        "mediaSourcePath": null
       },
       {
         "msgid": "computer-knowledge-answer-advanced",
         "blockedBy": [],
-        "mediaSourcePath": ""
+        "mediaSourcePath": null
       },
       {
         "msgid": "computer-knowledge-answer-professional",
         "blockedBy": [],
-        "mediaSourcePath": ""
+        "mediaSourcePath": null
       }
     ]
   },
@@ -75,12 +75,12 @@
       {
         "msgid": "linux-knowledge-answer-beginner",
         "blockedBy": [],
-        "mediaSourcePath": ""
+        "mediaSourcePath": null
       },
       {
         "msgid": "linux-knowledge-answer-advanced",
         "blockedBy": ["computer-knowledge-answer-beginner"],
-        "mediaSourcePath": ""
+        "mediaSourcePath": null
       },
       {
         "msgid": "linux-knowledge-answer-professional",
@@ -88,7 +88,7 @@
           "computer-knowledge-answer-advanced",
           "computer-knowledge-answer-beginner"
         ],
-        "mediaSourcePath": ""
+        "mediaSourcePath": null
       }
     ]
   },
