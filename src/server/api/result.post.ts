@@ -48,13 +48,13 @@ export default defineEventHandler(async (event) => {
   const created = await prisma.result.create({
     data: {
       importantAnswers: {
-        connect: resp.importantAnswers.map((a) => ({
-          msgid: a,
+        connect: resp.importantAnswers.map((answer) => ({
+          msgid: answer,
         })),
       },
       selectedAnswers: {
-        connect: resp.selectedAnswers.map((a) => ({
-          msgid: a,
+        connect: resp.selectedAnswers.map((answer) => ({
+          msgid: answer,
         })),
       },
     },
