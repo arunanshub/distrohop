@@ -46,21 +46,30 @@ useServerHead({ title: 'Quiz' })
 // set title on the client side here since the <Title /> tag causes render issue
 useHead({ title: 'Quiz' })
 
+definePageMeta({
+  scrollToTop: false,
+  middleware: async (to) => {
+    const currentSection = to.params.section as string
+    const { sections } = await useFetchSection()
+    const isSectionValid = !!sections.value?.find(
+      (s) => s.msgid === currentSection
+    )
+
+    if (!isSectionValid) {
+      return abortNavigation({
+        statusCode: 404,
+        message: `Section '${currentSection}' not found`,
+      })
+    }
+  },
+})
+
 const route = useRoute()
 
 const currentSectionName = computed(() => route.params.section as string)
 
 // fetch caches its arguments so calling it again is no issue
 const { sections } = await useFetchSection()
-
-if (
-  !sections.value?.find((section) => section.msgid === currentSectionName.value)
-) {
-  showError({
-    statusCode: 404,
-    message: `Section '${currentSectionName.value}' not found`,
-  })
-}
 
 const sectionsArray = ref(sections.value ?? [])
 
