@@ -8,6 +8,7 @@ export default defineCachedEventHandler(
         msgid: event.context.params!.id,
       },
       ...questionWithAnswers,
+      cacheStrategy: { swr: 60, ttl: 60 },
     })
     if (!question) {
       throw createError({ statusCode: 404, message: 'Question not found' })
