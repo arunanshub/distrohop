@@ -39,6 +39,8 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     // Icons
     'nuxt-icon',
+    // analytics
+    'nuxt-clarity-analytics',
   ],
 
   // Module Options
