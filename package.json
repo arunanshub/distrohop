@@ -43,6 +43,6 @@
     "postcss-preset-env": "^9.3.0",
     "prisma": "^5.7.1",
     "sass": "^1.69.5",
-    "valibot": "^0.24.1"
+    "valibot": "^0.25.0"
   }
 }
