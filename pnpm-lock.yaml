@@ -27,7 +27,7 @@ dependencies:
     specifier: ^6.10.1
     version: 6.10.4(ts-node@10.9.2)
   '@prisma/client':
-    specifier: ^5.7.1
+    specifier: 5.8.0
     version: 5.8.0(prisma@5.8.0)
   '@prisma/extension-accelerate':
     specifier: ^0.6.2
@@ -51,7 +51,7 @@ dependencies:
     specifier: ^9.3.0
     version: 9.3.0(postcss@8.4.33)
   prisma:
-    specifier: ^5.7.1
+    specifier: 5.8.0
     version: 5.8.0
   sass:
     specifier: ^1.69.5
@@ -2979,6 +2979,7 @@ packages:
 
   /color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+    requiresBuild: true
 
   /color-string@1.9.1:
     resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
