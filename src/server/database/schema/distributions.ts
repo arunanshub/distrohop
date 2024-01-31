@@ -1,0 +1,13 @@
+import { mysqlTable, char, varchar } from 'drizzle-orm/mysql-core'
+
+export const distributions = mysqlTable('distributions', {
+  id: char('id', { length: 36 })
+    .$defaultFn(() => crypto.randomUUID())
+    .primaryKey(),
+  name: varchar('name', { length: 200 }).notNull(),
+  identifier: varchar('name', { length: 200 }).notNull(),
+  fgColor: varchar('fg_color', { length: 50 }),
+  bgColor: varchar('bg_color', { length: 50 }),
+  logo: varchar('logo', { length: 256 }),
+  url: varchar('url', { length: 256 }),
+})
