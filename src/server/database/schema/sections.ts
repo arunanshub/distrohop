@@ -10,6 +10,9 @@ export const sections = mysqlTable('sections', {
   iconName: varchar('icon_name', { length: 100 }).notNull(),
 })
 
-export const sectionsRelations = relations(sections, ({ many }) => ({
-  questions: many(questions),
+export const sectionsRelations = relations(sections, ({ one }) => ({
+  question: one(questions, {
+    fields: [sections.id],
+    references: [questions.sectionId],
+  }),
 }))

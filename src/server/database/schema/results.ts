@@ -31,30 +31,48 @@ export const selectedAnswers = mysqlTable(
   })
 )
 
-export const importantAnswers = mysqlTable('_important_answers', {
-  resultId: char('result_id', { length: 36 })
-    .references(() => results.id, { onDelete: 'cascade', onUpdate: 'cascade' })
-    .notNull(),
-  importantAnswerId: char('important_answer_id', { length: 36 })
-    .references(() => answers.id, { onDelete: 'cascade', onUpdate: 'cascade' })
-    .notNull(),
-})
+export const importantAnswers = mysqlTable(
+  '_important_answers',
+  {
+    resultId: char('result_id', { length: 36 })
+      .references(() => results.id, {
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+      })
+      .notNull(),
+    importantAnswerId: char('important_answer_id', { length: 36 })
+      .references(() => answers.id, {
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
+      })
+      .notNull(),
+  },
+  (t) => ({
+    pk: primaryKey({ columns: [t.resultId, t.importantAnswerId] }),
+  })
+)
 
 export const answersRelations = relations(results, ({ many }) => ({
-  importantAnswers: many(importantAnswers),
   selectedAnswers: many(selectedAnswers),
+  importantAnswers: many(importantAnswers),
 }))
 
 export const selectedAnswersRelations = relations(
   selectedAnswers,
-  ({ many }) => ({
-    results: many(results),
+  ({ one }) => ({
+    result: one(results, {
+      fields: [selectedAnswers.selectedAnswerId],
+      references: [results.id],
+    }),
   })
 )
 
 export const importantAnswersRelations = relations(
-  selectedAnswers,
-  ({ many }) => ({
-    results: many(results),
+  importantAnswers,
+  ({ one }) => ({
+    result: one(results, {
+      fields: [importantAnswers.importantAnswerId],
+      references: [results.id],
+    }),
   })
 )

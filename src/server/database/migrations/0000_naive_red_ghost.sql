@@ -18,6 +18,7 @@ CREATE TABLE `_answers_blocked` (
 CREATE TABLE `distributions` (
 	`id` char(36) NOT NULL,
 	`name` varchar(200) NOT NULL,
+	`identifier` varchar(200) NOT NULL,
 	`fg_color` varchar(50),
 	`bg_color` varchar(50),
 	`logo` varchar(256),
@@ -40,7 +41,8 @@ CREATE TABLE `questions` (
 --> statement-breakpoint
 CREATE TABLE `_important_answers` (
 	`result_id` char(36) NOT NULL,
-	`important_answer_id` char(36) NOT NULL
+	`important_answer_id` char(36) NOT NULL,
+	CONSTRAINT `_important_answers_result_id_important_answer_id_pk` PRIMARY KEY(`result_id`, `important_answer_id`)
 );
 
 --> statement-breakpoint

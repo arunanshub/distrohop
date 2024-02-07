@@ -59,7 +59,7 @@ export const answersBlockedRelations = relations(answersBlocked, ({ one }) => ({
     references: [answers.id],
     relationName: 'blocks',
   }),
-  blocked: one(answers, {
+  blockedBy: one(answers, {
     fields: [answersBlocked.blockedByAnswerId],
     references: [answers.id],
     relationName: 'blocked_by',

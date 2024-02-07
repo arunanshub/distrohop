@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "2a14f3c3-8467-4e0a-a716-e15d5fa7b776",
+  "id": "1b711a21-ad84-429f-a9cd-676008d3f050",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "answers": {
@@ -42,12 +42,8 @@
           "name": "answers_question_id_questions_id_fk",
           "tableFrom": "answers",
           "tableTo": "questions",
-          "columnsFrom": [
-            "question_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["question_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "cascade"
         }
@@ -55,17 +51,13 @@
       "compositePrimaryKeys": {
         "answers_id": {
           "name": "answers_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "answers_msgid_unique": {
           "name": "answers_msgid_unique",
-          "columns": [
-            "msgid"
-          ]
+          "columns": ["msgid"]
         }
       }
     },
@@ -93,12 +85,8 @@
           "name": "_answers_blocked_answer_id_answers_id_fk",
           "tableFrom": "_answers_blocked",
           "tableTo": "answers",
-          "columnsFrom": [
-            "answer_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["answer_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "cascade"
         },
@@ -106,12 +94,8 @@
           "name": "_answers_blocked_blocked_by_answer_id_answers_id_fk",
           "tableFrom": "_answers_blocked",
           "tableTo": "answers",
-          "columnsFrom": [
-            "blocked_by_answer_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["blocked_by_answer_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "cascade"
         }
@@ -119,10 +103,7 @@
       "compositePrimaryKeys": {
         "_answers_blocked_blocked_by_answer_id_answer_id_pk": {
           "name": "_answers_blocked_blocked_by_answer_id_answer_id_pk",
-          "columns": [
-            "blocked_by_answer_id",
-            "answer_id"
-          ]
+          "columns": ["blocked_by_answer_id", "answer_id"]
         }
       },
       "uniqueConstraints": {}
@@ -139,6 +120,13 @@
         },
         "name": {
           "name": "name",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "identifier": {
+          "name": "identifier",
           "type": "varchar(200)",
           "primaryKey": false,
           "notNull": true,
@@ -178,9 +166,7 @@
       "compositePrimaryKeys": {
         "distributions_id": {
           "name": "distributions_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {}
@@ -239,12 +225,8 @@
           "name": "questions_section_id_sections_id_fk",
           "tableFrom": "questions",
           "tableTo": "sections",
-          "columnsFrom": [
-            "section_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["section_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "cascade"
         }
@@ -252,17 +234,13 @@
       "compositePrimaryKeys": {
         "questions_id": {
           "name": "questions_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "questions_msgid_unique": {
           "name": "questions_msgid_unique",
-          "columns": [
-            "msgid"
-          ]
+          "columns": ["msgid"]
         }
       }
     },
@@ -290,12 +268,8 @@
           "name": "_important_answers_result_id_results_id_fk",
           "tableFrom": "_important_answers",
           "tableTo": "results",
-          "columnsFrom": [
-            "result_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["result_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "cascade"
         },
@@ -303,17 +277,18 @@
           "name": "_important_answers_important_answer_id_answers_id_fk",
           "tableFrom": "_important_answers",
           "tableTo": "answers",
-          "columnsFrom": [
-            "important_answer_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["important_answer_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "cascade"
         }
       },
-      "compositePrimaryKeys": {},
+      "compositePrimaryKeys": {
+        "_important_answers_result_id_important_answer_id_pk": {
+          "name": "_important_answers_result_id_important_answer_id_pk",
+          "columns": ["result_id", "important_answer_id"]
+        }
+      },
       "uniqueConstraints": {}
     },
     "results": {
@@ -340,9 +315,7 @@
       "compositePrimaryKeys": {
         "results_id": {
           "name": "results_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {}
@@ -371,12 +344,8 @@
           "name": "_selected_answers_result_id_results_id_fk",
           "tableFrom": "_selected_answers",
           "tableTo": "results",
-          "columnsFrom": [
-            "result_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["result_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "cascade"
         },
@@ -384,12 +353,8 @@
           "name": "_selected_answers_selected_answer_id_answers_id_fk",
           "tableFrom": "_selected_answers",
           "tableTo": "answers",
-          "columnsFrom": [
-            "selected_answer_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["selected_answer_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "cascade"
         }
@@ -397,10 +362,7 @@
       "compositePrimaryKeys": {
         "_selected_answers_result_id_selected_answer_id_pk": {
           "name": "_selected_answers_result_id_selected_answer_id_pk",
-          "columns": [
-            "result_id",
-            "selected_answer_id"
-          ]
+          "columns": ["result_id", "selected_answer_id"]
         }
       },
       "uniqueConstraints": {}
@@ -435,17 +397,13 @@
       "compositePrimaryKeys": {
         "sections_id": {
           "name": "sections_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "sections_msgid_unique": {
           "name": "sections_msgid_unique",
-          "columns": [
-            "msgid"
-          ]
+          "columns": ["msgid"]
         }
       }
     }
