@@ -1,4 +1,4 @@
-import { getDb, type DatabaseClient } from '~/server/database/db'
+import { type DatabaseClient, getDb } from '~/server/database/db'
 
 let db: DatabaseClient | null = null
 
@@ -9,8 +9,9 @@ declare module 'h3' {
 }
 
 export default defineEventHandler((event) => {
+  const config = useRuntimeConfig(event)
   if (!db) {
-    db = getDb(process.env.DATABASE_URL!)
+    db = getDb(config.databaseUrl)
   }
   event.context.db = db
 })
