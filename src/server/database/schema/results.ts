@@ -1,5 +1,5 @@
 import { relations } from 'drizzle-orm'
-import { mysqlTable, char, timestamp, primaryKey } from 'drizzle-orm/mysql-core'
+import { char, mysqlTable, primaryKey, timestamp } from 'drizzle-orm/mysql-core'
 import { answers } from './answers'
 
 export const results = mysqlTable('results', {
@@ -28,7 +28,7 @@ export const selectedAnswers = mysqlTable(
 
   (t) => ({
     pk: primaryKey({ columns: [t.resultId, t.selectedAnswerId] }),
-  })
+  }),
 )
 
 export const importantAnswers = mysqlTable(
@@ -49,7 +49,7 @@ export const importantAnswers = mysqlTable(
   },
   (t) => ({
     pk: primaryKey({ columns: [t.resultId, t.importantAnswerId] }),
-  })
+  }),
 )
 
 export const answersRelations = relations(results, ({ many }) => ({
@@ -64,7 +64,7 @@ export const selectedAnswersRelations = relations(
       fields: [selectedAnswers.selectedAnswerId],
       references: [results.id],
     }),
-  })
+  }),
 )
 
 export const importantAnswersRelations = relations(
@@ -74,5 +74,5 @@ export const importantAnswersRelations = relations(
       fields: [importantAnswers.importantAnswerId],
       references: [results.id],
     }),
-  })
+  }),
 )

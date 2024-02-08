@@ -1,11 +1,11 @@
-import {
-  mysqlTable,
-  char,
-  varchar,
-  primaryKey,
-  index,
-} from 'drizzle-orm/mysql-core'
 import { relations } from 'drizzle-orm'
+import {
+  char,
+  index,
+  mysqlTable,
+  primaryKey,
+  varchar,
+} from 'drizzle-orm/mysql-core'
 import { questions } from './questions'
 
 export const answers = mysqlTable('answers', {
@@ -50,7 +50,7 @@ export const answersBlocked = mysqlTable(
   },
   (t) => ({
     pk: primaryKey({ columns: [t.blockedByAnswerId, t.answerId] }),
-  })
+  }),
 )
 
 export const answersBlockedRelations = relations(answersBlocked, ({ one }) => ({

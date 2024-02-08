@@ -1,4 +1,4 @@
-import { mysqlTable, char, varchar } from 'drizzle-orm/mysql-core'
+import { char, mysqlTable, varchar } from 'drizzle-orm/mysql-core'
 
 export const distributions = mysqlTable('distributions', {
   id: char('id', { length: 36 })

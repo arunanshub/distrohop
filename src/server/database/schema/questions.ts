@@ -1,13 +1,13 @@
-import {
-  mysqlTable,
-  char,
-  varchar,
-  boolean,
-  index,
-} from 'drizzle-orm/mysql-core'
-import { sections } from './sections'
 import { relations } from 'drizzle-orm'
+import {
+  boolean,
+  char,
+  index,
+  mysqlTable,
+  varchar,
+} from 'drizzle-orm/mysql-core'
 import { answers } from './answers'
+import { sections } from './sections'
 
 export const questions = mysqlTable('questions', {
   id: char('id', { length: 36 })

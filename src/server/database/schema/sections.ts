@@ -1,5 +1,5 @@
 import { relations } from 'drizzle-orm'
-import { mysqlTable, char, varchar } from 'drizzle-orm/mysql-core'
+import { char, mysqlTable, varchar } from 'drizzle-orm/mysql-core'
 import { questions } from './questions'
 
 export const sections = mysqlTable('sections', {
