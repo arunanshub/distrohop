@@ -1,21 +1,20 @@
-import { getDb } from '~/server/database/db'
-import * as section from '~/server/crud/section'
-import * as question from '~/server/crud/question'
+import { sql } from 'drizzle-orm'
+import { groupBy, mapValues } from 'lodash-es'
 import * as answer from '~/server/crud/answer'
+import * as question from '~/server/crud/question'
+import * as section from '~/server/crud/section'
+import { getDb } from '~/server/database/db'
+import { distributions } from '~/server/database/schema/distributions'
 import distros from '~~/prisma/distros.json'
 import { default as questionData } from '~~/prisma/question-data.json'
 import { default as sectionData } from '~~/prisma/sections.json'
-import { distributions } from '~/server/database/schema/distributions'
-import { sql } from 'drizzle-orm'
-import { groupBy, mapValues } from 'lodash-es'
 
 async function main() {
-  const db = getDb(process.env.DATABASE_URL!)
-  // await db.delete(distributions)
-  // await db.delete(questions)
-  // await db.delete(answers)
-  // await db.delete(sections)
-  // await db.delete(answersBlocked)
+  const databaseUrl = process.env.DATABASE_URL
+  if (!databaseUrl) {
+    throw Error('database URL not found')
+  }
+  const db = getDb(databaseUrl)
 
   // create the distros
   await Promise.all(
@@ -23,36 +22,47 @@ async function main() {
       db
         .insert(distributions)
         .values({ ...distro })
-        .onDuplicateKeyUpdate({ set: { id: sql`id` } })
-    )
+        .onDuplicateKeyUpdate({ set: { id: sql`id` } }),
+    ),
   )
 
   // create the sections
   const createdSections = await Promise.all(
-    sectionData.map(async (s) => section.createSection(db, s))
+    sectionData.map(async (s) => section.createSection(db, s)),
   )
 
   // create the questions and the associated answers
   await Promise.all(
     questionData.map(async ({ question: q, answers: ans }, ix) => {
       return db.transaction(async (tx) => {
+        const id = createdSections[ix]?.id
         const createdQuestion = await question.createQuestion(tx, {
           ...q,
-          sectionId: createdSections[ix]?.id!,
+          sectionId: id as NonNullable<typeof id>,
         })
         // create answers related to question `q`
         await answer.createAnswers(
           tx,
-          ans.map((a) => ({ questionId: createdQuestion?.id!, ...a }))
+          ans.map((a) => ({ questionId: createdQuestion?.id, ...a })),
         )
         return createdQuestion
       })
-    })
+    }),
   )
 
   const answersGroupedByMsgid = mapValues(
-    groupBy(questionData.map((q) => q.answers).flat(), (ans) => ans.msgid),
-    (v) => v[0]
+    groupBy(
+      questionData.flatMap(
+        (q) =>
+          q.answers as {
+            msgid: string
+            blockedBy: string[]
+            mediaSourcePath: string | null
+          }[],
+      ),
+      (ans) => ans.msgid,
+    ),
+    (v) => v[0],
   )
 
   await Promise.all(
@@ -60,8 +70,8 @@ async function main() {
       if (!blockedBy.length) {
         return
       }
-      return answer.addAnswerBlockedBy(db, msgid, blockedBy!)
-    })
+      return answer.addAnswerBlockedBy(db, msgid, blockedBy)
+    }),
   )
 }
 
