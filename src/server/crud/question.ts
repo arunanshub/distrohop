@@ -29,7 +29,7 @@ export async function getQuestionByMsgidWithoutIdWithAnswers(
         columns: { id: false, questionId: false },
         with: {
           blocks: {
-            with: { answer: { columns: { msgid: true } } },
+            with: { blockedBy: { columns: { msgid: true } } },
             columns: {},
           },
           blockedBy: {
@@ -42,6 +42,12 @@ export async function getQuestionByMsgidWithoutIdWithAnswers(
     columns: { id: false, sectionId: false },
   })
 }
+
+export type QuestionWithAnswers = NonNullable<
+  Awaited<ReturnType<typeof getQuestionByMsgidWithoutIdWithAnswers>>
+>
+
+export type AnswerWithBlocksBlockedBy = QuestionWithAnswers['answers'][number]
 
 export async function createQuestion(
   db: DatabaseClient,
