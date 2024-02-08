@@ -17,10 +17,10 @@
 </template>
 
 <script setup lang="ts">
-import type { Answer } from '@/types'
+import type { AnswerWithBlockedBlockedBy } from '@/server/crud/answer'
 
 defineProps<{
-  answers: Answer[]
+  answers: AnswerWithBlockedBlockedBy[]
 }>()
 
 const collectedAnswers = defineModel<Set<string>>('collectedAnswers', {

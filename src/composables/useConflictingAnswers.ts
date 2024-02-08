@@ -1,11 +1,14 @@
-import type { Answer } from '~/types'
+import type { AnswerWithBlockedBlockedBy } from '~/server/crud/answer'
 
-export default (collectedAnswers: Ref<Set<string>>, answer: Answer) => {
+export default (
+  collectedAnswers: Ref<Set<string>>,
+  answer: AnswerWithBlockedBlockedBy,
+) => {
   const conflictingAnswers = computed(() =>
     answer.blockedBy
       .concat(answer.blocks)
-      .map((ans) => ans.msgid)
-      .filter((ans) => collectedAnswers.value.has(ans))
+      .map((ans) => ans.answer.msgid)
+      .filter((ans) => collectedAnswers.value.has(ans)),
   )
 
   return { conflictingAnswers } as const

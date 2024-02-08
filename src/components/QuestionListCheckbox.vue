@@ -16,10 +16,15 @@
 </template>
 
 <script setup lang="ts">
-import type { Answer } from '@/types'
+// FIXME: currently there is no proper way to add types to
+// attribute of a bigger query. Here, answer actually comes from
+// a query for question by msgid. the answer is a part of the query
+// but there is no specific type to represent that.
+// For reference: https://github.com/drizzle-team/drizzle-orm/issues/695
+import type { AnswerWithBlockedBlockedBy } from '@/server/crud/answer'
 
 defineProps<{
-  answers: Answer[]
+  answers: AnswerWithBlockedBlockedBy[]
 }>()
 
 const collectedAnswers = defineModel<Set<string>>('collectedAnswers', {
