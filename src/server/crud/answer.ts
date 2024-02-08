@@ -1,4 +1,4 @@
-import { DatabaseClient } from '@/server/database/db'
+import type { DatabaseClient } from '@/server/database/db'
 import { answers, answersBlocked } from '../database/schema/answers'
 
 export async function getAnswerByMsgid(db: DatabaseClient, msgid: string) {
@@ -6,11 +6,23 @@ export async function getAnswerByMsgid(db: DatabaseClient, msgid: string) {
     where: (answers, { eq }) => {
       return eq(answers.msgid, msgid)
     },
+    columns: { id: false, questionId: false },
     with: {
-      question: { columns: { msgid: true } },
+      blocks: {
+        with: { answer: { columns: { msgid: true } } },
+        columns: {},
+      },
+      blockedBy: {
+        with: { answer: { columns: { msgid: true } } },
+        columns: {},
+      },
     },
   })
 }
+
+export type AnswerWithBlockedBlockedBy = NonNullable<
+  Awaited<ReturnType<typeof getAnswerByMsgid>>
+>
 
 export async function getAnswersByMsgids(db: DatabaseClient, msgids: string[]) {
   return await db.query.answers.findMany({
@@ -20,28 +32,29 @@ export async function getAnswersByMsgids(db: DatabaseClient, msgids: string[]) {
     with: {
       question: { columns: { msgid: true } },
     },
+    columns: { id: false },
   })
 }
 
 export async function createAnswer(
   db: DatabaseClient,
-  value: typeof answers.$inferInsert
+  value: typeof answers.$inferInsert,
 ) {
   return await db.transaction(async (tx) => {
     await tx.insert(answers).values(value)
-    return await getAnswerByMsgid(tx, value.msgid!)
+    return await getAnswerByMsgid(tx, value.msgid)
   })
 }
 
 export async function createAnswers(
   db: DatabaseClient,
-  values: (typeof answers.$inferInsert)[]
+  values: (typeof answers.$inferInsert)[],
 ) {
   return await db.transaction(async (tx) => {
     await tx.insert(answers).values(values)
     return await getAnswersByMsgids(
       tx,
-      values.map((v) => v.msgid)
+      values.map((v) => v.msgid),
     )
   })
 }
@@ -49,7 +62,7 @@ export async function createAnswers(
 export async function addAnswerBlockedBy(
   db: DatabaseClient,
   answerMsgid: string,
-  blockedByMsgids: string[]
+  blockedByMsgids: string[],
 ) {
   // get the answer id
   const answerId = await db.query.answers.findFirst({
@@ -71,7 +84,7 @@ export async function addAnswerBlockedBy(
       blockedByIds.map(({ id }) => ({
         answerId: answerId.id,
         blockedByAnswerId: id,
-      }))
+      })),
     )
   })
 
@@ -84,5 +97,6 @@ export async function addAnswerBlockedBy(
         with: { answer: { columns: { msgid: true } } },
       },
     },
+    columns: { id: false },
   })
 }

@@ -1,13 +1,14 @@
-import { DatabaseClient } from '@/server/database/db'
+import type { DatabaseClient } from '@/server/database/db'
+import type { SetOptional } from 'type-fest'
 import { sections } from '~/server/database/schema/sections'
 
-export async function getSections(db: DatabaseClient, limit: number = 0) {
-  return await db.query.sections.findMany({
+export async function getSectionsWithoutId(db: DatabaseClient, limit = 0) {
+  const sections = await db.query.sections.findMany({
     limit: limit <= 0 ? undefined : limit,
-    with: {
-      questions: { columns: { id: true } },
-    },
+    columns: { id: false },
+    with: { question: { columns: { msgid: true } } },
   })
+  return sections as SectionWithoutId[]
 }
 
 export async function getSectionByMsgid(db: DatabaseClient, msgid: string) {
@@ -15,12 +16,30 @@ export async function getSectionByMsgid(db: DatabaseClient, msgid: string) {
     where(sections, { eq }) {
       return eq(sections.msgid, msgid)
     },
+    with: { question: { columns: { msgid: true } } },
   })
 }
 
+export async function getSectionByMsgidWithoutId(
+  db: DatabaseClient,
+  msgid: string,
+) {
+  return await db.query.sections.findFirst({
+    where(sections, { eq }) {
+      return eq(sections.msgid, msgid)
+    },
+    with: { question: { columns: { msgid: true } } },
+  })
+}
+
+export type SectionWithoutId = SetOptional<
+  NonNullable<Awaited<ReturnType<typeof getSectionByMsgidWithoutId>>>,
+  'question'
+>
+
 export async function createSection(
   db: DatabaseClient,
-  value: typeof sections.$inferInsert
+  value: typeof sections.$inferInsert,
 ) {
   return await db.transaction(async (tx) => {
     await tx.insert(sections).values(value)
