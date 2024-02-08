@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import type { AnswerWithBlockedBlockedBy } from '@/server/crud/answer'
+import type { AnswerWithBlocksBlockedBy } from '@/server/crud/question'
 
 const collectedAnswers = defineModel<Set<string>>('collectedAnswers', {
   required: true,
@@ -41,9 +41,9 @@ const selectedAnswer = defineModel<string>({ required: true })
 
 const props = defineProps<{
   // this answer
-  answer: AnswerWithBlockedBlockedBy
+  answer: AnswerWithBlocksBlockedBy
   // the answers that are a part of a specific question
-  currentAnswers: AnswerWithBlockedBlockedBy[]
+  currentAnswers: AnswerWithBlocksBlockedBy[]
 }>()
 
 const isAnswerCollected = computed(() =>

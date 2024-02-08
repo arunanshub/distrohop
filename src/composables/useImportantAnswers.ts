@@ -1,8 +1,8 @@
-import type { AnswerWithBlockedBlockedBy } from '~/server/crud/answer'
+import type { AnswerWithBlocksBlockedBy } from '~/server/crud/question'
 
 export default (
   importantAnswers: Ref<Set<string>>,
-  currentAnswer: AnswerWithBlockedBlockedBy,
+  currentAnswer: AnswerWithBlocksBlockedBy,
 ) => {
   const isAnswerImportant = computed(() => {
     return importantAnswers.value.has(currentAnswer.msgid)

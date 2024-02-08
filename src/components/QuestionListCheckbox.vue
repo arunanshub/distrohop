@@ -21,10 +21,10 @@
 // a query for question by msgid. the answer is a part of the query
 // but there is no specific type to represent that.
 // For reference: https://github.com/drizzle-team/drizzle-orm/issues/695
-import type { AnswerWithBlockedBlockedBy } from '@/server/crud/answer'
+import type { AnswerWithBlocksBlockedBy } from '@/server/crud/question'
 
 defineProps<{
-  answers: AnswerWithBlockedBlockedBy[]
+  answers: AnswerWithBlocksBlockedBy[]
 }>()
 
 const collectedAnswers = defineModel<Set<string>>('collectedAnswers', {
