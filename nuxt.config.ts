@@ -102,10 +102,12 @@ export default defineNuxtConfig({
     '/': { swr: true },
     '/quiz/**': { swr: true },
     '/info/**': { static: true },
-    '/_api/**': { proxy: '/api/**' },
+  },
+  runtimeConfig: {
+    databaseUrl: process.env.DATABASE_URL,
   },
 
-  // Development
+ // Development
   devtools: { enabled: true },
   typescript: {
     strict: true,
