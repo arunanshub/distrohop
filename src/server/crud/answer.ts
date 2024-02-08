@@ -1,4 +1,5 @@
 import type { DatabaseClient } from '@/server/database/db'
+import { eq } from 'drizzle-orm'
 import { answers, answersBlocked } from '../database/schema/answers'
 
 export async function getAnswerByMsgid(db: DatabaseClient, msgid: string) {
@@ -6,23 +7,8 @@ export async function getAnswerByMsgid(db: DatabaseClient, msgid: string) {
     where: (answers, { eq }) => {
       return eq(answers.msgid, msgid)
     },
-    columns: { id: false, questionId: false },
-    with: {
-      blocks: {
-        with: { answer: { columns: { msgid: true } } },
-        columns: {},
-      },
-      blockedBy: {
-        with: { answer: { columns: { msgid: true } } },
-        columns: {},
-      },
-    },
   })
 }
-
-export type AnswerWithBlockedBlockedBy = NonNullable<
-  Awaited<ReturnType<typeof getAnswerByMsgid>>
->
 
 export async function getAnswersByMsgids(db: DatabaseClient, msgids: string[]) {
   return await db.query.answers.findMany({
