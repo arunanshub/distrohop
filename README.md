@@ -1,5 +1,7 @@
 # Distrohop
 
+[![CI](https://github.com/arunanshub/distrohop/actions/workflows/ci.yml/badge.svg)](https://github.com/arunanshub/distrohop/actions/workflows/ci.yml)
+
 ## Introduction
 
 This is the source code of Distrohop.
@@ -18,7 +20,6 @@ Ensure you have [Pnpm](https://pnpm.io/) installed for the best experience.
 
 ### Environment Variables
 
-- `DIRECT_URL`: Your direct connection database URL.
 - `DATABASE_URL`: Your pooled database URL.
 
 Handle these variables securely in a separate `.env` file for data protection.
