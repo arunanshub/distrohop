@@ -1,0 +1,417 @@
+{
+  "version": "5",
+  "dialect": "mysql",
+  "id": "1b711a21-ad84-429f-a9cd-676008d3f050",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "answers": {
+      "name": "answers",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "msgid": {
+          "name": "msgid",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "media_source_path": {
+          "name": "media_source_path",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "question_id": {
+          "name": "question_id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "answers_question_id_questions_id_fk": {
+          "name": "answers_question_id_questions_id_fk",
+          "tableFrom": "answers",
+          "tableTo": "questions",
+          "columnsFrom": ["question_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {
+        "answers_id": {
+          "name": "answers_id",
+          "columns": ["id"]
+        }
+      },
+      "uniqueConstraints": {
+        "answers_msgid_unique": {
+          "name": "answers_msgid_unique",
+          "columns": ["msgid"]
+        }
+      }
+    },
+    "_answers_blocked": {
+      "name": "_answers_blocked",
+      "columns": {
+        "answer_id": {
+          "name": "answer_id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "blocked_by_answer_id": {
+          "name": "blocked_by_answer_id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "_answers_blocked_answer_id_answers_id_fk": {
+          "name": "_answers_blocked_answer_id_answers_id_fk",
+          "tableFrom": "_answers_blocked",
+          "tableTo": "answers",
+          "columnsFrom": ["answer_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        },
+        "_answers_blocked_blocked_by_answer_id_answers_id_fk": {
+          "name": "_answers_blocked_blocked_by_answer_id_answers_id_fk",
+          "tableFrom": "_answers_blocked",
+          "tableTo": "answers",
+          "columnsFrom": ["blocked_by_answer_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {
+        "_answers_blocked_blocked_by_answer_id_answer_id_pk": {
+          "name": "_answers_blocked_blocked_by_answer_id_answer_id_pk",
+          "columns": ["blocked_by_answer_id", "answer_id"]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "distributions": {
+      "name": "distributions",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "identifier": {
+          "name": "identifier",
+          "type": "varchar(200)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "fg_color": {
+          "name": "fg_color",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "bg_color": {
+          "name": "bg_color",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "logo": {
+          "name": "logo",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "url": {
+          "name": "url",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "distributions_id": {
+          "name": "distributions_id",
+          "columns": ["id"]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "questions": {
+      "name": "questions",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "msgid": {
+          "name": "msgid",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "is_multiple_choice": {
+          "name": "is_multiple_choice",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": false
+        },
+        "is_media_question": {
+          "name": "is_media_question",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": false
+        },
+        "additional_info": {
+          "name": "additional_info",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "section_id": {
+          "name": "section_id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "questions_section_id_sections_id_fk": {
+          "name": "questions_section_id_sections_id_fk",
+          "tableFrom": "questions",
+          "tableTo": "sections",
+          "columnsFrom": ["section_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {
+        "questions_id": {
+          "name": "questions_id",
+          "columns": ["id"]
+        }
+      },
+      "uniqueConstraints": {
+        "questions_msgid_unique": {
+          "name": "questions_msgid_unique",
+          "columns": ["msgid"]
+        }
+      }
+    },
+    "_important_answers": {
+      "name": "_important_answers",
+      "columns": {
+        "result_id": {
+          "name": "result_id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "important_answer_id": {
+          "name": "important_answer_id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "_important_answers_result_id_results_id_fk": {
+          "name": "_important_answers_result_id_results_id_fk",
+          "tableFrom": "_important_answers",
+          "tableTo": "results",
+          "columnsFrom": ["result_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        },
+        "_important_answers_important_answer_id_answers_id_fk": {
+          "name": "_important_answers_important_answer_id_answers_id_fk",
+          "tableFrom": "_important_answers",
+          "tableTo": "answers",
+          "columnsFrom": ["important_answer_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {
+        "_important_answers_result_id_important_answer_id_pk": {
+          "name": "_important_answers_result_id_important_answer_id_pk",
+          "columns": ["result_id", "important_answer_id"]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "results": {
+      "name": "results",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(now())"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "results_id": {
+          "name": "results_id",
+          "columns": ["id"]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "_selected_answers": {
+      "name": "_selected_answers",
+      "columns": {
+        "result_id": {
+          "name": "result_id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "selected_answer_id": {
+          "name": "selected_answer_id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "_selected_answers_result_id_results_id_fk": {
+          "name": "_selected_answers_result_id_results_id_fk",
+          "tableFrom": "_selected_answers",
+          "tableTo": "results",
+          "columnsFrom": ["result_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        },
+        "_selected_answers_selected_answer_id_answers_id_fk": {
+          "name": "_selected_answers_selected_answer_id_answers_id_fk",
+          "tableFrom": "_selected_answers",
+          "tableTo": "answers",
+          "columnsFrom": ["selected_answer_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {
+        "_selected_answers_result_id_selected_answer_id_pk": {
+          "name": "_selected_answers_result_id_selected_answer_id_pk",
+          "columns": ["result_id", "selected_answer_id"]
+        }
+      },
+      "uniqueConstraints": {}
+    },
+    "sections": {
+      "name": "sections",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "char(36)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "msgid": {
+          "name": "msgid",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "icon_name": {
+          "name": "icon_name",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "sections_id": {
+          "name": "sections_id",
+          "columns": ["id"]
+        }
+      },
+      "uniqueConstraints": {
+        "sections_msgid_unique": {
+          "name": "sections_msgid_unique",
+          "columns": ["msgid"]
+        }
+      }
+    }
+  },
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

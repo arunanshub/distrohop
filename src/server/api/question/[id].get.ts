@@ -1,19 +1,22 @@
-import { questionWithAnswers, QuestionWithAnswers } from '@/types'
+import { maxLength, minLength, parse, string } from 'valibot'
+import { getQuestionByMsgidWithoutIdWithAnswers } from '~/server/crud/question'
+
+const schema = string([minLength(1), maxLength(255)])
 
 export default defineCachedEventHandler(
-  async (event): Promise<QuestionWithAnswers> => {
-    const prisma = event.context.prisma
-    const question = await prisma.question.findFirst({
-      where: {
-        msgid: event.context.params!.id,
-      },
-      ...questionWithAnswers,
-      cacheStrategy: { swr: 60, ttl: 60 },
-    })
+  async (event) => {
+    // biome-ignore lint/suspicious/noExplicitAny: `v` is router params obj
+    const id = await getValidatedRouterParams(event, (v: any) =>
+      parse(schema, v.id),
+    )
+    const question = await getQuestionByMsgidWithoutIdWithAnswers(
+      event.context.db,
+      id,
+    )
     if (!question) {
       throw createError({ statusCode: 404, message: 'Question not found' })
     }
     return question
   },
-  { swr: true, staleMaxAge: 300 }
+  { swr: true, staleMaxAge: 3600, maxAge: 3600 },
 )

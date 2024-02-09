@@ -107,7 +107,7 @@ export default defineNuxtConfig({
     databaseUrl: process.env.DATABASE_URL,
   },
 
- // Development
+  // Development
   devtools: { enabled: true },
   typescript: {
     strict: true,

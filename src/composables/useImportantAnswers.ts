@@ -1,6 +1,9 @@
-import { type Answer } from '~/types'
+import type { AnswerWithBlocksBlockedBy } from '~/server/crud/question'
 
-export default (importantAnswers: Ref<Set<string>>, currentAnswer: Answer) => {
+export default (
+  importantAnswers: Ref<Set<string>>,
+  currentAnswer: AnswerWithBlocksBlockedBy,
+) => {
   const isAnswerImportant = computed(() => {
     return importantAnswers.value.has(currentAnswer.msgid)
   })

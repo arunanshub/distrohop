@@ -80,7 +80,6 @@ const currentSectionName = computed(() => route.params.section as string)
 const { sections } = await useFetchSection()
 
 const sectionsArray = ref(sections.value ?? [])
-
 const {
   currentSection,
   nextSection,
@@ -88,6 +87,7 @@ const {
   goToNextSection,
   goToPreviousSection,
 } = useSectionNav(currentSectionName, sectionsArray)
+
 const { question, pending: questionPending } =
   await useFetchQuestion(currentSection)
 
