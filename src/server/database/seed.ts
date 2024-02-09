@@ -5,9 +5,9 @@ import * as question from '~/server/crud/question'
 import * as section from '~/server/crud/section'
 import { getDb } from '~/server/database/db'
 import { distributions } from '~/server/database/schema/distributions'
-import distros from '~~/prisma/distros.json'
-import { default as questionData } from '~~/prisma/question-data.json'
-import { default as sectionData } from '~~/prisma/sections.json'
+import distros from '~~/seed-data/distros.json'
+import questionData from '~~/seed-data/question-data.json'
+import sectionData from '~~/seed-data/sections.json'
 
 async function main() {
   const databaseUrl = process.env.DATABASE_URL
