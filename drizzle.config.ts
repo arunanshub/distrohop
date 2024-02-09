@@ -6,7 +6,6 @@ export default {
   schema: 'src/server/database/schema/*',
   driver: 'mysql2',
   dbCredentials: {
-    uri: process.env.DATABASE_URL!,
-    database: process.env.DATABASE_NAME!,
+    uri: process.env.DATABASE_URL as NonNullable<string>,
   },
 } satisfies Config

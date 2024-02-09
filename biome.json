@@ -14,5 +14,10 @@
   },
   "javascript": {
     "formatter": { "semicolons": "asNeeded", "quoteStyle": "single" }
+  },
+  "vcs": {
+    "enabled": true,
+    "useIgnoreFile": true,
+    "clientKind": "git"
   }
 }
