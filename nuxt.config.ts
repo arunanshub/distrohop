@@ -16,9 +16,7 @@ export default defineNuxtConfig({
     asyncContext: true,
     headNext: true,
     componentIslands: true,
-    inlineSSRStyles: true,
   },
-  vue: { defineModel: true },
 
   // Modules
   modules: [
@@ -104,14 +102,15 @@ export default defineNuxtConfig({
     '/': { swr: true },
     '/quiz/**': { swr: true },
     '/info/**': { static: true },
-    '/_api/**': { proxy: '/api/**' },
+  },
+  runtimeConfig: {
+    databaseUrl: process.env.DATABASE_URL,
   },
 
-  // Development
+ // Development
   devtools: { enabled: true },
   typescript: {
     strict: true,
-    shim: false,
     tsConfig: {
       compilerOptions: {
         types: ['@types/node'],
