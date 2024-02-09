@@ -19,25 +19,14 @@ export default defineNuxtConfig({
   },
 
   // Modules
-  modules: [
-    // Image Handling and Optimization
-    '@nuxt/image',
-    // Performance Optimization
-    '@nuxtjs/critters',
-    'nuxt-delay-hydration',
-    // Content Management
-    '@nuxt/content',
-    // Utility Functions
-    '@vueuse/nuxt',
-    // Fonts and Typography
-    '@nuxtjs/fontaine',
-    '@nuxtjs/google-fonts',
-    '@nuxtjs/tailwindcss',
-    // SEO and Crawling
-    '@nuxtjs/robots',
-    // Icons
-    'nuxt-icon',
-  ],
+  modules: [// Image Handling and Optimization
+  '@nuxt/image', // Performance Optimization
+  '@nuxtjs/critters', 'nuxt-delay-hydration', // Content Management
+  '@nuxt/content', // Utility Functions
+  '@vueuse/nuxt', // Fonts and Typography
+  '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@nuxtjs/tailwindcss', // SEO and Crawling
+  '@nuxtjs/robots', // Icons
+  'nuxt-icon', "nuxt-build-cache"],
 
   // Module Options
   content: {
