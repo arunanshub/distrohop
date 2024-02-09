@@ -1,5 +1,5 @@
-import browserslistToEsbuild from 'browserslist-to-esbuild'
 import tailwindTypography from '@tailwindcss/typography'
+import browserslistToEsbuild from 'browserslist-to-esbuild'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   srcDir: 'src/',
   app: {
     head: {
-      titleTemplate: `%s · Distrohop`,
+      titleTemplate: '%s · Distrohop',
       // manually add lang until we use nuxt-i18n
       htmlAttrs: { lang: 'en' },
     },
@@ -19,14 +19,26 @@ export default defineNuxtConfig({
   },
 
   // Modules
-  modules: [// Image Handling and Optimization
-  '@nuxt/image', // Performance Optimization
-  '@nuxtjs/critters', 'nuxt-delay-hydration', // Content Management
-  '@nuxt/content', // Utility Functions
-  '@vueuse/nuxt', // Fonts and Typography
-  '@nuxtjs/fontaine', '@nuxtjs/google-fonts', '@nuxtjs/tailwindcss', // SEO and Crawling
-  '@nuxtjs/robots', // Icons
-  'nuxt-icon', "nuxt-build-cache"],
+  modules: [
+    // Image Handling and Optimization
+    '@nuxt/image',
+    // Performance Optimization
+    '@nuxtjs/critters',
+    'nuxt-delay-hydration',
+    // Content Management
+    '@nuxt/content',
+    // Utility Functions
+    '@vueuse/nuxt',
+    // Fonts and Typography
+    '@nuxtjs/fontaine',
+    '@nuxtjs/google-fonts',
+    '@nuxtjs/tailwindcss',
+    // SEO and Crawling
+    '@nuxtjs/robots',
+    // Icons
+    'nuxt-icon',
+    'nuxt-build-cache',
+  ],
 
   // Module Options
   content: {
