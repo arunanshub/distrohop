@@ -1,4 +1,4 @@
-import { connect } from '@planetscale/database'
+import { Client } from '@planetscale/database'
 import { drizzle } from 'drizzle-orm/planetscale-serverless'
 import * as answers from './schema/answers'
 import * as distributions from './schema/distributions'
@@ -7,7 +7,7 @@ import * as results from './schema/results'
 import * as sections from './schema/sections'
 
 export function getDb(url: string) {
-  const connection = connect({ url })
+  const connection = new Client({ url })
   return drizzle(connection, {
     schema: {
       ...questions,
