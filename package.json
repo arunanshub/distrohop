@@ -12,7 +12,7 @@
     "last 4 versions, >0.2%, not dead"
   ],
   "devDependencies": {
-    "@biomejs/biome": "1.5.3",
+    "@biomejs/biome": "1.6.1",
     "@nuxt/devtools": "latest",
     "@tailwindcss/typography": "^0.5.10",
     "@types/lodash-es": "^4.17.12",
