@@ -16,11 +16,10 @@ const { data, error } = await useAsyncData(path, () => {
   return queryContent(path).only(['title', 'body']).findOne()
 })
 
-if (error.value || data.value?._empty) {
+if (error.value || !data.value) {
   throw createError({
     statusCode: 404,
     statusMessage: 'The page you are looking for does not exist.',
-    fatal: true,
   })
 }
 </script>
