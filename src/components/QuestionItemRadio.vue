@@ -47,7 +47,7 @@ const props = defineProps<{
 }>()
 
 const isAnswerCollected = computed(() =>
-  collectedAnswers.value.has(props.answer.msgid)
+  collectedAnswers.value.has(props.answer.msgid),
 )
 
 if (isAnswerCollected.value) {
@@ -68,7 +68,7 @@ watch(selectedAnswer, (newValue, oldValue) => {
 
 const { conflictingAnswers } = useConflictingAnswers(
   collectedAnswers,
-  props.answer
+  props.answer,
 )
 
 const { toggleImportantAnswer, isAnswerImportant, removeImportantAnswer } =

@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import { type Config } from 'drizzle-kit'
+import type { Config } from 'drizzle-kit'
 
 export default {
   out: 'src/server/database/migrations',
