@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@nuxt/content':
-    specifier: 2.12.0
-    version: 2.12.0(@planetscale/database@1.16.0)(nuxt@3.10.3)(vue@3.4.21)
+    specifier: 2.12.1
+    version: 2.12.1(@planetscale/database@1.16.0)(nuxt@3.10.3)(vue@3.4.21)
   '@nuxt/image':
     specifier: ^1.3.0
     version: 1.4.0(@planetscale/database@1.16.0)
@@ -1778,11 +1778,11 @@ packages:
       - bluebird
       - supports-color
 
-  /@nuxt/content@2.12.0(@planetscale/database@1.16.0)(nuxt@3.10.3)(vue@3.4.21):
-    resolution: {integrity: sha512-XQkbkJzFRWKdX4aoVDprqLphbQGDsRX35ZRgHe4i7Phe3F1z2EzXVhZ9WXBTmpXau3MkLlmsQ+NzcRns1kOOvQ==}
+  /@nuxt/content@2.12.1(@planetscale/database@1.16.0)(nuxt@3.10.3)(vue@3.4.21):
+    resolution: {integrity: sha512-xW4xjyYm6zqglb17Tu0J+rpKUV1PF9zp6SLu1lopylFnerdyImtce84206HT6Zd/DJgivKtoW4dyyJn0ZaSqCQ==}
     dependencies:
       '@nuxt/kit': 3.10.3
-      '@nuxtjs/mdc': 0.5.0
+      '@nuxtjs/mdc': 0.6.1
       '@vueuse/core': 10.9.0(vue@3.4.21)
       '@vueuse/head': 2.0.0(vue@3.4.21)
       '@vueuse/nuxt': 10.9.0(nuxt@3.10.3)(vue@3.4.21)
@@ -2166,8 +2166,8 @@ packages:
       - supports-color
     dev: false
 
-  /@nuxtjs/mdc@0.5.0:
-    resolution: {integrity: sha512-480Ajc7o/YAl9b21btd0oRtVe/UjUWmVSEWauS+H+izwEGdGvJTVfZRdaiAXcXKl+UmUTpf+POel027sE9HAZQ==}
+  /@nuxtjs/mdc@0.6.1:
+    resolution: {integrity: sha512-zS5QK7DZ/SBrjqQX1DOy7GnxKy+wbj2+LvooefOWmQqHfLTAqJLVIjuv/BmKnQWiRCq19+uysys3iY42EoY5/A==}
     dependencies:
       '@nuxt/kit': 3.10.3
       '@shikijs/transformers': 1.1.7
