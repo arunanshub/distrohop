@@ -53,15 +53,14 @@ definePageMeta({
     // XXX: nuxt says that you cannot use a composable outside of setup or
     // custom composable. For the same reason, we cannot use useFetchSection()
     // in the middleware. We will resort to direct `$fetch` call.
+    // biome-ignore lint/suspicious/noImplicitAnyLet: we know for sure that value of sections will be an array
     let sections
     try {
       sections = await $fetch('/api/sections')
     } catch (error) {
       return abortNavigation({ statusCode: 404, message: 'No sections found' })
     }
-    const isSectionValid = !!sections.find(
-      (s) => s.msgid === currentSection
-    )
+    const isSectionValid = !!sections.find((s) => s.msgid === currentSection)
 
     if (!isSectionValid) {
       return abortNavigation({

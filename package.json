@@ -8,9 +8,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "browserslist": [
-    "last 4 versions, >0.2%, not dead"
-  ],
+  "browserslist": ["last 4 versions, >0.2%, not dead"],
   "devDependencies": {
     "@biomejs/biome": "1.6.1",
     "@nuxt/devtools": "latest",
