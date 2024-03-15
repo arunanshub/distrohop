@@ -1,24 +1,22 @@
 import { relations } from 'drizzle-orm'
-import {
-  boolean,
-  char,
-  index,
-  mysqlTable,
-  varchar,
-} from 'drizzle-orm/mysql-core'
+import { index, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 import { answers } from './answers'
 import { sections } from './sections'
 
-export const questions = mysqlTable('questions', {
-  id: char('id', { length: 36 })
+export const questions = sqliteTable('questions', {
+  id: text('id', { length: 36 })
     .$defaultFn(() => crypto.randomUUID())
     .primaryKey()
     .notNull(),
-  msgid: varchar('msgid', { length: 100 }).unique().notNull(),
-  isMultipleChoice: boolean('is_multiple_choice').default(false),
-  isMediaQuestion: boolean('is_media_question').default(false),
-  additionalInfo: varchar('additional_info', { length: 256 }),
-  sectionId: char('section_id', { length: 36 })
+  msgid: text('msgid', { length: 100 }).unique().notNull(),
+  isMultipleChoice: integer('is_multiple_choice', { mode: 'boolean' }).default(
+    false,
+  ),
+  isMediaQuestion: integer('is_media_question', { mode: 'boolean' }).default(
+    false,
+  ),
+  additionalInfo: text('additional_info', { length: 256 }),
+  sectionId: text('section_id', { length: 36 })
     .notNull()
     .references(() => sections.id, {
       onDelete: 'cascade',

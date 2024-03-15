@@ -55,6 +55,7 @@ export async function createQuestion(
 ) {
   return await db.transaction(async (tx) => {
     await tx.insert(questions).values(value)
+    // @ts-expect-error
     const question = await getQuestionByMsgid(tx, value.msgid)
     return question as NonNullable<typeof question>
   })
@@ -67,6 +68,7 @@ export async function createQuestions(
   return await db.transaction(async (tx) => {
     await tx.insert(questions).values(values)
     return await getQuestionsByMsgids(
+      // @ts-expect-error
       tx,
       values.map((v) => v.msgid),
     )

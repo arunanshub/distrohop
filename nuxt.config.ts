@@ -106,6 +106,9 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     databaseUrl: process.env.DATABASE_URL,
+    turso: {
+      authToken: process.env.TURSO_AUTH_TOKEN,
+    },
   },
 
   // Development

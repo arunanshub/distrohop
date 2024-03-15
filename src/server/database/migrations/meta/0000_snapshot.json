@@ -1,7 +1,7 @@
 {
   "version": "5",
-  "dialect": "mysql",
-  "id": "1b711a21-ad84-429f-a9cd-676008d3f050",
+  "dialect": "sqlite",
+  "id": "ff568414-a117-4f18-b1d3-179afb40c023",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "answers": {
@@ -9,34 +9,40 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "char(36)",
-          "primaryKey": false,
+          "type": "text(36)",
+          "primaryKey": true,
           "notNull": true,
           "autoincrement": false
         },
         "msgid": {
           "name": "msgid",
-          "type": "varchar(100)",
+          "type": "text(100)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "media_source_path": {
           "name": "media_source_path",
-          "type": "varchar(256)",
+          "type": "text(256)",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
         "question_id": {
           "name": "question_id",
-          "type": "char(36)",
+          "type": "text(36)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         }
       },
-      "indexes": {},
+      "indexes": {
+        "answers_msgid_unique": {
+          "name": "answers_msgid_unique",
+          "columns": ["msgid"],
+          "isUnique": true
+        }
+      },
       "foreignKeys": {
         "answers_question_id_questions_id_fk": {
           "name": "answers_question_id_questions_id_fk",
@@ -48,32 +54,22 @@
           "onUpdate": "cascade"
         }
       },
-      "compositePrimaryKeys": {
-        "answers_id": {
-          "name": "answers_id",
-          "columns": ["id"]
-        }
-      },
-      "uniqueConstraints": {
-        "answers_msgid_unique": {
-          "name": "answers_msgid_unique",
-          "columns": ["msgid"]
-        }
-      }
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
     },
     "_answers_blocked": {
       "name": "_answers_blocked",
       "columns": {
         "answer_id": {
           "name": "answer_id",
-          "type": "char(36)",
+          "type": "text(36)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "blocked_by_answer_id": {
           "name": "blocked_by_answer_id",
-          "type": "char(36)",
+          "type": "text(36)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -102,8 +98,8 @@
       },
       "compositePrimaryKeys": {
         "_answers_blocked_blocked_by_answer_id_answer_id_pk": {
-          "name": "_answers_blocked_blocked_by_answer_id_answer_id_pk",
-          "columns": ["blocked_by_answer_id", "answer_id"]
+          "columns": ["answer_id", "blocked_by_answer_id"],
+          "name": "_answers_blocked_blocked_by_answer_id_answer_id_pk"
         }
       },
       "uniqueConstraints": {}
@@ -113,49 +109,49 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "char(36)",
-          "primaryKey": false,
+          "type": "text(36)",
+          "primaryKey": true,
           "notNull": true,
           "autoincrement": false
         },
         "name": {
           "name": "name",
-          "type": "varchar(200)",
+          "type": "text(200)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "identifier": {
           "name": "identifier",
-          "type": "varchar(200)",
+          "type": "text(200)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "fg_color": {
           "name": "fg_color",
-          "type": "varchar(50)",
+          "type": "text(50)",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
         "bg_color": {
           "name": "bg_color",
-          "type": "varchar(50)",
+          "type": "text(50)",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
         "logo": {
           "name": "logo",
-          "type": "varchar(256)",
+          "type": "text(256)",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
         "url": {
           "name": "url",
-          "type": "varchar(256)",
+          "type": "text(256)",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
@@ -163,12 +159,7 @@
       },
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "distributions_id": {
-          "name": "distributions_id",
-          "columns": ["id"]
-        }
-      },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
     "questions": {
@@ -176,21 +167,21 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "char(36)",
-          "primaryKey": false,
+          "type": "text(36)",
+          "primaryKey": true,
           "notNull": true,
           "autoincrement": false
         },
         "msgid": {
           "name": "msgid",
-          "type": "varchar(100)",
+          "type": "text(100)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "is_multiple_choice": {
           "name": "is_multiple_choice",
-          "type": "boolean",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false,
@@ -198,7 +189,7 @@
         },
         "is_media_question": {
           "name": "is_media_question",
-          "type": "boolean",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false,
@@ -206,20 +197,26 @@
         },
         "additional_info": {
           "name": "additional_info",
-          "type": "varchar(256)",
+          "type": "text(256)",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
         "section_id": {
           "name": "section_id",
-          "type": "char(36)",
+          "type": "text(36)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         }
       },
-      "indexes": {},
+      "indexes": {
+        "questions_msgid_unique": {
+          "name": "questions_msgid_unique",
+          "columns": ["msgid"],
+          "isUnique": true
+        }
+      },
       "foreignKeys": {
         "questions_section_id_sections_id_fk": {
           "name": "questions_section_id_sections_id_fk",
@@ -231,32 +228,22 @@
           "onUpdate": "cascade"
         }
       },
-      "compositePrimaryKeys": {
-        "questions_id": {
-          "name": "questions_id",
-          "columns": ["id"]
-        }
-      },
-      "uniqueConstraints": {
-        "questions_msgid_unique": {
-          "name": "questions_msgid_unique",
-          "columns": ["msgid"]
-        }
-      }
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
     },
     "_important_answers": {
       "name": "_important_answers",
       "columns": {
         "result_id": {
           "name": "result_id",
-          "type": "char(36)",
+          "type": "text(36)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "important_answer_id": {
           "name": "important_answer_id",
-          "type": "char(36)",
+          "type": "text(36)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -285,8 +272,8 @@
       },
       "compositePrimaryKeys": {
         "_important_answers_result_id_important_answer_id_pk": {
-          "name": "_important_answers_result_id_important_answer_id_pk",
-          "columns": ["result_id", "important_answer_id"]
+          "columns": ["important_answer_id", "result_id"],
+          "name": "_important_answers_result_id_important_answer_id_pk"
         }
       },
       "uniqueConstraints": {}
@@ -296,28 +283,23 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "char(36)",
-          "primaryKey": false,
+          "type": "text(36)",
+          "primaryKey": true,
           "notNull": true,
           "autoincrement": false
         },
         "created_at": {
           "name": "created_at",
-          "type": "timestamp",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false,
-          "default": "(now())"
+          "default": "CURRENT_TIMESTAMP"
         }
       },
       "indexes": {},
       "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "results_id": {
-          "name": "results_id",
-          "columns": ["id"]
-        }
-      },
+      "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
     "_selected_answers": {
@@ -325,14 +307,14 @@
       "columns": {
         "result_id": {
           "name": "result_id",
-          "type": "char(36)",
+          "type": "text(36)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "selected_answer_id": {
           "name": "selected_answer_id",
-          "type": "char(36)",
+          "type": "text(36)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -361,8 +343,8 @@
       },
       "compositePrimaryKeys": {
         "_selected_answers_result_id_selected_answer_id_pk": {
-          "name": "_selected_answers_result_id_selected_answer_id_pk",
-          "columns": ["result_id", "selected_answer_id"]
+          "columns": ["result_id", "selected_answer_id"],
+          "name": "_selected_answers_result_id_selected_answer_id_pk"
         }
       },
       "uniqueConstraints": {}
@@ -372,43 +354,39 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "char(36)",
-          "primaryKey": false,
+          "type": "text(36)",
+          "primaryKey": true,
           "notNull": true,
           "autoincrement": false
         },
         "msgid": {
           "name": "msgid",
-          "type": "varchar(100)",
+          "type": "text(100)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "icon_name": {
           "name": "icon_name",
-          "type": "varchar(100)",
+          "type": "text(100)",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         }
       },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {
-        "sections_id": {
-          "name": "sections_id",
-          "columns": ["id"]
-        }
-      },
-      "uniqueConstraints": {
+      "indexes": {
         "sections_msgid_unique": {
           "name": "sections_msgid_unique",
-          "columns": ["msgid"]
+          "columns": ["msgid"],
+          "isUnique": true
         }
-      }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
     }
   },
-  "schemas": {},
+  "enums": {},
   "_meta": {
     "schemas": {},
     "tables": {},

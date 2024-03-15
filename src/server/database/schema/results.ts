@@ -1,24 +1,26 @@
-import { relations } from 'drizzle-orm'
-import { char, mysqlTable, primaryKey, timestamp } from 'drizzle-orm/mysql-core'
+import { relations, sql } from 'drizzle-orm'
+import { integer, primaryKey, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 import { answers } from './answers'
 
-export const results = mysqlTable('results', {
-  id: char('id', { length: 36 })
+export const results = sqliteTable('results', {
+  id: text('id', { length: 36 })
     .$defaultFn(() => crypto.randomUUID())
     .primaryKey(),
-  createdAt: timestamp('created_at', { mode: 'date' }).defaultNow().notNull(),
+  createdAt: integer('created_at', { mode: 'timestamp' })
+    .default(sql`CURRENT_TIMESTAMP`)
+    .notNull(),
 })
 
-export const selectedAnswers = mysqlTable(
+export const selectedAnswers = sqliteTable(
   '_selected_answers',
   {
-    resultId: char('result_id', { length: 36 })
+    resultId: text('result_id', { length: 36 })
       .references(() => results.id, {
         onDelete: 'cascade',
         onUpdate: 'cascade',
       })
       .notNull(),
-    selectedAnswerId: char('selected_answer_id', { length: 36 })
+    selectedAnswerId: text('selected_answer_id', { length: 36 })
       .references(() => answers.id, {
         onDelete: 'cascade',
         onUpdate: 'cascade',
@@ -31,16 +33,16 @@ export const selectedAnswers = mysqlTable(
   }),
 )
 
-export const importantAnswers = mysqlTable(
+export const importantAnswers = sqliteTable(
   '_important_answers',
   {
-    resultId: char('result_id', { length: 36 })
+    resultId: text('result_id', { length: 36 })
       .references(() => results.id, {
         onDelete: 'cascade',
         onUpdate: 'cascade',
       })
       .notNull(),
-    importantAnswerId: char('important_answer_id', { length: 36 })
+    importantAnswerId: text('important_answer_id', { length: 36 })
       .references(() => answers.id, {
         onDelete: 'cascade',
         onUpdate: 'cascade',

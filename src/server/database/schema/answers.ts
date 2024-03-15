@@ -1,21 +1,15 @@
 import { relations } from 'drizzle-orm'
-import {
-  char,
-  index,
-  mysqlTable,
-  primaryKey,
-  varchar,
-} from 'drizzle-orm/mysql-core'
+import { index, primaryKey, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 import { questions } from './questions'
 
-export const answers = mysqlTable('answers', {
-  id: char('id', { length: 36 })
+export const answers = sqliteTable('answers', {
+  id: text('id', { length: 36 })
     .$defaultFn(() => crypto.randomUUID())
     .primaryKey()
     .notNull(),
-  msgid: varchar('msgid', { length: 100 }).unique().notNull(),
-  mediaSourcePath: varchar('media_source_path', { length: 256 }),
-  questionId: char('question_id', { length: 36 })
+  msgid: text('msgid', { length: 100 }).unique().notNull(),
+  mediaSourcePath: text('media_source_path', { length: 256 }),
+  questionId: text('question_id', { length: 36 })
     .notNull()
     .references(() => questions.id, {
       onDelete: 'cascade',
@@ -32,16 +26,16 @@ export const answerRelations = relations(answers, ({ one, many }) => ({
   blocks: many(answersBlocked, { relationName: 'blocks' }),
 }))
 
-export const answersBlocked = mysqlTable(
+export const answersBlocked = sqliteTable(
   '_answers_blocked',
   {
-    answerId: char('answer_id', { length: 36 })
+    answerId: text('answer_id', { length: 36 })
       .references(() => answers.id, {
         onDelete: 'cascade',
         onUpdate: 'cascade',
       })
       .notNull(),
-    blockedByAnswerId: char('blocked_by_answer_id', { length: 36 })
+    blockedByAnswerId: text('blocked_by_answer_id', { length: 36 })
       .references(() => answers.id, {
         onDelete: 'cascade',
         onUpdate: 'cascade',
