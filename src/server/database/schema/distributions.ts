@@ -1,13 +1,13 @@
-import { char, mysqlTable, varchar } from 'drizzle-orm/mysql-core'
+import { sqliteTable, text } from 'drizzle-orm/sqlite-core'
 
-export const distributions = mysqlTable('distributions', {
-  id: char('id', { length: 36 })
+export const distributions = sqliteTable('distributions', {
+  id: text('id', { length: 36 })
     .$defaultFn(() => crypto.randomUUID())
     .primaryKey(),
-  name: varchar('name', { length: 200 }).notNull(),
-  identifier: varchar('identifier', { length: 200 }).notNull(),
-  fgColor: varchar('fg_color', { length: 50 }),
-  bgColor: varchar('bg_color', { length: 50 }),
-  logo: varchar('logo', { length: 256 }),
-  url: varchar('url', { length: 256 }),
+  name: text('name', { length: 200 }).notNull(),
+  identifier: text('identifier', { length: 200 }).notNull(),
+  fgColor: text('fg_color', { length: 50 }),
+  bgColor: text('bg_color', { length: 50 }),
+  logo: text('logo', { length: 256 }),
+  url: text('url', { length: 256 }),
 })
