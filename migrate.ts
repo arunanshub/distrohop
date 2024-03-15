@@ -6,7 +6,9 @@ const databaseUrl = process.env.DATABASE_URL
 const authToken = process.env.TURSO_AUTH_TOKEN
 
 if (!databaseUrl || !authToken) {
-  throw Error('Database URL not configured in environment variable')
+  throw Error(
+    'Either database URL (DATABASE_URL) or Turso Auth token (TURSO_AUTH_TOKEN) not set in environment variable',
+  )
 }
 // This will run migrations on the database, skipping the ones already applied
 migrate(getDb({ url: databaseUrl, authToken }), {
