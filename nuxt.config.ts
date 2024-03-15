@@ -3,8 +3,6 @@ import browserslistToEsbuild from 'browserslist-to-esbuild'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // General
-  srcDir: 'src/',
   app: {
     head: {
       titleTemplate: '%s · Distrohop',
