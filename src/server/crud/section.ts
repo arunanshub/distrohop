@@ -43,6 +43,7 @@ export async function createSection(
 ) {
   return await db.transaction(async (tx) => {
     await tx.insert(sections).values(value)
+    // @ts-expect-error
     return await getSectionByMsgid(tx, value.msgid)
   })
 }

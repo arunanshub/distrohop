@@ -28,6 +28,7 @@ export async function createAnswer(
 ) {
   return await db.transaction(async (tx) => {
     await tx.insert(answers).values(value)
+    // @ts-expect-error
     return await getAnswerByMsgid(tx, value.msgid)
   })
 }
@@ -39,6 +40,7 @@ export async function createAnswers(
   return await db.transaction(async (tx) => {
     await tx.insert(answers).values(values)
     return await getAnswersByMsgids(
+      // @ts-expect-error
       tx,
       values.map((v) => v.msgid),
     )
