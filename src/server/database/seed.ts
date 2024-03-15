@@ -1,4 +1,4 @@
-import { sql } from 'drizzle-orm'
+import 'dotenv/config'
 import { groupBy, mapValues } from 'lodash-es'
 import * as answer from '~/server/crud/answer'
 import * as question from '~/server/crud/question'
@@ -11,18 +11,16 @@ import sectionData from '~~/seed-data/sections.json'
 
 async function main() {
   const databaseUrl = process.env.DATABASE_URL
-  if (!databaseUrl) {
-    throw Error('database URL not found')
+  const authToken = process.env.TURSO_AUTH_TOKEN
+  if (!databaseUrl || !authToken) {
+    throw Error('database URL or Auth token not found')
   }
-  const db = getDb(databaseUrl)
+  const db = getDb({ authToken, url: databaseUrl })
 
   // create the distros
   await Promise.all(
     distros.map(async (distro) =>
-      db
-        .insert(distributions)
-        .values({ ...distro })
-        .onDuplicateKeyUpdate({ set: { id: sql`id` } }),
+      db.insert(distributions).values({ ...distro }),
     ),
   )
 
@@ -36,12 +34,14 @@ async function main() {
     questionData.map(async ({ question: q, answers: ans }, ix) => {
       return db.transaction(async (tx) => {
         const id = createdSections[ix]?.id
+        // @ts-expect-error
         const createdQuestion = await question.createQuestion(tx, {
           ...q,
           sectionId: id as NonNullable<typeof id>,
         })
         // create answers related to question `q`
         await answer.createAnswers(
+          // @ts-expect-error
           tx,
           ans.map((a) => ({ questionId: createdQuestion?.id, ...a })),
         )
@@ -75,4 +75,7 @@ async function main() {
   )
 }
 
-await main()
+main().catch((e) => {
+  console.error(e)
+  process.exit(1)
+})

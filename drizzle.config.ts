@@ -1,17 +1,18 @@
 import 'dotenv/config'
 import type { Config } from 'drizzle-kit'
 
-const dbName = process.env.DB_NAME
-if (!dbName) {
-  throw new Error('DB_NAME not set')
+const databaseUrl = process.env.DATABASE_URL
+const authToken = process.env.TURSO_AUTH_TOKEN
+if (!databaseUrl || !authToken) {
+  throw new Error('DATABASE_URL or AUTH_TOKEN not set')
 }
 
 export default {
   out: 'src/server/database/migrations',
   schema: 'src/server/database/schema/*',
-  driver: 'd1',
+  driver: 'turso',
   dbCredentials: {
-    dbName: dbName,
-    wranglerConfigPath: 'wrangler.toml',
+    url: databaseUrl,
+    authToken,
   },
 } satisfies Config

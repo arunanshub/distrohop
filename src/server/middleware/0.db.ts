@@ -10,8 +10,10 @@ declare module 'h3' {
 
 export default defineEventHandler((event) => {
   const config = useRuntimeConfig(event)
+  const databaseUrl = config.databaseUrl
+  const authToken = config.turso.authToken
   if (!db) {
-    db = getDb(config.databaseUrl)
+    db = getDb({ url: databaseUrl, authToken })
   }
   event.context.db = db
 })

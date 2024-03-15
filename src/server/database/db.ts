@@ -1,12 +1,19 @@
-import { drizzle } from 'drizzle-orm/d1'
+import { createClient } from '@libsql/client'
+import { drizzle } from 'drizzle-orm/libsql'
 import * as answers from './schema/answers'
 import * as distributions from './schema/distributions'
 import * as questions from './schema/questions'
 import * as results from './schema/results'
 import * as sections from './schema/sections'
 
-export function getDb(db: D1Database) {
-  return drizzle(db, {
+interface Options {
+  url: string
+  authToken: string
+}
+
+export function getDb(opts: Options) {
+  const client = createClient({ ...opts })
+  return drizzle(client, {
     schema: {
       ...questions,
       ...answers,
