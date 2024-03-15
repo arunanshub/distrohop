@@ -5,6 +5,6 @@
     <div class="flex grow flex-col">
       <slot />
     </div>
-    <TheFooter />
+    <LazyTheFooter />
   </div>
 </template>
