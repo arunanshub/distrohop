@@ -1,5 +1,5 @@
 import { relations } from 'drizzle-orm'
-import { index, primaryKey, sqliteTable, text } from 'drizzle-orm/sqlite-core'
+import { primaryKey, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 import { questions } from './questions'
 
 export const answers = sqliteTable('answers', {

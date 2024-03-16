@@ -1,5 +1,4 @@
 import type { DatabaseClient } from '@/server/database/db'
-import { eq } from 'drizzle-orm'
 import { answers, answersBlocked } from '../database/schema/answers'
 
 export async function getAnswerByMsgid(db: DatabaseClient, msgid: string) {
