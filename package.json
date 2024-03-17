@@ -21,7 +21,7 @@
     "@types/node": "^20.11.28",
     "drizzle-kit": "^0.20.14",
     "lodash-es": "^4.17.21",
-    "nuxt": "^3.10.3",
+    "nuxt": "^3.11.0",
     "nuxt-build-cache": "^0.1.1",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.12",
