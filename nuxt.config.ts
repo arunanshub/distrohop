@@ -1,4 +1,3 @@
-import tailwindTypography from '@tailwindcss/typography'
 import browserslistToEsbuild from 'browserslist-to-esbuild'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -62,20 +61,10 @@ export default defineNuxtConfig({
       },
     },
   },
+  // NOTE: the actual tailwindcss config file is in the root of the project
   tailwindcss: {
     // exposeConfig lets us use tailwind completion in vscode
     exposeConfig: true,
-    config: {
-      plugins: [tailwindTypography],
-      theme: {
-        extend: {
-          fontFamily: {
-            artifika: ['Artifika'],
-            archivo: ['Archivo'],
-          },
-        },
-      },
-    },
   },
   googleFonts: {
     download: true,
