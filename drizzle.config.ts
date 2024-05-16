@@ -13,6 +13,7 @@ export default {
   out: 'src/server/database/migrations',
   schema: 'src/server/database/schema/*',
   driver: 'turso',
+  dialect: 'sqlite',
   dbCredentials: {
     url: databaseUrl,
     authToken,
