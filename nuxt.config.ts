@@ -87,8 +87,8 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    '/': { swr: true },
-    '/quiz/**': { swr: true },
+    '/': { isr: true },
+    '/quiz/**': { isr: true },
     '/info/**': { static: true },
   },
   runtimeConfig: {
