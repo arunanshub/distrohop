@@ -11,9 +11,7 @@
     "db:seed": "tsx src/server/database/seed.ts",
     "db:generate": "drizzle-kit generate:sqlite --config ./drizzle.config.ts"
   },
-  "browserslist": [
-    "last 4 versions, >0.2%, not dead"
-  ],
+  "browserslist": ["last 4 versions, >0.2%, not dead"],
   "devDependencies": {
     "@biomejs/biome": "1.7.3",
     "@nuxt/devtools": "latest",
