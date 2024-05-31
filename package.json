@@ -19,7 +19,7 @@
     "@types/better-sqlite3": "^7.6.10",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.12.12",
-    "drizzle-kit": "^0.21.4",
+    "drizzle-kit": "^0.22.0",
     "lodash-es": "^4.17.21",
     "nuxt": "^3.11.2",
     "nuxt-build-cache": "^0.1.1",
