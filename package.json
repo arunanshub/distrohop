@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@libsql/client": "^0.6.0",
-    "@nuxt/content": "2.12.1",
+    "@nuxt/content": "2.13.0",
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/critters": "^0.7.1",
     "@nuxtjs/fontaine": "^0.4.2",
