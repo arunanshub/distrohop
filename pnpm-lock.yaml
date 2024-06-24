@@ -54,8 +54,8 @@ importers:
         specifier: ^9.5.13
         version: 9.5.14(postcss@8.4.38)
       valibot:
-        specifier: ^0.30.0
-        version: 0.30.0
+        specifier: ^0.33.0
+        version: 0.33.3
     devDependencies:
       '@biomejs/biome':
         specifier: 1.8.2
@@ -5432,8 +5432,8 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  valibot@0.30.0:
-    resolution: {integrity: sha512-5POBdbSkM+3nvJ6ZlyQHsggisfRtyT4tVTo1EIIShs6qCdXJnyWU5TJ68vr8iTg5zpOLjXLRiBqNx+9zwZz/rA==}
+  valibot@0.33.3:
+    resolution: {integrity: sha512-/fuY1DlX8uiQ7aphlzrrI2DbG0YJk84JMgvz2qKpUIdXRNsS53varfo4voPjSrjUr5BSV2K0miSEJUOlA5fQFg==}
 
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
@@ -12040,7 +12040,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  valibot@0.30.0: {}
+  valibot@0.33.3: {}
 
   validate-npm-package-license@3.0.4:
     dependencies:
