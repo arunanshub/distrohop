@@ -33,7 +33,7 @@
     "vue-tsc": "^2.0.22"
   },
   "dependencies": {
-    "@libsql/client": "^0.6.2",
+    "@libsql/client": "^0.7.0",
     "@nuxt/content": "2.13.0",
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/critters": "^0.7.1",
