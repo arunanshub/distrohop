@@ -1,13 +1,14 @@
-import { maxLength, minLength, parse, string } from 'valibot'
+import * as v from 'valibot'
+import {parse} from 'valibot'
 import { getQuestionByMsgidWithoutIdWithAnswers } from '~/server/crud/question'
 
-const schema = string([minLength(1), maxLength(255)])
+const schema = v.pipe(v.string(), v.maxLength(255))
 
 export default defineCachedEventHandler(
   async (event) => {
     // biome-ignore lint/suspicious/noExplicitAny: `v` is router params obj
-    const id = await getValidatedRouterParams(event, (v: any) =>
-      parse(schema, v.id),
+    const id = await getValidatedRouterParams(event, (d: any) =>
+      v.parse(schema, d.id),
     )
     const question = await getQuestionByMsgidWithoutIdWithAnswers(
       event.context.db,
