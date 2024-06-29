@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     asyncContext: true,
     headNext: true,
     componentIslands: true,
+    appManifest: false,
   },
 
   // Modules
