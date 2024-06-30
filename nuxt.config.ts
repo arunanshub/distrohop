@@ -9,6 +9,11 @@ export default defineNuxtConfig({
     '@nuxt/image',
   ],
 
+  experimental: {
+    // sort head tags in the best order of performance
+    headNext: true,
+  },
+
   app: {
     head: {
       titleTemplate: '%s · Distrohop',
