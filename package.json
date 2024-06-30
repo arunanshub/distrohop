@@ -29,19 +29,6 @@
   },
   "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
   "devDependencies": {
-    "@iconify-json/bi": "^1.1.23",
-    "@iconify-json/carbon": "^1.1.36",
-    "@iconify-json/clarity": "^1.1.13",
-    "@iconify-json/codicon": "^1.1.49",
-    "@iconify-json/eos-icons": "^1.1.10",
-    "@iconify-json/fa6-solid": "^1.1.21",
-    "@iconify-json/ic": "^1.1.17",
-    "@iconify-json/logos": "^1.1.43",
-    "@iconify-json/material-symbols": "^1.1.82",
-    "@iconify-json/mdi": "^1.1.67",
-    "@iconify-json/ri": "^1.1.21",
-    "@iconify-json/simple-icons": "^1.1.107",
-    "@iconify-json/solar": "^1.1.9",
     "@types/lodash-es": "^4.17.12"
   }
 }
