@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen-dynamic flex flex-col bg-neutral-100">
+  <div class="min-h-dvh flex flex-col bg-neutral-100">
     <TheHeader />
     <div class="mt-[15vh] flex grow flex-col items-center gap-4 text-center">
       <h1 class="text-6xl font-semibold">{{ error.statusCode }}</h1>

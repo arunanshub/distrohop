@@ -2,9 +2,8 @@
   <li class="flex items-center gap-2">
     <Icon
       size="1.2rem"
-      :color="iconColor"
       :name="iconName"
-      class="min-h-fit min-w-fit opacity-80"
+      class="opacity-80 flex-shrink-0"
     />
     <span><slot /></span>
   </li>
@@ -18,7 +17,14 @@ defineProps({
   },
   iconColor: {
     type: String,
+    required: false,
     default: 'black',
   },
 })
 </script>
+
+<style scoped>
+.icon {
+  color: v-bind(iconColor);
+}
+</style>
