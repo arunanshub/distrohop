@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/content',
     '@nuxt/image',
-    "nuxt-security"
+    'nuxt-security',
   ],
 
   app: {
