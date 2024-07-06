@@ -35,10 +35,6 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
   },
 
-  ogImage: {
-    enabled: false,
-  },
-
   runtimeConfig: {
     databaseUrl: process.env.DATABASE_URL,
     turso: {
