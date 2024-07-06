@@ -1,96 +1,42 @@
-import browserslistToEsbuild from 'browserslist-to-esbuild'
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  app: {
-    head: {
-      titleTemplate: '%s · Distrohop',
-      // manually add lang until we use nuxt-i18n
-      htmlAttrs: { lang: 'en' },
-    },
-  },
-  experimental: {
-    asyncContext: true,
-    headNext: true,
-    componentIslands: true,
-  },
+  devtools: { enabled: true },
 
-  // Modules
   modules: [
-    // Image Handling and Optimization
-    '@nuxt/image',
-    // Performance Optimization
-    '@nuxtjs/critters',
-    'nuxt-delay-hydration',
-    // Content Management
-    '@nuxt/content',
-    // Utility Functions
-    '@vueuse/nuxt',
-    // Fonts and Typography
-    '@nuxtjs/fontaine',
-    '@nuxtjs/google-fonts',
     '@nuxtjs/tailwindcss',
-    // SEO and Crawling
-    '@nuxtjs/robots',
-    // Icons
-    'nuxt-icon',
-    'nuxt-build-cache',
+    '@nuxt/fonts',
+    '@nuxt/icon',
+    '@nuxt/content',
+    '@nuxt/image',
+    '@nuxtjs/seo',
   ],
 
-  // Module Options
-  content: {
-    highlight: { theme: 'github-light' },
-  },
-  delayHydration: {
-    debug: process.env.NODE_ENV === 'development',
-    mode: 'mount',
-    exclude: ['/quiz/**'],
-  },
-
-  // CSS and fonts
-  postcss: {
-    plugins: {
-      'postcss-preset-env': true,
-      cssnano: {
-        preset: [
-          'default',
-          {
-            discardComments: { removeAll: true },
-          },
-        ],
+  app: {
+    head: {
+      templateParams: {
+        separator: '·',
       },
     },
   },
-  // NOTE: the actual tailwindcss config file is in the root of the project
-  tailwindcss: {
-    // exposeConfig lets us use tailwind completion in vscode
-    exposeConfig: true,
-  },
-  googleFonts: {
-    download: true,
-    families: {
-      Artifika: true,
-      Archivo: true,
-    },
+
+  fonts: {
+    families: [{ name: 'Artifika' }, { name: 'Archivo' }],
   },
 
-  // Build
-  nitro: {
-    compressPublicAssets: { brotli: true, gzip: true },
-    minify: true,
-    future: { nativeSWR: true },
+  icon: {
+    class: 'icon',
   },
-  vite: {
-    esbuild: {
-      legalComments: 'none',
-      target: browserslistToEsbuild(),
-    },
+
+  sourcemap: false,
+
+  site: {
+    url: 'https://distrohop.vercel.app',
+    name: 'Distrohop',
+    description:
+      'Distrohop is a website that helps you find the best Linux distribution for your needs.',
+    defaultLocale: 'en',
   },
-  routeRules: {
-    '/': { swr: true },
-    '/quiz/**': { swr: true },
-    '/info/**': { static: true },
-  },
+
   runtimeConfig: {
     databaseUrl: process.env.DATABASE_URL,
     turso: {
@@ -98,14 +44,5 @@ export default defineNuxtConfig({
     },
   },
 
-  // Development
-  devtools: { enabled: true },
-  typescript: {
-    strict: true,
-    tsConfig: {
-      compilerOptions: {
-        types: ['@types/node'],
-      },
-    },
-  },
+  compatibilityDate: '2024-07-06',
 })

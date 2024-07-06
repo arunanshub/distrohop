@@ -1,8 +1,8 @@
 <template>
-  <button class="bg-transparent">
+  <button class="flex bg-transparent">
     <Icon
       :name="isImportant ? 'ph:star-fill' : 'ph:star'"
-      color="#ff7a00"
+      class="text-[#ff7a00]"
       size="1.3rem"
     />
   </button>

@@ -12,7 +12,7 @@
         <Icon
           name="material-symbols:warning-outline"
           size="0.8rem"
-          color="red"
+          class="text-red-600 mt-1"
         />
         <span>"{{ conflictingAnswer }}"</span>
       </li>
