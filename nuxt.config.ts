@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/content',
     '@nuxt/image',
-    'nuxt-security',
+    '@nuxtjs/seo',
   ],
 
   app: {
@@ -23,6 +23,16 @@ export default defineNuxtConfig({
 
   icon: {
     class: 'icon',
+  },
+
+  sourcemap: false,
+
+  site: {
+    url: 'https://distrohop.vercel.app',
+    name: 'Distrohop',
+    description:
+      'Distrohop is a website that helps you find the best Linux distribution for your needs.',
+    defaultLocale: 'en',
   },
 
   runtimeConfig: {
