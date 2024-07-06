@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@nuxt/fonts',
@@ -12,8 +13,9 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      titleTemplate: '%s · Distrohop',
-      htmlAttrs: { lang: 'en' },
+      templateParams: {
+        separator: '·',
+      },
     },
   },
 
@@ -41,4 +43,6 @@ export default defineNuxtConfig({
       authToken: process.env.TURSO_AUTH_TOKEN,
     },
   },
+
+  compatibilityDate: '2024-07-06',
 })
