@@ -41,6 +41,8 @@
 </template>
 
 <script setup lang="ts">
+useServerSeoMeta({ title: 'Home' })
+
 const firstSectionName = useState<string>('firstSectionName')
 
 async function startTest() {

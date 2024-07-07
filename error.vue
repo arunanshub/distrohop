@@ -23,7 +23,7 @@ import type { NuxtError } from 'nuxt/app'
 
 const props = defineProps<{ error: NuxtError }>()
 
-useServerHead({ title: props.error.statusCode.toString() })
+useServerSeoMeta({ title: props.error.statusCode.toString() })
 
 async function handleError() {
   await clearError({

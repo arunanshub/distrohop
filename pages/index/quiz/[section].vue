@@ -42,9 +42,7 @@
 </template>
 
 <script setup lang="ts">
-useServerHead({ title: 'Quiz' })
-// set title on the client side here since the <Title /> tag causes render issue
-useHead({ title: 'Quiz' })
+useServerSeoMeta({ title: 'Quiz' })
 
 definePageMeta({
   scrollToTop: false,

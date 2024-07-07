@@ -35,7 +35,9 @@
 </template>
 
 <script setup lang="ts">
-useServerHead({ title: 'Home' })
+useServerSeoMeta({ title: 'Home' })
+
+defineOgImageComponent('NuxtSeo')
 
 const { sections, error } = await useFetchSection()
 
