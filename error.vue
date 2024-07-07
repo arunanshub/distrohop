@@ -25,6 +25,8 @@ const props = defineProps<{ error: NuxtError }>()
 
 useServerSeoMeta({ title: props.error.statusCode.toString() })
 
+defineOgImageComponent('NuxtSeo')
+
 async function handleError() {
   await clearError({
     redirect: '/',
