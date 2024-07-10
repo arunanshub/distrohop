@@ -19,7 +19,7 @@
     "@nuxtjs/seo": "2.0.0-rc.11",
     "@nuxtjs/tailwindcss": "^6.12.0",
     "@tailwindcss/typography": "^0.5.13",
-    "drizzle-kit": "^0.22.8",
+    "drizzle-kit": "^0.23.0",
     "drizzle-orm": "^0.31.2",
     "lodash-es": "^4.17.21",
     "nuxt": "^3.12.3",
