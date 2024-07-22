@@ -50,5 +50,11 @@ export default defineNuxtConfig({
     },
   },
 
+  vite: {
+    esbuild: {
+      legalComments: 'none',
+    },
+  },
+
   compatibilityDate: '2024-07-22',
 })
