@@ -27,7 +27,13 @@ export default defineNuxtConfig({
     class: 'icon',
   },
 
+  // for an application this small, sourcemap is not necessary
   sourcemap: false,
+
+  // ogImage increases the size of the edge bundle
+  ogImage: {
+    enabled: false,
+  },
 
   site: {
     url: process.env.NUXT_ENV_VERCEL_URL,
@@ -44,5 +50,5 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: '2024-07-06',
+  compatibilityDate: '2024-07-22',
 })
