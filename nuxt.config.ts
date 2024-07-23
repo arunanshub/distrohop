@@ -36,7 +36,7 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: process.env.NUXT_ENV_VERCEL_URL,
+    url: 'https://distrohop.vercel.app',
     name: 'Distrohop',
     description:
       'Distrohop is a website that helps you find the best Linux distribution for your needs.',
