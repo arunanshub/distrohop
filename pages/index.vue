@@ -1,6 +1,4 @@
 <template>
-  <Title>Home</Title>
-
   <div
     class="mx-auto flex w-full max-w-screen-lg gap-2 px-2 leading-relaxed lg:gap-4 lg:px-0"
   >
@@ -35,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-useServerSeoMeta({ title: 'Home' })
+useSeoMeta({ title: 'Home' })
 
 defineOgImageComponent('NuxtSeo')
 
@@ -44,9 +42,10 @@ const { sections, error } = await useFetchSection()
 // basic 404 error handling in case sections are not available
 // for some reason.
 if (error.value) {
-  showError({
+  throw createError({
     statusCode: 404,
     message: 'Could not load the quiz sections',
+    fatal: true,
   })
 }
 

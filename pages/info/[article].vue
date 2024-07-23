@@ -1,5 +1,4 @@
 <template>
-  <Title v-if="data?.title">{{ data.title }}</Title>
   <main>
     <article
       class="prose prose-p:text-black prose-a:no-underline hover:prose-a:underline mx-auto w-full grow px-8 pb-8 lg:px-0"
@@ -22,4 +21,6 @@ if (error.value || !data.value) {
     statusMessage: 'The page you are looking for does not exist.',
   })
 }
+
+useSeoMeta({ title: data.value.title })
 </script>

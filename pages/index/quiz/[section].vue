@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-useServerSeoMeta({ title: 'Quiz' })
+useSeoMeta({ title: 'Quiz' })
 
 definePageMeta({
   scrollToTop: false,
