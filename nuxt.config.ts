@@ -56,5 +56,14 @@ export default defineNuxtConfig({
     },
   },
 
+  experimental: {
+    sharedPrerenderData: true,
+  },
+
+  routeRules: {
+    '/': { prerender: true },
+    '/info/**': { prerender: true },
+  },
+
   compatibilityDate: '2024-07-22',
 })
