@@ -65,5 +65,9 @@ export default defineNuxtConfig({
     '/info/**': { prerender: true },
   },
 
+  nitro: {
+    compressPublicAssets: { brotli: true, gzip: true },
+  },
+
   compatibilityDate: '2024-07-22',
 })
