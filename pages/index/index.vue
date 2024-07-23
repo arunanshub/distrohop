@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-useServerSeoMeta({ title: 'Home' })
+useSeoMeta({ title: 'Home' })
 
 const firstSectionName = useState<string>('firstSectionName')
 
