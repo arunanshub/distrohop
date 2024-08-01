@@ -7,9 +7,11 @@ export default async function (section: Ref<SectionWithoutId | undefined>) {
     data: question,
     error,
     status,
-  } = await useLazyFetch(`/api/question/${msgid}`)
+  } = await useLazyFetch(`/api/question/${msgid}`, { server: false })
 
-  const pending = computed(() => status.value === 'pending')
+  const pending = computed(
+    () => status.value === 'idle' || status.value === 'pending',
+  )
 
-  return { question, error, pending } as const
+  return { question, error, pending, status } as const
 }
