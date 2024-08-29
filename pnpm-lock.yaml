@@ -54,8 +54,8 @@ importers:
         specifier: ^4.22.1
         version: 4.25.0
       valibot:
-        specifier: ^0.39.0
-        version: 0.39.0
+        specifier: ^0.40.0
+        version: 0.40.0
       vue:
         specifier: latest
         version: 3.4.38
@@ -4839,8 +4839,8 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  valibot@0.39.0:
-    resolution: {integrity: sha512-d+vE8SDRNy9zKg6No5MHz2tdz8H6CW8X3OdqYdmlhnoqQmEoM6Hu0hJUrZv3tPSVrzZkIIMCtdCQtMzcM6NCWw==}
+  valibot@0.40.0:
+    resolution: {integrity: sha512-XHKnaVtwHqxPwnGOsLrwka9CEaL7yNeLNp707OKv/bmT29GnPVdl6PxBOZ6BW7hF66/6QT6iVbOlnW7qVPmoKw==}
     peerDependencies:
       typescript: '>=5'
     peerDependenciesMeta:
@@ -10837,7 +10837,7 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  valibot@0.39.0: {}
+  valibot@0.40.0: {}
 
   vary@1.1.2: {}
 
