@@ -16,7 +16,7 @@
     "@nuxt/fonts": "^0.7.1",
     "@nuxt/icon": "^1.2.1",
     "@nuxt/image": "^1.7.0",
-    "@nuxtjs/seo": "2.0.0-rc.20",
+    "@nuxtjs/seo": "2.0.0-rc.21",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@tailwindcss/typography": "^0.5.13",
     "drizzle-kit": "^0.24.0",
