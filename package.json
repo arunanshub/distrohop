@@ -13,7 +13,7 @@
     "@biomejs/biome": "^1.8.3",
     "@libsql/client": "^0.10.0",
     "@nuxt/content": "^2.13.2",
-    "@nuxt/fonts": "^0.7.1",
+    "@nuxt/fonts": "^0.8.0",
     "@nuxt/icon": "^1.2.1",
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/seo": "2.0.0-rc.21",
