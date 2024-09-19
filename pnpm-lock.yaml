@@ -12,11 +12,11 @@ importers:
         specifier: ^1.8.3
         version: 1.9.1
       '@libsql/client':
-        specifier: ^0.12.0
-        version: 0.12.0
+        specifier: ^0.13.0
+        version: 0.13.0
       '@nuxt/content':
         specifier: ^2.13.2
-        version: 2.13.2(ioredis@5.4.1)(magicast@0.3.5)(nuxt@3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.12.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.12.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0)))(rollup@4.21.3)(vue@3.5.6)
+        version: 2.13.2(ioredis@5.4.1)(magicast@0.3.5)(nuxt@3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.13.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.13.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0)))(rollup@4.21.3)(vue@3.5.6)
       '@nuxt/fonts':
         specifier: ^0.8.0
         version: 0.8.0(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0))
@@ -40,13 +40,13 @@ importers:
         version: 0.24.2
       drizzle-orm:
         specifier: ^0.33.0
-        version: 0.33.0(@libsql/client@0.12.0)
+        version: 0.33.0(@libsql/client@0.13.0)
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
       nuxt:
         specifier: ^3.12.4
-        version: 3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.12.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.12.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0))
+        version: 3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.13.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.13.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0))
       tailwindcss:
         specifier: ^3.4.6
         version: 3.4.11
@@ -1055,6 +1055,7 @@ packages:
   '@koa/router@12.0.1':
     resolution: {integrity: sha512-ribfPYfHb+Uw3b27Eiw6NPqjhIhTpVFzEWLwyc/1Xp+DCdwRRyIlAUODX+9bPARF6aQtUu1+/PHzdNvRzcs/+Q==}
     engines: {node: '>= 12'}
+    deprecated: Use v12.0.2 or higher to fix the vulnerability issue
 
   '@kwsites/file-exists@1.1.1':
     resolution: {integrity: sha512-m9/5YGR18lIwxSFDwfE3oA7bWuq9kdau6ugN4H2rJeyhFQZcG9AgSHkQtSD15a8WvTgfz9aikZMrKPHvbpqFiw==}
@@ -1062,11 +1063,11 @@ packages:
   '@kwsites/promise-deferred@1.1.1':
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
 
-  '@libsql/client@0.12.0':
-    resolution: {integrity: sha512-Jt9ijfzlmswZzxRRksEv8Igbw7ER9IX/RSrwzEIRyzwwQLcpeZGGrnDQP9S7UPCJ90uFDiaICFiyhvwO+60DmA==}
+  '@libsql/client@0.13.0':
+    resolution: {integrity: sha512-Gh01PdZC58TNDaw8kHHExfZ8afaveN3yb0uz1Dh28pXQ6wHDOgf9nHPnuPGTXX4IrN5d5kI80y/E0O9sC4c5yg==}
 
-  '@libsql/core@0.12.0':
-    resolution: {integrity: sha512-PZJF4qvPbDWZfXk0Tr+O5xaMhFoetA1gIVPgYLH6Bc6gAeyYxhGw268p+95SkADZDjB5CYPcVLvfQEjSVeR3Zw==}
+  '@libsql/core@0.13.0':
+    resolution: {integrity: sha512-4BHLL6abxn/lq6MA/46YY7uZx7hn2nlfXzhmGGQLegPuBwD62Wj7tspZVhCLcU2XmLv08i5xN9hSeqgauQ1SRA==}
 
   '@libsql/darwin-arm64@0.4.5':
     resolution: {integrity: sha512-xLdnn0NrgSk6OMi716FFs/27Hs33jtSd2fkKi/72Ey/qBtPWcB1BMurDQekzi0yAcfQTjGqIz7tpOibyjiEPyQ==}
@@ -1078,12 +1079,8 @@ packages:
     cpu: [x64]
     os: [darwin]
 
-  '@libsql/hrana-client@0.7.0':
-    resolution: {integrity: sha512-OF8fFQSkbL7vJY9rfuegK1R7sPgQ6kFMkDamiEccNUvieQ+3urzfDFI616oPl8V7T9zRmnTkSjMOImYCAVRVuw==}
-
-  '@libsql/isomorphic-fetch@0.3.1':
-    resolution: {integrity: sha512-6kK3SUK5Uu56zPq/Las620n5aS9xJq+jMBcNSOmjhNf/MUvdyji4vrMTqD7ptY7/4/CAVEAYDeotUz60LNQHtw==}
-    engines: {node: '>=18.0.0'}
+  '@libsql/hrana-client@0.8.0':
+    resolution: {integrity: sha512-dERMyhDV7O7nxX5qWKxOPb/tIHt+NlnKkVUHYsNSe79GCLQEIOFFRJJtopdLinE1kZosvB2jh02ylFnnZW5+RQ==}
 
   '@libsql/isomorphic-ws@0.1.5':
     resolution: {integrity: sha512-DtLWIH29onUYR00i0GlQ3UdcTRC6EP4u9w/h9LxpUZJWRMARk6dQwZ6Jkd+QdwVpuAOrdxt18v0K2uIYR3fwFg==}
@@ -2236,6 +2233,9 @@ packages:
 
   cross-fetch@3.1.8:
     resolution: {integrity: sha512-cvA+JwZoU0Xq+h6WkMvAUqPEYy92Obet6UdKLfW60qn99ftItKjB5T+BkyWOFWe2pUyfQ+IJHmpOTznqk1M6Kg==}
+
+  cross-fetch@4.0.0:
+    resolution: {integrity: sha512-e4a5N8lVvuLgAWgnCrLr2PP0YyDOTHa9H/Rj54dirp61qXnNq46m82bRhNqIA5VccJtWBvPTFRV3TtvHUKPB1g==}
 
   cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
@@ -5876,18 +5876,19 @@ snapshots:
 
   '@kwsites/promise-deferred@1.1.1': {}
 
-  '@libsql/client@0.12.0':
+  '@libsql/client@0.13.0':
     dependencies:
-      '@libsql/core': 0.12.0
-      '@libsql/hrana-client': 0.7.0
+      '@libsql/core': 0.13.0
+      '@libsql/hrana-client': 0.8.0
       js-base64: 3.7.7
       libsql: 0.4.5
       promise-limit: 2.7.0
     transitivePeerDependencies:
       - bufferutil
+      - encoding
       - utf-8-validate
 
-  '@libsql/core@0.12.0':
+  '@libsql/core@0.13.0':
     dependencies:
       js-base64: 3.7.7
 
@@ -5897,17 +5898,16 @@ snapshots:
   '@libsql/darwin-x64@0.4.5':
     optional: true
 
-  '@libsql/hrana-client@0.7.0':
+  '@libsql/hrana-client@0.8.0':
     dependencies:
-      '@libsql/isomorphic-fetch': 0.3.1
       '@libsql/isomorphic-ws': 0.1.5
+      cross-fetch: 4.0.0
       js-base64: 3.7.7
       node-fetch: 3.3.2
     transitivePeerDependencies:
       - bufferutil
+      - encoding
       - utf-8-validate
-
-  '@libsql/isomorphic-fetch@0.3.1': {}
 
   '@libsql/isomorphic-ws@0.1.5':
     dependencies:
@@ -5972,13 +5972,13 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
 
-  '@nuxt/content@2.13.2(ioredis@5.4.1)(magicast@0.3.5)(nuxt@3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.12.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.12.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0)))(rollup@4.21.3)(vue@3.5.6)':
+  '@nuxt/content@2.13.2(ioredis@5.4.1)(magicast@0.3.5)(nuxt@3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.13.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.13.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0)))(rollup@4.21.3)(vue@3.5.6)':
     dependencies:
       '@nuxt/kit': 3.13.2(magicast@0.3.5)(rollup@4.21.3)
       '@nuxtjs/mdc': 0.8.3(magicast@0.3.5)(rollup@4.21.3)
       '@vueuse/core': 10.11.1(vue@3.5.6)
       '@vueuse/head': 2.0.0(vue@3.5.6)
-      '@vueuse/nuxt': 10.11.1(magicast@0.3.5)(nuxt@3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.12.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.12.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0)))(rollup@4.21.3)(vue@3.5.6)
+      '@vueuse/nuxt': 10.11.1(magicast@0.3.5)(nuxt@3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.13.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.13.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0)))(rollup@4.21.3)(vue@3.5.6)
       consola: 3.2.3
       defu: 6.1.4
       destr: 2.0.3
@@ -7100,13 +7100,13 @@ snapshots:
 
   '@vueuse/metadata@11.0.3': {}
 
-  '@vueuse/nuxt@10.11.1(magicast@0.3.5)(nuxt@3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.12.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.12.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0)))(rollup@4.21.3)(vue@3.5.6)':
+  '@vueuse/nuxt@10.11.1(magicast@0.3.5)(nuxt@3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.13.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.13.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0)))(rollup@4.21.3)(vue@3.5.6)':
     dependencies:
       '@nuxt/kit': 3.13.2(magicast@0.3.5)(rollup@4.21.3)
       '@vueuse/core': 10.11.1(vue@3.5.6)
       '@vueuse/metadata': 10.11.1
       local-pkg: 0.5.0
-      nuxt: 3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.12.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.12.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0))
+      nuxt: 3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.13.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.13.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0))
       vue-demi: 0.14.10(vue@3.5.6)
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -7581,6 +7581,12 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
+  cross-fetch@4.0.0:
+    dependencies:
+      node-fetch: 2.7.0
+    transitivePeerDependencies:
+      - encoding
+
   cross-spawn@7.0.3:
     dependencies:
       path-key: 3.1.1
@@ -7682,10 +7688,10 @@ snapshots:
 
   data-uri-to-buffer@4.0.1: {}
 
-  db0@0.1.4(@libsql/client@0.12.0)(drizzle-orm@0.33.0(@libsql/client@0.12.0)):
+  db0@0.1.4(@libsql/client@0.13.0)(drizzle-orm@0.33.0(@libsql/client@0.13.0)):
     optionalDependencies:
-      '@libsql/client': 0.12.0
-      drizzle-orm: 0.33.0(@libsql/client@0.12.0)
+      '@libsql/client': 0.13.0
+      drizzle-orm: 0.33.0(@libsql/client@0.13.0)
 
   debug@2.6.9:
     dependencies:
@@ -7799,9 +7805,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.33.0(@libsql/client@0.12.0):
+  drizzle-orm@0.33.0(@libsql/client@0.13.0):
     optionalDependencies:
-      '@libsql/client': 0.12.0
+      '@libsql/client': 0.13.0
 
   duplexer@0.1.2: {}
 
@@ -9283,7 +9289,7 @@ snapshots:
 
   negotiator@0.6.3: {}
 
-  nitropack@2.9.7(@libsql/client@0.12.0)(drizzle-orm@0.33.0(@libsql/client@0.12.0))(magicast@0.3.5):
+  nitropack@2.9.7(@libsql/client@0.13.0)(drizzle-orm@0.33.0(@libsql/client@0.13.0))(magicast@0.3.5):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@netlify/functions': 2.8.1
@@ -9306,7 +9312,7 @@ snapshots:
       cookie-es: 1.2.2
       croner: 8.1.1
       crossws: 0.2.4
-      db0: 0.1.4(@libsql/client@0.12.0)(drizzle-orm@0.33.0(@libsql/client@0.12.0))
+      db0: 0.1.4(@libsql/client@0.13.0)(drizzle-orm@0.33.0(@libsql/client@0.13.0))
       defu: 6.1.4
       destr: 2.0.3
       dot-prop: 8.0.2
@@ -9609,7 +9615,7 @@ snapshots:
       - vue
       - webpack-sources
 
-  nuxt@3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.12.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.12.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0)):
+  nuxt@3.13.2(@biomejs/biome@1.9.1)(@libsql/client@0.13.0)(@parcel/watcher@2.4.1)(@types/node@22.5.5)(drizzle-orm@0.33.0(@libsql/client@0.13.0))(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.21.3)(terser@5.32.0)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0)):
     dependencies:
       '@nuxt/devalue': 2.0.2
       '@nuxt/devtools': 1.4.2(rollup@4.21.3)(vite@5.4.5(@types/node@22.5.5)(terser@5.32.0))(vue@3.5.6)
@@ -9646,7 +9652,7 @@ snapshots:
       magic-string: 0.30.11
       mlly: 1.7.1
       nanotar: 0.1.1
-      nitropack: 2.9.7(@libsql/client@0.12.0)(drizzle-orm@0.33.0(@libsql/client@0.12.0))(magicast@0.3.5)
+      nitropack: 2.9.7(@libsql/client@0.13.0)(drizzle-orm@0.33.0(@libsql/client@0.13.0))(magicast@0.3.5)
       nuxi: 3.13.2
       nypm: 0.3.11
       ofetch: 1.3.4
