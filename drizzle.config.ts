@@ -12,8 +12,7 @@ if (!databaseUrl || !authToken) {
 export default {
   out: 'src/server/database/migrations',
   schema: 'src/server/database/schema/*',
-  driver: 'turso',
-  dialect: 'sqlite',
+  dialect: 'turso',
   dbCredentials: {
     url: databaseUrl,
     authToken,
