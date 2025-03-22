@@ -4,6 +4,7 @@ import type { NextConfig } from "next"
 const nextConfig: NextConfig = {
   experimental: {
     webpackMemoryOptimizations: true,
+    inlineCss: true,
   },
 
   output: env.STANDALONE_IN_PROD ? "standalone" : undefined,
