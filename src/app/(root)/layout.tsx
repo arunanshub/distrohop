@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { SiLinux } from "@icons-pack/react-simple-icons"
+import { Separator } from "@/components/ui/separator"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -15,24 +16,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <main className="grow">{children}</main>
 
-      <footer className="flex items-center justify-center border-t p-3 text-sm tracking-tight">
-        <ul className="flex items-center gap-4">
-          <li>
-            <Link href="#">Imprint</Link>
-          </li>
-          <li>
-            <Link href="#">Privacy</Link>
-          </li>
-          <li>
-            <Link href="#">About</Link>
-          </li>
-          <li>
-            <Link href="#">Github</Link>
-          </li>
-          <li>
-            <Link href="#">A project by @arunanshub</Link>
-          </li>
-        </ul>
+      <footer className="w-full border-t p-4 text-sm tracking-tight">
+        <div className="mx-auto flex h-4 max-w-6xl items-center justify-evenly gap-2 text-sm md:gap-0">
+          <Link href="#">Imprint</Link>
+          <Separator orientation="vertical" decorative />
+
+          <Link href="#">Privacy</Link>
+          <Separator orientation="vertical" decorative />
+
+          <Link href="#">About</Link>
+          <Separator orientation="vertical" decorative />
+
+          <Link href="#">A project by @arunanshub</Link>
+          <Separator orientation="vertical" decorative />
+
+          <Link href="#">Github</Link>
+        </div>
       </footer>
     </div>
   )
