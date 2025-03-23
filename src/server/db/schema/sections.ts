@@ -7,7 +7,8 @@ import { questions } from "./questions"
 export const sections = createTable("sections", {
   id: text("id")
     .$defaultFn(() => ulid())
-    .primaryKey(),
+    .primaryKey()
+    .notNull(),
   msgid: text("msgid").unique().notNull(),
   iconName: text("icon_name").notNull(),
 })
