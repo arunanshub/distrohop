@@ -1,32 +1,30 @@
-import { createClient, type Client } from "@libsql/client"
-import { drizzle } from "drizzle-orm/libsql"
+import { drizzle } from "drizzle-orm/node-postgres"
 import { env } from "@/env"
 import * as schema from "./schema"
 
 /**
- * Cache the database client globally to avoid recreating it unnecessarily.
+ * Cache the database client in development to avoid recreating it during HMR.
  */
 const globalClient = globalThis as unknown as {
-  client: Client | undefined
+  db: ReturnType<typeof createDb> | undefined
 }
 
-export function getClient() {
-  if (!globalClient.client) {
-    globalClient.client = createClient({ url: env.DATABASE_URL })
-    if (env.NODE_ENV !== "production") {
-      // Cache the client in development for HMR
-      globalClient.client = globalClient.client
-    }
-  }
-  return globalClient.client
-}
-
-export function getDb() {
-  const client = getClient()
-  return drizzle(client, {
+function createDb() {
+  return drizzle(env.DATABASE_URL, {
     schema: { ...schema },
     logger: env.NODE_ENV === "development",
   })
+}
+
+export function getDb() {
+  if (globalClient.db) {
+    return globalClient.db
+  }
+  const db = createDb()
+  if (env.NODE_ENV !== "production") {
+    globalClient.db = db
+  }
+  return db
 }
 
 export const tables = schema

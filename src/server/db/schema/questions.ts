@@ -1,24 +1,20 @@
 import { relations } from "drizzle-orm"
-import { integer, text } from "drizzle-orm/sqlite-core"
+import { boolean, text, varchar } from "drizzle-orm/pg-core"
 import { answers } from "./answers"
 import { sections } from "./sections"
 import { ulid } from "@std/ulid"
 import { createTable } from "./utils"
 
 export const questions = createTable("questions", {
-  id: text("id")
+  id: varchar("id", { length: 26 })
     .$defaultFn(() => ulid())
     .primaryKey()
     .notNull(),
-  msgid: text("msgid").unique().notNull(),
-  isMultipleChoice: integer("is_multiple_choice", { mode: "boolean" }).default(
-    false,
-  ),
-  isMediaQuestion: integer("is_media_question", { mode: "boolean" }).default(
-    false,
-  ),
+  msgid: varchar("msgid").unique().notNull(),
+  isMultipleChoice: boolean("is_multiple_choice").default(false),
+  isMediaQuestion: boolean("is_media_question").default(false),
   additionalInfo: text("additional_info"),
-  sectionId: text("section_id")
+  sectionId: varchar("section_id", { length: 26 })
     .notNull()
     .references(() => sections.id, {
       onDelete: "cascade",

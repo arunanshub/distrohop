@@ -1,14 +1,14 @@
 import { relations, sql } from "drizzle-orm"
-import { integer, primaryKey, text } from "drizzle-orm/sqlite-core"
+import { primaryKey, timestamp, varchar } from "drizzle-orm/pg-core"
 import { answers } from "./answers"
 import { ulid } from "@std/ulid"
 import { createTable } from "./utils"
 
 export const results = createTable("results", {
-  id: text("id")
+  id: varchar("id", { length: 26 })
     .$defaultFn(() => ulid())
     .primaryKey(),
-  createdAt: integer("created_at", { mode: "timestamp" })
+  createdAt: timestamp("created_at")
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
 })
@@ -16,12 +16,12 @@ export const results = createTable("results", {
 export const selectedAnswers = createTable(
   "_selected_answers",
   {
-    resultId: text("result_id")
+    resultId: varchar("result_id", { length: 26 })
       .references(() => results.id, {
         onDelete: "cascade",
       })
       .notNull(),
-    selectedAnswerId: text("selected_answer_id")
+    selectedAnswerId: varchar("selected_answer_id", { length: 26 })
       .references(() => answers.id, {
         onDelete: "cascade",
       })
@@ -34,12 +34,12 @@ export const selectedAnswers = createTable(
 export const importantAnswers = createTable(
   "_important_answers",
   {
-    resultId: text("result_id")
+    resultId: varchar("result_id", { length: 26 })
       .references(() => results.id, {
         onDelete: "cascade",
       })
       .notNull(),
-    importantAnswerId: text("important_answer_id")
+    importantAnswerId: varchar("important_answer_id", { length: 26 })
       .references(() => answers.id, {
         onDelete: "cascade",
       })

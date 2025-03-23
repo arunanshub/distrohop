@@ -1,17 +1,17 @@
 import { relations } from "drizzle-orm"
-import { primaryKey, text } from "drizzle-orm/sqlite-core"
+import { primaryKey, text, varchar } from "drizzle-orm/pg-core"
 import { questions } from "./questions"
 import { ulid } from "@std/ulid"
 import { createTable } from "./utils"
 
 export const answers = createTable("answers", {
-  id: text("id")
+  id: varchar("id", { length: 26 })
     .$defaultFn(() => ulid())
     .primaryKey()
     .notNull(),
-  msgid: text("msgid").unique().notNull(),
+  msgid: varchar("msgid").unique().notNull(),
   mediaSourcePath: text("media_source_path"),
-  questionId: text("question_id")
+  questionId: varchar("question_id", { length: 26 })
     .notNull()
     .references(() => questions.id, {
       onDelete: "cascade",
@@ -30,12 +30,12 @@ export const answerRelations = relations(answers, ({ one, many }) => ({
 export const answersBlocked = createTable(
   "_answers_blocked",
   {
-    answerId: text("answer_id")
+    answerId: varchar("answer_id", { length: 26 })
       .references(() => answers.id, {
         onDelete: "cascade",
       })
       .notNull(),
-    blockedByAnswerId: text("blocked_by_answer_id")
+    blockedByAnswerId: varchar("blocked_by_answer_id", { length: 26 })
       .references(() => answers.id, {
         onDelete: "cascade",
       })
