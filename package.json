@@ -15,6 +15,7 @@
     "@radix-ui/react-scroll-area": "^1.2.3",
     "@radix-ui/react-separator": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.2",
+    "@std/ulid": "npm:@jsr/std__ulid@1.0.0-rc.4",
     "@t3-oss/env-nextjs": "^0.12.0",
     "@tanstack/react-query": "^5.69.0",
     "@tanstack/react-query-devtools": "^5.69.0",
@@ -33,22 +34,22 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/eslintrc": "^3.3.1",
     "@next/eslint-plugin-next": "^15.2.3",
-    "@tailwindcss/postcss": "^4.0.14",
-    "@types/node": "^20.17.24",
+    "@tailwindcss/postcss": "^4.0.15",
+    "@types/node": "^20.17.25",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
     "drizzle-kit": "^0.30.5",
-    "eslint": "^9.22.0",
+    "eslint": "^9.23.0",
     "eslint-config-next": "15.2.3",
     "eslint-plugin-react-hooks": "^5.2.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.0.14",
+    "tailwindcss": "^4.0.15",
     "typescript": "^5.8.2"
   },
-  "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b",
+  "packageManager": "pnpm@10.6.5+sha512.cdf928fca20832cd59ec53826492b7dc25dc524d4370b6b4adbf65803d32efaa6c1c88147c0ae4e8d579a6c9eec715757b50d4fa35eea179d868eada4ed043af",
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
