@@ -6,6 +6,8 @@ import { unstable_cache as cache } from "next/cache"
 
 const getCachedSections = cache(getSections, ["sections"])
 
+export const dynamic = "force-dynamic"
+
 export default async function AppLayout({
   children,
 }: {

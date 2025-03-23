@@ -4,20 +4,29 @@ import { env } from "@/env"
 import * as schema from "./schema"
 
 /**
- * Cache the database connection in development. This avoids creating a new
- * connection on every HMR update.
+ * Cache the database client globally to avoid recreating it unnecessarily.
  */
-const globalForDb = globalThis as unknown as {
+const globalClient = globalThis as unknown as {
   client: Client | undefined
 }
 
-export const client =
-  globalForDb.client ?? createClient({ url: env.DATABASE_URL })
-if (env.NODE_ENV !== "production") globalForDb.client = client
+export function getClient() {
+  if (!globalClient.client) {
+    globalClient.client = createClient({ url: env.DATABASE_URL })
+    if (env.NODE_ENV !== "production") {
+      // Cache the client in development for HMR
+      globalClient.client = globalClient.client
+    }
+  }
+  return globalClient.client
+}
 
-export const db = drizzle(client, {
-  schema,
-  logger: env.NODE_ENV === "development",
-})
+export function getDb() {
+  const client = getClient()
+  return drizzle(client, {
+    schema: { ...schema },
+    logger: env.NODE_ENV === "development",
+  })
+}
 
 export const tables = schema

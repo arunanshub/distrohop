@@ -1,7 +1,8 @@
-import { db, tables } from "@/server/db"
+import { getDb, tables } from "@/server/db"
 import { eq } from "drizzle-orm"
 
 export async function getQuestionBySection(sectionId: string) {
+  const db = getDb()
   return await db.query.sections
     .findFirst({
       where: eq(tables.sections.msgid, sectionId),

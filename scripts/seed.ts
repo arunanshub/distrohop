@@ -1,5 +1,5 @@
 import "dotenv/config"
-import { db } from "@/server/db"
+import { getDb } from "@/server/db"
 import * as schema from "@/server/db/schema"
 import { sql } from "drizzle-orm"
 
@@ -9,6 +9,7 @@ import qna from "../data/qna.json"
 
 async function main() {
   console.log("seeding distros...")
+  const db = getDb()
   const insertedDistros = await db
     .insert(schema.distributions)
     .values(distros)
