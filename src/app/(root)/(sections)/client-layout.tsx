@@ -22,7 +22,7 @@ export default function ClientLayout({
   const { initAnswers, selectedAnswers } = useAnswerStore((state) => state)
 
   useEffect(() => {
-    initAnswers(sections.map((section) => section.id))
+    initAnswers(sections.map((section) => section.msgid))
   }, [initAnswers, sections])
 
   const toastId = useRef<string | number | null>(null)
@@ -80,11 +80,16 @@ export default function ClientLayout({
           <ScrollArea className="h-full">
             <nav className="flex max-h-[35svh] flex-col gap-2">
               {sections.map((section) => (
-                <Button asChild key={section.id} variant="secondary" size="lg">
-                  <Link href={`/section/${section.id}`}>
+                <Button
+                  asChild
+                  key={section.msgid}
+                  variant="secondary"
+                  size="lg"
+                >
+                  <Link href={`/section/${section.msgid}`}>
                     <Section />
                     <span className="hidden @2xl/layout:block">
-                      {section.title}
+                      {section.msgid.slice(8, 20)}
                     </span>
                   </Link>
                 </Button>

@@ -11,3 +11,5 @@ data/
 Dockerfile
 .dockerignore
 compose.yml
+scripts/
+data/

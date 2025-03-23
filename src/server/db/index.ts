@@ -15,4 +15,9 @@ export const client =
   globalForDb.client ?? createClient({ url: env.DATABASE_URL })
 if (env.NODE_ENV !== "production") globalForDb.client = client
 
-export const db = drizzle(client, { schema })
+export const db = drizzle(client, {
+  schema,
+  logger: env.NODE_ENV === "development",
+})
+
+export const tables = schema

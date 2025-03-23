@@ -1,0 +1,308 @@
+[
+  {
+    "question": {
+      "msgid": "question-software-use-case",
+      "additionalInfo": null,
+      "isMultipleChoice": true,
+      "isMediaQuestion": false
+    },
+    "answers": [
+      {
+        "msgid": "software-use-case-answer-daily",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "software-use-case-anonymous-answer",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "software-use-case-answer-gaming",
+        "blockedBy": ["software-use-case-anonymous-answer"],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "software-use-case-isolation",
+        "blockedBy": [
+          "privacy-answer-services-ok",
+          "computer-knowledge-answer-beginner",
+          "linux-knowledge-answer-beginner"
+        ],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "software-use-case-blind",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      { "msgid": "live-mode-only", "blockedBy": [], "mediaSourcePath": null }
+    ]
+  },
+  {
+    "question": {
+      "msgid": "question-computer-knowledge",
+      "additionalInfo": null,
+      "isMultipleChoice": false,
+      "isMediaQuestion": false
+    },
+    "answers": [
+      {
+        "msgid": "computer-knowledge-answer-beginner",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "computer-knowledge-answer-advanced",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "computer-knowledge-answer-professional",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      }
+    ]
+  },
+  {
+    "question": {
+      "msgid": "question-linux-knowledge",
+      "additionalInfo": null,
+      "isMultipleChoice": false,
+      "isMediaQuestion": false
+    },
+    "answers": [
+      {
+        "msgid": "linux-knowledge-answer-beginner",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "linux-knowledge-answer-advanced",
+        "blockedBy": ["computer-knowledge-answer-beginner"],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "linux-knowledge-answer-professional",
+        "blockedBy": [
+          "computer-knowledge-answer-advanced",
+          "computer-knowledge-answer-beginner"
+        ],
+        "mediaSourcePath": null
+      }
+    ]
+  },
+  {
+    "question": {
+      "msgid": "question-presets",
+      "additionalInfo": null,
+      "isMultipleChoice": true,
+      "isMediaQuestion": false
+    },
+    "answers": [
+      {
+        "msgid": "question-presets-answer-manypresets",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "question-presets-answer-ownselection",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "question-presets-answer-guiselections",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      }
+    ]
+  },
+  {
+    "question": {
+      "msgid": "question-hardware",
+      "additionalInfo": "additional-info-hardware",
+      "isMultipleChoice": false,
+      "isMediaQuestion": false
+    },
+    "answers": [
+      {
+        "msgid": "question-hardware-oldpc",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "question-hardware-newpc",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      }
+    ]
+  },
+  {
+    "question": {
+      "msgid": "question-help",
+      "additionalInfo": null,
+      "isMultipleChoice": false,
+      "isMediaQuestion": false
+    },
+    "answers": [
+      {
+        "msgid": "question-help-tutorials",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "question-help-user-exchange",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      }
+    ]
+  },
+  {
+    "question": {
+      "msgid": "question-ux-concept",
+      "additionalInfo": null,
+      "isMultipleChoice": true,
+      "isMediaQuestion": true
+    },
+    "answers": [
+      {
+        "msgid": "ux-concept-answer-windows-like",
+        "blockedBy": [],
+        "mediaSourcePath": "https://de.wikipedia.org/wiki/Microsoft_Windows_10#/media/Datei:Windows10abstract.png"
+      },
+      {
+        "msgid": "ux-concept-answer-mac-like",
+        "blockedBy": [],
+        "mediaSourcePath": "https://en.wikipedia.org/wiki/MacOS_Catalina#/media/File:MacOS_Catalina_Desktop.png"
+      }
+    ]
+  },
+  {
+    "question": {
+      "msgid": "question-price",
+      "additionalInfo": null,
+      "isMultipleChoice": false,
+      "isMediaQuestion": false
+    },
+    "answers": [
+      {
+        "msgid": "price-answer-free",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "price-answer-paid",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      }
+    ]
+  },
+  {
+    "question": {
+      "msgid": "question-scope",
+      "additionalInfo": null,
+      "isMultipleChoice": false,
+      "isMediaQuestion": false
+    },
+    "answers": [
+      {
+        "msgid": "scope-answer-fullinstall",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "scope-answer-ownselection",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      }
+    ]
+  },
+  {
+    "question": {
+      "msgid": "question-ideology",
+      "additionalInfo": "additional-info-ideology",
+      "isMultipleChoice": false,
+      "isMediaQuestion": false
+    },
+    "answers": [
+      {
+        "msgid": "ideology-answer-free",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "ideology-answer-proprietary-ok",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      }
+    ]
+  },
+  {
+    "question": {
+      "msgid": "question-privacy",
+      "additionalInfo": null,
+      "isMultipleChoice": false,
+      "isMediaQuestion": false
+    },
+    "answers": [
+      {
+        "msgid": "privacy-answer-highprivacy",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "privacy-answer-services-ok",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      }
+    ]
+  },
+  {
+    "question": {
+      "msgid": "question-software-admin",
+      "additionalInfo": "additional-info-special-features-qestion",
+      "isMultipleChoice": true,
+      "isMediaQuestion": false
+    },
+    "answers": [
+      {
+        "msgid": "software-admin-answer-appstore",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "software-admin-answer-console",
+        "blockedBy": [
+          "computer-knowledge-answer-beginner",
+          "linux-knowledge-answer-beginner"
+        ],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "answer-avoid-systemd",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      }
+    ]
+  },
+  {
+    "question": {
+      "msgid": "question-software-updates",
+      "additionalInfo": null,
+      "isMultipleChoice": false,
+      "isMediaQuestion": false
+    },
+    "answers": [
+      {
+        "msgid": "software-updates-answer-fast",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      },
+      {
+        "msgid": "software-updates-answer-slow",
+        "blockedBy": [],
+        "mediaSourcePath": null
+      }
+    ]
+  }
+]

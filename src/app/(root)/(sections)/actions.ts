@@ -1,12 +1,9 @@
 "use server"
 
+import { getSections as getSectionsFromDb } from "@/lib/db/sections"
+
 export async function getSections() {
-  // mock data for now
-  return Array.from({ length: 10 }, (_, i) => ({
-    id: i.toString(),
-    title: `Section ${i}`,
-    description: `Section ${i} description`,
-  }))
+  return await getSectionsFromDb()
 }
 
 export async function submitAnswers(answers: string[]) {

@@ -12,8 +12,10 @@ export default function Client({ question }: { question: Question }) {
   return (
     <div className="flex h-full flex-col gap-4">
       <div>
-        <h1 className="text-2xl font-bold">{question.title}</h1>
-        <p className="text-muted-foreground text-sm">{question.description}</p>
+        <h1 className="text-2xl font-bold">{question?.msgid}</h1>
+        <p className="text-muted-foreground text-sm">
+          {question?.additionalInfo}
+        </p>
       </div>
 
       <div className="flex items-center gap-2">

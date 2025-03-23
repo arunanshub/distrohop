@@ -7,9 +7,8 @@ export const distributions = createTable("distributions", {
     .$defaultFn(() => ulid())
     .primaryKey(),
   name: text("name").notNull(),
-  identifier: text("identifier").notNull(),
+  identifier: text("identifier").notNull().unique(),
   fgColor: text("fg_color"),
   bgColor: text("bg_color"),
-  logo: text("logo"),
   url: text("url"),
 })

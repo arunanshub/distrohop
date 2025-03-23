@@ -1,10 +1,7 @@
+import { getQuestionBySection } from "@/lib/db/questions"
+
 export async function getQuestion(sectionId: string) {
-  // return mock for now
-  return {
-    id: sectionId,
-    title: `Question ${sectionId}`,
-    description: `This is the ${sectionId} question`,
-  }
+  return await getQuestionBySection(sectionId)
 }
 
 export type Question = Awaited<ReturnType<typeof getQuestion>>
