@@ -1,11 +1,11 @@
 import { relations, sql } from "drizzle-orm"
-import { primaryKey, timestamp, varchar } from "drizzle-orm/pg-core"
+import { primaryKey, timestamp, text } from "drizzle-orm/pg-core"
 import { answers } from "./answers"
 import { ulid } from "@std/ulid"
 import { createTable } from "./utils"
 
 export const results = createTable("results", {
-  id: varchar("id", { length: 26 })
+  id: text("id")
     .$defaultFn(() => ulid())
     .primaryKey(),
   createdAt: timestamp("created_at")
@@ -16,12 +16,12 @@ export const results = createTable("results", {
 export const selectedAnswers = createTable(
   "_selected_answers",
   {
-    resultId: varchar("result_id", { length: 26 })
+    resultId: text("result_id")
       .references(() => results.id, {
         onDelete: "cascade",
       })
       .notNull(),
-    selectedAnswerId: varchar("selected_answer_id", { length: 26 })
+    selectedAnswerId: text("selected_answer_id")
       .references(() => answers.id, {
         onDelete: "cascade",
       })
@@ -34,12 +34,12 @@ export const selectedAnswers = createTable(
 export const importantAnswers = createTable(
   "_important_answers",
   {
-    resultId: varchar("result_id", { length: 26 })
+    resultId: text("result_id")
       .references(() => results.id, {
         onDelete: "cascade",
       })
       .notNull(),
-    importantAnswerId: varchar("important_answer_id", { length: 26 })
+    importantAnswerId: text("important_answer_id")
       .references(() => answers.id, {
         onDelete: "cascade",
       })

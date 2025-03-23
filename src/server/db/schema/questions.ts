@@ -1,20 +1,20 @@
 import { relations } from "drizzle-orm"
-import { boolean, text, varchar } from "drizzle-orm/pg-core"
+import { boolean, text } from "drizzle-orm/pg-core"
 import { answers } from "./answers"
 import { sections } from "./sections"
 import { ulid } from "@std/ulid"
 import { createTable } from "./utils"
 
 export const questions = createTable("questions", {
-  id: varchar("id", { length: 26 })
+  id: text("id")
     .$defaultFn(() => ulid())
     .primaryKey()
     .notNull(),
-  msgid: varchar("msgid").unique().notNull(),
+  msgid: text("msgid").unique().notNull(),
   isMultipleChoice: boolean("is_multiple_choice").default(false),
   isMediaQuestion: boolean("is_media_question").default(false),
   additionalInfo: text("additional_info"),
-  sectionId: varchar("section_id", { length: 26 })
+  sectionId: text("section_id")
     .notNull()
     .references(() => sections.id, {
       onDelete: "cascade",

@@ -1,16 +1,16 @@
 import { ulid } from "@std/ulid"
 import { relations } from "drizzle-orm"
-import { text, varchar } from "drizzle-orm/pg-core"
+import { text } from "drizzle-orm/pg-core"
 import { createTable } from "./utils"
 import { questions } from "./questions"
 
 export const sections = createTable("sections", {
-  id: varchar("id", { length: 26 })
+  id: text("id")
     .$defaultFn(() => ulid())
     .primaryKey()
     .notNull(),
-  msgid: varchar("msgid").unique().notNull(),
-  iconName: varchar("icon_name").notNull(),
+  msgid: text("msgid").unique().notNull(),
+  iconName: text("icon_name").notNull(),
 })
 
 export const sectionsRelations = relations(sections, ({ one }) => ({
