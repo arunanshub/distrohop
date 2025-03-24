@@ -1,6 +1,6 @@
 "use client"
 
-import { type ReactNode, createContext, useRef, useContext } from "react"
+import { type ReactNode, createContext, useContext, useMemo } from "react"
 import { useStore } from "zustand"
 import { type CounterStore, createCounterStore } from "@/stores/counter-store"
 
@@ -11,13 +11,10 @@ export const CounterStoreContext = createContext<CounterStoreApi | undefined>(
 )
 
 export function CounterStoreProvider({ children }: { children: ReactNode }) {
-  const storeRef = useRef<CounterStoreApi | null>(null)
-  if (storeRef.current === null) {
-    storeRef.current = createCounterStore()
-  }
+  const store = useMemo(() => createCounterStore(), [])
 
   return (
-    <CounterStoreContext.Provider value={storeRef.current}>
+    <CounterStoreContext.Provider value={store}>
       {children}
     </CounterStoreContext.Provider>
   )

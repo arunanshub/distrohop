@@ -67,10 +67,10 @@ export default function ClientLayout({
       <div className="@container/layout mx-auto flex max-w-6xl grow border-r border-l">
         <aside className="flex flex-col gap-2 border-r p-4 px-2 md:w-52 @lg/layout:px-4">
           {/* home button */}
-          <Button asChild variant="secondary" size="lg">
+          <Button asChild variant="secondary">
             <Link href="/">
               <Home />
-              <span className="hidden @2xl/layout:block">Home</span>
+              <span className="hidden @2xl/layout:block">Welcome!</span>
             </Link>
           </Button>
 
@@ -80,12 +80,7 @@ export default function ClientLayout({
           <ScrollArea className="h-full">
             <nav className="flex max-h-[35svh] flex-col gap-2">
               {sections.map((section) => (
-                <Button
-                  asChild
-                  key={section.msgid}
-                  variant="secondary"
-                  size="lg"
-                >
+                <Button asChild key={section.msgid} variant="secondary">
                   <Link href={`/section/${section.msgid}`}>
                     <Section />
                     <span className="hidden @2xl/layout:block">
@@ -100,7 +95,7 @@ export default function ClientLayout({
           <Separator />
 
           {/* show result button */}
-          <Button size="lg" onClick={handleShowResult}>
+          <Button onClick={handleShowResult}>
             <BarChartIcon />
             <span className="hidden @2xl/layout:block">Show Results</span>
           </Button>
