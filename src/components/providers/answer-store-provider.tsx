@@ -25,7 +25,7 @@ export function useAnswerStore<T>(selector: (store: AnswerStore) => T): T {
   const answerStoreContext = useContext(AnswerStoreContext)
 
   if (!answerStoreContext) {
-    throw new Error(`useAnswerStore must be used within AnswerStoreProvider`)
+    throw new Error("useAnswerStore must be used within AnswerStoreProvider")
   }
 
   return useStore(answerStoreContext, selector)
