@@ -65,7 +65,7 @@ export default function ClientLayout({
   return (
     <div className="flex h-full md:px-8">
       <div className="@container/layout mx-auto flex max-w-6xl grow border-r border-l">
-        <aside className="flex flex-col gap-2 border-r p-4 px-2 md:w-52 @lg/layout:px-4">
+        <aside className="flex flex-col gap-2 border-r p-4 px-2 md:min-w-52 @lg/layout:px-4">
           {/* home button */}
           <Button asChild variant="secondary">
             <Link href="/">
