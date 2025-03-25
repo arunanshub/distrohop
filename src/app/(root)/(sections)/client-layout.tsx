@@ -19,11 +19,11 @@ export default function ClientLayout({
   children: React.ReactNode
 }) {
   const router = useRouter()
-  const { initAnswers, selectedAnswers } = useAnswerStore((state) => state)
+  const { initSections } = useAnswerStore((state) => state)
 
   useEffect(() => {
-    initAnswers(sections.map((section) => section.msgid))
-  }, [initAnswers, sections])
+    initSections(sections.map((section) => section.msgid))
+  }, [initSections, sections])
 
   const toastId = useRef<string | number | null>(null)
 
@@ -51,15 +51,15 @@ export default function ClientLayout({
   })
 
   function handleShowResult() {
-    if (selectedAnswers.size === 0) {
-      toast.error("No answers submitted", {
+    if (sections.length === 0) {
+      toast.error("No sections submitted", {
         richColors: true,
         description:
           "You must answer the questions before you can see the results",
       })
       return
     }
-    mutation.mutate(Array.from(selectedAnswers))
+    mutation.mutate(sections.map((section) => section.msgid))
   }
 
   return (

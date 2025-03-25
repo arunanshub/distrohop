@@ -11,13 +11,15 @@ import {
   Star,
   Heart,
 } from "lucide-react"
+import { useAnswerStore } from "@/components/providers/answer-store-provider"
 
 export default function SectionsPage() {
   const router = useRouter()
+  const { sections } = useAnswerStore((store) => store)
 
   const startTest = () => {
     // Navigate to the first section or test page
-    router.push("/section/1")
+    router.push(`/section/${sections[0]}`)
   }
 
   return (
