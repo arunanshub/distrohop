@@ -4,9 +4,8 @@ import { Question } from "./actions"
 import { useSections } from "@/hooks/use-sections"
 import { useAnswerStore } from "@/components/providers/answer-store-provider"
 import { Button } from "@/components/ui/button"
-import { useEffect, useState } from "react"
+import { useMemo } from "react"
 import AnswerRadioGroup from "@/components/answer-radio-group"
-import { usePrevious } from "@uidotdev/usehooks"
 
 export default function Client({
   question,
@@ -15,28 +14,30 @@ export default function Client({
   question: Question
   sectionId: string
 }) {
-  const { sections, addSelectedAnswer, removeSelectedAnswer, selectedAnswers } =
-    useAnswerStore((store) => store)
-  const { previous, next } = useSections(sections, sectionId)
+  const answerStore = useAnswerStore((store) => store)
+  const { previous, next } = useSections(answerStore.sections, sectionId)
 
-  const [selectedAnswer, setSelectedAnswer] = useState<string>()
-  const previousAnswer = usePrevious(selectedAnswer)
+  const answersSet = useMemo(
+    () => new Set(question?.answers.map((answer) => answer.msgid)),
+    [question?.answers],
+  )
+  const selectedAnswersSet = useMemo(
+    () => new Set(answerStore.selectedAnswers),
+    [answerStore.selectedAnswers],
+  )
 
-  useEffect(() => {
-    // only one selected answer at a time
-    if (selectedAnswer && !selectedAnswers.includes(selectedAnswer)) {
-      addSelectedAnswer(selectedAnswer)
+  function handleSelectedAnswer(answer: string) {
+    // first remove the previously selected answer that is now replaced with a new answer
+    const toRemove = selectedAnswersSet.intersection(answersSet)
+    if (toRemove.size > 0) {
+      for (const answer of toRemove) {
+        answerStore.removeSelectedAnswer(answer)
+      }
     }
-    if (previousAnswer && selectedAnswers.includes(previousAnswer)) {
-      removeSelectedAnswer(previousAnswer)
-    }
-  }, [
-    selectedAnswer,
-    addSelectedAnswer,
-    selectedAnswers,
-    removeSelectedAnswer,
-    previousAnswer,
-  ])
+
+    // then select and add the new answer
+    answerStore.addSelectedAnswer(answer)
+  }
 
   return (
     <div className="flex h-full flex-col gap-4">
@@ -50,11 +51,9 @@ export default function Client({
         </p>
       </div>
 
-      <pre>{JSON.stringify(selectedAnswers, null, 2)}</pre>
-
       <AnswerRadioGroup
         answers={question?.answers ?? []}
-        onValueChange={(value) => setSelectedAnswer(value)}
+        onValueChange={(value) => handleSelectedAnswer(value)}
       />
 
       <div className="flex w-full justify-end">
