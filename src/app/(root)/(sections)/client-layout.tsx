@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Sections, submitAnswers } from "./actions"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { BarChartIcon, Home, Section } from "lucide-react"
+import { BarChartIcon, Home, Loader2, Section } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { useAnswerStore } from "@/components/providers/answer-store-provider"
 import { toast } from "sonner"
@@ -95,8 +95,12 @@ export default function ClientLayout({
           <Separator />
 
           {/* show result button */}
-          <Button onClick={handleShowResult}>
-            <BarChartIcon />
+          <Button onClick={handleShowResult} disabled={mutation.isPending}>
+            {mutation.isPending ? (
+              <Loader2 className="size-4 animate-spin" />
+            ) : (
+              <BarChartIcon />
+            )}
             <span className="hidden @2xl/layout:block">Show Results</span>
           </Button>
         </aside>
