@@ -7,11 +7,13 @@ type AnswerRadioGroupProps = {
     mediaSourcePath: string | null
   }[]
   onValueChange: (value: string) => void
+  selectedAnswer: string | undefined
 }
 
 export default function AnswerRadioGroup({
   answers,
   onValueChange,
+  selectedAnswer,
 }: AnswerRadioGroupProps) {
   return (
     <RadioGroup onValueChange={onValueChange}>
@@ -21,6 +23,7 @@ export default function AnswerRadioGroup({
             value={answer.msgid}
             id={answer.msgid}
             className="size-6"
+            checked={selectedAnswer === answer.msgid}
           />
           <Label htmlFor={answer.msgid} className="text-md">
             {answer.msgid}

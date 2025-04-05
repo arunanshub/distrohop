@@ -25,6 +25,10 @@ export default function Client({
     () => new Set(answerStore.selectedAnswers),
     [answerStore.selectedAnswers],
   )
+  const currentlySelectedAnswer = useMemo(
+    () => answersSet.intersection(selectedAnswersSet).values().next().value,
+    [answersSet, selectedAnswersSet],
+  )
 
   function handleSelectedAnswer(answer: string) {
     // first remove the previously selected answer that is now replaced with a new answer
@@ -51,9 +55,12 @@ export default function Client({
         </p>
       </div>
 
+      <pre>{JSON.stringify(currentlySelectedAnswer, null, 2)}</pre>
+
       <AnswerRadioGroup
         answers={question?.answers ?? []}
         onValueChange={(value) => handleSelectedAnswer(value)}
+        selectedAnswer={currentlySelectedAnswer}
       />
 
       <div className="flex w-full justify-end">
