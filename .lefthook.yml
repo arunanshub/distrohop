@@ -10,3 +10,5 @@ pre-commit:
       run: pnpm prettier --write {staged_files}
       glob:
         - "*.{js,ts,jsx,tsx,json,css,md}"
+      stage_fixed: true
+

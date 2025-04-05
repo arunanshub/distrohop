@@ -12,7 +12,7 @@ const globalClient = globalThis as unknown as {
 function createDb() {
   return drizzle(env.DATABASE_URL, {
     schema: { ...schema },
-    logger: env.NODE_ENV === "development",
+    // logger: env.NODE_ENV === "development",
   })
 }
 
