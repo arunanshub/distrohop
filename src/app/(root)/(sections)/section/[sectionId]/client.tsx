@@ -4,19 +4,9 @@ import { Question } from "./actions"
 import { useSections } from "@/hooks/use-sections"
 import { useAnswerStore } from "@/components/providers/answer-store-provider"
 import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import { useForm } from "react-hook-form"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import * as v from "valibot"
-import { valibotResolver } from "@hookform/resolvers/valibot"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import AnswerRadioGroup from "@/components/answer-radio-group"
+import { usePrevious } from "@uidotdev/usehooks"
 
 export default function Client({
   question,
@@ -25,31 +15,28 @@ export default function Client({
   question: Question
   sectionId: string
 }) {
-  const { sections, addSelectedAnswer, removeSelectedAnswer, selectedAnswers } = useAnswerStore(
-    (store) => store,
-  )
+  const { sections, addSelectedAnswer, removeSelectedAnswer, selectedAnswers } =
+    useAnswerStore((store) => store)
   const { previous, next } = useSections(sections, sectionId)
 
-  // build a dynamic form schema based on the question type
-  const formSchema = v.object({
-    option: v.picklist(question?.answers.map((answer) => answer.msgid) ?? []),
-  })
-  type FormSchema = v.InferOutput<typeof formSchema>
-  const form = useForm<FormSchema>({
-    resolver: valibotResolver(formSchema),
-    defaultValues: {
-      option: "",
-    },
-  })
+  const [selectedAnswer, setSelectedAnswer] = useState<string>()
+  const previousAnswer = usePrevious(selectedAnswer)
 
-  const selectedAnswer = form.watch("option")
   useEffect(() => {
-    if (selectedAnswer) {
+    // only one selected answer at a time
+    if (selectedAnswer && !selectedAnswers.includes(selectedAnswer)) {
       addSelectedAnswer(selectedAnswer)
-    } else {
-      removeSelectedAnswer(selectedAnswer)
     }
-  }, [selectedAnswer, addSelectedAnswer, removeSelectedAnswer])
+    if (previousAnswer && selectedAnswers.includes(previousAnswer)) {
+      removeSelectedAnswer(previousAnswer)
+    }
+  }, [
+    selectedAnswer,
+    addSelectedAnswer,
+    selectedAnswers,
+    removeSelectedAnswer,
+    previousAnswer,
+  ])
 
   return (
     <div className="flex h-full flex-col gap-4">
@@ -63,42 +50,12 @@ export default function Client({
         </p>
       </div>
 
-      <pre className="font-kode-mono">{JSON.stringify(selectedAnswers, null, 2)}</pre>
+      <pre>{JSON.stringify(selectedAnswers, null, 2)}</pre>
 
-      <Form {...form}>
-        <FormField
-          control={form.control}
-          name="option"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <RadioGroup
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  {question?.answers.map((answer) => (
-                    <FormItem
-                      key={answer.msgid}
-                      className="flex items-center gap-4"
-                    >
-                      <FormControl>
-                        <RadioGroupItem
-                          value={answer.msgid}
-                          className="size-6"
-                        />
-                      </FormControl>
-                      <FormLabel className="text-md">{answer.msgid}</FormLabel>
-                    </FormItem>
-                  ))}
-                </RadioGroup>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-      </Form>
-
-      <div>debug val: {form.watch("option")}</div>
+      <AnswerRadioGroup
+        answers={question?.answers ?? []}
+        onValueChange={(value) => setSelectedAnswer(value)}
+      />
 
       <div className="flex w-full justify-end">
         <div className="flex gap-2">
