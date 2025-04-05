@@ -12,3 +12,5 @@ pre-commit:
         - "*.{js,ts,jsx,tsx,json,css,md}"
       stage_fixed: true
 
+    - name: gitleaks
+      run: gitleaks detect -v
