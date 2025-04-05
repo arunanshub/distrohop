@@ -4,8 +4,8 @@ import { Question } from "./actions"
 import { useSections } from "@/hooks/use-sections"
 import { useAnswerStore } from "@/components/providers/answer-store-provider"
 import { Button } from "@/components/ui/button"
-import { useMemo } from "react"
 import AnswerRadioGroup from "@/components/answer-radio-group"
+import useSelectedAnswer from "@/hooks/use-selected-answer"
 
 export default function Client({
   question,
@@ -17,28 +17,16 @@ export default function Client({
   const answerStore = useAnswerStore((store) => store)
   const { previous, next } = useSections(answerStore.sections, sectionId)
 
-  const answersSet = useMemo(
-    () => new Set(question?.answers.map((answer) => answer.msgid)),
-    [question?.answers],
-  )
-  const selectedAnswersSet = useMemo(
-    () => new Set(answerStore.selectedAnswers),
-    [answerStore.selectedAnswers],
-  )
-  const currentlySelectedAnswer = useMemo(
-    () => answersSet.intersection(selectedAnswersSet).values().next().value,
-    [answersSet, selectedAnswersSet],
+  const { currentlySelectedAnswer } = useSelectedAnswer(
+    question?.answers.map((answer) => answer.msgid) ?? [],
+    answerStore.selectedAnswers,
   )
 
   function handleSelectedAnswer(answer: string) {
     // first remove the previously selected answer that is now replaced with a new answer
-    const toRemove = selectedAnswersSet.intersection(answersSet)
-    if (toRemove.size > 0) {
-      for (const answer of toRemove) {
-        answerStore.removeSelectedAnswer(answer)
-      }
+    if (currentlySelectedAnswer) {
+      answerStore.removeSelectedAnswer(currentlySelectedAnswer)
     }
-
     // then select and add the new answer
     answerStore.addSelectedAnswer(answer)
   }
@@ -55,7 +43,7 @@ export default function Client({
         </p>
       </div>
 
-      <pre>{JSON.stringify(currentlySelectedAnswer, null, 2)}</pre>
+      <pre>{JSON.stringify(answerStore.selectedAnswers, null, 2)}</pre>
 
       <AnswerRadioGroup
         answers={question?.answers ?? []}
