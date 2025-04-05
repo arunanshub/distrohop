@@ -1,10 +1,9 @@
 import type { Metadata } from "next"
 import { Artifika, Archivo } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/components/providers/theme-provider"
-import TanstackQueryProvider from "@/components/providers/tanstack-query-provider"
 import { Toaster } from "sonner"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import Providers from "@/components/providers/providers"
 
 const artifika = Artifika({
   variable: "--font-artifika",
@@ -32,25 +31,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <TanstackQueryProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${artifika.variable} ${archivo.className} antialiased`}
-        >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-
-            <Toaster />
-          </ThemeProvider>
-
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${artifika.variable} ${archivo.className} antialiased`}>
+        <Providers>
+          {children}
           <ReactQueryDevtools />
-        </body>
-      </html>
-    </TanstackQueryProvider>
+          <Toaster />
+        </Providers>
+      </body>
+    </html>
   )
 }

@@ -1,8 +1,8 @@
 import { getQuestion } from "./actions"
 import Client from "./client"
-import { unstable_cache as cache } from "next/cache"
+// import { unstable_cache as cache } from "next/cache"
 
-const getCachedQuestion = cache(getQuestion, ["question"])
+// const getCachedQuestion = cache(getQuestion, ["question"])
 
 export default async function Page({
   params,
@@ -10,7 +10,7 @@ export default async function Page({
   params: Promise<{ sectionId: string }>
 }) {
   const { sectionId } = await params
-  const question = await getCachedQuestion(sectionId)
+  const question = await getQuestion(sectionId)
   if (!question) {
     return (
       <div className="flex h-full flex-col items-center justify-center">
@@ -21,5 +21,5 @@ export default async function Page({
       </div>
     )
   }
-  return <Client question={question} />
+  return <Client question={question} sectionId={sectionId} />
 }
