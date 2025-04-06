@@ -4,7 +4,7 @@ pre-commit:
     - name: lint
       run: pnpm eslint --fix {staged_files}
       glob:
-        - "*.{js,ts,jsx,tsx,css,md}"
+        - "*.{js,ts,jsx,tsx}"
       stage_fixed: true
 
     - name: format
