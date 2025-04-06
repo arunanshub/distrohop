@@ -25,7 +25,7 @@ export default function AnswerRadioGroup({
             className="size-6"
             checked={selectedAnswer === answer.msgid}
           />
-          <Label htmlFor={answer.msgid} className="text-md">
+          <Label htmlFor={answer.msgid} className="text-base">
             {answer.msgid}
           </Label>
         </div>
