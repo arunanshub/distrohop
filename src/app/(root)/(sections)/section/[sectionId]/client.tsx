@@ -43,7 +43,9 @@ export default function Client({
         </p>
       </div>
 
-      <pre>{JSON.stringify(answerStore.selectedAnswers, null, 2)}</pre>
+      <div className="font-mono">
+        {JSON.stringify(answerStore.selectedAnswers, null, 2)}
+      </div>
 
       <AnswerRadioGroup
         answers={question?.answers ?? []}

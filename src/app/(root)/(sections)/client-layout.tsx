@@ -113,7 +113,7 @@ export default function ClientLayout({
   return (
     <div className="flex h-full md:px-8">
       <div className="@container/layout mx-auto flex max-w-6xl grow border-r border-l">
-        <aside className="flex flex-col gap-2 border-r p-4 px-2 md:min-w-52 @lg/layout:px-4">
+        <aside className="flex shrink-0 flex-col gap-2 border-r p-4 px-2 md:min-w-52 @lg/layout:px-4">
           {/* home button */}
           <Button asChild variant="secondary">
             <Link href="/" aria-label="Home">
@@ -133,10 +133,12 @@ export default function ClientLayout({
                     href={`/section/${section.msgid}`}
                     aria-label={section.msgid}
                   >
-                    {iconNameToIcon(section.iconName)}
-                    <span className="hidden @2xl/layout:block">
-                      {section.msgid.slice(8, 20)}
-                    </span>
+                    <div className="flex w-full items-center gap-2">
+                      {iconNameToIcon(section.iconName)}
+                      <span className="hidden @2xl/layout:block">
+                        {section.msgid.slice(8, 26)}
+                      </span>
+                    </div>
                   </Link>
                 </Button>
               ))}
