@@ -28,7 +28,7 @@
     "valibot": "^1.0.0",
     "vue": "latest"
   },
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.11.0",
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",
     "vue-tsc": "^2.2.0"
