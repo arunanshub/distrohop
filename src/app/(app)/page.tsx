@@ -20,6 +20,7 @@ export default function Page() {
     <div className="flex flex-col gap-4">
       <h1 className="text-2xl font-semibold md:block">Welcome to Distrohop!</h1>
       <div>This test will help you choose a suitable Linux distribution.</div>
+
       <ul className="flex flex-col gap-2">
         <IntroItem
           icon={SkipForward}
