@@ -5,8 +5,18 @@ import Providers from "@/providers/providers"
 import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
-  title: "Distrohop",
-  description: "Distrohop",
+  title: {
+    default: "Distrohop",
+    template: "%s · Distrohop",
+  },
+  description: "Distrohop is a tool to help you choose a Linux distribution.",
+  keywords: [
+    "Linux",
+    "Distro",
+    "Distrochooser",
+    "Distrohopping",
+    "Choose a distro",
+  ],
 }
 
 const artifika = Artifika({

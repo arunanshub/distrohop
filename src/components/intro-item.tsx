@@ -1,7 +1,7 @@
 import React from "react"
 import { cn } from "@/lib/utils"
 
-export type IntroItemProps = {
+type IntroItemProps = {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
   colorClass?: string
   className?: string
