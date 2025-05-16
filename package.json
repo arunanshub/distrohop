@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "knip": "knip"
   },
   "dependencies": {
     "next": "15.3.2",
@@ -21,6 +22,7 @@
     "@types/react-dom": "^19.1.5",
     "eslint": "^9.26.0",
     "eslint-config-next": "15.3.2",
+    "knip": "^5.56.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.1.7",
