@@ -1,4 +1,5 @@
 import TanstackQueryProvider from "./tanstack-query-provider"
+import { ThemeProvider } from "next-themes"
 
 /**
  * Consolidates all providers into a single component.
@@ -11,5 +12,14 @@ export default function Providers({
 }: {
   readonly children: React.ReactNode
 }) {
-  return <TanstackQueryProvider>{children}</TanstackQueryProvider>
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <TanstackQueryProvider>{children}</TanstackQueryProvider>
+    </ThemeProvider>
+  )
 }
