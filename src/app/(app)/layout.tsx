@@ -3,18 +3,18 @@ import Header from "@/components/header"
 
 export default function Layout({
   sidebar,
-  main,
+  children,
 }: {
   sidebar: React.ReactNode
-  main: React.ReactNode
+  children: React.ReactNode
 }) {
   return (
     <div className="flex min-h-svh flex-col">
       <Header />
 
-      <div className="mx-auto flex max-w-6xl flex-1 border-x">
-        <div className="border-r">{sidebar}</div>
-        <div className="grow">{main}</div>
+      <div className="@container/layout mx-auto flex w-full max-w-6xl grow border-x">
+        {sidebar}
+        <div className="flex-1 p-4">{children}</div>
       </div>
 
       <Footer />
