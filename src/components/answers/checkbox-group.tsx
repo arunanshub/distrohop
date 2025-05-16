@@ -11,12 +11,10 @@ type CheckboxGroupProps = {
 
 export default function CheckboxGroup({ answers }: CheckboxGroupProps) {
   const answerStore = useAnswerStore((store) => store)
-  const { answersSet, selectedAnswersSet, uncheckedAnswers } = useCheckedAnswer(
-    {
-      answers: answers.map((answer) => answer.msgid),
-      selectedAnswers: answerStore.selectedAnswers,
-    },
-  )
+  const { uncheckedAnswers } = useCheckedAnswer({
+    answers: answers.map((answer) => answer.msgid),
+    selectedAnswers: answerStore.selectedAnswers,
+  })
 
   function handleValueChange(value: string[]) {
     console.log(

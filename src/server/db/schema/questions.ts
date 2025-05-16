@@ -1,4 +1,4 @@
-import { relations } from "drizzle-orm"
+import { relations } from "drizzle-orm/relations"
 import { boolean, text } from "drizzle-orm/pg-core"
 import { answers } from "./answers"
 import { sections } from "./sections"

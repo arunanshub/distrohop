@@ -1,7 +1,7 @@
 import "dotenv/config"
 import { getDb } from "@/server/db"
 import * as schema from "@/server/db/schema"
-import { sql } from "drizzle-orm"
+import { sql } from "drizzle-orm/sql"
 
 import distros from "../data/distros.json"
 import sections from "../data/sections.json"
