@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default async function ResultsPage() {
   return (
-    <div className="mx-auto flex max-w-6xl flex-col gap-4">
+    <div className="mx-auto flex max-w-6xl flex-col gap-4 border-x p-6">
       <h1 className="text-4xl font-bold">Results</h1>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
