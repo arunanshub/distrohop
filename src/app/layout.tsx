@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Archivo, Artifika } from "next/font/google"
 import "./globals.css"
 import Providers from "@/providers/providers"
+import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: "Distrohop",
@@ -34,6 +35,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${artifika.variable} ${archivo.className} antialiased`}>
         <Providers>{children}</Providers>
+        <Toaster richColors />
       </body>
     </html>
   )
