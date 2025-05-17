@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "check": "tsc --noEmit && next lint",
-    "knip": "knip",
+    "knip": "knip --cache",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",

@@ -1,12 +1,21 @@
+import { getQuestion } from "./actions"
+
 export default async function SectionPage({
   params,
 }: {
   params: Promise<{ sectionId: string }>
 }) {
   const { sectionId } = await params
+  const question = await getQuestion(sectionId)
 
-  // simulate a delay
-  await new Promise((resolve) => setTimeout(resolve, 3000))
-
-  return <div>SectionPage {sectionId}</div>
+  return (
+    <div>
+      <h1>{question?.msgid}</h1>
+      <div>
+        {question?.answers.map((answer) => (
+          <div key={answer.msgid}>{answer.msgid}</div>
+        ))}
+      </div>
+    </div>
+  )
 }
