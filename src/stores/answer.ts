@@ -1,13 +1,5 @@
 import { atom } from "jotai"
 
-export const answerAtom = atom<string[]>([])
+export const selectedAnswersAtom = atom<Set<string>>(new Set<string>())
 
-// just for experiment
-export const counterAtom = atom(0)
-
-const answerStore = {
-  answerAtom,
-  counterAtom,
-}
-
-export default answerStore
+export const importantAnswersAtom = atom<Set<string>>(new Set<string>())

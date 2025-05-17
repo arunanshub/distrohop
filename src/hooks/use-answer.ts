@@ -1,10 +1,47 @@
-import answerStore from "@/stores/answer"
+import { selectedAnswersAtom, importantAnswersAtom } from "@/stores/answer"
 import { useAtom } from "jotai"
 
 export default function useAnswer() {
-  const [count, setCount] = useAtom(answerStore.counterAtom)
-  const increment = () => setCount((prev) => prev + 1)
-  const decrement = () => setCount((prev) => prev - 1)
+  const [selectedAnswers, setSelectedAnswers] = useAtom(selectedAnswersAtom)
+  const [importantAnswers, setImportantAnswers] = useAtom(importantAnswersAtom)
 
-  return { count, increment, decrement }
+  function addSelectedAnswer(answer: string) {
+    setSelectedAnswers((prev) => {
+      const newSet = new Set(prev)
+      newSet.add(answer)
+      return newSet
+    })
+  }
+  function removeSelectedAnswer(answer: string) {
+    setSelectedAnswers((prev) => {
+      const newSet = new Set(prev)
+      newSet.delete(answer)
+      return newSet
+    })
+  }
+
+  function addImportantAnswer(answer: string) {
+    setImportantAnswers((prev) => {
+      const newSet = new Set(prev)
+      newSet.add(answer)
+      return newSet
+    })
+  }
+  function removeImportantAnswer(answer: string) {
+    setImportantAnswers((prev) => {
+      const newSet = new Set(prev)
+      newSet.delete(answer)
+      return newSet
+    })
+  }
+
+  return {
+    selectedAnswers,
+    addSelectedAnswer,
+    removeSelectedAnswer,
+
+    importantAnswers,
+    addImportantAnswer,
+    removeImportantAnswer,
+  }
 }
