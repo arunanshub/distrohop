@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { BarChart, Home } from "lucide-react"
+import { Home } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import AppSidebarClient from "./client"
 import SidebarSkeleton from "./sidebar-skeleton"
 import { Suspense } from "react"
+import ResultsButton from "./results-button"
 
 async function getSections() {
   "use server"
@@ -45,10 +46,7 @@ export default async function AppSidebar() {
       <Separator />
 
       {/* show result button */}
-      <Button aria-label="Show Results">
-        <BarChart />
-        <span className="hidden @2xl/layout:block">Show Results</span>
-      </Button>
+      <ResultsButton />
     </aside>
   )
 }
