@@ -9,3 +9,5 @@ export async function getSections() {
     orderBy: (sections, { asc }) => [asc(sections.msgid)],
   })
 }
+
+export type Section = Awaited<ReturnType<typeof getSections>>[number]
