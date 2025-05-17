@@ -9,7 +9,7 @@ export async function getQuestion(sectionId: string) {
   const db = getDb()
 
   try {
-    return await db.query.sections
+    const data = await db.query.sections
       .findFirst({
         where: eq(tables.sections.msgid, sectionId),
         orderBy: (sections, { asc }) => [asc(sections.msgid)],
@@ -36,6 +36,12 @@ export async function getQuestion(sectionId: string) {
       .then((section) => {
         return section?.question
       })
+
+    if (!data) {
+      return notFound()
+    }
+
+    return data
   } catch (error) {
     if (error instanceof DatabaseError && error.code === "P0002") {
       return notFound()

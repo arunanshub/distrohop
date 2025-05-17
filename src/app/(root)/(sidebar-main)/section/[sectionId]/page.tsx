@@ -1,4 +1,5 @@
 import { getQuestion } from "./actions"
+import SectionPageClient from "./client"
 
 export default async function SectionPage({
   params,
@@ -8,14 +9,5 @@ export default async function SectionPage({
   const { sectionId } = await params
   const question = await getQuestion(sectionId)
 
-  return (
-    <div>
-      <h1>{question?.msgid}</h1>
-      <div>
-        {question?.answers.map((answer) => (
-          <div key={answer.msgid}>{answer.msgid}</div>
-        ))}
-      </div>
-    </div>
-  )
+  return <SectionPageClient question={question} />
 }
