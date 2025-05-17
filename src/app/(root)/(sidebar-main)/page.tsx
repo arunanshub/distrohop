@@ -1,5 +1,6 @@
 import { IntroItem } from "@/components/intro-item"
 import { Button } from "@/components/ui/button"
+
 import {
   Heart,
   HelpCircle,
@@ -9,11 +10,6 @@ import {
   ThumbsUp,
   Trash2,
 } from "lucide-react"
-import { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "Welcome",
-}
 
 export default function Page() {
   return (
