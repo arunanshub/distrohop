@@ -7,17 +7,7 @@ import AppSidebarClient from "./client"
 import SidebarSkeleton from "./sidebar-skeleton"
 import { Suspense } from "react"
 import ResultsButton from "./results-button"
-
-async function getSections() {
-  "use server"
-  // simulate a delay
-  await new Promise((resolve) => setTimeout(resolve, 3000))
-  return [
-    { msgid: "section-1", iconName: "mdi:poll" },
-    { msgid: "section-2", iconName: "ic:round-monitor" },
-    { msgid: "section-3", iconName: "codicon:terminal-linux" },
-  ]
-}
+import { getSections } from "@/actions/sections"
 
 export default async function AppSidebar() {
   const sectionsPromise = getSections()
