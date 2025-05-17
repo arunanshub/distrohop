@@ -1,7 +1,7 @@
 import { selectedAnswersAtom, importantAnswersAtom } from "@/stores/answer"
 import { useAtom } from "jotai"
 
-export default function useAnswer() {
+export default function useAnswerStore() {
   const [selectedAnswers, setSelectedAnswers] = useAtom(selectedAnswersAtom)
   const [importantAnswers, setImportantAnswers] = useAtom(importantAnswersAtom)
 
