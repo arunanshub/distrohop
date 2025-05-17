@@ -45,7 +45,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${artifika.variable} ${archivo.className} antialiased`}>
         <Providers>{children}</Providers>
-        <Toaster richColors />
+        <Toaster richColors closeButton />
       </body>
     </html>
   )
