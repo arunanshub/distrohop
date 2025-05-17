@@ -1,0 +1,54 @@
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { BarChart, Home } from "lucide-react"
+import { Separator } from "@/components/ui/separator"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import AppSidebarClient from "./client"
+import SidebarSkeleton from "./sidebar-skeleton"
+import { Suspense } from "react"
+
+async function getSections() {
+  "use server"
+  // simulate a delay
+  await new Promise((resolve) => setTimeout(resolve, 3000))
+  return [
+    { msgid: "section-1", iconName: "mdi:poll" },
+    { msgid: "section-2", iconName: "ic:round-monitor" },
+    { msgid: "section-3", iconName: "codicon:terminal-linux" },
+  ]
+}
+
+export default async function AppSidebar() {
+  const sectionsPromise = getSections()
+
+  return (
+    <aside className="flex shrink-0 flex-col gap-2 border-r p-4 px-2 md:min-w-52 @lg/layout:px-4">
+      {/* home button */}
+      <Button asChild variant="secondary">
+        <Link href="/" aria-label="Home">
+          <Home />
+          <span className="hidden @2xl/layout:block">Welcome!</span>
+        </Link>
+      </Button>
+
+      <Separator />
+
+      {/* the various sections */}
+      <ScrollArea className="h-full">
+        <nav className="flex max-h-[35svh] flex-col gap-2">
+          <Suspense fallback={<SidebarSkeleton />}>
+            <AppSidebarClient sectionsPromise={sectionsPromise} />
+          </Suspense>
+        </nav>
+      </ScrollArea>
+
+      <Separator />
+
+      {/* show result button */}
+      <Button aria-label="Show Results">
+        <BarChart />
+        <span className="hidden @2xl/layout:block">Show Results</span>
+      </Button>
+    </aside>
+  )
+}

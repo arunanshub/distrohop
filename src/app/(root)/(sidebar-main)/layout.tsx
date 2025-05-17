@@ -1,13 +1,9 @@
-export default function Layout({
-  sidebar,
-  children,
-}: {
-  sidebar: React.ReactNode
-  children: React.ReactNode
-}) {
+import AppSidebar from "@/components/app-sidebar"
+
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="@container/layout mx-auto flex w-full max-w-6xl border-x">
-      {sidebar}
+      <AppSidebar />
       <div className="flex-1 p-4">{children}</div>
     </div>
   )
