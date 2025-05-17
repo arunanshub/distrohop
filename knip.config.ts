@@ -7,5 +7,5 @@ export default {
     "postcss",
     "tw-animate-css",
   ],
-  ignore: ["src/components/ui/*"],
+  ignore: ["src/components/ui/*", "scripts/*"],
 } satisfies KnipConfig
