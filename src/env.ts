@@ -4,6 +4,10 @@ import * as v from "valibot"
 export const env = createEnv({
   // server only env vars
   server: {
+    NODE_ENV: v.optional(
+      v.picklist(["development", "production", "test"]),
+      "development",
+    ),
     DATABASE_URL: v.pipe(v.string(), v.url()),
     STANDALONE_IN_PROD: v.optional(
       v.pipe(
