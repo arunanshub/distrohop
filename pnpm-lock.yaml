@@ -20,6 +20,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: ^1.2.2
         version: 1.2.2(@types/react@19.1.4)(react@19.1.0)
+      '@t3-oss/env-nextjs':
+        specifier: ^0.13.4
+        version: 0.13.4(arktype@2.1.20)(typescript@5.8.3)(valibot@1.1.0(typescript@5.8.3))(zod@3.24.4)
       '@tanstack/react-query':
         specifier: ^5.76.1
         version: 5.76.1(react@19.1.0)
@@ -53,6 +56,9 @@ importers:
       tailwind-merge:
         specifier: ^3.3.0
         version: 3.3.0
+      valibot:
+        specifier: ^1.1.0
+        version: 1.1.0(typescript@5.8.3)
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3.3.1
@@ -106,6 +112,12 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@ark/schema@0.46.0':
+    resolution: {integrity: sha512-c2UQdKgP2eqqDArfBqQIJppxJHvNNXuQPeuSPlDML4rjw+f1cu0qAlzOG4b8ujgm9ctIDWwhpyw6gjG5ledIVQ==}
+
+  '@ark/util@0.46.0':
+    resolution: {integrity: sha512-JPy/NGWn/lvf1WmGCPw2VGpBg5utZraE84I7wli18EDF3p3zc/e9WolT35tINeZO3l7C77SjqRJeAUoT0CvMRg==}
 
   '@emnapi/core@1.4.3':
     resolution: {integrity: sha512-4m62DuCE07lw01soJwPiBGC0nAww0Q+RY70VZ+n49yDIO13yyinhbWCeNnaob0lakDtWQzSdtNWzJeOJt2ma+g==}
@@ -577,6 +589,35 @@ packages:
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
 
+  '@t3-oss/env-core@0.13.4':
+    resolution: {integrity: sha512-zVOiYO0+CF7EnBScz8s0O5JnJLPTU0lrUi8qhKXfIxIJXvI/jcppSiXXsEJwfB4A6XZawY/Wg/EQGKANi/aPmQ==}
+    peerDependencies:
+      arktype: ^2.1.0
+      typescript: '>=5.0.0'
+      valibot: ^1.0.0-beta.7 || ^1.0.0
+      zod: ^3.24.0 || ^4.0.0-beta.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+      valibot:
+        optional: true
+      zod:
+        optional: true
+
+  '@t3-oss/env-nextjs@0.13.4':
+    resolution: {integrity: sha512-6ecXR7SH7zJKVcBODIkB7wV9QLMU23uV8D9ec6P+ULHJ5Ea/YXEHo+Z/2hSYip5i9ptD/qZh8VuOXyldspvTTg==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+      valibot: ^1.0.0-beta.7 || ^1.0.0
+      zod: ^3.24.0 || ^4.0.0-beta.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+      valibot:
+        optional: true
+      zod:
+        optional: true
+
   '@tailwindcss/node@4.1.7':
     resolution: {integrity: sha512-9rsOpdY9idRI2NH6CL4wORFY0+Q6fnx9XP9Ju+iq/0wJwGD5IByIgFmwVbyy4ymuyprj8Qh4ErxMKTUL4uNh3g==}
 
@@ -864,6 +905,9 @@ packages:
   aria-query@5.3.2:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
     engines: {node: '>= 0.4'}
+
+  arktype@2.1.20:
+    resolution: {integrity: sha512-IZCEEXaJ8g+Ijd59WtSYwtjnqXiwM8sWQ5EjGamcto7+HVN9eK0C4p0zDlCuAwWhpqr6fIBkxPuYDl4/Mcj/+Q==}
 
   array-buffer-byte-length@1.0.2:
     resolution: {integrity: sha512-LHE+8BuR7RYGDKvnrmcuSq3tDcKv9OFEXQt/HpbZhY7V6h0zlUXutnAD82GiFx9rdieCMjkvtcsPqBwgUl1Iiw==}
@@ -2304,6 +2348,14 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
+  valibot@1.1.0:
+    resolution: {integrity: sha512-Nk8lX30Qhu+9txPYTwM0cFlWLdPFsFr6LblzqIySfbZph9+BFsAHsNvHOymEviUepeIW6KFHzpX8TKhbptBXXw==}
+    peerDependencies:
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
@@ -2369,6 +2421,12 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
+
+  '@ark/schema@0.46.0':
+    dependencies:
+      '@ark/util': 0.46.0
+
+  '@ark/util@0.46.0': {}
 
   '@emnapi/core@1.4.3':
     dependencies:
@@ -2749,6 +2807,24 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
+  '@t3-oss/env-core@0.13.4(arktype@2.1.20)(typescript@5.8.3)(valibot@1.1.0(typescript@5.8.3))(zod@3.24.4)':
+    dependencies:
+      arktype: 2.1.20
+    optionalDependencies:
+      typescript: 5.8.3
+      valibot: 1.1.0(typescript@5.8.3)
+      zod: 3.24.4
+
+  '@t3-oss/env-nextjs@0.13.4(arktype@2.1.20)(typescript@5.8.3)(valibot@1.1.0(typescript@5.8.3))(zod@3.24.4)':
+    dependencies:
+      '@t3-oss/env-core': 0.13.4(arktype@2.1.20)(typescript@5.8.3)(valibot@1.1.0(typescript@5.8.3))(zod@3.24.4)
+    optionalDependencies:
+      typescript: 5.8.3
+      valibot: 1.1.0(typescript@5.8.3)
+      zod: 3.24.4
+    transitivePeerDependencies:
+      - arktype
+
   '@tailwindcss/node@4.1.7':
     dependencies:
       '@ampproject/remapping': 2.3.0
@@ -3014,6 +3090,11 @@ snapshots:
   argparse@2.0.1: {}
 
   aria-query@5.3.2: {}
+
+  arktype@2.1.20:
+    dependencies:
+      '@ark/schema': 0.46.0
+      '@ark/util': 0.46.0
 
   array-buffer-byte-length@1.0.2:
     dependencies:
@@ -4712,6 +4793,10 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
+
+  valibot@1.1.0(typescript@5.8.3):
+    optionalDependencies:
+      typescript: 5.8.3
 
   vary@1.1.2: {}
 
