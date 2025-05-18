@@ -1,6 +1,13 @@
 import { getQuestion } from "./actions"
 import PreviousNextButtons from "./components/previous-next-buttons"
 import dynamic from "next/dynamic"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+}
 
 const AnswerCheckboxGroup = dynamic(
   () => import("./components/answer-checkbox-group"),
