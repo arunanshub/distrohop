@@ -1,6 +1,6 @@
 import { getSections } from "@/actions/sections"
 import AppSidebar from "@/components/app-sidebar"
-import StoreProvider from "@/providers/answer-provider"
+import StoreProvider from "@/providers/answer-store-provider"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
