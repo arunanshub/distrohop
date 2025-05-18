@@ -1,6 +1,13 @@
 import { getQuestion } from "./actions"
-import AnswerCheckboxGroup from "./components/answer-checkbox-group"
 import PreviousNextButtons from "./components/previous-next-buttons"
+import dynamic from "next/dynamic"
+
+const AnswerCheckboxGroup = dynamic(
+  () => import("./components/answer-checkbox-group"),
+)
+const AnswerRadioGroup = dynamic(
+  () => import("./components/answer-radio-group"),
+)
 
 export default async function SectionPage({
   params,
@@ -14,7 +21,12 @@ export default async function SectionPage({
     <div className="flex flex-col gap-6">
       <h1 className="text-2xl font-bold">{question?.msgid}</h1>
 
-      <AnswerCheckboxGroup question={question} />
+      {/* <AnswerCheckboxGroup question={question} /> */}
+      {question.isMultipleChoice ? (
+        <AnswerCheckboxGroup question={question} />
+      ) : (
+        <AnswerRadioGroup question={question} />
+      )}
 
       <PreviousNextButtons />
     </div>
