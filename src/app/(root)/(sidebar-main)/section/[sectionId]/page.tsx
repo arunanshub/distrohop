@@ -21,7 +21,6 @@ export default async function SectionPage({
     <div className="flex flex-col gap-6">
       <h1 className="text-2xl font-bold">{question?.msgid}</h1>
 
-      {/* <AnswerCheckboxGroup question={question} /> */}
       {question.isMultipleChoice ? (
         <AnswerCheckboxGroup question={question} />
       ) : (

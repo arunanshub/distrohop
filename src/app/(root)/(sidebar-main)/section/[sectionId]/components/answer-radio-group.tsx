@@ -18,23 +18,19 @@ export default function AnswerRadioGroup({ question }: { question: Question }) {
     [question.answers, selectedAnswers],
   )
 
-  function handleSelectionChange(value: string) {
-    // For each possible answer, check if it's selected and remove it
-    question.answers.forEach((answer) => {
-      if (selectedAnswers.has(answer.msgid)) {
-        removeSelectedAnswer(answer.msgid)
-      }
-    })
-    // Add the new selection
-    addSelectedAnswer(value)
-  }
-
   return (
     <div className="flex flex-col gap-4">
       <RadioGroup
         className="flex flex-col gap-2"
         value={selectedAnswer}
-        onValueChange={handleSelectionChange}
+        onValueChange={(value) => {
+          // If there's already a selected answer, remove it
+          if (selectedAnswer) {
+            removeSelectedAnswer(selectedAnswer)
+          }
+          // Add the new selection
+          addSelectedAnswer(value)
+        }}
       >
         {question.answers.map((answer) => (
           <div key={answer.msgid} className="flex items-center gap-2">
