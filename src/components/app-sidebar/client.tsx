@@ -1,6 +1,6 @@
 "use client"
 
-import { use, useRef } from "react"
+import { use, useEffect } from "react"
 import { Button } from "../ui/button"
 import Link from "next/link"
 import { FaBoxOpen, FaMicrosoft, FaUserShield } from "react-icons/fa"
@@ -59,13 +59,14 @@ export default function AppSidebarClient({
 }) {
   const sections = use(sectionsPromise)
   const { addSections } = useSections()
-  const initialized = useRef(false)
 
-  // Add the sections to the store only once
-  if (sections.length && !initialized.current) {
-    initialized.current = true
-    addSections(sections.map((section) => section.msgid))
-  }
+  useEffect(() => {
+    if (sections.length) {
+      addSections(sections.map((section) => section.msgid))
+    }
+    // only run once after component mounts
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>

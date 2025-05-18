@@ -1,6 +1,4 @@
 import { IntroItem } from "@/components/intro-item"
-import { Button } from "@/components/ui/button"
-
 import {
   Heart,
   HelpCircle,
@@ -10,6 +8,7 @@ import {
   ThumbsUp,
   Trash2,
 } from "lucide-react"
+import StartTestButton from "./components/start-test-button"
 
 export default function Page() {
   return (
@@ -53,11 +52,8 @@ export default function Page() {
           Please rate your results, depending on how well they fit your needs
         </IntroItem>
       </ul>
-      <div className="mt-4 flex flex-col">
-        <Button className="self-end" size="lg">
-          Start test
-        </Button>
-      </div>
+
+      <StartTestButton />
     </div>
   )
 }
