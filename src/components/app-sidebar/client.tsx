@@ -1,6 +1,6 @@
 "use client"
 
-import { use } from "react"
+import { use, useRef } from "react"
 import { Button } from "../ui/button"
 import Link from "next/link"
 import { FaBoxOpen, FaMicrosoft, FaUserShield } from "react-icons/fa"
@@ -17,6 +17,7 @@ import {
   Terminal,
 } from "lucide-react"
 import { DiOpensource } from "react-icons/di"
+import { useSections } from "@/stores/section"
 
 function iconNameToIcon(iconName: string) {
   switch (iconName) {
@@ -57,7 +58,14 @@ export default function AppSidebarClient({
   sectionsPromise: Promise<{ msgid: string; iconName: string }[]>
 }) {
   const sections = use(sectionsPromise)
-  // TODO: add the sections and related data in a context manager (zustand).
+  const { addSections } = useSections()
+  const initialized = useRef(false)
+
+  // Add the sections to the store only once
+  if (sections.length && !initialized.current) {
+    initialized.current = true
+    addSections(sections.map((section) => section.msgid))
+  }
 
   return (
     <>
