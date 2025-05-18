@@ -5,7 +5,7 @@ export default function SidebarSkeleton() {
   // Create an array of 3 items to match the number of sections in the real data
   return (
     <>
-      {Array.from({ length: 3 }).map((_, index) => (
+      {Array.from({ length: 13 }).map((_, index) => (
         <Button
           key={index}
           variant="secondary"

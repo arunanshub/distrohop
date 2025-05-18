@@ -15,7 +15,7 @@ export default async function AppSidebar({
   sectionsPromise: Promise<Section[]>
 }) {
   return (
-    <aside className="flex shrink-0 flex-col gap-2 border-r p-4 px-2 md:min-w-52 @lg/layout:px-4">
+    <aside className="flex shrink-0 flex-col gap-2 border-r p-4 px-2 md:min-w-56 @lg/layout:px-4">
       {/* home button */}
       <Button asChild variant="secondary">
         <Link href="/" aria-label="Home">
