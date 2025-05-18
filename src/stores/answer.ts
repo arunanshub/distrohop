@@ -1,8 +1,8 @@
 import { atom, useAtom } from "jotai"
 
-export const selectedAnswersAtom = atom<Set<string>>(new Set<string>())
+const selectedAnswersAtom = atom<Set<string>>(new Set<string>())
 
-export const importantAnswersAtom = atom<Set<string>>(new Set<string>())
+const importantAnswersAtom = atom<Set<string>>(new Set<string>())
 
 export function useAnswerStore() {
   const [selectedAnswers, setSelectedAnswers] = useAtom(selectedAnswersAtom)
