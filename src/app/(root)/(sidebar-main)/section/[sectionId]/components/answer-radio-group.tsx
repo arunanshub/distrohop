@@ -21,7 +21,7 @@ export default function AnswerRadioGroup({ question }: { question: Question }) {
   return (
     <div className="flex flex-col gap-4">
       <RadioGroup
-        className="flex flex-col gap-2"
+        className="flex flex-col gap-3"
         value={selectedAnswer}
         onValueChange={(value) => {
           // If there's already a selected answer, remove it
@@ -37,7 +37,7 @@ export default function AnswerRadioGroup({ question }: { question: Question }) {
             <RadioGroupItem
               id={answer.msgid}
               value={answer.msgid}
-              className="size-6"
+              className="size-7"
             />
             <Label className="text-base" htmlFor={answer.msgid}>
               {answer.msgid}
