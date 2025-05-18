@@ -1,5 +1,6 @@
 import { getQuestion } from "./actions"
-import SectionPageClient from "./client"
+import AnswerCheckboxGroup from "./components/answer-checkbox-group"
+import PreviousNextButtons from "./components/previous-next-buttons"
 
 export default async function SectionPage({
   params,
@@ -9,5 +10,13 @@ export default async function SectionPage({
   const { sectionId } = await params
   const question = await getQuestion(sectionId)
 
-  return <SectionPageClient question={question} />
+  return (
+    <div className="flex flex-col gap-6">
+      <h1 className="text-2xl font-bold">{question?.msgid}</h1>
+
+      <AnswerCheckboxGroup question={question} />
+
+      <PreviousNextButtons />
+    </div>
+  )
 }
