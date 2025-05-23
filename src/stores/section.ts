@@ -1,33 +1,51 @@
 import { atom, useAtom } from "jotai"
 import { useParams } from "next/navigation"
-import { useMemo } from "react"
+import { useMemo, useCallback } from "react"
 
 const sectionsAtom = atom<string[]>([])
 
 export function useSections() {
   const [sections, setSections] = useAtom(sectionsAtom)
 
-  const { sectionId } = useParams()
-  const currentSection = sectionId as string
+  const sectionId = useParams().sectionId as string
+  const currentSection = useMemo(
+    () => sections.find((s) => s === sectionId),
+    [sections, sectionId],
+  )
 
-  function addSections(sectionIds: string[]) {
-    setSections(sectionIds)
-  }
+  const addSections = useCallback(
+    (sectionIds: string[]) => {
+      setSections(sectionIds)
+    },
+    [setSections],
+  )
 
   const nextSection = useMemo(() => {
-    const currentIndex = sections.indexOf(currentSection)
-    const nextIndex = currentIndex + 1
-    if (nextIndex < sections.length) {
-      return sections[nextIndex]
+    if (sections.length === 0) {
+      return undefined
     }
+    if (!currentSection) {
+      return sections[0]
+    }
+    const idx = sections.indexOf(currentSection)
+    if (idx === -1) {
+      return sections[0]
+    }
+    if (idx === sections.length - 1) {
+      return undefined
+    }
+    return sections[idx + 1]
   }, [sections, currentSection])
 
   const previousSection = useMemo(() => {
-    const currentIndex = sections.indexOf(currentSection)
-    const previousIndex = currentIndex - 1
-    if (previousIndex >= 0) {
-      return sections[previousIndex]
+    if (!currentSection) {
+      return undefined
     }
+    const idx = sections.indexOf(currentSection)
+    if (idx > 0) {
+      return sections[idx - 1]
+    }
+    return undefined
   }, [sections, currentSection])
 
   return { sections, addSections, nextSection, previousSection }

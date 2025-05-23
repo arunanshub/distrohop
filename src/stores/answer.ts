@@ -1,4 +1,5 @@
 import { atom, useAtom } from "jotai"
+import { useCallback } from "react"
 
 const selectedAnswersAtom = atom<Set<string>>(new Set<string>())
 
@@ -8,35 +9,49 @@ export function useAnswerStore() {
   const [selectedAnswers, setSelectedAnswers] = useAtom(selectedAnswersAtom)
   const [importantAnswers, setImportantAnswers] = useAtom(importantAnswersAtom)
 
-  function addSelectedAnswer(answer: string) {
-    setSelectedAnswers((prev) => {
-      const newSet = new Set(prev)
-      newSet.add(answer)
-      return newSet
-    })
-  }
-  function removeSelectedAnswer(answer: string) {
-    setSelectedAnswers((prev) => {
-      const newSet = new Set(prev)
-      newSet.delete(answer)
-      return newSet
-    })
-  }
+  const addSelectedAnswer = useCallback(
+    (answer: string) => {
+      setSelectedAnswers((prev) => {
+        const newSet = new Set(prev)
+        newSet.add(answer)
+        return newSet
+      })
+    },
+    [setSelectedAnswers],
+  )
 
-  function addImportantAnswer(answer: string) {
-    setImportantAnswers((prev) => {
-      const newSet = new Set(prev)
-      newSet.add(answer)
-      return newSet
-    })
-  }
-  function removeImportantAnswer(answer: string) {
-    setImportantAnswers((prev) => {
-      const newSet = new Set(prev)
-      newSet.delete(answer)
-      return newSet
-    })
-  }
+  const removeSelectedAnswer = useCallback(
+    (answer: string) => {
+      setSelectedAnswers((prev) => {
+        const newSet = new Set(prev)
+        newSet.delete(answer)
+        return newSet
+      })
+    },
+    [setSelectedAnswers],
+  )
+
+  const addImportantAnswer = useCallback(
+    (answer: string) => {
+      setImportantAnswers((prev) => {
+        const newSet = new Set(prev)
+        newSet.add(answer)
+        return newSet
+      })
+    },
+    [setImportantAnswers],
+  )
+
+  const removeImportantAnswer = useCallback(
+    (answer: string) => {
+      setImportantAnswers((prev) => {
+        const newSet = new Set(prev)
+        newSet.delete(answer)
+        return newSet
+      })
+    },
+    [setImportantAnswers],
+  )
 
   return {
     selectedAnswers,
