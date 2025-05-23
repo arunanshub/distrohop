@@ -1,6 +1,6 @@
 "use client"
 
-import { use, useMemo } from "react"
+import { use, useEffect } from "react"
 import { Button } from "../ui/button"
 import Link from "next/link"
 import { FaBoxOpen, FaMicrosoft, FaUserShield } from "react-icons/fa"
@@ -60,9 +60,9 @@ export default function AppSidebarClient({
   const sections = use(sectionsPromise)
   const { addSections } = useSections()
 
-  useMemo(() => {
+  useEffect(() => {
     addSections(sections.map((section) => section.msgid))
-  }, [addSections, sections])
+  }, [])
 
   return (
     <>
