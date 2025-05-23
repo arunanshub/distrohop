@@ -62,6 +62,7 @@ export default function AppSidebarClient({
 
   useEffect(() => {
     addSections(sections.map((section) => section.msgid))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
