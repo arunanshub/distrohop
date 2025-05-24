@@ -2,6 +2,7 @@ import { getQuestion } from "./actions"
 import PreviousNextButtons from "./components/previous-next-buttons"
 import dynamic from "next/dynamic"
 import { Metadata } from "next"
+import { unstable_cache as cache } from "next/cache"
 
 export const metadata: Metadata = {
   alternates: {
@@ -22,7 +23,8 @@ export default async function SectionPage({
   params: Promise<{ sectionId: string }>
 }) {
   const { sectionId } = await params
-  const question = await getQuestion(sectionId)
+  const getCachedQuestion = cache(getQuestion)
+  const question = await getCachedQuestion(sectionId)
 
   return (
     <div className="flex flex-col gap-6">
