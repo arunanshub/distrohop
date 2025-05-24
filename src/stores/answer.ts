@@ -1,70 +1,43 @@
-import { atom, useAtom } from "jotai"
-import { useHydrateAtoms } from "jotai/utils"
-import { useCallback } from "react"
+import { createStore } from "zustand"
 
-const selectedAnswersAtom = atom<Set<string>>(new Set<string>())
+export type AnswerStore = {
+  selectedAnswers: Set<string>
+  importantAnswers: Set<string>
+  addSelectedAnswer: (answer: string) => void
+  removeSelectedAnswer: (answer: string) => void
+  addImportantAnswer: (answer: string) => void
+  removeImportantAnswer: (answer: string) => void
+}
 
-const importantAnswersAtom = atom<Set<string>>(new Set<string>())
-
-export function useAnswerStore() {
-  // VERY IMPORTANT: not adding this will cause a hydration error on the client.
-  useHydrateAtoms([[selectedAnswersAtom, new Set<string>()]])
-  useHydrateAtoms([[importantAnswersAtom, new Set<string>()]])
-
-  const [selectedAnswers, setSelectedAnswers] = useAtom(selectedAnswersAtom)
-  const [importantAnswers, setImportantAnswers] = useAtom(importantAnswersAtom)
-
-  const addSelectedAnswer = useCallback(
-    (answer: string) => {
-      setSelectedAnswers((prev) => {
-        const newSet = new Set(prev)
-        newSet.add(answer)
-        return newSet
-      })
+export function createAnswerStore() {
+  return createStore<AnswerStore>()((set) => ({
+    selectedAnswers: new Set(),
+    importantAnswers: new Set(),
+    addSelectedAnswer: (answer) => {
+      set((state) => ({
+        selectedAnswers: new Set(state.selectedAnswers).add(answer),
+      }))
     },
-    [setSelectedAnswers],
-  )
-
-  const removeSelectedAnswer = useCallback(
-    (answer: string) => {
-      setSelectedAnswers((prev) => {
-        const newSet = new Set(prev)
+    removeSelectedAnswer: (answer) => {
+      set((state) => {
+        const newSet = new Set(state.selectedAnswers)
         newSet.delete(answer)
-        return newSet
+        return { selectedAnswers: newSet }
       })
     },
-    [setSelectedAnswers],
-  )
-
-  const addImportantAnswer = useCallback(
-    (answer: string) => {
-      setImportantAnswers((prev) => {
-        const newSet = new Set(prev)
+    addImportantAnswer: (answer) => {
+      set((state) => {
+        const newSet = new Set(state.importantAnswers)
         newSet.add(answer)
-        return newSet
+        return { importantAnswers: newSet }
       })
     },
-    [setImportantAnswers],
-  )
-
-  const removeImportantAnswer = useCallback(
-    (answer: string) => {
-      setImportantAnswers((prev) => {
-        const newSet = new Set(prev)
+    removeImportantAnswer: (answer) => {
+      set((state) => {
+        const newSet = new Set(state.importantAnswers)
         newSet.delete(answer)
-        return newSet
+        return { importantAnswers: newSet }
       })
     },
-    [setImportantAnswers],
-  )
-
-  return {
-    selectedAnswers,
-    addSelectedAnswer,
-    removeSelectedAnswer,
-
-    importantAnswers,
-    addImportantAnswer,
-    removeImportantAnswer,
-  }
+  }))
 }

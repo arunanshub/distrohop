@@ -2,15 +2,18 @@
 import { Question } from "../actions"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
-import { useAnswerStore } from "@/stores/answer"
+import { useAnswerStore } from "@/providers/answer-store-provider"
 
 export default function AnswerCheckboxGroup({
   question,
 }: {
   question: Question
 }) {
-  const { addSelectedAnswer, removeSelectedAnswer, selectedAnswers } =
-    useAnswerStore()
+  const addSelectedAnswer = useAnswerStore((store) => store.addSelectedAnswer)
+  const removeSelectedAnswer = useAnswerStore(
+    (store) => store.removeSelectedAnswer,
+  )
+  const selectedAnswers = useAnswerStore((store) => store.selectedAnswers)
 
   return (
     <div className="flex flex-col gap-4">

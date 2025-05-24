@@ -17,7 +17,7 @@ import {
   Terminal,
 } from "lucide-react"
 import { DiOpensource } from "react-icons/di"
-import { useSections } from "@/stores/section"
+import { useSectionStore } from "@/providers/section-store-provider"
 
 function iconNameToIcon(iconName: string) {
   switch (iconName) {
@@ -58,7 +58,7 @@ export default function AppSidebarClient({
   sectionsPromise: Promise<{ msgid: string; iconName: string }[]>
 }) {
   const sections = use(sectionsPromise)
-  const { addSections } = useSections(sections.map((section) => section.msgid))
+  const addSections = useSectionStore((store) => store.addSections)
 
   useEffect(() => {
     addSections(sections.map((section) => section.msgid))

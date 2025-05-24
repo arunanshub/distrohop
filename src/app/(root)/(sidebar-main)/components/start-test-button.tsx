@@ -1,6 +1,6 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import { useSections } from "@/stores/section"
+import { useSections } from "@/hooks/sections"
 import { useRouter } from "next/navigation"
 
 export default function StartTestButton() {

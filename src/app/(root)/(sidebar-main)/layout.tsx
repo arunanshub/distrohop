@@ -1,6 +1,7 @@
 import { getSections } from "@/actions/sections"
 import AppSidebar from "@/components/app-sidebar"
-import StoreProvider from "@/providers/store-provider"
+import AnswerStoreProvider from "@/providers/answer-store-provider"
+import SectionStoreProvider from "@/providers/section-store-provider"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -18,11 +19,13 @@ export default async function Layout({
   const sectionsPromise = getSections()
 
   return (
-    <StoreProvider>
-      <div className="@container/layout mx-auto flex w-full max-w-6xl border-x">
-        <AppSidebar sectionsPromise={sectionsPromise} />
-        <div className="flex-1 p-4">{children}</div>
-      </div>
-    </StoreProvider>
+    <SectionStoreProvider>
+      <AnswerStoreProvider>
+        <div className="@container/layout mx-auto flex w-full max-w-6xl border-x">
+          <AppSidebar sectionsPromise={sectionsPromise} />
+          <div className="flex-1 p-4">{children}</div>
+        </div>
+      </AnswerStoreProvider>
+    </SectionStoreProvider>
   )
 }

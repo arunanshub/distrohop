@@ -2,12 +2,15 @@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Question } from "../actions"
 import { Label } from "@/components/ui/label"
-import { useAnswerStore } from "@/stores/answer"
+import { useAnswerStore } from "@/providers/answer-store-provider"
 import { useMemo } from "react"
 
 export default function AnswerRadioGroup({ question }: { question: Question }) {
-  const { addSelectedAnswer, selectedAnswers, removeSelectedAnswer } =
-    useAnswerStore()
+  const addSelectedAnswer = useAnswerStore((store) => store.addSelectedAnswer)
+  const removeSelectedAnswer = useAnswerStore(
+    (store) => store.removeSelectedAnswer,
+  )
+  const selectedAnswers = useAnswerStore((store) => store.selectedAnswers)
 
   // Find the selected answer for this question by checking if any of the
   // possible answers is in the selectedAnswers set
