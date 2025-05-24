@@ -27,7 +27,7 @@ export async function getQuestion(sectionId: string) {
                   },
                   blocks: {
                     columns: { blockedByAnswerId: true },
-                    with: { answer: { columns: { msgid: true } } },
+                    with: { blockedBy: { columns: { msgid: true } } },
                   },
                 },
               },
@@ -53,3 +53,5 @@ export async function getQuestion(sectionId: string) {
 }
 
 export type Question = Awaited<ReturnType<typeof getQuestion>>
+
+export type Answer = Question["answers"][number]
