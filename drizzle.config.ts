@@ -1,20 +1,12 @@
-import 'dotenv/config'
-import type { Config } from 'drizzle-kit'
+import "dotenv/config"
+import { defineConfig } from "drizzle-kit"
+import { env } from "./src/env"
 
-const databaseUrl = process.env.DATABASE_URL
-const authToken = process.env.TURSO_AUTH_TOKEN
-if (!databaseUrl || !authToken) {
-  throw new Error(
-    'Either DATABASE_URL or TURSO_AUTH_TOKEN not set in the environment variables.',
-  )
-}
-
-export default {
-  out: 'src/server/database/migrations',
-  schema: 'src/server/database/schema/*',
-  dialect: 'turso',
+export default defineConfig({
+  schema: "./src/server/db/schema",
+  dialect: "postgresql",
   dbCredentials: {
-    url: databaseUrl,
-    authToken,
+    url: env.DATABASE_URL,
   },
-} satisfies Config
+  tablesFilter: ["distrohop_*"],
+})
