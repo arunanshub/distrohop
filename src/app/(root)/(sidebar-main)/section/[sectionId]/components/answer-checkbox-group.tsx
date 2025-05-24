@@ -15,9 +15,11 @@ export default function AnswerCheckboxGroup({
   return (
     <div className="flex flex-col gap-4">
       {question.answers.map((answer) => (
-        <div key={answer.msgid} className="flex flex-col gap-2">
-          <AnswerCheckbox answer={answer} />
-          <ConflictingAnswersList answer={answer} />
+        <div key={answer.msgid}>
+          <div className="flex flex-col gap-2">
+            <AnswerCheckbox answer={answer} />
+            <ConflictingAnswersList answer={answer} />
+          </div>
         </div>
       ))}
     </div>
@@ -60,7 +62,6 @@ function AnswerCheckbox({ answer }: { answer: Answer }) {
           variant="ghost"
           size="icon"
           className="size-6"
-          asChild
           onClick={() => {
             if (importantAnswers.has(answer.msgid)) {
               removeImportantAnswer(answer.msgid)
@@ -70,9 +71,9 @@ function AnswerCheckbox({ answer }: { answer: Answer }) {
           }}
         >
           {importantAnswers.has(answer.msgid) ? (
-            <Star className="size-4 text-yellow-500" />
+            <Star className="size-5 text-yellow-500" />
           ) : (
-            <Star className="size-4 text-gray-500" />
+            <Star className="size-5 text-gray-500" />
           )}
         </Button>
       )}

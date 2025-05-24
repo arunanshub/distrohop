@@ -44,9 +44,11 @@ export default function AnswerRadioGroup({ question }: { question: Question }) {
         }}
       >
         {question.answers.map((answer) => (
-          <div key={answer.msgid} className="flex flex-col gap-2">
-            <AnswerRadio answer={answer} />
-            <ConflictingAnswersList answer={answer} />
+          <div key={answer.msgid}>
+            <div className="flex flex-col gap-2">
+              <AnswerRadio answer={answer} />
+              <ConflictingAnswersList answer={answer} />
+            </div>
           </div>
         ))}
       </RadioGroup>
