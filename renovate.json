@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:js-app",
+    ":preserveSemverRanges",
+    ":maintainLockFilesWeekly",
+    ":semanticCommitTypeAll(build)",
+    ":label(dependencies)",
+    ":enableVulnerabilityAlertsWithLabel(security)",
+    ":automergeMinor",
+    ":rebaseStalePrs"
+  ]
+}
