@@ -16,6 +16,10 @@ export default function ConflictingAnswersList({ answer }: { answer: Answer }) {
       .filter((ans) => selectedAnswers.has(ans))
   }, [answer.blockedBy, answer.blocks, answer.msgid, selectedAnswers])
 
+  if (conflictingAnswers.length === 0) {
+    return null
+  }
+
   return (
     <div>
       {conflictingAnswers.map((ans) => (

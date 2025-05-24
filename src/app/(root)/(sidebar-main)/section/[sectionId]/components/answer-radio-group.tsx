@@ -7,6 +7,7 @@ import { useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { Star } from "lucide-react"
 import ConflictingAnswersList from "./conflicting-answers-list"
+import { cn } from "@/lib/utils"
 
 export default function AnswerRadioGroup({ question }: { question: Question }) {
   const selectedAnswers = useAnswerStore((store) => store.selectedAnswers)
@@ -81,7 +82,6 @@ function AnswerRadio({ answer }: { answer: Answer }) {
           variant="ghost"
           size="icon"
           className="size-6"
-          asChild
           onClick={() => {
             if (importantAnswers.has(answer.msgid)) {
               removeImportantAnswer(answer.msgid)
@@ -90,11 +90,14 @@ function AnswerRadio({ answer }: { answer: Answer }) {
             }
           }}
         >
-          {importantAnswers.has(answer.msgid) ? (
-            <Star className="size-4 text-yellow-500" />
-          ) : (
-            <Star className="size-4 text-gray-500" />
-          )}
+          <Star
+            className={cn(
+              "size-5",
+              importantAnswers.has(answer.msgid)
+                ? "text-yellow-500"
+                : "text-gray-500",
+            )}
+          />
         </Button>
       )}
     </div>

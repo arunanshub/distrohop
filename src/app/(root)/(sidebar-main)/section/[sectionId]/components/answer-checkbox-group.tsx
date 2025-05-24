@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label"
 import { useAnswerStore } from "@/providers/answer-store-provider"
 import { Star } from "lucide-react"
 import ConflictingAnswersList from "./conflicting-answers-list"
+import { cn } from "@/lib/utils"
 
 export default function AnswerCheckboxGroup({
   question,
@@ -70,11 +71,14 @@ function AnswerCheckbox({ answer }: { answer: Answer }) {
             }
           }}
         >
-          {importantAnswers.has(answer.msgid) ? (
-            <Star className="size-5 text-yellow-500" />
-          ) : (
-            <Star className="size-5 text-gray-500" />
-          )}
+          <Star
+            className={cn(
+              "size-5",
+              importantAnswers.has(answer.msgid)
+                ? "text-yellow-500"
+                : "text-gray-500",
+            )}
+          />
         </Button>
       )}
     </div>
