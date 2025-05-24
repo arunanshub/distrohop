@@ -4,6 +4,8 @@ import { Question } from "../actions"
 import { Label } from "@/components/ui/label"
 import { useAnswerStore } from "@/providers/answer-store-provider"
 import { useMemo } from "react"
+import { Button } from "@/components/ui/button"
+import { Star } from "lucide-react"
 
 export default function AnswerRadioGroup({ question }: { question: Question }) {
   const addSelectedAnswer = useAnswerStore((store) => store.addSelectedAnswer)
@@ -11,6 +13,12 @@ export default function AnswerRadioGroup({ question }: { question: Question }) {
     (store) => store.removeSelectedAnswer,
   )
   const selectedAnswers = useAnswerStore((store) => store.selectedAnswers)
+
+  const addImportantAnswer = useAnswerStore((store) => store.addImportantAnswer)
+  const removeImportantAnswer = useAnswerStore(
+    (store) => store.removeImportantAnswer,
+  )
+  const importantAnswers = useAnswerStore((store) => store.importantAnswers)
 
   // Find the selected answer for this question by checking if any of the
   // possible answers is in the selectedAnswers set
@@ -30,6 +38,7 @@ export default function AnswerRadioGroup({ question }: { question: Question }) {
           // If there's already a selected answer, remove it
           if (selectedAnswer) {
             removeSelectedAnswer(selectedAnswer)
+            removeImportantAnswer(selectedAnswer)
           }
           // Add the new selection
           addSelectedAnswer(value)
@@ -45,6 +54,28 @@ export default function AnswerRadioGroup({ question }: { question: Question }) {
             <Label className="text-base" htmlFor={answer.msgid}>
               {answer.msgid}
             </Label>
+
+            {selectedAnswers.has(answer.msgid) && (
+              <Button
+                variant="ghost"
+                size="icon"
+                className="size-6"
+                asChild
+                onClick={() => {
+                  if (importantAnswers.has(answer.msgid)) {
+                    removeImportantAnswer(answer.msgid)
+                  } else {
+                    addImportantAnswer(answer.msgid)
+                  }
+                }}
+              >
+                {importantAnswers.has(answer.msgid) ? (
+                  <Star className="size-4 text-yellow-500" />
+                ) : (
+                  <Star className="size-4 text-gray-500" />
+                )}
+              </Button>
+            )}
           </div>
         ))}
       </RadioGroup>
