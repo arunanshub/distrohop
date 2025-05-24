@@ -22,9 +22,11 @@ export async function getQuestion(sectionId: string) {
                 columns: { id: false },
                 with: {
                   blockedBy: {
+                    columns: { blockedByAnswerId: true },
                     with: { answer: { columns: { msgid: true } } },
                   },
                   blocks: {
+                    columns: { blockedByAnswerId: true },
                     with: { answer: { columns: { msgid: true } } },
                   },
                 },
