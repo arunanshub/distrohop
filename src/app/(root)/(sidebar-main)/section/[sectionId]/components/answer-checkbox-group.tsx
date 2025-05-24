@@ -1,8 +1,10 @@
 "use client"
+import { Button } from "@/components/ui/button"
 import { Question } from "../actions"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { useAnswerStore } from "@/providers/answer-store-provider"
+import { Star } from "lucide-react"
 
 export default function AnswerCheckboxGroup({
   question,
@@ -14,6 +16,12 @@ export default function AnswerCheckboxGroup({
     (store) => store.removeSelectedAnswer,
   )
   const selectedAnswers = useAnswerStore((store) => store.selectedAnswers)
+
+  const addImportantAnswer = useAnswerStore((store) => store.addImportantAnswer)
+  const removeImportantAnswer = useAnswerStore(
+    (store) => store.removeImportantAnswer,
+  )
+  const importantAnswers = useAnswerStore((store) => store.importantAnswers)
 
   return (
     <div className="flex flex-col gap-4">
@@ -28,12 +36,35 @@ export default function AnswerCheckboxGroup({
                 addSelectedAnswer(answer.msgid)
               } else {
                 removeSelectedAnswer(answer.msgid)
+                removeImportantAnswer(answer.msgid)
               }
             }}
           />
           <Label className="text-base" htmlFor={answer.msgid}>
             {answer.msgid}
           </Label>
+
+          {selectedAnswers.has(answer.msgid) && (
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-6"
+              asChild
+              onClick={() => {
+                if (importantAnswers.has(answer.msgid)) {
+                  removeImportantAnswer(answer.msgid)
+                } else {
+                  addImportantAnswer(answer.msgid)
+                }
+              }}
+            >
+              {importantAnswers.has(answer.msgid) ? (
+                <Star className="size-4 text-yellow-500" />
+              ) : (
+                <Star className="size-4 text-gray-500" />
+              )}
+            </Button>
+          )}
         </div>
       ))}
     </div>
