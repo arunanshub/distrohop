@@ -1,10 +1,15 @@
+"use client"
+
 import { atom, useAtom } from "jotai"
+import { useHydrateAtoms } from "jotai/utils"
 import { useParams } from "next/navigation"
-import { useMemo, useCallback } from "react"
+import { useCallback, useMemo } from "react"
 
 const sectionsAtom = atom<string[]>([])
 
-export function useSections() {
+export function useSections(sectionIds?: string[]) {
+  // VERY IMPORTANT: not adding this will cause a hydration error on the client.
+  useHydrateAtoms([[sectionsAtom, sectionIds ?? []]])
   const [sections, setSections] = useAtom(sectionsAtom)
 
   const sectionId = useParams().sectionId as string

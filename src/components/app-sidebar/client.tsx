@@ -58,7 +58,7 @@ export default function AppSidebarClient({
   sectionsPromise: Promise<{ msgid: string; iconName: string }[]>
 }) {
   const sections = use(sectionsPromise)
-  const { addSections } = useSections()
+  const { addSections } = useSections(sections.map((section) => section.msgid))
 
   useEffect(() => {
     addSections(sections.map((section) => section.msgid))

@@ -1,4 +1,5 @@
 import { atom, useAtom } from "jotai"
+import { useHydrateAtoms } from "jotai/utils"
 import { useCallback } from "react"
 
 const selectedAnswersAtom = atom<Set<string>>(new Set<string>())
@@ -6,6 +7,10 @@ const selectedAnswersAtom = atom<Set<string>>(new Set<string>())
 const importantAnswersAtom = atom<Set<string>>(new Set<string>())
 
 export function useAnswerStore() {
+  // VERY IMPORTANT: not adding this will cause a hydration error on the client.
+  useHydrateAtoms([[selectedAnswersAtom, new Set<string>()]])
+  useHydrateAtoms([[importantAnswersAtom, new Set<string>()]])
+
   const [selectedAnswers, setSelectedAnswers] = useAtom(selectedAnswersAtom)
   const [importantAnswers, setImportantAnswers] = useAtom(importantAnswersAtom)
 
