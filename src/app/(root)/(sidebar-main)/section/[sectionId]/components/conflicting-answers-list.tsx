@@ -1,6 +1,8 @@
 import { useMemo } from "react"
 import { Answer } from "../actions"
 import { useAnswerStore } from "@/providers/answer-store-provider"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { AlertCircle } from "lucide-react"
 
 export default function ConflictingAnswersList({ answer }: { answer: Answer }) {
   const selectedAnswers = useAnswerStore((store) => store.selectedAnswers)
@@ -21,10 +23,16 @@ export default function ConflictingAnswersList({ answer }: { answer: Answer }) {
   }
 
   return (
-    <div>
-      {conflictingAnswers.map((ans) => (
-        <div key={ans}>{ans}</div>
-      ))}
-    </div>
+    <Alert>
+      <AlertCircle />
+      <AlertTitle>Conflicting answers</AlertTitle>
+      <AlertDescription className="pt-1">
+        <ul className="flex list-disc flex-col gap-1 pl-3">
+          {conflictingAnswers.map((ans) => (
+            <li key={ans}>{ans}</li>
+          ))}
+        </ul>
+      </AlertDescription>
+    </Alert>
   )
 }
