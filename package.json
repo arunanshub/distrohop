@@ -13,8 +13,7 @@
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
     "db:push": "drizzle-kit push",
-    "db:seed": "tsx scripts/seed.ts",
-    "postinstall": "lefthook install"
+    "db:seed": "tsx scripts/seed.ts"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.0.0",
