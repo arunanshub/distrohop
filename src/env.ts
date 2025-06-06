@@ -24,7 +24,7 @@ export const env = createEnv({
         v.transform((u) => `https://${u}`),
         v.url(),
       ),
-      "distrohop.vercel.app",
+      "https://distrohop.vercel.app",
     ),
   },
 
