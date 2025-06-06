@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 export default function SectionPageLoading() {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6" aria-busy="true">
       {/* Title skeleton */}
       <Skeleton className="h-8 w-1/2" />
 
