@@ -3,8 +3,13 @@ import { Archivo, Artifika } from "next/font/google"
 import "./globals.css"
 import Providers from "@/providers/providers"
 import { Toaster } from "@/components/ui/sonner"
+import { env } from "@/env"
 
 export const metadata: Metadata = {
+  // TODO: instead of getting the base URL from vercel's env, we should use some
+  // other approved technique. See:
+  // https://github.com/vercel/next.js/discussions/57251
+  metadataBase: new URL(env.VERCEL_URL),
   title: {
     default: "Distrohop",
     template: "%s · Distrohop",

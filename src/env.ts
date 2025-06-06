@@ -17,6 +17,15 @@ export const env = createEnv({
       ),
       "false",
     ),
+    // TODO: see app/layout.tsx on why this should be removed
+    VERCEL_URL: v.optional(
+      v.pipe(
+        v.string(),
+        v.transform((u) => `https://${u}`),
+        v.url(),
+      ),
+      "https://distrohop.vercel.app",
+    ),
   },
 
   // client only env vars
