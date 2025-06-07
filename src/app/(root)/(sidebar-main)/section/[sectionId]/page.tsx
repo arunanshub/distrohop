@@ -10,16 +10,16 @@ const AnswerRadioGroup = dynamic(
   () => import("./components/answer-radio-group"),
 )
 
-const getCachedQuestion = cache(getQuestion, undefined, {
-  revalidate: 60 * 60, // 1 hour
-})
-
 export default async function SectionPage({
   params,
 }: {
   params: Promise<{ sectionId: string }>
 }) {
   const { sectionId } = await params
+
+  const getCachedQuestion = cache(getQuestion, undefined, {
+    revalidate: 60 * 60, // 1 hour
+  })
   const question = await getCachedQuestion(sectionId)
 
   return (
