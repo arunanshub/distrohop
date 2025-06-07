@@ -9,13 +9,11 @@ import { submitAnswers as submitAnswersAction } from "@/actions/answers"
 import { useRouter } from "next/navigation"
 
 export default function ResultsButton() {
-  const selectedAnswers = useAnswerStore((state) => state.selectedAnswers)
-  const importantAnswers = useAnswerStore((state) => state.importantAnswers)
+  const answers = useAnswerStore((state) => state.answers)
   const router = useRouter()
 
   const { mutate: submitAnswers } = useMutation({
-    mutationFn: async () =>
-      await submitAnswersAction({ selectedAnswers, importantAnswers }),
+    mutationFn: async () => await submitAnswersAction({ answers }),
   })
 
   function handleClick() {

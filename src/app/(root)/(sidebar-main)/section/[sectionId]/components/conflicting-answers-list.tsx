@@ -5,7 +5,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
 
 export default function ConflictingAnswersList({ answer }: { answer: Answer }) {
-  const selectedAnswers = useAnswerStore((store) => store.selectedAnswers)
+  const selectedAnswers = useAnswerStore((store) => store.answers)
 
   const conflictingAnswers = useMemo(() => {
     if (!selectedAnswers.has(answer.msgid)) {
