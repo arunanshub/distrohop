@@ -11,7 +11,6 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 })
 
-// TODO:
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   ...query.configs["flat/recommended"],
