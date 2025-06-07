@@ -1,17 +1,12 @@
 "use server"
 
 export async function submitAnswers({
-  selectedAnswers,
-  importantAnswers,
+  answers,
 }: {
-  selectedAnswers: Set<string>
-  importantAnswers: Set<string>
+  answers: Map<string, boolean>
 }) {
   // TODO: do some computation
-  console.log("Submitting answers:", {
-    selectedAnswers: Array.from(selectedAnswers),
-    importantAnswers: Array.from(importantAnswers),
-  })
+  console.log("Submitting answers:", { answers })
   await new Promise((resolve) => setTimeout(resolve, 1000))
   return { answer: 42 }
 }

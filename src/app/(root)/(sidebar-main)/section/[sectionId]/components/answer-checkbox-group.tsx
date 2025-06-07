@@ -7,6 +7,7 @@ import { useAnswerStore } from "@/providers/answer-store-provider"
 import { Star } from "lucide-react"
 import ConflictingAnswersList from "./conflicting-answers-list"
 import { cn } from "@/lib/utils"
+import { useMemo } from "react"
 
 export default function AnswerCheckboxGroup({
   question,
@@ -28,55 +29,60 @@ export default function AnswerCheckboxGroup({
 }
 
 function AnswerCheckbox({ answer }: { answer: Answer }) {
-  const addSelectedAnswer = useAnswerStore((store) => store.addSelectedAnswer)
-  const removeSelectedAnswer = useAnswerStore(
-    (store) => store.removeSelectedAnswer,
-  )
-  const selectedAnswers = useAnswerStore((store) => store.selectedAnswers)
+  const addAnswer = useAnswerStore((store) => store.addAnswer)
+  const removeAnswer = useAnswerStore((store) => store.removeAnswer)
+  const answers = useAnswerStore((store) => store.answers)
 
-  const removeImportantAnswer = useAnswerStore(
-    (store) => store.removeImportantAnswer,
+  const markAsImportantAnswer = useAnswerStore(
+    (store) => store.markAsImportantAnswer,
   )
-  const addImportantAnswer = useAnswerStore((store) => store.addImportantAnswer)
-  const importantAnswers = useAnswerStore((store) => store.importantAnswers)
+  const unmarkAsImportantAnswer = useAnswerStore(
+    (store) => store.unmarkAsImportantAnswer,
+  )
+
+  const isAnswerSelected = useMemo(
+    () => answers.has(answer.msgid),
+    [answers, answer.msgid],
+  )
+  const isAnswerMarkedImportant = useMemo(
+    () => answers.get(answer.msgid) === true,
+    [answers, answer.msgid],
+  )
 
   return (
     <div className="flex items-center gap-2">
       <Checkbox
         id={answer.msgid}
         className="size-6"
-        checked={selectedAnswers.has(answer.msgid)}
+        checked={isAnswerSelected}
         onCheckedChange={(val) => {
           if (val === true) {
-            addSelectedAnswer(answer.msgid)
+            addAnswer(answer.msgid)
           } else {
-            removeSelectedAnswer(answer.msgid)
-            removeImportantAnswer(answer.msgid)
+            removeAnswer(answer.msgid)
           }
         }}
       />
       <Label className="text-base" htmlFor={answer.msgid}>
         {answer.msgid}
       </Label>
-      {selectedAnswers.has(answer.msgid) && (
+      {isAnswerSelected && (
         <Button
           variant="ghost"
           size="icon"
           className="size-6"
           onClick={() => {
-            if (importantAnswers.has(answer.msgid)) {
-              removeImportantAnswer(answer.msgid)
+            if (isAnswerMarkedImportant) {
+              unmarkAsImportantAnswer(answer.msgid)
             } else {
-              addImportantAnswer(answer.msgid)
+              markAsImportantAnswer(answer.msgid)
             }
           }}
         >
           <Star
             className={cn(
               "size-5",
-              importantAnswers.has(answer.msgid)
-                ? "text-yellow-500"
-                : "text-gray-500",
+              isAnswerMarkedImportant ? "text-yellow-500" : "text-gray-500",
             )}
           />
         </Button>

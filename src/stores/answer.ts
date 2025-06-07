@@ -1,42 +1,44 @@
 import { createStore } from "zustand"
 
 export type AnswerStore = {
-  selectedAnswers: Set<string>
-  importantAnswers: Set<string>
-  addSelectedAnswer: (answer: string) => void
-  removeSelectedAnswer: (answer: string) => void
-  addImportantAnswer: (answer: string) => void
-  removeImportantAnswer: (answer: string) => void
+  // key value pairs of selected answers and whether they are important
+  answers: Map<string, boolean>
+
+  addAnswer: (answer: string) => void
+  removeAnswer: (answer: string) => void
+  markAsImportantAnswer: (answer: string) => void
+  unmarkAsImportantAnswer: (answer: string) => void
 }
 
 export function createAnswerStore() {
   return createStore<AnswerStore>()((set) => ({
-    selectedAnswers: new Set(),
-    importantAnswers: new Set(),
-    addSelectedAnswer: (answer) => {
-      set((state) => ({
-        selectedAnswers: new Set(state.selectedAnswers).add(answer),
-      }))
-    },
-    removeSelectedAnswer: (answer) => {
+    answers: new Map(),
+    addAnswer: (answer) => {
       set((state) => {
-        const newSet = new Set(state.selectedAnswers)
-        newSet.delete(answer)
-        return { selectedAnswers: newSet }
+        const newMap = new Map(state.answers)
+        newMap.set(answer, false)
+        return { answers: newMap }
       })
     },
-    addImportantAnswer: (answer) => {
+    markAsImportantAnswer: (answer) => {
       set((state) => {
-        const newSet = new Set(state.importantAnswers)
-        newSet.add(answer)
-        return { importantAnswers: newSet }
+        const newMap = new Map(state.answers)
+        newMap.set(answer, true)
+        return { answers: newMap }
       })
     },
-    removeImportantAnswer: (answer) => {
+    unmarkAsImportantAnswer: (answer) => {
       set((state) => {
-        const newSet = new Set(state.importantAnswers)
-        newSet.delete(answer)
-        return { importantAnswers: newSet }
+        const newMap = new Map(state.answers)
+        newMap.set(answer, false)
+        return { answers: newMap }
+      })
+    },
+    removeAnswer: (answer) => {
+      set((state) => {
+        const newMap = new Map(state.answers)
+        newMap.delete(answer)
+        return { answers: newMap }
       })
     },
   }))

@@ -10,38 +10,31 @@ import ConflictingAnswersList from "./conflicting-answers-list"
 import { cn } from "@/lib/utils"
 
 export default function AnswerRadioGroup({ question }: { question: Question }) {
-  const selectedAnswers = useAnswerStore((store) => store.selectedAnswers)
-  const addSelectedAnswer = useAnswerStore((store) => store.addSelectedAnswer)
-  const removeSelectedAnswer = useAnswerStore(
-    (store) => store.removeSelectedAnswer,
-  )
+  const answers = useAnswerStore((store) => store.answers)
+  const addAnswer = useAnswerStore((store) => store.addAnswer)
+  const removeAnswer = useAnswerStore((store) => store.removeAnswer)
 
-  const removeImportantAnswer = useAnswerStore(
-    (store) => store.removeImportantAnswer,
-  )
-
-  // Find the selected answer for this question by checking if any of the
-  // possible answers is in the selectedAnswers set
-  const selectedAnswer = useMemo(
-    () =>
-      question.answers.find((answer) => selectedAnswers.has(answer.msgid))
-        ?.msgid,
-    [question.answers, selectedAnswers],
-  )
+  const selectedAnswer = useMemo(() => {
+    for (const answer of question.answers) {
+      if (answers.has(answer.msgid)) {
+        return answer.msgid
+      }
+    }
+    return null
+  }, [answers, question.answers])
 
   return (
     <div className="flex flex-col gap-4">
       <RadioGroup
         className="flex flex-col gap-3"
-        value={selectedAnswer ?? null}
+        value={selectedAnswer}
         onValueChange={(value) => {
-          // If there's already a selected answer, remove it
-          if (selectedAnswer) {
-            removeSelectedAnswer(selectedAnswer)
-            removeImportantAnswer(selectedAnswer)
+          if (value) {
+            for (const answer of question.answers) {
+              removeAnswer(answer.msgid)
+            }
+            addAnswer(value)
           }
-          // Add the new selection
-          addSelectedAnswer(value)
         }}
       >
         {question.answers.map((answer) => (
@@ -58,13 +51,23 @@ export default function AnswerRadioGroup({ question }: { question: Question }) {
 }
 
 function AnswerRadio({ answer }: { answer: Answer }) {
-  const selectedAnswers = useAnswerStore((store) => store.selectedAnswers)
+  const answers = useAnswerStore((store) => store.answers)
 
-  const addImportantAnswer = useAnswerStore((store) => store.addImportantAnswer)
-  const removeImportantAnswer = useAnswerStore(
-    (store) => store.removeImportantAnswer,
+  const markAsImportantAnswer = useAnswerStore(
+    (store) => store.markAsImportantAnswer,
   )
-  const importantAnswers = useAnswerStore((store) => store.importantAnswers)
+  const unmarkAsImportantAnswer = useAnswerStore(
+    (store) => store.unmarkAsImportantAnswer,
+  )
+
+  const isAnswerSelected = useMemo(
+    () => answers.has(answer.msgid),
+    [answers, answer.msgid],
+  )
+  const isAnswerMarkedImportant = useMemo(
+    () => answers.get(answer.msgid) === true,
+    [answers, answer.msgid],
+  )
 
   return (
     <div className="flex items-center gap-2">
@@ -77,25 +80,23 @@ function AnswerRadio({ answer }: { answer: Answer }) {
         {answer.msgid}
       </Label>
 
-      {selectedAnswers.has(answer.msgid) && (
+      {isAnswerSelected && (
         <Button
           variant="ghost"
           size="icon"
           className="size-6"
           onClick={() => {
-            if (importantAnswers.has(answer.msgid)) {
-              removeImportantAnswer(answer.msgid)
+            if (isAnswerMarkedImportant) {
+              unmarkAsImportantAnswer(answer.msgid)
             } else {
-              addImportantAnswer(answer.msgid)
+              markAsImportantAnswer(answer.msgid)
             }
           }}
         >
           <Star
             className={cn(
               "size-5",
-              importantAnswers.has(answer.msgid)
-                ? "text-yellow-500"
-                : "text-gray-500",
+              isAnswerMarkedImportant ? "text-yellow-500" : "text-gray-500",
             )}
           />
         </Button>
