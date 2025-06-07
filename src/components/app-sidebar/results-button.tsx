@@ -1,6 +1,6 @@
 "use client"
 
-import { BarChart } from "lucide-react"
+import { BarChart, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
 import { useMutation } from "@tanstack/react-query"
@@ -12,7 +12,7 @@ export default function ResultsButton() {
   const answers = useAnswerStore((state) => state.answers)
   const router = useRouter()
 
-  const { mutate: submitAnswers } = useMutation({
+  const { mutate: submitAnswers, isPending } = useMutation({
     mutationFn: async () => await submitAnswersAction({ answers }),
   })
 
@@ -36,9 +36,15 @@ export default function ResultsButton() {
   }
 
   return (
-    <Button aria-label="Show Results" onClick={handleClick}>
-      <BarChart />
-      <span className="hidden @2xl/layout:block">Show Results</span>
+    <Button
+      aria-label={isPending ? "Showing Results..." : "Show Results"}
+      onClick={handleClick}
+      disabled={isPending}
+    >
+      {isPending ? <Loader2 className="animate-spin" /> : <BarChart />}
+      <span className="hidden @2xl/layout:block">
+        {isPending ? "Showing Results..." : "Show Results"}
+      </span>
     </Button>
   )
 }
