@@ -19,7 +19,7 @@ const eslintConfig = [
     ...sonar.configs.recommended,
     rules: {
       ...sonar.configs.recommended.rules,
-      "sonarjs/todo-tag": "off",
+      "sonarjs/todo-tag": "warn",
     },
   },
 ]
