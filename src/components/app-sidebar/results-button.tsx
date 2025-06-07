@@ -20,6 +20,8 @@ export default function ResultsButton() {
 
   function handleClick() {
     const id = toast.loading("Submitting answers...")
+    // Prefetch the results page to improve performance
+    router.prefetch("/results")
 
     submitAnswers(undefined, {
       onError(error) {
