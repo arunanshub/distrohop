@@ -37,7 +37,7 @@ export default function ResultsButton() {
 
   return (
     <Button
-      aria-label="Show Results"
+      aria-label={isPending ? "Showing Results..." : "Show Results"}
       onClick={handleClick}
       disabled={isPending}
     >
