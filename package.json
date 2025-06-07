@@ -54,6 +54,7 @@
     "drizzle-kit": "^0.31.1",
     "eslint": "^9.27.0",
     "eslint-config-next": "15.3.3",
+    "eslint-plugin-sonarjs": "^3.0.2",
     "knip": "^5.57.2",
     "lefthook": "^1.11.13",
     "prettier": "^3.5.3",
