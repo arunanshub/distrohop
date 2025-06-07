@@ -12,16 +12,15 @@ export const metadata: Metadata = {
 // Need to make the page dynamic since app-sidebar loads data from the server.
 export const dynamic = "force-dynamic"
 
-// cache the sections data for 1 hour
-const getCachedSections = cache(getSections, undefined, {
-  revalidate: 60 * 60, // 1 hour
-})
-
 export default async function Layout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  // cache the sections data for 1 hour
+  const getCachedSections = cache(getSections, undefined, {
+    revalidate: 60 * 60, // 1 hour
+  })
   const sectionsPromise = getCachedSections()
 
   return (
