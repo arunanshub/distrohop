@@ -3,6 +3,7 @@ import AppSidebar from "@/components/app-sidebar"
 import AnswerStoreProvider from "@/providers/answer-store-provider"
 import SectionStoreProvider from "@/providers/section-store-provider"
 import { Metadata } from "next"
+import { unstable_cache as cache } from "next/cache"
 
 export const metadata: Metadata = {
   title: "Welcome",
@@ -11,12 +12,17 @@ export const metadata: Metadata = {
 // Need to make the page dynamic since app-sidebar loads data from the server.
 export const dynamic = "force-dynamic"
 
+// cache the sections data for 1 hour
+const getCachedSections = cache(getSections, undefined, {
+  revalidate: 60 * 60, // 1 hour
+})
+
 export default async function Layout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const sectionsPromise = getSections()
+  const sectionsPromise = getCachedSections()
 
   return (
     <SectionStoreProvider>
