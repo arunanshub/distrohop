@@ -59,9 +59,6 @@ importers:
       pg:
         specifier: ^8.16.0
         version: 8.16.0
-      postcss-preset-env:
-        specifier: ^10.2.1
-        version: 10.2.1(postcss@8.5.4)
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -129,6 +126,9 @@ importers:
       lefthook:
         specifier: ^1.11.13
         version: 1.11.13
+      postcss-preset-env:
+        specifier: ^10.2.1
+        version: 10.2.1(postcss@8.5.4)
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
