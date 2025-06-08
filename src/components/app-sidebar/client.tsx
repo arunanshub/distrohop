@@ -86,7 +86,6 @@ function SidebarButton({
   return (
     <Button
       asChild
-      key={section.msgid}
       variant="secondary"
       className={cn(
         "relative w-full transition-all duration-100",
