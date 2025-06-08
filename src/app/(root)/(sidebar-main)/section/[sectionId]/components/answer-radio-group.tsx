@@ -3,25 +3,18 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Answer, Question } from "../actions"
 import { Label } from "@/components/ui/label"
 import { useAnswerStore } from "@/providers/answer-store-provider"
-import { useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { Star } from "lucide-react"
 import ConflictingAnswersList from "./conflicting-answers-list"
 import { cn } from "@/lib/utils"
+import { useAnswers, useSelectedAnswer } from "@/hooks/answers"
 
 export default function AnswerRadioGroup({ question }: { question: Question }) {
-  const answers = useAnswerStore((store) => store.answers)
   const addAnswer = useAnswerStore((store) => store.addAnswer)
   const removeAnswer = useAnswerStore((store) => store.removeAnswer)
 
-  const selectedAnswer = useMemo(() => {
-    for (const answer of question.answers) {
-      if (answers.has(answer.msgid)) {
-        return answer.msgid
-      }
-    }
-    return null
-  }, [answers, question.answers])
+  // which answer is currently selected
+  const { selectedAnswer } = useSelectedAnswer(question)
 
   return (
     <div className="flex flex-col gap-4">
@@ -51,8 +44,6 @@ export default function AnswerRadioGroup({ question }: { question: Question }) {
 }
 
 function AnswerRadio({ answer }: { answer: Answer }) {
-  const answers = useAnswerStore((store) => store.answers)
-
   const markAsImportantAnswer = useAnswerStore(
     (store) => store.markAsImportantAnswer,
   )
@@ -60,14 +51,7 @@ function AnswerRadio({ answer }: { answer: Answer }) {
     (store) => store.unmarkAsImportantAnswer,
   )
 
-  const isAnswerSelected = useMemo(
-    () => answers.has(answer.msgid),
-    [answers, answer.msgid],
-  )
-  const isAnswerMarkedImportant = useMemo(
-    () => answers.get(answer.msgid) === true,
-    [answers, answer.msgid],
-  )
+  const { isAnswerSelected, isAnswerMarkedImportant } = useAnswers(answer.msgid)
 
   return (
     <div className="flex items-center gap-2">
