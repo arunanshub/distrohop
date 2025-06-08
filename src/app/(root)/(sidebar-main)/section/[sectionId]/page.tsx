@@ -2,6 +2,7 @@ import { getQuestion } from "./actions"
 import PreviousNextButtons from "./components/previous-next-buttons"
 import dynamic from "next/dynamic"
 import { unstable_cache as cache } from "next/cache"
+import AnswerResetButton from "./components/answer-reset-button"
 
 const AnswerCheckboxGroup = dynamic(
   () => import("./components/answer-checkbox-group"),
@@ -32,7 +33,10 @@ export default async function SectionPage({
         <AnswerRadioGroup question={question} />
       )}
 
-      <PreviousNextButtons />
+      <div className="mt-8 flex w-full grow justify-between">
+        <AnswerResetButton question={question} />
+        <PreviousNextButtons />
+      </div>
     </div>
   )
 }

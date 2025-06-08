@@ -9,7 +9,7 @@ export default function PreviousNextButtons() {
   const { previousSection, nextSection } = useSections()
 
   return (
-    <div className="mt-8 flex justify-between">
+    <div className="flex gap-4">
       <Button
         variant="outline"
         size="lg"
