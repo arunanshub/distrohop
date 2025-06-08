@@ -18,6 +18,8 @@ import {
 } from "lucide-react"
 import { DiOpensource } from "react-icons/di"
 import { useSectionStore } from "@/providers/section-store-provider"
+import { useSectionStatus } from "@/hooks/sections"
+import { cn } from "@/lib/utils"
 
 function iconNameToIcon(iconName: string) {
   switch (iconName) {
@@ -68,17 +70,40 @@ export default function AppSidebarClient({
   return (
     <>
       {sections.map((section) => (
-        <Button asChild key={section.msgid} variant="secondary">
-          <Link href={`/section/${section.msgid}`} aria-label={section.msgid}>
-            <div className="flex w-full items-center gap-2">
-              {iconNameToIcon(section.iconName)}
-              <span className="hidden @2xl/layout:block">
-                {section.msgid.slice(8, 26)}
-              </span>
-            </div>
-          </Link>
-        </Button>
+        <SidebarButton key={section.msgid} section={section} />
       ))}
     </>
+  )
+}
+
+function SidebarButton({
+  section,
+}: {
+  section: { msgid: string; iconName: string }
+}) {
+  const { isSectionVisited } = useSectionStatus(section.msgid)
+
+  return (
+    <Button
+      asChild
+      variant="secondary"
+      className={cn(
+        "relative w-full transition-all duration-100",
+        isSectionVisited && [
+          "border-l-2 border-l-blue-500",
+          "bg-blue-100 dark:bg-blue-900/40",
+          "shadow-sm",
+        ],
+      )}
+    >
+      <Link href={`/section/${section.msgid}`} aria-label={section.msgid}>
+        <div className="flex w-full items-center gap-2">
+          {iconNameToIcon(section.iconName)}
+          <span className="hidden @2xl/layout:block">
+            {section.msgid.slice(8, 26)}
+          </span>
+        </div>
+      </Link>
+    </Button>
   )
 }

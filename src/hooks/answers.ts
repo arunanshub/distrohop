@@ -3,7 +3,7 @@ import {
   Question,
 } from "@/app/(root)/(sidebar-main)/section/[sectionId]/actions"
 import { useAnswerStore } from "@/providers/answer-store-provider"
-import { useMemo } from "react"
+import { useCallback, useMemo } from "react"
 
 /**
  * Custom hook to get the status of an answer based on its msgid.
@@ -33,11 +33,9 @@ export function useAnswerStatus(msgid: string) {
 export function useSelectedAnswer(question: Question) {
   const answers = useAnswerStore((store) => store.answers)
 
-  // which answer is currently selected
+  // which answer is currently selected, if any
   const selectedAnswer = useMemo(
-    () =>
-      question.answers.find((answer) => answers.has(answer.msgid))?.msgid ||
-      null,
+    () => question.answers.find((answer) => answers.has(answer.msgid))?.msgid,
     [answers, question.answers],
   )
 
@@ -65,4 +63,16 @@ export function useConflictingAnswers(answer: Answer) {
   }, [answer.blockedBy, answer.blocks, answer.msgid, selectedAnswers])
 
   return { conflictingAnswers }
+}
+
+export function useResetAnswer(question: Question) {
+  const removeAnswer = useAnswerStore((store) => store.removeAnswer)
+
+  const resetAnswers = useCallback(() => {
+    for (const ans of question.answers) {
+      removeAnswer(ans.msgid)
+    }
+  }, [question.answers, removeAnswer])
+
+  return { resetAnswers }
 }

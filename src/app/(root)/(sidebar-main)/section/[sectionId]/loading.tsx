@@ -18,10 +18,16 @@ export default function SectionPageLoading() {
         ))}
       </div>
 
-      {/* Navigation buttons skeleton */}
-      <div className="mt-8 flex justify-between">
+      {/* Navigation buttons skeleton matching page structure */}
+      <div className="mt-8 flex w-full grow justify-between">
+        {/* Reset button skeleton */}
         <Skeleton className="h-10 w-24 rounded-md" />
-        <Skeleton className="h-10 w-24 rounded-md" />
+
+        {/* Previous/Next buttons skeleton */}
+        <div className="flex space-x-2">
+          <Skeleton className="h-10 w-24 rounded-md" />
+          <Skeleton className="h-10 w-24 rounded-md" />
+        </div>
       </div>
     </div>
   )
