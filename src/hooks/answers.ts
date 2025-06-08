@@ -33,11 +33,9 @@ export function useAnswerStatus(msgid: string) {
 export function useSelectedAnswer(question: Question) {
   const answers = useAnswerStore((store) => store.answers)
 
-  // which answer is currently selected
+  // which answer is currently selected, if any
   const selectedAnswer = useMemo(
-    () =>
-      question.answers.find((answer) => answers.has(answer.msgid))?.msgid ||
-      null,
+    () => question.answers.find((answer) => answers.has(answer.msgid))?.msgid,
     [answers, question.answers],
   )
 

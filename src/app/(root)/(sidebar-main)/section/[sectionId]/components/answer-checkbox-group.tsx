@@ -7,13 +7,29 @@ import { useAnswerStore } from "@/providers/answer-store-provider"
 import { Star } from "lucide-react"
 import ConflictingAnswersList from "./conflicting-answers-list"
 import { cn } from "@/lib/utils"
-import { useAnswerStatus } from "@/hooks/answers"
+import { useAnswerStatus, useSelectedAnswer } from "@/hooks/answers"
+import { useCurrentSectionStatus } from "@/hooks/sections"
+import { useEffect } from "react"
 
 export default function AnswerCheckboxGroup({
   question,
 }: {
   question: Question
 }) {
+  const { selectedAnswer } = useSelectedAnswer(question)
+  const { markSectionAsUnvisited, markSectionAsVisited } =
+    useCurrentSectionStatus()
+
+  // Mark section as unvisited when all checkboxes are unselected, meaning no
+  // answer is selected from this question.
+  useEffect(() => {
+    if (selectedAnswer) {
+      markSectionAsVisited()
+    } else {
+      markSectionAsUnvisited()
+    }
+  }, [selectedAnswer, markSectionAsUnvisited, markSectionAsVisited])
+
   return (
     <div className="flex flex-col gap-4">
       {question.answers.map((answer) => (
