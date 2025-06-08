@@ -8,6 +8,8 @@ import { Star } from "lucide-react"
 import ConflictingAnswersList from "./conflicting-answers-list"
 import { cn } from "@/lib/utils"
 import { useAnswerStatus, useSelectedAnswer } from "@/hooks/answers"
+import { useCurrentSectionStatus } from "@/hooks/sections"
+import { useEffect } from "react"
 
 export default function AnswerRadioGroup({ question }: { question: Question }) {
   const addAnswer = useAnswerStore((store) => store.addAnswer)
@@ -15,6 +17,13 @@ export default function AnswerRadioGroup({ question }: { question: Question }) {
 
   // which answer is currently selected
   const { selectedAnswer } = useSelectedAnswer(question)
+  const { markSectionAsVisited } = useCurrentSectionStatus()
+
+  useEffect(() => {
+    if (selectedAnswer) {
+      markSectionAsVisited()
+    }
+  }, [selectedAnswer, markSectionAsVisited])
 
   return (
     <div className="flex flex-col gap-4">
