@@ -8,18 +8,21 @@ export function useSections() {
   const sections = useSectionStore((store) => store.sections)
   const currentSection = useParams().sectionId as string | undefined
 
+  // Convert the sections Map to an array of section IDs
+  const sectionsArray = useMemo(() => [...sections.keys()], [sections])
+
   const nextSection = useMemo(() => {
     // If there are no sections, return undefined
-    if (sections.size === 0) {
+    if (sectionsArray.length === 0) {
       return undefined
     }
     // no current section, meaning we are not in a sections page
     // hence we return the first section
     if (!currentSection) {
-      return Array.from(sections.keys())[0]
+      return sectionsArray[0]
     }
 
-    const sectionsArray = Array.from(sections.keys())
+    // If we are under /sections/<sectionId> route, we find the next section
     const idx = sectionsArray.indexOf(currentSection)
     if (idx === -1) {
       return sectionsArray[0]
@@ -28,7 +31,7 @@ export function useSections() {
       return undefined
     }
     return sectionsArray[idx + 1]
-  }, [sections, currentSection])
+  }, [currentSection, sectionsArray])
 
   const previousSection = useMemo(() => {
     // If we are not under /sections/<sectionId> route, previous section does
@@ -37,13 +40,12 @@ export function useSections() {
       return undefined
     }
 
-    const sectionsArray = Array.from(sections.keys())
     const idx = sectionsArray.indexOf(currentSection)
     if (idx > 0) {
       return sectionsArray[idx - 1]
     }
     return undefined
-  }, [sections, currentSection])
+  }, [currentSection, sectionsArray])
 
   return { nextSection, previousSection }
 }
