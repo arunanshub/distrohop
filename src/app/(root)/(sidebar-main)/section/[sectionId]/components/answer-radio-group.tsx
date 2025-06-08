@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Star } from "lucide-react"
 import ConflictingAnswersList from "./conflicting-answers-list"
 import { cn } from "@/lib/utils"
-import { useAnswers, useSelectedAnswer } from "@/hooks/answers"
+import { useAnswerStatus, useSelectedAnswer } from "@/hooks/answers"
 
 export default function AnswerRadioGroup({ question }: { question: Question }) {
   const addAnswer = useAnswerStore((store) => store.addAnswer)
@@ -51,7 +51,9 @@ function AnswerRadio({ answer }: { answer: Answer }) {
     (store) => store.unmarkAsImportantAnswer,
   )
 
-  const { isAnswerSelected, isAnswerMarkedImportant } = useAnswers(answer.msgid)
+  const { isAnswerSelected, isAnswerMarkedImportant } = useAnswerStatus(
+    answer.msgid,
+  )
 
   return (
     <div className="flex items-center gap-2">

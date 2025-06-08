@@ -5,7 +5,14 @@ import {
 import { useAnswerStore } from "@/providers/answer-store-provider"
 import { useMemo } from "react"
 
-export function useAnswers(msgid: string) {
+/**
+ * Custom hook to get the status of an answer based on its msgid.
+ * Status includes whether the answer is selected and if it is marked as important.
+ *
+ * @param msgid The message ID of the answer to check.
+ * @returns An object containing the status of the answer:
+ */
+export function useAnswerStatus(msgid: string) {
   const answers = useAnswerStore((store) => store.answers)
 
   const isAnswerSelected = useMemo(() => answers.has(msgid), [answers, msgid])
@@ -21,7 +28,7 @@ export function useAnswers(msgid: string) {
 }
 
 /**
- * Custom hook to get the selected answer.
+ * Custom hook to get the selected answer based on the question provided.
  */
 export function useSelectedAnswer(question: Question) {
   const answers = useAnswerStore((store) => store.answers)

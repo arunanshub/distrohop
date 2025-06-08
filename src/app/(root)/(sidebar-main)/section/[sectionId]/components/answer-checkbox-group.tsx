@@ -7,7 +7,7 @@ import { useAnswerStore } from "@/providers/answer-store-provider"
 import { Star } from "lucide-react"
 import ConflictingAnswersList from "./conflicting-answers-list"
 import { cn } from "@/lib/utils"
-import { useAnswers } from "@/hooks/answers"
+import { useAnswerStatus } from "@/hooks/answers"
 
 export default function AnswerCheckboxGroup({
   question,
@@ -39,7 +39,9 @@ function AnswerCheckbox({ answer }: { answer: Answer }) {
     (store) => store.unmarkAsImportantAnswer,
   )
 
-  const { isAnswerSelected, isAnswerMarkedImportant } = useAnswers(answer.msgid)
+  const { isAnswerSelected, isAnswerMarkedImportant } = useAnswerStatus(
+    answer.msgid,
+  )
 
   return (
     <div className="flex items-center gap-2">
