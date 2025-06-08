@@ -88,7 +88,14 @@ function SidebarButton({
       asChild
       key={section.msgid}
       variant="secondary"
-      className={cn("w-full", isSectionVisited ? "bg-green-300" : "")}
+      className={cn(
+        "relative w-full transition-all duration-100",
+        isSectionVisited && [
+          "border-l-2 border-l-blue-500",
+          "bg-blue-100 dark:bg-blue-900/40",
+          "shadow-sm",
+        ],
+      )}
     >
       <Link href={`/section/${section.msgid}`} aria-label={section.msgid}>
         <div className="flex w-full items-center gap-2">
