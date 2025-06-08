@@ -1,22 +1,10 @@
-import { useMemo } from "react"
 import { Answer } from "../actions"
-import { useAnswerStore } from "@/providers/answer-store-provider"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
+import { useConflictingAnswers } from "@/hooks/answers"
 
 export default function ConflictingAnswersList({ answer }: { answer: Answer }) {
-  const selectedAnswers = useAnswerStore((store) => store.answers)
-
-  const conflictingAnswers = useMemo(() => {
-    if (!selectedAnswers.has(answer.msgid)) {
-      return []
-    }
-
-    return answer.blockedBy
-      .map((x) => x.answer.msgid)
-      .concat(answer.blocks.map((x) => x.blockedBy.msgid))
-      .filter((ans) => selectedAnswers.has(ans))
-  }, [answer.blockedBy, answer.blocks, answer.msgid, selectedAnswers])
+  const { conflictingAnswers } = useConflictingAnswers(answer)
 
   if (conflictingAnswers.length === 0) {
     return null
