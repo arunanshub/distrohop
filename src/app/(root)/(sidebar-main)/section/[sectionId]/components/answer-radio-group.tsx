@@ -29,7 +29,7 @@ export default function AnswerRadioGroup({ question }: { question: Question }) {
     <div className="flex flex-col gap-4">
       <RadioGroup
         className="flex flex-col gap-3"
-        value={selectedAnswer}
+        value={selectedAnswer ?? null}
         onValueChange={(value) => {
           if (value) {
             for (const answer of question.answers) {
