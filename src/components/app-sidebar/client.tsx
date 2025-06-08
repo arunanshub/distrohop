@@ -21,7 +21,7 @@ import { useSectionStore } from "@/providers/section-store-provider"
 import { useSectionStatus } from "@/hooks/sections"
 import { cn } from "@/lib/utils"
 
-function iconNameToIcon(iconName: string) {
+function IconNameToIcon({ iconName }: { iconName: string }) {
   switch (iconName) {
     case "mdi:poll":
       return <BarChart />
@@ -88,7 +88,7 @@ function SidebarButton({
       asChild
       variant="secondary"
       className={cn(
-        "relative w-full transition-all duration-100",
+        "relative w-full min-w-13 transition-all duration-100",
         isSectionVisited && [
           "border-l-2 border-l-blue-500",
           "bg-blue-100 dark:bg-blue-900/40",
@@ -97,8 +97,8 @@ function SidebarButton({
       )}
     >
       <Link href={`/section/${section.msgid}`} aria-label={section.msgid}>
-        <div className="flex w-full items-center gap-2">
-          {iconNameToIcon(section.iconName)}
+        <div className="flex items-center gap-2">
+          <IconNameToIcon iconName={section.iconName} />
           <span className="hidden @2xl/layout:block">
             {section.msgid.slice(8, 26)}
           </span>
