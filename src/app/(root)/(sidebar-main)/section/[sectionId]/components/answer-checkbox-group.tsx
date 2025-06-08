@@ -7,7 +7,7 @@ import { useAnswerStore } from "@/providers/answer-store-provider"
 import { Star } from "lucide-react"
 import ConflictingAnswersList from "./conflicting-answers-list"
 import { cn } from "@/lib/utils"
-import { useMemo } from "react"
+import { useAnswerStatus } from "@/hooks/answers"
 
 export default function AnswerCheckboxGroup({
   question,
@@ -31,7 +31,6 @@ export default function AnswerCheckboxGroup({
 function AnswerCheckbox({ answer }: { answer: Answer }) {
   const addAnswer = useAnswerStore((store) => store.addAnswer)
   const removeAnswer = useAnswerStore((store) => store.removeAnswer)
-  const answers = useAnswerStore((store) => store.answers)
 
   const markAsImportantAnswer = useAnswerStore(
     (store) => store.markAsImportantAnswer,
@@ -40,13 +39,8 @@ function AnswerCheckbox({ answer }: { answer: Answer }) {
     (store) => store.unmarkAsImportantAnswer,
   )
 
-  const isAnswerSelected = useMemo(
-    () => answers.has(answer.msgid),
-    [answers, answer.msgid],
-  )
-  const isAnswerMarkedImportant = useMemo(
-    () => answers.get(answer.msgid) === true,
-    [answers, answer.msgid],
+  const { isAnswerSelected, isAnswerMarkedImportant } = useAnswerStatus(
+    answer.msgid,
   )
 
   return (
