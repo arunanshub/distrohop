@@ -3,7 +3,7 @@ import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
   experimental: {
-    webpackMemoryOptimizations: true,
+    // webpackMemoryOptimizations: true,
     inlineCss: true,
   },
 
