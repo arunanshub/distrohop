@@ -20,8 +20,12 @@ export default async function AppSidebar({
       <Button asChild variant="secondary">
         {/* since we don't have loading screen for root route, prefetch it for
           better performance */}
-        <Link href="/" aria-label="Home" prefetch>
-          {" "}
+        <Link
+          href="/"
+          aria-label="Home"
+          className="flex items-center gap-2"
+          prefetch
+        >
           <Home />
           <span className="hidden @2xl/layout:block">Welcome!</span>
         </Link>
