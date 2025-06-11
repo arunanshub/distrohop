@@ -1,15 +1,13 @@
 "use client"
-import { Button } from "@/components/ui/button"
 import { Answer, Question } from "../actions"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { useAnswerStore } from "@/providers/answer-store-provider"
-import { Star } from "lucide-react"
 import ConflictingAnswersList from "./conflicting-answers-list"
-import { cn } from "@/lib/utils"
 import { useAnswerStatus, useSelectedAnswer } from "@/hooks/answers"
 import { useCurrentSectionStatus } from "@/hooks/sections"
 import { useEffect } from "react"
+import MarkAsImportantButton from "./mark-as-important-button"
 
 export default function AnswerCheckboxGroup({
   question,
@@ -70,38 +68,5 @@ function AnswerCheckbox({ answer }: { answer: Answer }) {
 
       {isAnswerSelected && <MarkAsImportantButton answer={answer} />}
     </div>
-  )
-}
-
-function MarkAsImportantButton({ answer }: { answer: Answer }) {
-  const markAsImportantAnswer = useAnswerStore(
-    (store) => store.markAsImportantAnswer,
-  )
-  const unmarkAsImportantAnswer = useAnswerStore(
-    (store) => store.unmarkAsImportantAnswer,
-  )
-
-  const { isAnswerMarkedImportant } = useAnswerStatus(answer.msgid)
-
-  return (
-    <Button
-      variant="ghost"
-      size="icon"
-      className="size-6"
-      onClick={() => {
-        if (isAnswerMarkedImportant) {
-          unmarkAsImportantAnswer(answer.msgid)
-        } else {
-          markAsImportantAnswer(answer.msgid)
-        }
-      }}
-    >
-      <Star
-        className={cn(
-          "size-5",
-          isAnswerMarkedImportant ? "text-yellow-500" : "text-gray-500",
-        )}
-      />
-    </Button>
   )
 }

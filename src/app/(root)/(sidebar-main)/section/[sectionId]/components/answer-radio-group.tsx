@@ -3,13 +3,11 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Answer, Question } from "../actions"
 import { Label } from "@/components/ui/label"
 import { useAnswerStore } from "@/providers/answer-store-provider"
-import { Button } from "@/components/ui/button"
-import { Star } from "lucide-react"
 import ConflictingAnswersList from "./conflicting-answers-list"
-import { cn } from "@/lib/utils"
 import { useAnswerStatus, useSelectedAnswer } from "@/hooks/answers"
 import { useCurrentSectionStatus } from "@/hooks/sections"
 import { useEffect } from "react"
+import MarkAsImportantButton from "./mark-as-important-button"
 
 export default function AnswerRadioGroup({ question }: { question: Question }) {
   const addAnswer = useAnswerStore((store) => store.addAnswer)
@@ -53,16 +51,7 @@ export default function AnswerRadioGroup({ question }: { question: Question }) {
 }
 
 function AnswerRadio({ answer }: { answer: Answer }) {
-  const markAsImportantAnswer = useAnswerStore(
-    (store) => store.markAsImportantAnswer,
-  )
-  const unmarkAsImportantAnswer = useAnswerStore(
-    (store) => store.unmarkAsImportantAnswer,
-  )
-
-  const { isAnswerSelected, isAnswerMarkedImportant } = useAnswerStatus(
-    answer.msgid,
-  )
+  const { isAnswerSelected } = useAnswerStatus(answer.msgid)
 
   return (
     <div className="flex items-center gap-2">
@@ -75,27 +64,7 @@ function AnswerRadio({ answer }: { answer: Answer }) {
         {answer.msgid}
       </Label>
 
-      {isAnswerSelected && (
-        <Button
-          variant="ghost"
-          size="icon"
-          className="size-6"
-          onClick={() => {
-            if (isAnswerMarkedImportant) {
-              unmarkAsImportantAnswer(answer.msgid)
-            } else {
-              markAsImportantAnswer(answer.msgid)
-            }
-          }}
-        >
-          <Star
-            className={cn(
-              "size-5",
-              isAnswerMarkedImportant ? "text-yellow-500" : "text-gray-500",
-            )}
-          />
-        </Button>
-      )}
+      {isAnswerSelected && <MarkAsImportantButton answer={answer} />}
     </div>
   )
 }
