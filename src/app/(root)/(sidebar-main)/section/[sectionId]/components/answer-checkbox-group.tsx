@@ -48,16 +48,7 @@ function AnswerCheckbox({ answer }: { answer: Answer }) {
   const addAnswer = useAnswerStore((store) => store.addAnswer)
   const removeAnswer = useAnswerStore((store) => store.removeAnswer)
 
-  const markAsImportantAnswer = useAnswerStore(
-    (store) => store.markAsImportantAnswer,
-  )
-  const unmarkAsImportantAnswer = useAnswerStore(
-    (store) => store.unmarkAsImportantAnswer,
-  )
-
-  const { isAnswerSelected, isAnswerMarkedImportant } = useAnswerStatus(
-    answer.msgid,
-  )
+  const { isAnswerSelected } = useAnswerStatus(answer.msgid)
 
   return (
     <div className="flex items-center gap-2">
@@ -76,27 +67,41 @@ function AnswerCheckbox({ answer }: { answer: Answer }) {
       <Label className="text-base" htmlFor={answer.msgid}>
         {answer.msgid}
       </Label>
-      {isAnswerSelected && (
-        <Button
-          variant="ghost"
-          size="icon"
-          className="size-6"
-          onClick={() => {
-            if (isAnswerMarkedImportant) {
-              unmarkAsImportantAnswer(answer.msgid)
-            } else {
-              markAsImportantAnswer(answer.msgid)
-            }
-          }}
-        >
-          <Star
-            className={cn(
-              "size-5",
-              isAnswerMarkedImportant ? "text-yellow-500" : "text-gray-500",
-            )}
-          />
-        </Button>
-      )}
+
+      {isAnswerSelected && <MarkAsImportantButton answer={answer} />}
     </div>
+  )
+}
+
+function MarkAsImportantButton({ answer }: { answer: Answer }) {
+  const markAsImportantAnswer = useAnswerStore(
+    (store) => store.markAsImportantAnswer,
+  )
+  const unmarkAsImportantAnswer = useAnswerStore(
+    (store) => store.unmarkAsImportantAnswer,
+  )
+
+  const { isAnswerMarkedImportant } = useAnswerStatus(answer.msgid)
+
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      className="size-6"
+      onClick={() => {
+        if (isAnswerMarkedImportant) {
+          unmarkAsImportantAnswer(answer.msgid)
+        } else {
+          markAsImportantAnswer(answer.msgid)
+        }
+      }}
+    >
+      <Star
+        className={cn(
+          "size-5",
+          isAnswerMarkedImportant ? "text-yellow-500" : "text-gray-500",
+        )}
+      />
+    </Button>
   )
 }
