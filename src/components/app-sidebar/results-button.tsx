@@ -11,11 +11,13 @@ import { cn } from "@/lib/utils"
 
 export default function ResultsButton({ className }: { className?: string }) {
   const answers = useAnswerStore((state) => state.answers)
+  type Answers = typeof answers
   const router = useRouter()
 
   const { mutate: submitAnswers } = useMutation({
     mutationKey: ["submitAnswers"],
-    mutationFn: async () => await submitAnswersAction({ answers }),
+    mutationFn: async (answers: Answers) =>
+      await submitAnswersAction({ answers }),
   })
 
   // to make sure the button is disabled while the answers are being submitted
@@ -27,7 +29,7 @@ export default function ResultsButton({ className }: { className?: string }) {
     // Prefetch the results page to improve performance
     router.prefetch("/results")
 
-    submitAnswers(undefined, {
+    submitAnswers(answers, {
       onError(error) {
         toast.error("Failed to submit answers", {
           id,
