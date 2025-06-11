@@ -1,5 +1,6 @@
 "use client"
 
+import ResultsButton from "@/components/app-sidebar/results-button"
 import { Button } from "@/components/ui/button"
 import { useSections } from "@/hooks/sections"
 import { useRouter } from "next/navigation"
@@ -22,17 +23,18 @@ export default function PreviousNextButtons() {
       >
         Previous
       </Button>
-      <Button
-        size="lg"
-        onClick={() => {
-          if (nextSection) {
+      {nextSection !== undefined ? (
+        <Button
+          size="lg"
+          onClick={() => {
             router.push(`/section/${nextSection}`)
-          }
-        }}
-        disabled={!nextSection}
-      >
-        Next
-      </Button>
+          }}
+        >
+          Next
+        </Button>
+      ) : (
+        <ResultsButton />
+      )}
     </div>
   )
 }

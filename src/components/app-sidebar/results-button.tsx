@@ -3,7 +3,7 @@
 import { BarChart, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
-import { useMutation } from "@tanstack/react-query"
+import { useIsMutating, useMutation } from "@tanstack/react-query"
 import { useAnswerStore } from "@/providers/answer-store-provider"
 import { submitAnswers as submitAnswersAction } from "@/actions/answers"
 import { useRouter } from "next/navigation"
@@ -12,9 +12,14 @@ export default function ResultsButton() {
   const answers = useAnswerStore((state) => state.answers)
   const router = useRouter()
 
-  const { mutate: submitAnswers, isPending } = useMutation({
+  const { mutate: submitAnswers } = useMutation({
+    mutationKey: ["submitAnswers"],
     mutationFn: async () => await submitAnswersAction({ answers }),
   })
+
+  // to make sure the button is disabled while the answers are being submitted
+  // even if the button is reused in the UI.
+  const isPending = useIsMutating({ mutationKey: ["submitAnswers"] }) > 0
 
   function handleClick() {
     const id = toast.loading("Submitting answers...")
