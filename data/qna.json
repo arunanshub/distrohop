@@ -168,12 +168,12 @@
       {
         "msgid": "ux-concept-answer-windows-like",
         "blockedBy": [],
-        "mediaSourcePath": "https://de.wikipedia.org/wiki/Microsoft_Windows_10#/media/Datei:Windows10abstract.png"
+        "mediaSourcePath": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Windows11abstract.webp"
       },
       {
         "msgid": "ux-concept-answer-mac-like",
         "blockedBy": [],
-        "mediaSourcePath": "https://en.wikipedia.org/wiki/MacOS_Catalina#/media/File:MacOS_Catalina_Desktop.png"
+        "mediaSourcePath": "https://betawiki.net/images/4/4a/MacOSSonoma.png"
       }
     ]
   },
