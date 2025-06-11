@@ -7,8 +7,9 @@ import { useIsMutating, useMutation } from "@tanstack/react-query"
 import { useAnswerStore } from "@/providers/answer-store-provider"
 import { submitAnswers as submitAnswersAction } from "@/actions/answers"
 import { useRouter } from "next/navigation"
+import { cn } from "@/lib/utils"
 
-export default function ResultsButton() {
+export default function ResultsButton({ className }: { className?: string }) {
   const answers = useAnswerStore((state) => state.answers)
   const router = useRouter()
 
@@ -47,7 +48,7 @@ export default function ResultsButton() {
       disabled={isPending}
     >
       {isPending ? <Loader2 className="animate-spin" /> : <BarChart />}
-      <span className="hidden @2xl/layout:block">
+      <span className={cn("hidden @2xl/layout:block", className)}>
         {isPending ? "Showing Results..." : "Show Results"}
       </span>
     </Button>

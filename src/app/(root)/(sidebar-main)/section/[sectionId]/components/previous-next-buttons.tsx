@@ -10,7 +10,7 @@ export default function PreviousNextButtons() {
   const { previousSection, nextSection } = useSections()
 
   return (
-    <div className="flex gap-4">
+    <div className="flex flex-col gap-2 @md/layout:flex-row">
       <Button
         variant="outline"
         size="lg"
@@ -33,7 +33,7 @@ export default function PreviousNextButtons() {
           Next
         </Button>
       ) : (
-        <ResultsButton />
+        <ResultsButton className="block" />
       )}
     </div>
   )

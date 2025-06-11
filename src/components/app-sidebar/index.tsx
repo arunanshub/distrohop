@@ -45,7 +45,7 @@ export default async function AppSidebar({
       <Separator />
 
       {/* show result button */}
-      <ResultsButton />
+      <ResultsButton className="@2xl/layout:block" />
     </aside>
   )
 }
