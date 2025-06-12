@@ -75,8 +75,8 @@ function AnswerCheckboxImage({ answer }: { answer: Answer }) {
         <Image
           src={answer.mediaSourcePath!}
           alt={answer.msgid}
-          width={400}
-          height={400}
+          width={414}
+          height={259}
           priority
           className={cn(
             "h-auto w-auto border-4",

@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       new URL("https://upload.wikimedia.org/wikipedia/commons/**"),
-      new URL("https://betawiki.net/images/**"),
+      new URL("https://i.postimg.cc/xC3Bp0m5/*"),
     ],
   },
 }
