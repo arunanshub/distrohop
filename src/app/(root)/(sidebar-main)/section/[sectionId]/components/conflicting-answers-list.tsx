@@ -2,6 +2,7 @@ import { Answer } from "../actions"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
 import { useConflictingAnswers } from "@/hooks/answers"
+import Link from "next/link"
 
 export default function ConflictingAnswersList({ answer }: { answer: Answer }) {
   const { conflictingAnswers } = useConflictingAnswers(answer)
@@ -16,8 +17,12 @@ export default function ConflictingAnswersList({ answer }: { answer: Answer }) {
       <AlertTitle>Conflicting answers</AlertTitle>
       <AlertDescription className="pt-1">
         <ul className="flex list-disc flex-col gap-1 pl-3">
-          {conflictingAnswers.map((ans) => (
-            <li key={ans}>{ans}</li>
+          {conflictingAnswers.map(({ msgid, sectionId }) => (
+            <li key={msgid}>
+              <Link href={`/section/${sectionId}`} className="hover:underline">
+                {msgid}
+              </Link>
+            </li>
           ))}
         </ul>
       </AlertDescription>

@@ -23,11 +23,31 @@ export async function getQuestion(sectionId: string) {
                 with: {
                   blockedBy: {
                     columns: { blockedByAnswerId: true },
-                    with: { answer: { columns: { msgid: true } } },
+                    with: {
+                      answer: {
+                        columns: { msgid: true },
+                        // include the section that the answer belongs to
+                        with: {
+                          question: {
+                            with: { section: { columns: { msgid: true } } },
+                          },
+                        },
+                      },
+                    },
                   },
                   blocks: {
                     columns: { blockedByAnswerId: true },
-                    with: { blockedBy: { columns: { msgid: true } } },
+                    with: {
+                      blockedBy: {
+                        columns: { msgid: true },
+                        // include the section that the blocked answer belongs to
+                        with: {
+                          question: {
+                            with: { section: { columns: { msgid: true } } },
+                          },
+                        },
+                      },
+                    },
                   },
                 },
               },
