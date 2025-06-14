@@ -79,7 +79,7 @@ function AnswerCheckboxImage({ answer }: { answer: Answer }) {
           height={259}
           priority
           className={cn(
-            "h-auto w-auto border-4",
+            "border-4",
             isAnswerSelected ? "border-blue-500" : "border-transparent",
           )}
         />
