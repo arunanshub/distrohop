@@ -28,7 +28,7 @@ export default async function Layout({
       <AnswerStoreProvider>
         <div className="@container/layout mx-auto flex w-full max-w-6xl border-x">
           <AppSidebar sectionsPromise={sectionsPromise} />
-          <div className="flex-1 p-4">{children}</div>
+          <div className="@container/page flex-1 p-4">{children}</div>
         </div>
       </AnswerStoreProvider>
     </SectionStoreProvider>

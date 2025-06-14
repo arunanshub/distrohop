@@ -8,6 +8,13 @@ const nextConfig: NextConfig = {
   },
 
   output: env.STANDALONE_IN_PROD ? "standalone" : undefined,
+
+  images: {
+    remotePatterns: [
+      new URL("https://upload.wikimedia.org/wikipedia/commons/**"),
+      new URL("https://i.postimg.cc/xC3Bp0m5/*"),
+    ],
+  },
 }
 
 export default nextConfig
