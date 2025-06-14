@@ -19,7 +19,10 @@ export default function ConflictingAnswersList({ answer }: { answer: Answer }) {
         <ul className="flex list-disc flex-col gap-1 pl-3">
           {conflictingAnswers.map(({ msgid, sectionId }) => (
             <li key={msgid}>
-              <Link href={`/section/${sectionId}`} className="hover:underline">
+              <Link
+                href={`/section/${sectionId}`}
+                className="hover:underline active:underline"
+              >
                 {msgid}
               </Link>
             </li>
