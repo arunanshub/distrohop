@@ -1,0 +1,452 @@
+{
+  "id": "da5b1d52-3e25-4547-92d7-0dc20e1a9eb1",
+  "prevId": "fd0feda5-f57e-408e-a463-37a3e3e7d7b5",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.distrohop_answers": {
+      "name": "distrohop_answers",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "msgid": {
+          "name": "msgid",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "media_source_path": {
+          "name": "media_source_path",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "question_id": {
+          "name": "question_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "distrohop_answers_question_id_index": {
+          "name": "distrohop_answers_question_id_index",
+          "columns": [
+            {
+              "expression": "question_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "distrohop_answers_question_id_distrohop_questions_id_fk": {
+          "name": "distrohop_answers_question_id_distrohop_questions_id_fk",
+          "tableFrom": "distrohop_answers",
+          "tableTo": "distrohop_questions",
+          "columnsFrom": ["question_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "distrohop_answers_msgid_unique": {
+          "name": "distrohop_answers_msgid_unique",
+          "nullsNotDistinct": false,
+          "columns": ["msgid"]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.distrohop__answers_blocked": {
+      "name": "distrohop__answers_blocked",
+      "schema": "",
+      "columns": {
+        "answer_id": {
+          "name": "answer_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "blocked_by_answer_id": {
+          "name": "blocked_by_answer_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "distrohop__answers_blocked_answer_id_index": {
+          "name": "distrohop__answers_blocked_answer_id_index",
+          "columns": [
+            {
+              "expression": "answer_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "distrohop__answers_blocked_answer_id_distrohop_answers_id_fk": {
+          "name": "distrohop__answers_blocked_answer_id_distrohop_answers_id_fk",
+          "tableFrom": "distrohop__answers_blocked",
+          "tableTo": "distrohop_answers",
+          "columnsFrom": ["answer_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "distrohop__answers_blocked_blocked_by_answer_id_distrohop_answers_id_fk": {
+          "name": "distrohop__answers_blocked_blocked_by_answer_id_distrohop_answers_id_fk",
+          "tableFrom": "distrohop__answers_blocked",
+          "tableTo": "distrohop_answers",
+          "columnsFrom": ["blocked_by_answer_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "distrohop__answers_blocked_blocked_by_answer_id_answer_id_pk": {
+          "name": "distrohop__answers_blocked_blocked_by_answer_id_answer_id_pk",
+          "columns": ["blocked_by_answer_id", "answer_id"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.distrohop_distributions": {
+      "name": "distrohop_distributions",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "identifier": {
+          "name": "identifier",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fg_color": {
+          "name": "fg_color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bg_color": {
+          "name": "bg_color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "url": {
+          "name": "url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "distrohop_distributions_identifier_unique": {
+          "name": "distrohop_distributions_identifier_unique",
+          "nullsNotDistinct": false,
+          "columns": ["identifier"]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.distrohop_questions": {
+      "name": "distrohop_questions",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "msgid": {
+          "name": "msgid",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_multiple_choice": {
+          "name": "is_multiple_choice",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "is_media_question": {
+          "name": "is_media_question",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "additional_info": {
+          "name": "additional_info",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "section_id": {
+          "name": "section_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "distrohop_questions_section_id_index": {
+          "name": "distrohop_questions_section_id_index",
+          "columns": [
+            {
+              "expression": "section_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "distrohop_questions_section_id_distrohop_sections_id_fk": {
+          "name": "distrohop_questions_section_id_distrohop_sections_id_fk",
+          "tableFrom": "distrohop_questions",
+          "tableTo": "distrohop_sections",
+          "columnsFrom": ["section_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "distrohop_questions_msgid_unique": {
+          "name": "distrohop_questions_msgid_unique",
+          "nullsNotDistinct": false,
+          "columns": ["msgid"]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.distrohop__important_answers": {
+      "name": "distrohop__important_answers",
+      "schema": "",
+      "columns": {
+        "result_id": {
+          "name": "result_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "important_answer_id": {
+          "name": "important_answer_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "distrohop__important_answers_result_id_distrohop_results_id_fk": {
+          "name": "distrohop__important_answers_result_id_distrohop_results_id_fk",
+          "tableFrom": "distrohop__important_answers",
+          "tableTo": "distrohop_results",
+          "columnsFrom": ["result_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "distrohop__important_answers_important_answer_id_distrohop_answers_id_fk": {
+          "name": "distrohop__important_answers_important_answer_id_distrohop_answers_id_fk",
+          "tableFrom": "distrohop__important_answers",
+          "tableTo": "distrohop_answers",
+          "columnsFrom": ["important_answer_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "distrohop__important_answers_result_id_important_answer_id_pk": {
+          "name": "distrohop__important_answers_result_id_important_answer_id_pk",
+          "columns": ["result_id", "important_answer_id"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.distrohop_results": {
+      "name": "distrohop_results",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "CURRENT_TIMESTAMP"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.distrohop__selected_answers": {
+      "name": "distrohop__selected_answers",
+      "schema": "",
+      "columns": {
+        "result_id": {
+          "name": "result_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "selected_answer_id": {
+          "name": "selected_answer_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "distrohop__selected_answers_result_id_distrohop_results_id_fk": {
+          "name": "distrohop__selected_answers_result_id_distrohop_results_id_fk",
+          "tableFrom": "distrohop__selected_answers",
+          "tableTo": "distrohop_results",
+          "columnsFrom": ["result_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "distrohop__selected_answers_selected_answer_id_distrohop_answers_id_fk": {
+          "name": "distrohop__selected_answers_selected_answer_id_distrohop_answers_id_fk",
+          "tableFrom": "distrohop__selected_answers",
+          "tableTo": "distrohop_answers",
+          "columnsFrom": ["selected_answer_id"],
+          "columnsTo": ["id"],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "distrohop__selected_answers_result_id_selected_answer_id_pk": {
+          "name": "distrohop__selected_answers_result_id_selected_answer_id_pk",
+          "columns": ["result_id", "selected_answer_id"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.distrohop_sections": {
+      "name": "distrohop_sections",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "msgid": {
+          "name": "msgid",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "icon_name": {
+          "name": "icon_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "distrohop_sections_msgid_unique": {
+          "name": "distrohop_sections_msgid_unique",
+          "nullsNotDistinct": false,
+          "columns": ["msgid"]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
