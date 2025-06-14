@@ -1,22 +1,26 @@
 import { relations } from "drizzle-orm"
-import { primaryKey, text } from "drizzle-orm/pg-core"
+import { primaryKey, text, index } from "drizzle-orm/pg-core"
 import { questions } from "./questions"
 import { ulid } from "@std/ulid"
 import { createTable } from "./utils"
 
-export const answers = createTable("answers", {
-  id: text("id")
-    .$defaultFn(() => ulid())
-    .primaryKey()
-    .notNull(),
-  msgid: text("msgid").unique().notNull(),
-  mediaSourcePath: text("media_source_path"),
-  questionId: text("question_id")
-    .notNull()
-    .references(() => questions.id, {
-      onDelete: "cascade",
-    }),
-})
+export const answers = createTable(
+  "answers",
+  {
+    id: text("id")
+      .$defaultFn(() => ulid())
+      .primaryKey()
+      .notNull(),
+    msgid: text("msgid").unique().notNull(),
+    mediaSourcePath: text("media_source_path"),
+    questionId: text("question_id")
+      .notNull()
+      .references(() => questions.id, {
+        onDelete: "cascade",
+      }),
+  },
+  (t) => [index().on(t.questionId)],
+)
 
 export const answerRelations = relations(answers, ({ one, many }) => ({
   question: one(questions, {
@@ -41,7 +45,10 @@ export const answersBlocked = createTable(
       })
       .notNull(),
   },
-  (t) => [primaryKey({ columns: [t.blockedByAnswerId, t.answerId] })],
+  (t) => [
+    primaryKey({ columns: [t.blockedByAnswerId, t.answerId] }),
+    index().on(t.answerId),
+  ],
 )
 
 export const answersBlockedRelations = relations(answersBlocked, ({ one }) => ({

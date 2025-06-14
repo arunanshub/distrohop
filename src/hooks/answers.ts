@@ -57,9 +57,17 @@ export function useConflictingAnswers(answer: Answer) {
     }
 
     return answer.blockedBy
-      .map((x) => x.answer.msgid)
-      .concat(answer.blocks.map((x) => x.blockedBy.msgid))
-      .filter((ans) => selectedAnswers.has(ans))
+      .map((x) => ({
+        msgid: x.answer.msgid,
+        sectionId: x.answer.question.section.msgid,
+      }))
+      .concat(
+        answer.blocks.map((x) => ({
+          msgid: x.blockedBy.msgid,
+          sectionId: x.blockedBy.question.section.msgid,
+        })),
+      )
+      .filter((ans) => selectedAnswers.has(ans.msgid))
   }, [answer.blockedBy, answer.blocks, answer.msgid, selectedAnswers])
 
   return { conflictingAnswers }
