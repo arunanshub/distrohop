@@ -50,6 +50,7 @@
     "@types/pg": "^8.15.2",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
+    "babel-plugin-react-compiler": "19.1.0-rc.2",
     "dotenv": "^17.0.0",
     "drizzle-kit": "^0.31.1",
     "eslint": "^9.27.0",
