@@ -15,6 +15,9 @@
     "db:push": "drizzle-kit push",
     "db:seed": "tsx scripts/seed.ts"
   },
+  "browserslist": [
+    ">=0.3% and not dead"
+  ],
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.0.0",
     "@radix-ui/react-checkbox": "^1.3.2",
@@ -58,6 +61,7 @@
     "eslint-plugin-sonarjs": "^3.0.2",
     "knip": "^5.57.2",
     "lefthook": "^1.11.13",
+    "postcss-preset-env": "^10.2.1",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.1.7",
