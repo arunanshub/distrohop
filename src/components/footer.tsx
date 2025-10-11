@@ -5,13 +5,13 @@ export default function Footer() {
   return (
     <footer className="w-full border-t p-4 text-sm tracking-tight">
       <div className="mx-auto flex h-4 max-w-6xl items-center justify-evenly gap-2 text-sm md:gap-0">
-        <Link href="#">Imprint</Link>
+        <Link href="/imprint">Imprint</Link>
         <Separator orientation="vertical" decorative />
 
-        <Link href="#">Privacy</Link>
+        <Link href="/privacy">Privacy</Link>
         <Separator orientation="vertical" decorative />
 
-        <Link href="#">About</Link>
+        <Link href="/about">About</Link>
         <Separator orientation="vertical" decorative />
 
         <Link href="#">A project by @arunanshub</Link>
