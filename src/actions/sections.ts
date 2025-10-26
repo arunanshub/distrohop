@@ -1,16 +1,22 @@
 "use server"
 import { getDb } from "@/server/db"
+import { connection } from "next/server"
+
+export async function getSections() {
+  // If we don't use the `connection` call here, nextjs will try to call this
+  // during prerender.
+  await connection()
+  return await getSectionsInner()
+}
 
 /**
- * For now we have removed the `use cache: remote` directive since it's still buggy.
- * The navigations don't work properly with `use cache: remote` in some cases.
- *
- * See: https://github.com/arunanshub/distrohop/pull/546/files,
- * https://distrohop-git-fix-caching-sections-directive-my-team-0598bad4.vercel.app/
- *
- * (navigate from home -> results -> back to home, the sections don't load properly)
+ * We want to cache the sections list for performance, but we cannot afford to
+ * have it cached during build time since the database may or may not be
+ * available then. Hence we use "use cache: remote" to tell nextjs to cache it
+ * only at runtime.
  */
-export async function getSections() {
+async function getSectionsInner() {
+  "use cache: remote"
   const db = getDb()
   return db.query.sections.findMany({
     columns: { id: false },
