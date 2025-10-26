@@ -6,7 +6,7 @@
     "docker-compose@1.29.2",
     "tilt@latest",
     "minikube@latest",
-    "nodejs_22@latest",
+    "nodejs_22@22.14.0",
     "kubectl@latest"
   ],
   "shell": {

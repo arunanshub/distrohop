@@ -299,7 +299,7 @@
         }
       }
     },
-    "nodejs_22@latest": {
+    "nodejs_22@22.14.0": {
       "last_modified": "2025-06-06T01:46:53Z",
       "plugin_version": "0.0.2",
       "resolved": "github:NixOS/nixpkgs/6ad174a6dc07c7742fc64005265addf87ad08615#nodejs_22",
