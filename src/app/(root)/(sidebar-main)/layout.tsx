@@ -3,20 +3,17 @@ import AppSidebar from "@/components/app-sidebar"
 import AnswerStoreProvider from "@/providers/answer-store-provider"
 import SectionStoreProvider from "@/providers/section-store-provider"
 import { Metadata } from "next"
-import { cache } from "react"
 
 export const metadata: Metadata = {
   title: "Welcome",
 }
-
-const getCachedSections = cache(getSections)
 
 export default async function Layout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const sectionsPromise = getCachedSections()
+  const sectionsPromise = getSections()
 
   return (
     <SectionStoreProvider>
