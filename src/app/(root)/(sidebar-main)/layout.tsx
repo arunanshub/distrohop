@@ -3,7 +3,6 @@ import AppSidebar from "@/components/app-sidebar"
 import AnswerStoreProvider from "@/providers/answer-store-provider"
 import SectionStoreProvider from "@/providers/section-store-provider"
 import { Metadata } from "next"
-import { unstable_cache as cache } from "next/cache"
 
 export const metadata: Metadata = {
   title: "Welcome",
@@ -14,11 +13,7 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  // cache the sections data for 1 hour
-  const getCachedSections = cache(getSections, undefined, {
-    revalidate: 60 * 60, // 1 hour
-  })
-  const sectionsPromise = getCachedSections()
+  const sectionsPromise = getSections()
 
   return (
     <SectionStoreProvider>

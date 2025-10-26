@@ -1,5 +1,4 @@
 "use server"
-
 import { getDb } from "@/server/db"
 
 export async function getSections() {
