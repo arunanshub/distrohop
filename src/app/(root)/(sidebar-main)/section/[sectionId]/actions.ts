@@ -6,6 +6,7 @@ import { notFound } from "next/navigation"
 import { DatabaseError } from "pg"
 
 export async function getQuestion(sectionId: string) {
+  "use cache"
   const db = getDb()
 
   try {
