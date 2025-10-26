@@ -3,7 +3,7 @@
   "packages": [
     "docker@20.10.26",
     "kind@latest",
-    "docker-compose@latest",
+    "docker-compose@1.29.2",
     "tilt@latest",
     "minikube@latest",
     "nodejs_22@latest"
