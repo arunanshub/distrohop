@@ -3,17 +3,20 @@ import type { NextConfig } from "next"
 import createMdx from "@next/mdx"
 
 const nextConfig: NextConfig = {
-  reactCompiler: true,
-  pageExtensions: ["md", "mdx", "ts", "tsx"],
   output: env.STANDALONE_IN_PROD ? "standalone" : undefined,
+  reactCompiler: true,
+  typedRoutes: true,
+  pageExtensions: ["md", "mdx", "ts", "tsx"],
+  experimental: {
+    useLightningcss: true,
+    inlineCss: true,
+    turbopackFileSystemCacheForDev: true,
+  },
   images: {
     remotePatterns: [
       new URL("https://upload.wikimedia.org/wikipedia/commons/**"),
       new URL("https://i.postimg.cc/xC3Bp0m5/*"),
     ],
-  },
-  experimental: {
-    webpackMemoryOptimizations: true,
   },
 }
 
