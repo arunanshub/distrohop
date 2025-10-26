@@ -2,6 +2,7 @@ import { getQuestion } from "./actions"
 import PreviousNextButtons from "./components/previous-next-buttons"
 import dynamic from "next/dynamic"
 import AnswerResetButton from "./components/answer-reset-button"
+import { cache } from "react"
 
 const AnswerCheckboxGroup = dynamic(
   () => import("./components/answer-checkbox-group"),
@@ -10,6 +11,8 @@ const AnswerRadioGroup = dynamic(
   () => import("./components/answer-radio-group"),
 )
 
+const getCachedQuestion = cache(getQuestion)
+
 export default async function SectionPage({
   params,
 }: {
@@ -17,7 +20,7 @@ export default async function SectionPage({
 }) {
   const { sectionId } = await params
 
-  const question = await getQuestion(sectionId)
+  const question = await getCachedQuestion(sectionId)
 
   return (
     <div className="flex flex-col gap-6">
