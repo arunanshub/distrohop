@@ -9,9 +9,6 @@ export const metadata: Metadata = {
   title: "Welcome",
 }
 
-// Need to make the page dynamic since app-sidebar loads data from the server.
-export const dynamic = "force-dynamic"
-
 export default async function Layout({
   children,
 }: {

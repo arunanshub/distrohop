@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   typedRoutes: true,
   pageExtensions: ["md", "mdx", "ts", "tsx"],
+  cacheComponents: true,
   experimental: {
     useLightningcss: true,
     inlineCss: true,
