@@ -5,9 +5,12 @@ import createMdx from "@next/mdx"
 const nextConfig: NextConfig = {
   output: env.STANDALONE_IN_PROD ? "standalone" : undefined,
   reactCompiler: true,
+  typedRoutes: true,
   pageExtensions: ["md", "mdx", "ts", "tsx"],
   experimental: {
-    webpackMemoryOptimizations: true,
+    useLightningcss: true,
+    inlineCss: true,
+    turbopackFileSystemCacheForDev: true,
   },
   images: {
     remotePatterns: [
