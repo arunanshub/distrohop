@@ -1,7 +1,6 @@
 import { getQuestion } from "./actions"
 import PreviousNextButtons from "./components/previous-next-buttons"
 import dynamic from "next/dynamic"
-import { unstable_cache as cache } from "next/cache"
 import AnswerResetButton from "./components/answer-reset-button"
 
 const AnswerCheckboxGroup = dynamic(
@@ -18,10 +17,7 @@ export default async function SectionPage({
 }) {
   const { sectionId } = await params
 
-  const getCachedQuestion = cache(getQuestion, undefined, {
-    revalidate: 60 * 60, // 1 hour
-  })
-  const question = await getCachedQuestion(sectionId)
+  const question = await getQuestion(sectionId)
 
   return (
     <div className="flex flex-col gap-6">
