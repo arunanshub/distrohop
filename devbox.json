@@ -6,7 +6,8 @@
     "docker-compose@1.29.2",
     "tilt@latest",
     "minikube@latest",
-    "nodejs_22@latest"
+    "nodejs_22@latest",
+    "kubectl@latest"
   ],
   "shell": {
     "init_hook": ["echo 'Welcome to devbox!' > /dev/null"],
