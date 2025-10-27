@@ -4,7 +4,7 @@
     "docker@28.4.0",
     "kind@0.30.0",
     "docker-compose@2.39.4",
-    "tilt@latest",
+    "tilt@0.35.1",
     "minikube@1.37.0",
     "nodejs_22@22.14.0",
     "kubectl@1.34.1"
