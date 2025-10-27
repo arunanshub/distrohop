@@ -253,7 +253,7 @@
         }
       }
     },
-    "minikube@latest": {
+    "minikube@1.37.0": {
       "last_modified": "2025-10-10T13:35:32Z",
       "resolved": "github:NixOS/nixpkgs/870493f9a8cb0b074ae5b411b2f232015db19a65#minikube",
       "source": "devbox-search",
