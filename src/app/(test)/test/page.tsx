@@ -1,6 +1,5 @@
-import GoToOther from "@/app/(test)/test/go-to-other"
+import GoToOther from "./go-to-other"
 import { unstable_cache } from "next/cache"
-import { connection } from "next/server"
 import { Suspense } from "react"
 
 type Data = {
@@ -12,24 +11,17 @@ type Data = {
 
 async function showData(): Promise<Data> {
   "use server"
-  await connection()
-  return await showDataInner()
+  return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
+    (response) => response.json(),
+  )
 }
 
-const showDataInner = unstable_cache(
-  async (): Promise<Data> => {
-    return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
-      (response) => response.json(),
-    )
-  },
-  undefined,
-  {
-    tags: ["test-data"],
-  },
-)
+const showCachedData = unstable_cache(showData, undefined, {
+  tags: ["test-data"],
+})
 
 export default function Home() {
-  const data = showData()
+  const data = showCachedData()
 
   return (
     <div className="flex flex-col gap-4">
