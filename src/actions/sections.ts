@@ -1,6 +1,7 @@
 "use server"
 import { getDb } from "@/server/db"
 import { connection } from "next/server"
+import { unstable_cache as cache } from "next/cache"
 
 export async function getSections() {
   // If we don't use the `connection` call here, nextjs will try to call this
@@ -15,12 +16,16 @@ export async function getSections() {
  * available then. Hence we use "use cache: remote" to tell nextjs to cache it
  * only at runtime.
  */
-async function getSectionsInner() {
-  const db = getDb()
-  return db.query.sections.findMany({
-    columns: { id: false },
-    orderBy: (sections, { asc }) => [asc(sections.msgid)],
-  })
-}
+const getSectionsInner = cache(
+  async () => {
+    const db = getDb()
+    return db.query.sections.findMany({
+      columns: { id: false },
+      orderBy: (sections, { asc }) => [asc(sections.msgid)],
+    })
+  },
+  undefined,
+  { tags: ["sections"], revalidate: 300 },
+)
 
 export type Section = Awaited<ReturnType<typeof getSections>>[number]
