@@ -25,5 +25,3 @@ const getSectionsInner = cache(
   undefined,
   { tags: ["sections"], revalidate: 300 },
 )
-
-export type Section = Awaited<ReturnType<typeof getSections>>[number]
