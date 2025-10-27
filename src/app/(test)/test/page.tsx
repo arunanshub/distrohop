@@ -1,4 +1,5 @@
 import GoToOther from "@/app/(test)/test/go-to-other"
+import { unstable_cache } from "next/cache"
 import { connection } from "next/server"
 import { Suspense } from "react"
 
@@ -15,13 +16,17 @@ async function showData(): Promise<Data> {
   return await showDataInner()
 }
 
-async function showDataInner(): Promise<Data> {
-  "use cache: remote"
-
-  return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
-    (response) => response.json(),
-  )
-}
+const showDataInner = unstable_cache(
+  async (): Promise<Data> => {
+    return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
+      (response) => response.json(),
+    )
+  },
+  undefined,
+  {
+    tags: ["test-data"],
+  },
+)
 
 export default function Home() {
   const data = showData()
