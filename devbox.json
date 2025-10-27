@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
   "packages": [
     "docker@20.10.26",
-    "kind@latest",
+    "kind@0.30.0",
     "docker-compose@2.39.4",
     "tilt@latest",
-    "minikube@latest",
+    "minikube@1.37.0",
     "nodejs_22@22.14.0",
-    "kubectl@latest"
+    "kubectl@1.34.1"
   ],
   "shell": {
     "init_hook": ["echo 'Welcome to devbox!' > /dev/null"],

@@ -121,7 +121,7 @@
       "last_modified": "2025-10-24T23:52:36Z",
       "resolved": "github:NixOS/nixpkgs/02f2cb8e0feb4596d20cc52fda73ccee960e3538?lastModified=1761349956&narHash=sha256-tH3wHnOJms%2BU4k%2FrK2Nn1RfBrhffX92jLP%2F2VndSn0w%3D"
     },
-    "kind@latest": {
+    "kind@0.30.0": {
       "last_modified": "2025-10-07T08:41:47Z",
       "resolved": "github:NixOS/nixpkgs/bce5fe2bb998488d8e7e7856315f90496723793c#kind",
       "source": "devbox-search",
@@ -169,7 +169,7 @@
         }
       }
     },
-    "kubectl@latest": {
+    "kubectl@1.34.1": {
       "last_modified": "2025-10-07T08:41:47Z",
       "resolved": "github:NixOS/nixpkgs/bce5fe2bb998488d8e7e7856315f90496723793c#kubectl",
       "source": "devbox-search",
@@ -253,7 +253,7 @@
         }
       }
     },
-    "minikube@latest": {
+    "minikube@1.37.0": {
       "last_modified": "2025-10-10T13:35:32Z",
       "resolved": "github:NixOS/nixpkgs/870493f9a8cb0b074ae5b411b2f232015db19a65#minikube",
       "source": "devbox-search",
