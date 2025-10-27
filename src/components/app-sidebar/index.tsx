@@ -8,9 +8,15 @@ import SidebarSkeleton from "./sidebar-skeleton"
 import { Suspense } from "react"
 import ResultsButton from "./results-button"
 import { getSections } from "@/actions/sections"
+import { unstable_cache as cache } from "next/cache"
+
+const getCachedSections = cache(getSections, undefined, {
+  tags: ["sections"],
+  revalidate: 300,
+})
 
 export default async function AppSidebar() {
-  const sectionsPromise = getSections()
+  const sectionsPromise = getCachedSections()
 
   return (
     <aside className="flex shrink-0 flex-col gap-2 border-r p-4 px-2 md:min-w-58 @lg/layout:px-4">
