@@ -1,12 +1,10 @@
 "use server"
 import { getDb } from "@/server/db"
-import { connection } from "next/server"
 import { unstable_cache as cache } from "next/cache"
 
 export async function getSections() {
   // If we don't use the `connection` call here, nextjs will try to call this
   // during prerender.
-  await connection()
   return await getSectionsInner()
 }
 
