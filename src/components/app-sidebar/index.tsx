@@ -7,13 +7,11 @@ import AppSidebarClient from "./client"
 import SidebarSkeleton from "./sidebar-skeleton"
 import { Suspense } from "react"
 import ResultsButton from "./results-button"
-import { Section } from "@/actions/sections"
+import { getSections } from "@/actions/sections"
 
-export default async function AppSidebar({
-  sectionsPromise,
-}: {
-  sectionsPromise: Promise<Section[]>
-}) {
+export default async function AppSidebar() {
+  const sectionsPromise = getSections()
+
   return (
     <aside className="flex shrink-0 flex-col gap-2 border-r p-4 px-2 md:min-w-58 @lg/layout:px-4">
       {/* home button */}
