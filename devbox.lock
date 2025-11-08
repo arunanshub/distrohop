@@ -281,7 +281,7 @@
         }
       }
     },
-    "nodejs_24@latest": {
+    "nodejs_24@24.11.0": {
       "last_modified": "2025-10-30T18:40:41Z",
       "plugin_version": "0.0.2",
       "resolved": "github:NixOS/nixpkgs/45ebaee5d90bab997812235564af4cf5107bde89#nodejs_24",
