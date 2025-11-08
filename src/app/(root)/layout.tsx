@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* the main content: can contain the sidebar or it can be a standalone
       page (eg, results or /info, /about etc.) */}
-      <div className="flex flex-1">{children}</div>
+      <main className="flex flex-1">{children}</main>
 
       <Footer />
     </div>
