@@ -9,7 +9,6 @@ const nextConfig: NextConfig = {
   pageExtensions: ["md", "mdx", "ts", "tsx"],
   cacheComponents: true,
   experimental: {
-    useLightningcss: true,
     inlineCss: true,
     turbopackFileSystemCacheForDev: true,
   },

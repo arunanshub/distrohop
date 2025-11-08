@@ -3,7 +3,7 @@
 import { getDb, tables } from "@/server/db"
 import { eq } from "drizzle-orm"
 import { notFound } from "next/navigation"
-import { DatabaseError } from "pg"
+import postgres from "postgres"
 
 export async function getQuestion(sectionId: string) {
   "use cache"
@@ -66,7 +66,7 @@ export async function getQuestion(sectionId: string) {
 
     return data
   } catch (error) {
-    if (error instanceof DatabaseError && error.code === "P0002") {
+    if (error instanceof postgres.PostgresError && error.code === "P0002") {
       return notFound()
     }
     throw error

@@ -1,6 +1,7 @@
-import { drizzle } from "drizzle-orm/node-postgres"
+import { drizzle } from "drizzle-orm/postgres-js"
 import { env } from "@/env"
 import * as schema from "./schema"
+import postgres from "postgres"
 
 /**
  * Cache the database client in development to avoid recreating it during HMR.
@@ -10,10 +11,8 @@ const globalClient = globalThis as unknown as {
 }
 
 function createDb() {
-  return drizzle(env.DATABASE_URL, {
-    schema: { ...schema },
-    // logger: env.NODE_ENV === "development",
-  })
+  const client = postgres(env.DATABASE_URL, { prepare: false })
+  return drizzle(client, { schema: { ...schema } })
 }
 
 export function getDb() {
