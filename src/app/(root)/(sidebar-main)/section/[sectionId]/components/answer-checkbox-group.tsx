@@ -78,6 +78,7 @@ function AnswerCheckboxImage({ answer }: { answer: Answer }) {
           width={414}
           height={259}
           preload
+          fetchPriority="high"
           className={cn(
             "border-4",
             isAnswerSelected ? "border-blue-500" : "border-transparent",
