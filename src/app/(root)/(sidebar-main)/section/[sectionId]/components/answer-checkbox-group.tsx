@@ -77,7 +77,7 @@ function AnswerCheckboxImage({ answer }: { answer: Answer }) {
           alt={answer.msgid}
           width={414}
           height={259}
-          priority
+          preload
           className={cn(
             "border-4",
             isAnswerSelected ? "border-blue-500" : "border-transparent",
