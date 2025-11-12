@@ -51,7 +51,7 @@
     "@tanstack/eslint-plugin-query": "^5.91.2",
     "@tanstack/react-query-devtools": "^5.90.2",
     "@types/node": "^24.9.1",
-    "@types/react": "19.2.2",
+    "@types/react": "19.2.3",
     "@types/react-dom": "19.2.2",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
     "dotenv": "^17.2.3",
@@ -72,7 +72,7 @@
   "packageManager": "pnpm@10.21.0+sha512.da3337267e400fdd3d479a6c68079ac6db01d8ca4f67572083e722775a796788a7a9956613749e000fac20d424b594f7a791a5f4e2e13581c5ef947f26968a40",
   "pnpm": {
     "overrides": {
-      "@types/react": "19.2.2",
+      "@types/react": "19.2.3",
       "@types/react-dom": "19.2.2"
     }
   }
