@@ -52,7 +52,7 @@
     "@tanstack/react-query-devtools": "^5.90.2",
     "@types/node": "^24.9.1",
     "@types/react": "19.2.3",
-    "@types/react-dom": "19.2.2",
+    "@types/react-dom": "19.2.3",
     "babel-plugin-react-compiler": "19.1.0-rc.3",
     "dotenv": "^17.2.3",
     "drizzle-kit": "^0.31.5",
@@ -73,7 +73,7 @@
   "pnpm": {
     "overrides": {
       "@types/react": "19.2.3",
-      "@types/react-dom": "19.2.2"
+      "@types/react-dom": "19.2.3"
     }
   }
 }
