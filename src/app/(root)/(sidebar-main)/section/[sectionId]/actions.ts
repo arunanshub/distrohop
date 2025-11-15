@@ -2,11 +2,15 @@
 
 import { getDb, tables } from "@/server/db"
 import { eq } from "drizzle-orm"
+import { cacheLife, cacheTag } from "next/cache"
 import { notFound } from "next/navigation"
 import postgres from "postgres"
 
 export async function getQuestion(sectionId: string) {
-  "use cache"
+  "use cache: remote"
+  cacheLife("days")
+  cacheTag("getQuestion", sectionId)
+
   const db = getDb()
 
   try {
