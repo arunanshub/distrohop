@@ -1,5 +1,6 @@
 "use server"
 import { getDb } from "@/server/db"
+import { cacheLife, cacheTag } from "next/cache"
 import { connection } from "next/server"
 
 export async function getSections() {
@@ -17,6 +18,9 @@ export async function getSections() {
  */
 async function getSectionsInner() {
   "use cache: remote"
+  cacheLife("days")
+  cacheTag("sections")
+
   const db = getDb()
   return db.query.sections.findMany({
     columns: { id: false },
