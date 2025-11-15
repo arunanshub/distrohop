@@ -101,7 +101,7 @@
       "last_modified": "2025-11-07T02:32:13Z",
       "resolved": "github:NixOS/nixpkgs/e1ebeec86b771e9d387dd02d82ffdc77ac753abc?lastModified=1762482733&narHash=sha256-g%2Fda4FzvckvbiZT075Sb1%2FYDNDr%2BtGQgh4N8i5ceYMg%3D"
     },
-    "gitleaks@latest": {
+    "gitleaks@8.28.0": {
       "last_modified": "2025-10-22T20:59:19Z",
       "resolved": "github:NixOS/nixpkgs/01b6809f7f9d1183a2b3e081f0a1e6f8f415cb09#gitleaks",
       "source": "devbox-search",
