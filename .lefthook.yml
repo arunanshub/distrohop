@@ -2,16 +2,16 @@ pre-commit:
   parallel: true
   jobs:
     - name: lint
-      run: pnpm eslint --fix {staged_files}
+      run: bun lint --fix {staged_files}
       glob:
         - "*.{js,ts,jsx,tsx}"
       stage_fixed: true
 
     - name: format
-      run: pnpm prettier --write {staged_files}
+      run: bun prettier --write {staged_files}
       glob:
         - "*.{js,ts,jsx,tsx,json,css,md}"
       stage_fixed: true
 
     - name: gitleaks
-      run: gitleaks detect -v
+      run: gitleaks git --pre-commit
