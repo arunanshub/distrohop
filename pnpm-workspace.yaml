@@ -1,7 +1,0 @@
-onlyBuiltDependencies:
-  - '@tailwindcss/oxide'
-  - esbuild
-  - lefthook
-  - oxc-resolver
-  - sharp
-  - unrs-resolver
