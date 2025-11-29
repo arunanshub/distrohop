@@ -10,6 +10,11 @@ const AnswerRadioGroup = dynamic(
   () => import("./components/answer-radio-group"),
 )
 
+export const unstable_prefetch = {
+  mode: "runtime",
+  samples: [{}],
+}
+
 export default async function SectionPage({
   params,
 }: {
