@@ -9,7 +9,7 @@ import postgres from "postgres"
 export async function getQuestion(sectionId: string) {
   "use cache: remote"
   cacheLife("days")
-  cacheTag("getQuestion", sectionId)
+  cacheTag(`getQuestion-${sectionId}`)
 
   const db = getDb()
 

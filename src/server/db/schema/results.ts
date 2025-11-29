@@ -1,7 +1,7 @@
 import { relations, sql } from "drizzle-orm"
 import { primaryKey, timestamp, text } from "drizzle-orm/pg-core"
 import { answers } from "./answers"
-import { ulid } from "@std/ulid"
+import { ulid } from "ulid"
 import { createTable } from "./utils"
 
 export const results = createTable("results", {

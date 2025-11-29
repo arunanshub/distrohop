@@ -1,4 +1,4 @@
-import { ulid } from "@std/ulid"
+import { ulid } from "ulid"
 import { text } from "drizzle-orm/pg-core"
 import { createTable } from "./utils"
 
