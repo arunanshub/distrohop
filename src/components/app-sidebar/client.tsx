@@ -1,6 +1,6 @@
 "use client"
 
-import { use, useEffect } from "react"
+import { useEffect } from "react"
 import { Button } from "../ui/button"
 import Link from "next/link"
 import { FaBoxOpen, FaMicrosoft, FaUserShield } from "react-icons/fa"
@@ -55,17 +55,15 @@ function IconNameToIcon({ iconName }: { iconName: string }) {
 }
 
 export default function AppSidebarClient({
-  sectionsPromise,
+  sections,
 }: {
-  sectionsPromise: Promise<{ msgid: string; iconName: string }[]>
+  sections: { msgid: string; iconName: string }[]
 }) {
-  const sections = use(sectionsPromise)
   const addSections = useSectionStore((store) => store.addSections)
 
   useEffect(() => {
     addSections(sections.map((section) => section.msgid))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [addSections, sections])
 
   return (
     <>
