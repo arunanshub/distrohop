@@ -2,7 +2,7 @@ import { relations } from "drizzle-orm/relations"
 import { boolean, text, index } from "drizzle-orm/pg-core"
 import { answers } from "./answers"
 import { sections } from "./sections"
-import { ulid } from "@std/ulid"
+import { ulid } from "ulid"
 import { createTable } from "./utils"
 
 export const questions = createTable(
