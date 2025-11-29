@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Home } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import AppSidebarClient from "./client"
+import SidebarSections from "./sections"
 import SidebarSkeleton from "./sidebar-skeleton"
 import { Suspense } from "react"
 import ResultsButton from "./results-button"
@@ -37,7 +37,7 @@ export default async function AppSidebar({
       <ScrollArea className="h-full">
         <nav className="flex max-h-[35svh] flex-col gap-2">
           <Suspense fallback={<SidebarSkeleton />}>
-            <AppSidebarClient sectionsPromise={sectionsPromise} />
+            <SidebarSections sectionsPromise={sectionsPromise} />
           </Suspense>
         </nav>
       </ScrollArea>
