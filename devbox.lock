@@ -98,8 +98,8 @@
       }
     },
     "docker@28.5.1": {
-      "last_modified": "2025-11-27T07:58:14Z",
-      "resolved": "github:NixOS/nixpkgs/0d59e0290eefe0f12512043842d7096c4070f30e#docker",
+      "last_modified": "2025-12-04T04:58:45Z",
+      "resolved": "github:NixOS/nixpkgs/821f1a2ebab0f13d6d65170d6bd7d2b3a182efdb#docker",
       "source": "devbox-search",
       "version": "28.5.1",
       "systems": {
@@ -107,47 +107,47 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/ixcb4scizi8gny70pf5cavh9n6rca7lm-docker-28.5.1",
+              "path": "/nix/store/hin3prdkyyljd263lnpk63m7km0mpijy-docker-28.5.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/ixcb4scizi8gny70pf5cavh9n6rca7lm-docker-28.5.1"
+          "store_path": "/nix/store/hin3prdkyyljd263lnpk63m7km0mpijy-docker-28.5.1"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/vvdwxv7lcnnqzgn22jma2q9r1srpjpvd-docker-28.5.1",
+              "path": "/nix/store/dlbg46jkvcr59i95mwsnz28baffxr1kj-docker-28.5.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/vvdwxv7lcnnqzgn22jma2q9r1srpjpvd-docker-28.5.1"
+          "store_path": "/nix/store/dlbg46jkvcr59i95mwsnz28baffxr1kj-docker-28.5.1"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/hgfg830jcj1wpl5kwxiy8vzqxz66r4ap-docker-28.5.1",
+              "path": "/nix/store/767n224knp1sqrikx0x58g4552gfzz2a-docker-28.5.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/hgfg830jcj1wpl5kwxiy8vzqxz66r4ap-docker-28.5.1"
+          "store_path": "/nix/store/767n224knp1sqrikx0x58g4552gfzz2a-docker-28.5.1"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/nj3glqvlyynrv51c142zxlrn28xcdbwy-docker-28.5.1",
+              "path": "/nix/store/xib93n12k7r8cs4p41rszbr2bx3ca5ay-docker-28.5.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/nj3glqvlyynrv51c142zxlrn28xcdbwy-docker-28.5.1"
+          "store_path": "/nix/store/xib93n12k7r8cs4p41rszbr2bx3ca5ay-docker-28.5.1"
         }
       }
     },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2025-12-05T15:03:55Z",
-      "resolved": "github:NixOS/nixpkgs/a672be65651c80d3f592a89b3945466584a22069?lastModified=1764947035&narHash=sha256-EYHSjVM4Ox4lvCXUMiKKs2vETUSL5mx%2BJ2FfutM7T9w%3D"
+      "last_modified": "2025-12-13T16:46:16Z",
+      "resolved": "github:NixOS/nixpkgs/23735a82a828372c4ef92c660864e82fbe2f5fbe?lastModified=1765644376&narHash=sha256-yqHBL2wYGwjGL2GUF2w3tofWl8qO9tZEuI4wSqbCrtE%3D"
     },
     "gitleaks@8.30.0": {
       "last_modified": "2025-12-01T02:47:39Z",
@@ -330,8 +330,8 @@
       }
     },
     "minikube@1.37.0": {
-      "last_modified": "2025-12-01T17:53:29Z",
-      "resolved": "github:NixOS/nixpkgs/8c29968b3a942f2903f90797f9623737c215737c#minikube",
+      "last_modified": "2025-12-04T04:58:45Z",
+      "resolved": "github:NixOS/nixpkgs/821f1a2ebab0f13d6d65170d6bd7d2b3a182efdb#minikube",
       "source": "devbox-search",
       "version": "1.37.0",
       "systems": {
@@ -369,11 +369,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/z2153c46481dsxrg8zxr1jr51a818v2s-minikube-1.37.0",
+              "path": "/nix/store/5b8yslgpdsr53s83ll6xnm9v08qq5vpk-minikube-1.37.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/z2153c46481dsxrg8zxr1jr51a818v2s-minikube-1.37.0"
+          "store_path": "/nix/store/5b8yslgpdsr53s83ll6xnm9v08qq5vpk-minikube-1.37.0"
         }
       }
     },
