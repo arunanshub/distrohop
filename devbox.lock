@@ -49,51 +49,51 @@
         }
       }
     },
-    "docker-compose@2.39.4": {
-      "last_modified": "2025-11-23T21:50:36Z",
-      "resolved": "github:NixOS/nixpkgs/ee09932cedcef15aaf476f9343d1dea2cb77e261#docker-compose",
+    "docker-compose@5.0.0": {
+      "last_modified": "2025-12-15T04:22:15Z",
+      "resolved": "github:NixOS/nixpkgs/09b8fda8959d761445f12b55f380d90375a1d6bb#docker-compose",
       "source": "devbox-search",
-      "version": "2.39.4",
+      "version": "5.0.0",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/3rp2xinsg02p7vza738krxxylf717w97-docker-compose-2.39.4",
+              "path": "/nix/store/ldj39v5m4l1bfr92j6xpj295j8d9539g-docker-compose-5.0.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/3rp2xinsg02p7vza738krxxylf717w97-docker-compose-2.39.4"
+          "store_path": "/nix/store/ldj39v5m4l1bfr92j6xpj295j8d9539g-docker-compose-5.0.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/8hp2cqk76af4anmffsmjnb6icj6m0zgr-docker-compose-2.39.4",
+              "path": "/nix/store/pkm8ap6x893b0k5cbjjzrjm3v0r3rx53-docker-compose-5.0.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/8hp2cqk76af4anmffsmjnb6icj6m0zgr-docker-compose-2.39.4"
+          "store_path": "/nix/store/pkm8ap6x893b0k5cbjjzrjm3v0r3rx53-docker-compose-5.0.0"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/h52vwbdldgci9lmnw8jfwhav7hggmb5d-docker-compose-2.39.4",
+              "path": "/nix/store/s2vdri2n6qjx6v55khhhnfkc19a1475m-docker-compose-5.0.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/h52vwbdldgci9lmnw8jfwhav7hggmb5d-docker-compose-2.39.4"
+          "store_path": "/nix/store/s2vdri2n6qjx6v55khhhnfkc19a1475m-docker-compose-5.0.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/jlf2fmqz3kf0i6jyvfffx2qmi2949np8-docker-compose-2.39.4",
+              "path": "/nix/store/wl4806ch41rlswd6mpivbxw7rzxn7llh-docker-compose-5.0.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/jlf2fmqz3kf0i6jyvfffx2qmi2949np8-docker-compose-2.39.4"
+          "store_path": "/nix/store/wl4806ch41rlswd6mpivbxw7rzxn7llh-docker-compose-5.0.0"
         }
       }
     },
