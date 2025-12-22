@@ -11,11 +11,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/cybbanpl251zs3y50rfwacw8himk9b88-bun-1.3.4",
+              "path": "/nix/store/i1azwd4zpnmbrafhmvh370d4q731j4vh-bun-1.3.4",
               "default": true
             }
           ],
-          "store_path": "/nix/store/cybbanpl251zs3y50rfwacw8himk9b88-bun-1.3.4"
+          "store_path": "/nix/store/i1azwd4zpnmbrafhmvh370d4q731j4vh-bun-1.3.4"
         },
         "aarch64-linux": {
           "outputs": [
@@ -31,11 +31,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/1ka7338fk8pma9lpp5skv32p6wag1l8h-bun-1.3.4",
+              "path": "/nix/store/647lfjpvsl3q9s97g82awvlcnw1qz25f-bun-1.3.4",
               "default": true
             }
           ],
-          "store_path": "/nix/store/1ka7338fk8pma9lpp5skv32p6wag1l8h-bun-1.3.4"
+          "store_path": "/nix/store/647lfjpvsl3q9s97g82awvlcnw1qz25f-bun-1.3.4"
         },
         "x86_64-linux": {
           "outputs": [
@@ -146,12 +146,12 @@
       }
     },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2025-12-13T16:46:16Z",
-      "resolved": "github:NixOS/nixpkgs/23735a82a828372c4ef92c660864e82fbe2f5fbe?lastModified=1765644376&narHash=sha256-yqHBL2wYGwjGL2GUF2w3tofWl8qO9tZEuI4wSqbCrtE%3D"
+      "last_modified": "2025-12-19T06:18:24Z",
+      "resolved": "github:NixOS/nixpkgs/7d853e518814cca2a657b72eeba67ae20ebf7059?lastModified=1766125104&narHash=sha256-l%2FYGrEpLromL4viUo5GmFH3K5M1j0Mb9O%2BLiaeCPWEM%3D"
     },
     "gitleaks@8.30.0": {
-      "last_modified": "2025-12-01T02:47:39Z",
-      "resolved": "github:NixOS/nixpkgs/0d70460758949966e91d9ecb823b821f963cefbb#gitleaks",
+      "last_modified": "2025-12-16T16:49:59Z",
+      "resolved": "github:NixOS/nixpkgs/e8d16d2186d6ed9f047eb30948e97e7e01886d10#gitleaks",
       "source": "devbox-search",
       "version": "8.30.0",
       "systems": {
@@ -159,41 +159,41 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/a1vqvnhsas6zaayn4qlynlgnl67a7viy-gitleaks-8.30.0",
+              "path": "/nix/store/5byfb7h91kr47pflp44g5wzpvklbyvk1-gitleaks-8.30.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/a1vqvnhsas6zaayn4qlynlgnl67a7viy-gitleaks-8.30.0"
+          "store_path": "/nix/store/5byfb7h91kr47pflp44g5wzpvklbyvk1-gitleaks-8.30.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/awm9sbbgmx3vi9103ln3b5js93dzgbsc-gitleaks-8.30.0",
+              "path": "/nix/store/qnnn8dg8v5l856w69dk8vgv0cnmr73nk-gitleaks-8.30.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/awm9sbbgmx3vi9103ln3b5js93dzgbsc-gitleaks-8.30.0"
+          "store_path": "/nix/store/qnnn8dg8v5l856w69dk8vgv0cnmr73nk-gitleaks-8.30.0"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/cffg2fa200m3m7mpmj9vcaxr274djqh5-gitleaks-8.30.0",
+              "path": "/nix/store/dsimf2p6fvis81w6zd6zy1722ncx41dj-gitleaks-8.30.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/cffg2fa200m3m7mpmj9vcaxr274djqh5-gitleaks-8.30.0"
+          "store_path": "/nix/store/dsimf2p6fvis81w6zd6zy1722ncx41dj-gitleaks-8.30.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/6x5vc5fcwprp2vyq957kyiixjzkl6307-gitleaks-8.30.0",
+              "path": "/nix/store/7hy6m7xha29ry30bwvmm01zmz0np6lvr-gitleaks-8.30.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/6x5vc5fcwprp2vyq957kyiixjzkl6307-gitleaks-8.30.0"
+          "store_path": "/nix/store/7hy6m7xha29ry30bwvmm01zmz0np6lvr-gitleaks-8.30.0"
         }
       }
     },
@@ -330,8 +330,8 @@
       }
     },
     "minikube@1.37.0": {
-      "last_modified": "2025-12-04T04:58:45Z",
-      "resolved": "github:NixOS/nixpkgs/821f1a2ebab0f13d6d65170d6bd7d2b3a182efdb#minikube",
+      "last_modified": "2025-12-17T01:17:14Z",
+      "resolved": "github:NixOS/nixpkgs/af84f9d270d404c17699522fab95bbf928a2d92f#minikube",
       "source": "devbox-search",
       "version": "1.37.0",
       "systems": {
@@ -369,11 +369,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/5b8yslgpdsr53s83ll6xnm9v08qq5vpk-minikube-1.37.0",
+              "path": "/nix/store/7fsxvvx5czbv1sgxp6zky631bp22yf2i-minikube-1.37.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/5b8yslgpdsr53s83ll6xnm9v08qq5vpk-minikube-1.37.0"
+          "store_path": "/nix/store/7fsxvvx5czbv1sgxp6zky631bp22yf2i-minikube-1.37.0"
         }
       }
     },
