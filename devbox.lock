@@ -50,8 +50,8 @@
       }
     },
     "docker-compose@5.0.0": {
-      "last_modified": "2025-12-15T04:22:15Z",
-      "resolved": "github:NixOS/nixpkgs/09b8fda8959d761445f12b55f380d90375a1d6bb#docker-compose",
+      "last_modified": "2025-12-23T23:26:46Z",
+      "resolved": "github:NixOS/nixpkgs/8142186f001295e5a3239f485c8a49bf2de2695a#docker-compose",
       "source": "devbox-search",
       "version": "5.0.0",
       "systems": {
@@ -59,41 +59,41 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/ldj39v5m4l1bfr92j6xpj295j8d9539g-docker-compose-5.0.0",
+              "path": "/nix/store/npjkwmj05423jpqgsj41j4qwq67l8rnf-docker-compose-5.0.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/ldj39v5m4l1bfr92j6xpj295j8d9539g-docker-compose-5.0.0"
+          "store_path": "/nix/store/npjkwmj05423jpqgsj41j4qwq67l8rnf-docker-compose-5.0.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/pkm8ap6x893b0k5cbjjzrjm3v0r3rx53-docker-compose-5.0.0",
+              "path": "/nix/store/i6a35a655w6h4w7gfz90q2hvwvprf0qh-docker-compose-5.0.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/pkm8ap6x893b0k5cbjjzrjm3v0r3rx53-docker-compose-5.0.0"
+          "store_path": "/nix/store/i6a35a655w6h4w7gfz90q2hvwvprf0qh-docker-compose-5.0.0"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/s2vdri2n6qjx6v55khhhnfkc19a1475m-docker-compose-5.0.0",
+              "path": "/nix/store/pc3ddvff38q77cymsvc60l1nh374c737-docker-compose-5.0.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/s2vdri2n6qjx6v55khhhnfkc19a1475m-docker-compose-5.0.0"
+          "store_path": "/nix/store/pc3ddvff38q77cymsvc60l1nh374c737-docker-compose-5.0.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/wl4806ch41rlswd6mpivbxw7rzxn7llh-docker-compose-5.0.0",
+              "path": "/nix/store/ph1kdlkisvv6bbnmkslp5i6611aqgm35-docker-compose-5.0.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/wl4806ch41rlswd6mpivbxw7rzxn7llh-docker-compose-5.0.0"
+          "store_path": "/nix/store/ph1kdlkisvv6bbnmkslp5i6611aqgm35-docker-compose-5.0.0"
         }
       }
     },
@@ -146,8 +146,8 @@
       }
     },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2025-12-27T21:13:36Z",
-      "resolved": "github:NixOS/nixpkgs/5c2bc52fb9f8c264ed6c93bd20afa2ff5e763dce?lastModified=1766870016&narHash=sha256-fHmxAesa6XNqnIkcS6%2BnIHuEmgd%2FiZSP%2FVXxweiEuQw%3D"
+      "last_modified": "2026-01-02T14:39:32Z",
+      "resolved": "github:NixOS/nixpkgs/16c7794d0a28b5a37904d55bcca36003b9109aaa?lastModified=1767364772&narHash=sha256-fFUnEYMla8b7UKjijLnMe%2BoVFOz6HjijGGNS1l7dYaQ%3D"
     },
     "gitleaks@8.30.0": {
       "last_modified": "2025-12-16T16:49:59Z",
@@ -330,8 +330,8 @@
       }
     },
     "minikube@1.37.0": {
-      "last_modified": "2025-12-21T10:48:17Z",
-      "resolved": "github:NixOS/nixpkgs/306ea70f9eb0fb4e040f8540e2deab32ed7e2055#minikube",
+      "last_modified": "2025-12-25T00:54:45Z",
+      "resolved": "github:NixOS/nixpkgs/b72f284b1be41575c3e36cd777a191c29a7adf6a#minikube",
       "source": "devbox-search",
       "version": "1.37.0",
       "systems": {
@@ -349,11 +349,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/d2hx0gii9vgic6jbnhx5jfbjk5al8g5d-minikube-1.37.0",
+              "path": "/nix/store/p56gfl3lhi41l1j0q5pl2h5f9278459f-minikube-1.37.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/d2hx0gii9vgic6jbnhx5jfbjk5al8g5d-minikube-1.37.0"
+          "store_path": "/nix/store/p56gfl3lhi41l1j0q5pl2h5f9278459f-minikube-1.37.0"
         },
         "x86_64-darwin": {
           "outputs": [
@@ -369,11 +369,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/r1pm1cwk3f9j75fm5115vm67iabfwip0-minikube-1.37.0",
+              "path": "/nix/store/gf9pffid1z0k1w1f0arn4skn5q29dbpa-minikube-1.37.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/r1pm1cwk3f9j75fm5115vm67iabfwip0-minikube-1.37.0"
+          "store_path": "/nix/store/gf9pffid1z0k1w1f0arn4skn5q29dbpa-minikube-1.37.0"
         }
       }
     },
