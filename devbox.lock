@@ -146,8 +146,8 @@
       }
     },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2026-01-17T14:47:01Z",
-      "resolved": "github:NixOS/nixpkgs/3327b113f2ef698d380df83fbccefad7e83d7769?lastModified=1768661221&narHash=sha256-MJwOjrIISfOpdI9x4C%2B5WFQXvHtOuj5mqLZ4TMEtk1M%3D"
+      "last_modified": "2026-01-25T08:36:19Z",
+      "resolved": "github:NixOS/nixpkgs/48698d12cc10555a4f3e3222d9c669b884a49dfe?lastModified=1769330179&narHash=sha256-yxgb4AmkVHY5OOBrC79Vv6EVd4QZEotqv%2B6jcvA212M%3D"
     },
     "gitleaks@8.30.0": {
       "last_modified": "2025-12-31T03:27:36Z",
@@ -330,8 +330,8 @@
       }
     },
     "minikube@1.37.0": {
-      "last_modified": "2026-01-14T04:14:06Z",
-      "resolved": "github:NixOS/nixpkgs/ea30586ee015f37f38783006a9bc9e4aa64d7d61#minikube",
+      "last_modified": "2026-01-19T00:39:23Z",
+      "resolved": "github:NixOS/nixpkgs/bde09022887110deb780067364a0818e89258968#minikube",
       "source": "devbox-search",
       "version": "1.37.0",
       "systems": {
@@ -369,11 +369,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/2d7zgzkj6ndmyz36qba7r5z0hax11m0v-minikube-1.37.0",
+              "path": "/nix/store/jbg1f5yz90lryvsiiz6f9310zvf4wc0w-minikube-1.37.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/2d7zgzkj6ndmyz36qba7r5z0hax11m0v-minikube-1.37.0"
+          "store_path": "/nix/store/jbg1f5yz90lryvsiiz6f9310zvf4wc0w-minikube-1.37.0"
         }
       }
     },
