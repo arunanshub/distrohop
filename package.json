@@ -56,7 +56,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "dotenv": "^17.2.3",
     "drizzle-kit": "^0.31.7",
-    "eslint": "^9.39.1",
+    "eslint": "^10.0.0",
     "eslint-config-next": "16.1.6",
     "eslint-plugin-sonarjs": "^3.0.5",
     "knip": "^5.70.2",
