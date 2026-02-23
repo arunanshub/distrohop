@@ -146,8 +146,8 @@
       }
     },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2026-02-15T09:18:18Z",
-      "resolved": "github:NixOS/nixpkgs/e3cb16bccd9facebae3ba29c6a76a4cc1b73462a?lastModified=1771147098&narHash=sha256-jpfPdBjKO232s5NueoNEvvVzpndiUzPLNYcH4%2FOv0gY%3D"
+      "last_modified": "2026-02-16T02:09:13Z",
+      "resolved": "github:NixOS/nixpkgs/d1c15b7d5806069da59e819999d70e1cec0760bf?lastModified=1771207753&narHash=sha256-b9uG8yN50DRQ6A7JdZBfzq718ryYrlmGgqkRm9OOwCE%3D"
     },
     "gitleaks@8.30.0": {
       "last_modified": "2026-01-23T17:20:52Z",
@@ -330,8 +330,8 @@
       }
     },
     "minikube@1.38.0": {
-      "last_modified": "2026-02-03T17:56:14Z",
-      "resolved": "github:NixOS/nixpkgs/41965737c1797c1d83cfb0b644ed0840a6220bd1#minikube",
+      "last_modified": "2026-02-11T03:47:03Z",
+      "resolved": "github:NixOS/nixpkgs/c05d2232d2feaa4c7a07f1168606917402868195#minikube",
       "source": "devbox-search",
       "version": "1.38.0",
       "systems": {
@@ -349,11 +349,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/8rmx07rmnjx7l7khd3kswwg8bf1vxf6v-minikube-1.38.0",
+              "path": "/nix/store/r1130w8iyf90f0ih63hy4hva7f1am98g-minikube-1.38.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/8rmx07rmnjx7l7khd3kswwg8bf1vxf6v-minikube-1.38.0"
+          "store_path": "/nix/store/r1130w8iyf90f0ih63hy4hva7f1am98g-minikube-1.38.0"
         },
         "x86_64-darwin": {
           "outputs": [
@@ -369,11 +369,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/j7w40kqlimkl3d27vb3hzdvpg9jlp2i3-minikube-1.38.0",
+              "path": "/nix/store/c6knfvz0iwdg5c5254rkz6vq64nmvjaq-minikube-1.38.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/j7w40kqlimkl3d27vb3hzdvpg9jlp2i3-minikube-1.38.0"
+          "store_path": "/nix/store/c6knfvz0iwdg5c5254rkz6vq64nmvjaq-minikube-1.38.0"
         }
       }
     },
