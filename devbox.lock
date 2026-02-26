@@ -329,51 +329,51 @@
         }
       }
     },
-    "minikube@1.38.0": {
-      "last_modified": "2026-02-11T03:47:03Z",
-      "resolved": "github:NixOS/nixpkgs/c05d2232d2feaa4c7a07f1168606917402868195#minikube",
+    "minikube@1.38.1": {
+      "last_modified": "2026-02-23T15:40:43Z",
+      "resolved": "github:NixOS/nixpkgs/80d901ec0377e19ac3f7bb8c035201e2e098cc97#minikube",
       "source": "devbox-search",
-      "version": "1.38.0",
+      "version": "1.38.1",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/k0lgv5c6by10k2d813rrxzlkpkih4ma8-minikube-1.38.0",
+              "path": "/nix/store/li7qzs1fg6nq58p5jz3yk592d8r78s0g-minikube-1.38.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/k0lgv5c6by10k2d813rrxzlkpkih4ma8-minikube-1.38.0"
+          "store_path": "/nix/store/li7qzs1fg6nq58p5jz3yk592d8r78s0g-minikube-1.38.1"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/r1130w8iyf90f0ih63hy4hva7f1am98g-minikube-1.38.0",
+              "path": "/nix/store/ki9wavpnx4z7fnsa3w0iidym64afd8yq-minikube-1.38.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/r1130w8iyf90f0ih63hy4hva7f1am98g-minikube-1.38.0"
+          "store_path": "/nix/store/ki9wavpnx4z7fnsa3w0iidym64afd8yq-minikube-1.38.1"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/crcp30mqnbfz1973h5g938ylxz7dg083-minikube-1.38.0",
+              "path": "/nix/store/qp1nwzlxplzvma1bm8sw27s29km5njk7-minikube-1.38.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/crcp30mqnbfz1973h5g938ylxz7dg083-minikube-1.38.0"
+          "store_path": "/nix/store/qp1nwzlxplzvma1bm8sw27s29km5njk7-minikube-1.38.1"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/c6knfvz0iwdg5c5254rkz6vq64nmvjaq-minikube-1.38.0",
+              "path": "/nix/store/41f043sbj41br5lvgyk31dfik3k61nv8-minikube-1.38.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/c6knfvz0iwdg5c5254rkz6vq64nmvjaq-minikube-1.38.0"
+          "store_path": "/nix/store/41f043sbj41br5lvgyk31dfik3k61nv8-minikube-1.38.1"
         }
       }
     },
