@@ -146,8 +146,8 @@
       }
     },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2026-03-15T17:58:12Z",
-      "resolved": "github:NixOS/nixpkgs/a07d4ce6bee67d7c838a8a5796e75dff9caa21ef?lastModified=1773597492&narHash=sha256-hQ284SkIeNaeyud%2BLS0WVLX%2BWL2rxcVZLFEaK0e03zg%3D"
+      "last_modified": "2026-03-18T13:30:56Z",
+      "resolved": "github:NixOS/nixpkgs/9cf7092bdd603554bd8b63c216e8943cf9b12512?lastModified=1773840656&narHash=sha256-9tpvMGFteZnd3gRQZFlRCohVpqooygFuy9yjuyRL2C0%3D"
     },
     "gitleaks@8.30.1": {
       "last_modified": "2026-03-14T08:29:25Z",
@@ -330,8 +330,8 @@
       }
     },
     "minikube@1.38.1": {
-      "last_modified": "2026-03-08T08:02:12Z",
-      "resolved": "github:NixOS/nixpkgs/608d0cadfed240589a7eea422407a547ad626a14#minikube",
+      "last_modified": "2026-03-15T17:58:12Z",
+      "resolved": "github:NixOS/nixpkgs/a07d4ce6bee67d7c838a8a5796e75dff9caa21ef#minikube",
       "source": "devbox-search",
       "version": "1.38.1",
       "systems": {
@@ -349,11 +349,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/57ispva7xhp1yfydhhvwr0yxfvrb10jq-minikube-1.38.1",
+              "path": "/nix/store/vr40zp92pj5gi2klzrc5j0ypj6qba13x-minikube-1.38.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/57ispva7xhp1yfydhhvwr0yxfvrb10jq-minikube-1.38.1"
+          "store_path": "/nix/store/vr40zp92pj5gi2klzrc5j0ypj6qba13x-minikube-1.38.1"
         },
         "x86_64-darwin": {
           "outputs": [
@@ -369,11 +369,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/7ya58rmq9p32q80dklqri325n0y43r2p-minikube-1.38.1",
+              "path": "/nix/store/wxvhhdxbm7v4xdhkdqgiwmbpp4hp30y5-minikube-1.38.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/7ya58rmq9p32q80dklqri325n0y43r2p-minikube-1.38.1"
+          "store_path": "/nix/store/wxvhhdxbm7v4xdhkdqgiwmbpp4hp30y5-minikube-1.38.1"
         }
       }
     },
