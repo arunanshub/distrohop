@@ -4,7 +4,7 @@
     "docker@28.5.1",
     "kind@0.31.0",
     "docker-compose@5.0.2",
-    "tilt@0.36.3",
+    "tilt@0.37.0",
     "minikube@1.38.1",
     "kubectl@1.35.3",
     "gitleaks@8.30.1",
