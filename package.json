@@ -59,7 +59,7 @@
     "eslint": "^9.39.1",
     "eslint-config-next": "16.2.3",
     "eslint-plugin-sonarjs": "^3.0.5",
-    "knip": "^5.70.2",
+    "knip": "^6.0.0",
     "lefthook": "^2.0.4",
     "prettier": "^3.7.2",
     "prettier-plugin-tailwindcss": "^0.7.1",
