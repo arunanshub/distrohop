@@ -146,8 +146,8 @@
       }
     },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2026-06-13T14:05:44Z",
-      "resolved": "github:NixOS/nixpkgs/9f11f828c213641c2369a9f1fa31fe31557e3156?lastModified=1781359544&narHash=sha256-iUuzKQcyXvopYDDzFpMK5eQKP3WIJExYny2kJtbgUcE%3D"
+      "last_modified": "2026-06-16T10:57:20Z",
+      "resolved": "github:NixOS/nixpkgs/3e41b24abd260e8f71dbe2f5737d24122f972158?lastModified=1781607440&narHash=sha256-rxO%2Buc%2FKFbSJp%2BpgyXRuAX6QlG9hJdnt0BXpEQRXY%2BU%3D"
     },
     "gitleaks@8.30.1": {
       "last_modified": "2026-06-05T19:07:58Z",
@@ -330,8 +330,8 @@
       }
     },
     "minikube@1.38.1": {
-      "last_modified": "2026-06-05T19:07:58Z",
-      "resolved": "github:NixOS/nixpkgs/891eaa77f0eed53352194677991bd30978f9b0ad#minikube",
+      "last_modified": "2026-06-14T16:21:05Z",
+      "resolved": "github:NixOS/nixpkgs/9eac87a12312b8f60dd52e1c6e1a265f6fc7f5fc#minikube",
       "source": "devbox-search",
       "version": "1.38.1",
       "systems": {
@@ -349,11 +349,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/vsixli87aq3p7r2n2jk3sq7qgcvlcyi3-minikube-1.38.1",
+              "path": "/nix/store/6dhpyin78vgzj3kl3liay7mq455xjavx-minikube-1.38.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/vsixli87aq3p7r2n2jk3sq7qgcvlcyi3-minikube-1.38.1"
+          "store_path": "/nix/store/6dhpyin78vgzj3kl3liay7mq455xjavx-minikube-1.38.1"
         },
         "x86_64-darwin": {
           "outputs": [
@@ -369,11 +369,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/3wbmg3dvglimp1xd1w8mkfpxix91qbpz-minikube-1.38.1",
+              "path": "/nix/store/879mdcjzh6xn06fcd81nknllbxbnbmdb-minikube-1.38.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/3wbmg3dvglimp1xd1w8mkfpxix91qbpz-minikube-1.38.1"
+          "store_path": "/nix/store/879mdcjzh6xn06fcd81nknllbxbnbmdb-minikube-1.38.1"
         }
       }
     },
