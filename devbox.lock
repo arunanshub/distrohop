@@ -367,51 +367,41 @@
         }
       }
     },
-    "tilt@0.37.3": {
-      "last_modified": "2026-06-27T07:37:20Z",
-      "resolved": "github:NixOS/nixpkgs/3d46470bb3030020f7e1361f33514854f5bfa86d#tilt",
+    "tilt@0.37.5": {
+      "last_modified": "2026-07-16T04:38:10Z",
+      "resolved": "github:NixOS/nixpkgs/6368bc923cec55a5f78960ade0cb4dd99580e087#tilt",
       "source": "devbox-search",
-      "version": "0.37.3",
+      "version": "0.37.5",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/559rwqp683y1kq6c3s5a5cr0i8wlr2h5-tilt-0.37.3",
+              "path": "/nix/store/y8gg7wzvhys2s9wyakd7x0c8klac94s4-tilt-0.37.5",
               "default": true
             }
           ],
-          "store_path": "/nix/store/559rwqp683y1kq6c3s5a5cr0i8wlr2h5-tilt-0.37.3"
+          "store_path": "/nix/store/y8gg7wzvhys2s9wyakd7x0c8klac94s4-tilt-0.37.5"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/3slnmbncy9inxfjiipb1k5i28zmnadxi-tilt-0.37.3",
+              "path": "/nix/store/q2w7c2v55dir0x5anv34xlvfxkcafakg-tilt-0.37.5",
               "default": true
             }
           ],
-          "store_path": "/nix/store/3slnmbncy9inxfjiipb1k5i28zmnadxi-tilt-0.37.3"
-        },
-        "x86_64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/b3g06i7dcdk172w88xm0mqiw53c09id0-tilt-0.37.3",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/b3g06i7dcdk172w88xm0mqiw53c09id0-tilt-0.37.3"
+          "store_path": "/nix/store/q2w7c2v55dir0x5anv34xlvfxkcafakg-tilt-0.37.5"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/m64ypygrwpj9ak6mms1arygnmb8p19ik-tilt-0.37.3",
+              "path": "/nix/store/xrjaiab0n344vi2iaiag8wq27ynclmcr-tilt-0.37.5",
               "default": true
             }
           ],
-          "store_path": "/nix/store/m64ypygrwpj9ak6mms1arygnmb8p19ik-tilt-0.37.3"
+          "store_path": "/nix/store/xrjaiab0n344vi2iaiag8wq27ynclmcr-tilt-0.37.5"
         }
       }
     }
