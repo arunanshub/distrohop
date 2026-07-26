@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
   "packages": [
     "docker@28.5.1",
-    "kind@0.31.0",
+    "kind@0.32.0",
     "docker-compose@5.3.1",
     "tilt@0.37.5",
     "minikube@1.38.1",
