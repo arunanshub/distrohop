@@ -3,7 +3,7 @@
   "packages": [
     "docker@28.5.1",
     "kind@0.32.0",
-    "docker-compose@5.3.1",
+    "docker-compose@5.4.0",
     "tilt@0.37.6",
     "minikube@1.38.1",
     "kubectl@1.36.3",
