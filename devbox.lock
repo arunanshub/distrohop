@@ -11,11 +11,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/f2lm68vnka4nz9wdz60vbmymnpv63f1x-bun-1.3.13",
+              "path": "/nix/store/0whaa9b54rwpyx2v5rps15xpckcrrfs7-bun-1.3.13",
               "default": true
             }
           ],
-          "store_path": "/nix/store/f2lm68vnka4nz9wdz60vbmymnpv63f1x-bun-1.3.13"
+          "store_path": "/nix/store/0whaa9b54rwpyx2v5rps15xpckcrrfs7-bun-1.3.13"
         },
         "aarch64-linux": {
           "outputs": [
@@ -136,8 +136,8 @@
       }
     },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2026-08-06T00:10:29Z",
-      "resolved": "github:NixOS/nixpkgs/70ce234312134a463ba7728e94da2486a1d237ac?lastModified=1785975029&narHash=sha256-X44cn5rzytELc3NNoQsh0aLkjWA%2FQzPfc6HPQmsG3sU%3D"
+      "last_modified": "2026-08-14T15:04:01Z",
+      "resolved": "github:NixOS/nixpkgs/8be7bd0c83f12e2e3bbba07c9044d6fed9e66f7f?lastModified=1786719841&narHash=sha256-QcpQOT0NQEFkI77t%2BYXPZqDJc35iIodG7zinieOwFUg%3D"
     },
     "gitleaks@8.30.1": {
       "last_modified": "2026-08-01T16:34:20Z",
@@ -291,8 +291,8 @@
       }
     },
     "minikube@1.38.1": {
-      "last_modified": "2026-08-03T00:04:07Z",
-      "resolved": "github:NixOS/nixpkgs/243895692ae2a2fbd08a05141462c0cc0d3ca10f#minikube",
+      "last_modified": "2026-08-06T00:10:29Z",
+      "resolved": "github:NixOS/nixpkgs/70ce234312134a463ba7728e94da2486a1d237ac#minikube",
       "source": "devbox-search",
       "version": "1.38.1",
       "systems": {
@@ -330,11 +330,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/kzy340nwii1yws4fc8995vxr89msx78a-minikube-1.38.1",
+              "path": "/nix/store/y74xvck5np8dhznikah8ngkrd016s2cv-minikube-1.38.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/kzy340nwii1yws4fc8995vxr89msx78a-minikube-1.38.1"
+          "store_path": "/nix/store/y74xvck5np8dhznikah8ngkrd016s2cv-minikube-1.38.1"
         }
       }
     },
