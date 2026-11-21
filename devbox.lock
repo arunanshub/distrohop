@@ -39,41 +39,41 @@
         }
       }
     },
-    "docker-compose@5.7.0": {
-      "last_modified": "2026-11-13T07:26:56Z",
-      "resolved": "github:NixOS/nixpkgs/e126e9e73c335158ff8279ac14d5f4afec153716#docker-compose",
+    "docker-compose@5.7.1": {
+      "last_modified": "2026-11-20T15:12:34Z",
+      "resolved": "github:NixOS/nixpkgs/9996594bd38077de6a018ec17453ba3d99182787#docker-compose",
       "source": "devbox-search",
-      "version": "5.7.0",
+      "version": "5.7.1",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/dk5walnh04zvllm2rm66djcbib3j0znr-docker-compose-5.7.0",
+              "path": "/nix/store/zc2qp8ngcx7z10k54z5zdv3hqsigrnqa-docker-compose-5.7.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/dk5walnh04zvllm2rm66djcbib3j0znr-docker-compose-5.7.0"
+          "store_path": "/nix/store/zc2qp8ngcx7z10k54z5zdv3hqsigrnqa-docker-compose-5.7.1"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/cjjsiyxnsd194vjs533v4hyn3acgvzwg-docker-compose-5.7.0",
+              "path": "/nix/store/xs4r242lk5kgw0w46zwislr8l52q0ilg-docker-compose-5.7.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/cjjsiyxnsd194vjs533v4hyn3acgvzwg-docker-compose-5.7.0"
+          "store_path": "/nix/store/xs4r242lk5kgw0w46zwislr8l52q0ilg-docker-compose-5.7.1"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/58y2l11r1n25dx8wfxqk4mab1am0x02x-docker-compose-5.7.0",
+              "path": "/nix/store/vriz9cnrrba5k3y5hk559kpjxb2kl3si-docker-compose-5.7.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/58y2l11r1n25dx8wfxqk4mab1am0x02x-docker-compose-5.7.0"
+          "store_path": "/nix/store/vriz9cnrrba5k3y5hk559kpjxb2kl3si-docker-compose-5.7.1"
         }
       }
     },
