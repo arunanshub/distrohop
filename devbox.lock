@@ -126,8 +126,8 @@
       }
     },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2026-11-14T08:26:23Z",
-      "resolved": "github:NixOS/nixpkgs/5d2b81a7a3be3e2f832879028e4d60abbf58e9a0?lastModified=1794644783&narHash=sha256-3GnIGIy15bMduoS9RnWqKTmsJLWThla42UFtm0S7%2Bus%3D"
+      "last_modified": "2026-11-21T08:18:15Z",
+      "resolved": "github:NixOS/nixpkgs/93a9ed0a866099a230ed5146a5bb7d16fd5c9b14?lastModified=1795249095&narHash=sha256-8JDgyVvWUZg5m9hNlL8Ge9aT647ng3Ukc8NPMiKNTPQ%3D"
     },
     "gitleaks@8.30.1": {
       "last_modified": "2026-11-13T07:26:56Z",
@@ -281,8 +281,8 @@
       }
     },
     "minikube@1.38.1": {
-      "last_modified": "2026-11-13T07:26:56Z",
-      "resolved": "github:NixOS/nixpkgs/e126e9e73c335158ff8279ac14d5f4afec153716#minikube",
+      "last_modified": "2026-11-21T08:18:15Z",
+      "resolved": "github:NixOS/nixpkgs/93a9ed0a866099a230ed5146a5bb7d16fd5c9b14#minikube",
       "source": "devbox-search",
       "version": "1.38.1",
       "systems": {
@@ -300,11 +300,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/zzvpdqdfglr2ca5zlin28fwzr1gafy94-minikube-1.38.1",
+              "path": "/nix/store/r2k3sfixvics6iphy3w2fm0rc2r3n3p4-minikube-1.38.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/zzvpdqdfglr2ca5zlin28fwzr1gafy94-minikube-1.38.1"
+          "store_path": "/nix/store/r2k3sfixvics6iphy3w2fm0rc2r3n3p4-minikube-1.38.1"
         },
         "x86_64-darwin": {
           "outputs": [
@@ -320,11 +320,11 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/7s132mcd6ml00hx8yjp2gvxh3vg60cn7-minikube-1.38.1",
+              "path": "/nix/store/637wbp5ww66w7brs99r6kgjk5dbabnim-minikube-1.38.1",
               "default": true
             }
           ],
-          "store_path": "/nix/store/7s132mcd6ml00hx8yjp2gvxh3vg60cn7-minikube-1.38.1"
+          "store_path": "/nix/store/637wbp5ww66w7brs99r6kgjk5dbabnim-minikube-1.38.1"
         }
       }
     },
